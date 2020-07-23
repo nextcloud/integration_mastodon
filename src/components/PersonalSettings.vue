@@ -32,7 +32,7 @@ import { delay } from '../utils'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 
 export default {
-    name: 'Settings',
+    name: 'PersonalSettings',
 
     props: [],
     components: {

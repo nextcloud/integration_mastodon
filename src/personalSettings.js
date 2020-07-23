@@ -13,11 +13,11 @@
 
 import Vue from 'vue'
 import './bootstrap'
-import Settings from './components/Settings'
+import PersonalSettings from './components/PersonalSettings'
 
 'use strict'
 
 new Vue({
     el: "#mastodon_prefs",
-    render: h => h(Settings),
+    render: h => h(PersonalSettings),
 })
