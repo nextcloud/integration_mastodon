@@ -103,11 +103,11 @@ class MastodonAPIController extends Controller {
      * get notification list
      * @NoAdminRequired
      */
-    public function getNotifications($since = null) {
+    public function getNotifications($sinceHome = null, $sinceMention = null) {
         if ($this->accessToken === '') {
             return new DataResponse($result, 400);
         }
-        $result = $this->mastodonAPIService->getNotifications($this->mastodonUrl, $this->accessToken, $since);
+        $result = $this->mastodonAPIService->getNotifications($this->mastodonUrl, $this->accessToken, $sinceHome, $sinceMention);
         if (is_array($result)) {
             $response = new DataResponse($result);
         } else {

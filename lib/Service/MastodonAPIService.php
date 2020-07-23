@@ -32,8 +32,38 @@ class MastodonAPIService {
         $this->logger = $logger;
     }
 
-    public function getNotifications($url, $accessToken, $since = null) {
-        return [];
+    public function getNotifications($url, $accessToken, $sinceHome = null, $sinceMention = null) {
+        $params = [
+            'limit' => 30
+        ];
+        // get home timeline
+        if (!is_null($sinceHome)) {
+            $params['since_id'] = $sinceHome;
+        }
+        $home = $this->request($url, $accessToken, 'timelines/home', $params);
+        foreach ($home as $key => $value) {
+            $home[$key]['type'] = 'home';
+        }
+
+        // get mention notifications
+        if (!is_null($sinceMention)) {
+            $params['since_id'] = $sinceMention;
+        }
+        $params['exclude_types'] = ['follow', 'favourite', 'poll', 'reblog', 'follow_request'];
+        $notifications = $this->request($url, $accessToken, 'notifications', $params);
+
+        $result = array_merge($home, $notifications);
+
+        // sort merged results by date
+        $a = usort($result, function($a, $b) {
+            $a = new \Datetime($a['created_at']);
+            $ta = $a->getTimestamp();
+            $b = new \Datetime($b['created_at']);
+            $tb = $b->getTimestamp();
+            return ($ta > $tb) ? -1 : 1;
+        });
+
+        return $result;
     }
 
     public function getMastodonAvatar($url) {
@@ -94,7 +124,15 @@ class MastodonAPIService {
 
             $url = $url . '/api/v1/' . $endPoint;
             if (count($params) > 0) {
-                $paramsContent = http_build_query($params);
+                // manage array parameters
+                $paramsContent = '';
+                if (isset($params['exclude_types'])) {
+                    foreach ($params['exclude_types'] as $excl) {
+                        $paramsContent .= 'exclude_types[]=' . urlencode($excl) . '&';
+                    }
+                    unset($params['exclude_types']);
+                }
+                $paramsContent .= http_build_query($params);
                 if ($method === 'GET') {
                     $url .= '?' . $paramsContent;
                 } else {

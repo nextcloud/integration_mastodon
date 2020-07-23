@@ -6,18 +6,17 @@
                 <div class="popover-container">
                     <Popover :open="hovered[getUniqueKey(n)]" placement="top" class="content-popover" offset="18">
                         <template>
-                            <h3>{{ n.project_path }}</h3>
                             <div class="popover-author">
                                 <Avatar
-                                    class="author-avatar"
-                                    size="24"
+                                    class="popover-author-avatar"
+                                    :size="24"
                                     :url="getAuthorAvatarUrl(n)"
-                                    :tooltipMessage="n.author.name"
+                                    :tooltipMessage="n.account.display_name"
                                     />
-                                <span class="popover-author-name">{{ n.author.name }}</span>
+                                <span class="popover-author-name">{{ getAuthorNameAndID(n) }}</span>
                             </div>
-                            {{ getIdentifier(n) }} {{ n.target_title }}<br/><br/>
-                            {{ getNotificationContent(n) }}
+                            <br/>
+                            <p v-html="getNotificationContent(n)"></p>
                         </template>
                     </Popover>
                 </div>
@@ -29,19 +28,16 @@
                         </template>
                     </Popover>
                     <Avatar
-                        class="project-avatar"
-                        :url="getNotificationImage(n)"
-                        :tooltipMessage="getNotificationProjectName(n)"
+                        class="author-avatar"
+                        :url="getAuthorAvatarUrl(n)"
+                        :tooltipMessage="n.account.display_name"
                         />
                     <div class="notification__details">
                         <h3>
                             <img class="notification-icon" :src="getNotificationTypeImage(n)"/>
-                            {{ n.target_title }}
+                            {{ getAuthorNameAndID(n) }}
                         </h3>
-                        <p class="message">
-                            <span :class="'icon ' + getNotificationActionClass(n)"/>
-                            {{ getNotificationContent(n) }}
-                        </p>
+                        <p class="message" v-html="getNotificationContent(n)"></p>
                     </div>
                 </a>
             </li>
@@ -98,6 +94,22 @@ export default {
     },
 
     computed: {
+        lastHomeId() {
+            const nbNotif = this.notifications.length
+            let i = 0
+            while (i < nbNotif && this.notifications[i].type !== 'home') {
+                i++
+            }
+            return (i < nbNotif) ? this.notifications[i].id : null
+        },
+        lastMentionId() {
+            const nbNotif = this.notifications.length
+            let i = 0
+            while (i < nbNotif && this.notifications[i].type !== 'mention') {
+                i++
+            }
+            return (i < nbNotif) ? this.notifications[i].id : null
+        },
         lastDate() {
             const nbNotif = this.notifications.length
             return (nbNotif > 0) ? this.notifications[0].created_at : null
@@ -118,14 +130,13 @@ export default {
             }
             // then launch the loop
             this.fetchNotifications()
-            this.loop = setInterval(() => this.fetchNotifications(), 15000)
+            this.loop = setInterval(() => this.fetchNotifications(), 30000)
         },
         fetchNotifications() {
             const req = {}
-            if (this.lastDate) {
-                req.params = {
-                    since: this.lastDate
-                }
+            req.params = {
+                sinceHome: this.lastHomeId,
+                sinceMention: this.lastMentionId
             }
             axios.get(generateUrl('/apps/mastodon/notifications'), req).then((response) => {
                 this.processNotifications(response.data)
@@ -144,7 +155,7 @@ export default {
             })
         },
         processNotifications(newNotifications) {
-            if (this.lastDate) {
+            if (this.lastHomeId || this.lastMentionId) {
                 // just add those which are more recent than our most recent one
                 let i = 0
                 while (i < newNotifications.length && this.lastMoment.isBefore(newNotifications[i].created_at)) {
@@ -160,45 +171,47 @@ export default {
             }
         },
         filter(notifications) {
+            // no filtering for the moment
             return notifications;
-            // only keep the unread ones with specific reasons
-            return notifications.filter((n) => {
-                return (['Issue'].includes(n.target_type))
-            })
         },
         getNotificationTarget(n) {
-            return this.mastodonUrl
-        },
-        getUniqueKey(n) {
-            return n.project_id + ':' + n.target_type + ':' + n.target_id + ':' + n.created_at
-        },
-        getNotificationImage(n) {
-            return n.project_avatar_url ?
-                    generateUrl('/apps/mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.project_avatar_url) :
-                    ''
-        },
-        getAuthorAvatarUrl(n) {
-            return (n.author && n.author.avatar_url) ?
-                    generateUrl('/apps/mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.author.avatar_url) :
-                    ''
-        },
-        getNotificationProjectName(n) {
-            return n.project_path
+            if (n.type === 'home') {
+                return n.url
+            } else if (n.type === 'mention') {
+                return n.status.url
+            }
         },
         getNotificationContent(n) {
-            return ''
+            if (n.type === 'home') {
+                return n.content
+            } else if (n.type === 'mention') {
+                return n.status.content
+            }
+        },
+        getUniqueKey(n) {
+            return n.id
+        },
+        getAuthorAvatarUrl(n) {
+            return (n.account && n.account.avatar) ?
+                    generateUrl('/apps/mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.account.avatar) :
+                    ''
         },
         getNotificationTypeImage(n) {
-            return generateUrl('/svg/core/actions/sound?color=' + this.themingColor)
-        },
-        getNotificationActionClass(n) {
-            return ''
-        },
-        getIdentifier(n) {
-            return ''
+            if (n.type === 'home') {
+                return generateUrl('/svg/core/places/home?color=' + this.themingColor)
+            } else if (n.type === 'mention') {
+                return generateUrl('/svg/core/actions/sound?color=' + this.themingColor)
+            } else {
+                return generateUrl('/svg/core/actions/sound?color=' + this.themingColor)
+            }
         },
         getFormattedDate(n) {
             return moment(n.created_at).locale(this.locale).format('LLL')
+        },
+        getAuthorNameAndID(n) {
+            return n.account.display_name ?
+                n.account.display_name + ' (' + n.account.acct + ')' :
+                n.account.acct
         },
     },
 }
@@ -219,7 +232,7 @@ li .notification {
         background-color: var(--color-background-hover);
         border-radius: var(--border-radius-large);
     }
-    .project-avatar {
+    .author-avatar {
         position: relative;
         margin-top: auto;
         margin-bottom: auto;
