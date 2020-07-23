@@ -71,6 +71,26 @@ class MastodonAPIController extends Controller {
     }
 
     /**
+     * get notification list
+     * @NoAdminRequired
+     */
+    public function declareApp($redirect_uris = '') {
+        $result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
+        if (is_array($result)) {
+            // we save the client ID and secret and give the client ID back to the UI
+            $this->config->setUserValue($this->userId, 'mastodon', 'client_id', $result['client_id']);
+            $this->config->setUserValue($this->userId, 'mastodon', 'client_secret', $result['client_secret']);
+            $data = [
+                'client_id' => $result['client_id']
+            ];
+            $response = new DataResponse($data);
+        } else {
+            $response = new DataResponse($result, 401);
+        }
+        return $response;
+    }
+
+    /**
      * get mastodon user avatar
      * @NoAdminRequired
      * @NoCSRFRequired

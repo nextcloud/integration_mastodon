@@ -16,6 +16,6 @@ return [
         ['name' => 'mastodonAPI#getNotifications', 'url' => '/notifications', 'verb' => 'GET'],
         ['name' => 'mastodonAPI#getMastodonUrl', 'url' => '/url', 'verb' => 'GET'],
         ['name' => 'mastodonAPI#getMastodonAvatar', 'url' => '/avatar', 'verb' => 'GET'],
-        ['name' => 'mastodonAPI#declareApp', 'url' => '/app', 'verb' => 'POST'],
+        ['name' => 'mastodonAPI#declareApp', 'url' => '/oauth-app', 'verb' => 'POST'],
     ]
 ];

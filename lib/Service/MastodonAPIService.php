@@ -40,6 +40,48 @@ class MastodonAPIService {
         return file_get_contents($url);
     }
 
+    public function declareApp($url, $redirect_uris) {
+        $params = [
+            'client_name' => $this->l10n->t('mastodon', 'Nextcloud Mastodon integration app'),
+            'redirect_uris' => $redirect_uris,
+            'scopes' => 'read write follow',
+            'website' => 'https://github.com/nextcloud/mastodon'
+        ];
+        return $this->anonymousRequest($url, 'apps', $params, 'POST');
+    }
+
+    public function anonymousRequest($url, $endPoint, $params = [], $method = 'GET') {
+        try {
+            $options = [
+                'http' => [
+                    'header'  => 'User-Agent: Nextcloud Mastodon integration',
+                    'method' => $method,
+                ]
+            ];
+
+            $url = $url . '/api/v1/' . $endPoint;
+            if (count($params) > 0) {
+                $paramsContent = http_build_query($params);
+                if ($method === 'GET') {
+                    $url .= '?' . $paramsContent;
+                } else {
+                    $options['http']['content'] = $paramsContent;
+                }
+            }
+
+            $context = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
+            if (!$result) {
+                return $this->l10n->t('Request error');
+            } else {
+                return json_decode($result, true);
+            }
+        } catch (\Exception $e) {
+            $this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
+            return $e;
+        }
+    }
+
     public function request($url, $accessToken, $endPoint, $params = [], $method = 'GET') {
         try {
             $options = [

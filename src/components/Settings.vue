@@ -4,7 +4,7 @@
                 <a class="icon icon-mastodon" :style="{'background-image': 'url(' + iconUrl + ')'}"></a>
                 {{ t('mastodon', 'Mastodon') }}
             </h2>
-            <div class="grid-form">
+            <div class="mastodon-grid-form">
                 <label for="mastodon-url">
                     <a class="icon icon-link"></a>
                     {{ t('mastodon', 'Mastodon instance address') }}
@@ -81,19 +81,18 @@ export default {
         onOAuthClick() {
             // first we need to add an app to the target instance
             // so we get client_id and client_secret
-            const redirect_uri = OC.getProtocol() + '://' + OC.getHostName()
+            const redirect_endpoint = generateUrl('/apps/mastodon/oauth-redirect')
+            const redirect_uri = OC.getProtocol() + '://' + OC.getHostName() + redirect_endpoint
+            //const redirect_uri = OC.getProtocol() + '://' + OC.getHostName()
             const req = {
-                client_name: t('mastodon', 'Nextcloud Mastodon integration app'),
                 redirect_uris: redirect_uri,
-                scopes: 'read write follow',
-                website: 'https://github.com/nextcloud/mastodon'
             }
-            const url = generateUrl('/apps/github/config')
-            axios.put(url, req)
-                .then(function (response) {
-                    this.oAuthStep1(response.data.client_id, response.data.client_secret)
+            const url = generateUrl('/apps/mastodon/oauth-app')
+            axios.post(url, req)
+                .then((response) => {
+                    this.oAuthStep1(response.data.client_id)
                 })
-                .catch(function (error) {
+                .catch((error) => {
                     showError(t('mastodon', 'Failed to add Mastodon OAuth app') +
                         ': ' + error.response.request.responseText
                     )
@@ -101,48 +100,32 @@ export default {
                 .then(function () {
                 })
         },
-        oAuthStep1(client_id, client_secret) {
+        oAuthStep1(client_id) {
+            // redirect to '/oauth/auhorize' api endpoint to get a code
             const redirect_endpoint = generateUrl('/apps/mastodon/oauth-redirect')
             const redirect_uri = OC.getProtocol() + '://' + OC.getHostName() + redirect_endpoint
-            const oauth_state = Math.random().toString(36).substring(3)
-            const request_url = this.state.url + '/login/oauth/authorize?client_id=' + encodeURIComponent(this.state.client_id) +
+            //const redirect_uri = OC.getProtocol() + '://' + OC.getHostName()
+            const request_url = this.state.url + '/oauth/authorize?client_id=' + encodeURIComponent(client_id) +
                 '&redirect_uri=' + encodeURIComponent(redirect_uri) +
-                '&state=' + encodeURIComponent(oauth_state) +
-                '&scope=' + encodeURIComponent('user repo notifications')
-
-            const req = {
-                values: {
-                    oauth_state: oauth_state,
-                }
-            }
-            const url = generateUrl('/apps/mastodon/config')
-            axios.put(url, req)
-                .then(function (response) {
-                    window.location.replace(request_url)
-                })
-                .catch(function (error) {
-                    showError(t('github', 'Failed to save Github OAuth state') +
-                        ': ' + error.response.request.responseText
-                    )
-                })
-                .then(function () {
-                })
+                '&response_type=code' +
+                '&scope=' + encodeURIComponent('read write follow')
+            window.location.replace(request_url)
         }
     }
 }
 </script>
 
 <style scoped lang="scss">
-.grid-form label {
+.mastodon-grid-form label {
     line-height: 38px;
 }
-.grid-form input {
+.mastodon-grid-form input {
     width: 100%;
 }
-.grid-form {
-    width: 500px;
+.mastodon-grid-form {
+    width: 700px;
     display: grid;
-    grid-template: 1fr / 1fr 1fr;
+    grid-template: 1fr / 1fr 1fr 1fr;
     margin-left: 30px;
 }
 #mastodon_prefs .icon {
@@ -157,5 +140,8 @@ export default {
     background-size: 23px 23px;
     height: 23px;
     margin-bottom: -4px;
+}
+#mastodon-oauth {
+    border-radius: unset;
 }
 </style>
