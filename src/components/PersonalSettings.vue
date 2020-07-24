@@ -1,7 +1,7 @@
 <template>
     <div id="mastodon_prefs" class="section">
             <h2>
-                <a class="icon icon-mastodon" :style="{'background-image': 'url(' + iconUrl + ')'}"></a>
+                <a class="icon icon-mastodon"></a>
                 {{ t('mastodon', 'Mastodon') }}
             </h2>
             <div class="mastodon-grid-form">
@@ -52,7 +52,6 @@ export default {
     data() {
         return {
             state: loadState('mastodon', 'user-config'),
-            iconUrl: imagePath('mastodon', 'app.svg')
         }
     },
 
@@ -151,12 +150,12 @@ export default {
     margin-bottom: -3px;
 }
 .icon-mastodon {
-    mix-blend-mode: difference;
+    background-image: url(./../../img/app-dark.svg);
     background-size: 23px 23px;
     height: 23px;
     margin-bottom: -4px;
 }
-#mastodon-oauth {
-    border-radius: unset;
+body.dark .icon-mastodon {
+    background-image: url(./../../img/app.svg);
 }
 </style>
