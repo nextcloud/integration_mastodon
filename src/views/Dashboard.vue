@@ -172,7 +172,7 @@ export default {
         },
         filter(notifications) {
             // no filtering for the moment
-            return notifications;
+            return notifications.slice(0, 7);
         },
         getNotificationTarget(n) {
             if (n.type === 'home') {
