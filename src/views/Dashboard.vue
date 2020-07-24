@@ -2,9 +2,10 @@
     <div>
         <ul v-if="state === 'ok'" class="notification-list">
             <li v-for="n in notifications"
-                :key="getUniqueKey(n)">
+                :key="getUniqueKey(n)"
+                @mouseover="$set(hovered, getUniqueKey(n), true)" @mouseleave="$set(hovered, getUniqueKey(n), false)">
                 <div class="popover-container">
-                    <Popover :open="hovered[getUniqueKey(n)]" placement="top" class="content-popover" offset="18">
+                    <Popover :open="hovered[getUniqueKey(n)]" placement="top" class="content-popover" offset="40">
                         <template>
                             <div class="popover-author">
                                 <Avatar
@@ -15,29 +16,28 @@
                                     />
                                 <span class="popover-author-name">{{ getAuthorNameAndID(n) }}</span>
                             </div>
+                            {{ getFormattedDate(n) }}
                             <br/>
-                            <p v-html="getNotificationContent(n)"></p>
+                            <p>
+                                {{ getNotificationContent(n) }}
+                            </p>
                         </template>
                     </Popover>
                 </div>
-                <a :href="getNotificationTarget(n)" target="_blank" class="notification"
-                    @mouseover="$set(hovered, getUniqueKey(n), true)" @mouseleave="$set(hovered, getUniqueKey(n), false)">
-                    <Popover :open="hovered[getUniqueKey(n)]" placement="left" class="date-popover" offset="10">
-                        <template>
-                            {{ getFormattedDate(n) }}
-                        </template>
-                    </Popover>
+                <a :href="getNotificationTarget(n)" target="_blank" class="notification-list__entry">
                     <Avatar
                         class="author-avatar"
                         :url="getAuthorAvatarUrl(n)"
                         :tooltipMessage="n.account.display_name"
                         />
+                    <img class="mastodon-notification-icon" :src="getNotificationTypeImage(n)"/>
                     <div class="notification__details">
                         <h3>
-                            <img class="notification-icon" :src="getNotificationTypeImage(n)"/>
                             {{ getAuthorNameAndID(n) }}
                         </h3>
-                        <p class="message" v-html="getNotificationContent(n)"></p>
+                        <p class="message">
+                            {{ getNotificationContent(n) }}
+                        </p>
                     </div>
                 </a>
             </li>
@@ -163,16 +163,16 @@ export default {
                 }
                 if (i > 0) {
                     const toAdd = this.filter(newNotifications.slice(0, i))
-                    this.notifications = toAdd.concat(this.notifications)
+                    this.notifications = toAdd.concat(this.notifications).slice(0, 7)
                 }
             } else {
                 // first time we don't check the date
-                this.notifications = this.filter(newNotifications)
+                this.notifications = this.filter(newNotifications).slice(0, 7)
             }
         },
         filter(notifications) {
             // no filtering for the moment
-            return notifications.slice(0, 7);
+            return notifications
         },
         getNotificationTarget(n) {
             if (n.type === 'home') {
@@ -183,10 +183,16 @@ export default {
         },
         getNotificationContent(n) {
             if (n.type === 'home') {
-                return n.content
+                return this.html2text(n.content)
             } else if (n.type === 'mention') {
-                return n.status.content
+                return this.html2text(n.status.content)
             }
+        },
+        html2text(s) {
+            let temp = document.createElement('template')
+            s = s.trim()
+            temp.innerHTML = s
+            return temp.content.firstChild.textContent
         },
         getUniqueKey(n) {
             return n.id
@@ -218,11 +224,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.notification-icon {
-    width: 16px;
-    height: 12px;
-}
-li .notification {
+li .notification-list__entry {
     display: flex;
     align-items: flex-start;
     padding: 8px;
@@ -261,6 +263,12 @@ li .notification {
             width: 100%;
             color: var(--color-text-maxcontrast);
         }
+    }
+    img.mastodon-notification-icon {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        margin: 27px 0 10px 24px;
     }
     button.primary {
         padding: 21px;
