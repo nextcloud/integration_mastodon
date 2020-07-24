@@ -48,6 +48,8 @@ class MastodonAPIService {
         // get mention notifications
         if (!is_null($sinceMention)) {
             $params['since_id'] = $sinceMention;
+        } else {
+            unset($params['since_id']);
         }
         $params['exclude_types'] = ['follow', 'favourite', 'poll', 'reblog', 'follow_request'];
         $notifications = $this->request($url, $accessToken, 'notifications', $params);
