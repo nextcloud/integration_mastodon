@@ -43,15 +43,9 @@ export default {
         const urlParams = new URLSearchParams(paramString)
         const mToken = urlParams.get('mastodonToken')
         if (mToken === 'success') {
-            OC.dialogs.info(
-                t('mastodon', 'Mastodon OAuth access token successfully retrieved!'),
-                t('mastodon', 'Success')
-            )
+            showSuccess(t('mastodon', 'Mastodon OAuth access token successfully retrieved!'))
         } else if (mToken === 'error') {
-            OC.dialogs.info(
-                t('mastodon', 'Mastodon OAuth access token could not be obtained:') + ' ' + urlParams.get('message'),
-                t('mastodon', 'Error')
-            )
+            showError(t('mastodon', 'Mastodon OAuth access token could not be obtained:') + ' ' + urlParams.get('message'))
         }
     },
 
