@@ -189,6 +189,9 @@ export default {
             }
         },
         html2text(s) {
+            if (!s || s === '') {
+                return ''
+            }
             let temp = document.createElement('template')
             s = s.trim()
             temp.innerHTML = s
