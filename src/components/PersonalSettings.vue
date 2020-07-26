@@ -12,6 +12,7 @@
                 <input id="mastodon-url" type="text" v-model="state.url" @input="onInput"
                     :placeholder="t('mastodon', 'Mastodon instance URL')"/>
                 <button id="mastodon-oauth" @click="onOAuthClick">
+                    <span class="icon icon-external"/>
                     {{ t('mastodon', 'Get access with OAuth') }}
                 </button>
                 <label for="mastodon-token">
@@ -141,6 +142,9 @@ export default {
     display: grid;
     grid-template: 1fr / 233px 233px 300px;
     margin-left: 30px;
+    button .icon {
+        margin-bottom: -1px;
+    }
 }
 #mastodon_prefs .icon {
     display: inline-block;
