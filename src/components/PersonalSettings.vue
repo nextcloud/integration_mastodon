@@ -12,7 +12,7 @@
                 <input id="mastodon-url" type="text" v-model="state.url" @input="onInput"
                     :placeholder="t('mastodon', 'Mastodon instance URL')"/>
                 <button id="mastodon-oauth" @click="onOAuthClick">
-                    {{ t('mastodon', 'Get access token with OAuth') }}
+                    {{ t('mastodon', 'Get access with OAuth') }}
                 </button>
                 <label for="mastodon-token">
                     <a class="icon icon-category-auth"></a>
@@ -139,7 +139,7 @@ export default {
 .mastodon-grid-form {
     width: 700px;
     display: grid;
-    grid-template: 1fr / 1fr 1fr 1fr;
+    grid-template: 1fr / 233px 233px 300px;
     margin-left: 30px;
 }
 #mastodon_prefs .icon {
