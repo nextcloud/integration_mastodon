@@ -5,7 +5,7 @@
                 :key="getUniqueKey(n)"
                 @mouseover="$set(hovered, getUniqueKey(n), true)" @mouseleave="$set(hovered, getUniqueKey(n), false)">
                 <div class="popover-container">
-                    <Popover :open="hovered[getUniqueKey(n)]" placement="top" class="content-popover" offset="40">
+                    <!--Popover :open="hovered[getUniqueKey(n)]" placement="top" class="content-popover" offset="40">
                         <template>
                             <div class="popover-author">
                                 <Avatar
@@ -22,7 +22,7 @@
                                 {{ getNotificationContent(n) }}
                             </p>
                         </template>
-                    </Popover>
+                    </Popover-->
                 </div>
                 <a :href="getNotificationTarget(n)" target="_blank" class="notification-list__entry">
                     <Avatar
@@ -36,7 +36,7 @@
                             {{ getAuthorNameAndID(n) }}
                         </h3>
                         <p class="message">
-                            {{ getNotificationContent(n) }}
+                            {{ getSubline(n) }}
                         </p>
                     </div>
                 </a>
@@ -94,21 +94,9 @@ export default {
     },
 
     computed: {
-        lastHomeId() {
+        lastId() {
             const nbNotif = this.notifications.length
-            let i = 0
-            while (i < nbNotif && this.notifications[i].type !== 'home') {
-                i++
-            }
-            return (i < nbNotif) ? this.notifications[i].id : null
-        },
-        lastMentionId() {
-            const nbNotif = this.notifications.length
-            let i = 0
-            while (i < nbNotif && this.notifications[i].type !== 'mention') {
-                i++
-            }
-            return (i < nbNotif) ? this.notifications[i].id : null
+            return (nbNotif > 0) ? this.notifications[0].id : null
         },
         lastDate() {
             const nbNotif = this.notifications.length
@@ -135,8 +123,7 @@ export default {
         fetchNotifications() {
             const req = {}
             req.params = {
-                sinceHome: this.lastHomeId,
-                sinceMention: this.lastMentionId
+                since: this.lastId
             }
             axios.get(generateUrl('/apps/mastodon/notifications'), req).then((response) => {
                 this.processNotifications(response.data)
@@ -155,7 +142,7 @@ export default {
             })
         },
         processNotifications(newNotifications) {
-            if (this.lastHomeId || this.lastMentionId) {
+            if (this.lastId) {
                 // just add those which are more recent than our most recent one
                 let i = 0
                 while (i < newNotifications.length && this.lastMoment.isBefore(newNotifications[i].created_at)) {
@@ -175,18 +162,34 @@ export default {
             return notifications
         },
         getNotificationTarget(n) {
-            if (n.type === 'home') {
-                return n.url
-            } else if (n.type === 'mention') {
+            if (['favourite', 'mention', 'reblog'].includes(n.type)) {
                 return n.status.url
+            } else if (['follow'].includes(n.type)) {
+                return n.account.url
+            } else if (['follow_request'].includes(n.type)) {
+                return this.mastodonUrl + '/web/follow_requests'
             }
+            return ''
+        },
+        getSubline(n) {
+            if (['favourite', 'mention', 'reblog'].includes(n.type)) {
+                return this.html2text(n.status.content)
+            } else if (n.type === 'follow') {
+                return t('mastodon', 'is following you')
+            } else if (n.type === 'follow_request') {
+                return t('mastodon', 'wants to follow you')
+            }
+            return ''
         },
         getNotificationContent(n) {
-            if (n.type === 'home') {
-                return this.html2text(n.content)
-            } else if (n.type === 'mention') {
+            if (['favourite', 'mention', 'reblog'].includes(n.type)) {
                 return this.html2text(n.status.content)
+            } else if (n.type === 'follow') {
+                return t('mastodon', '{name} is following you', {name: this.getAuthorNameAndID(n)})
+            } else if (n.type === 'follow_request') {
+                return t('mastodon', '{name} wants to follow you', {name: this.getAuthorNameAndID(n)})
             }
+            return ''
         },
         html2text(s) {
             if (!s || s === '') {
@@ -206,13 +209,16 @@ export default {
                     ''
         },
         getNotificationTypeImage(n) {
-            if (n.type === 'home') {
-                return generateUrl('/svg/core/places/home?color=' + this.themingColor)
-            } else if (n.type === 'mention') {
+            if (n.type === 'mention') {
                 return generateUrl('/svg/core/actions/sound?color=' + this.themingColor)
-            } else {
-                return generateUrl('/svg/core/actions/sound?color=' + this.themingColor)
+            } else if (['follow', 'follow_request'].includes(n.type)) {
+                return generateUrl('/svg/core/actions/toggle?color=' + this.themingColor)
+            } else if (['favourite'].includes(n.type)) {
+                return generateUrl('/svg/core/actions/star?color=' + this.themingColor)
+            } else if (['reblog'].includes(n.type)) {
+                return generateUrl('/svg/core/actions/play-next?color=' + this.themingColor)
             }
+            return ''
         },
         getFormattedDate(n) {
             return moment(n.created_at).locale(this.locale).format('LLL')

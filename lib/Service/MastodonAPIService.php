@@ -32,32 +32,37 @@ class MastodonAPIService {
         $this->logger = $logger;
     }
 
-    public function getNotifications($url, $accessToken, $sinceHome = null, $sinceMention = null) {
+    public function getHomeTimeline($url, $accessToken, $since = null) {
         $params = [
             'limit' => 30
         ];
         // get home timeline
-        if (!is_null($sinceHome)) {
-            $params['since_id'] = $sinceHome;
+        if (!is_null($since)) {
+            $params['since_id'] = $since;
         }
         $home = $this->request($url, $accessToken, 'timelines/home', $params);
         foreach ($home as $key => $value) {
             $home[$key]['type'] = 'home';
         }
+        return $home;
+    }
 
-        // get mention notifications
-        if (!is_null($sinceMention)) {
-            $params['since_id'] = $sinceMention;
+    public function getNotifications($url, $accessToken, $since = null) {
+        $params = [
+            'limit' => 30
+        ];
+
+        // get notifications
+        if (!is_null($since)) {
+            $params['since_id'] = $since;
         } else {
             unset($params['since_id']);
         }
-        $params['exclude_types'] = ['follow', 'favourite', 'poll', 'reblog', 'follow_request'];
+        $params['exclude_types'] = ['poll'];
         $notifications = $this->request($url, $accessToken, 'notifications', $params);
 
-        $result = array_merge($home, $notifications);
-
         // sort merged results by date
-        $a = usort($result, function($a, $b) {
+        $a = usort($notifications, function($a, $b) {
             $a = new \Datetime($a['created_at']);
             $ta = $a->getTimestamp();
             $b = new \Datetime($b['created_at']);
@@ -65,7 +70,7 @@ class MastodonAPIService {
             return ($ta > $tb) ? -1 : 1;
         });
 
-        return $result;
+        return $notifications;
     }
 
     public function getMastodonAvatar($url) {
@@ -128,11 +133,13 @@ class MastodonAPIService {
             if (count($params) > 0) {
                 // manage array parameters
                 $paramsContent = '';
-                if (isset($params['exclude_types'])) {
-                    foreach ($params['exclude_types'] as $excl) {
-                        $paramsContent .= 'exclude_types[]=' . urlencode($excl) . '&';
+                foreach ($params as $key => $value) {
+                    if (is_array($value)) {
+                        foreach ($value as $oneArrayValue) {
+                            $paramsContent .= $key . '[]=' . urlencode($oneArrayValue) . '&';
+                        }
+                        unset($params[$key]);
                     }
-                    unset($params['exclude_types']);
                 }
                 $paramsContent .= http_build_query($params);
                 if ($method === 'GET') {
