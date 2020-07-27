@@ -13,6 +13,7 @@ namespace OCA\Mastodon\Service;
 
 use OCP\IL10N;
 use OCP\ILogger;
+use OCP\Http\Client\IClientService;
 
 class MastodonAPIService {
 
@@ -25,11 +26,14 @@ class MastodonAPIService {
     public function __construct (
         string $appName,
         ILogger $logger,
-        IL10N $l10n
+        IL10N $l10n,
+        IClientService $clientService
     ) {
         $this->appName = $appName;
         $this->l10n = $l10n;
         $this->logger = $logger;
+        $this->clientService = $clientService;
+        $this->client = $clientService->newClient();
     }
 
     public function getHomeTimeline($url, $accessToken, $since = null) {
@@ -74,7 +78,7 @@ class MastodonAPIService {
     }
 
     public function getMastodonAvatar($url) {
-        return file_get_contents($url);
+        return $this->client->get($url)->getBody();
     }
 
     public function declareApp($url, $redirect_uris) {
@@ -89,29 +93,38 @@ class MastodonAPIService {
 
     public function anonymousRequest($url, $endPoint, $params = [], $method = 'GET') {
         try {
+            $url = $url . '/api/v1/' . $endPoint;
             $options = [
-                'http' => [
-                    'header'  => 'User-Agent: Nextcloud Mastodon integration',
-                    'method' => $method,
+                'headers' => [
+                    'User-Agent'  => 'Nextcloud Mastodon integration',
                 ]
             ];
 
-            $url = $url . '/api/v1/' . $endPoint;
             if (count($params) > 0) {
-                $paramsContent = http_build_query($params);
                 if ($method === 'GET') {
+                    $paramsContent = http_build_query($params);
                     $url .= '?' . $paramsContent;
                 } else {
-                    $options['http']['content'] = $paramsContent;
+                    $options['body'] = $params;
                 }
             }
 
-            $context = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);
-            if (!$result) {
-                return $this->l10n->t('Request error');
+            if ($method === 'GET') {
+                $response = $this->client->get($url, $options);
+            } else if ($method === 'POST') {
+                $response = $this->client->post($url, $options);
+            } else if ($method === 'PUT') {
+                $response = $this->client->put($url, $options);
+            } else if ($method === 'DELETE') {
+                $response = $this->client->delete($url, $options);
+            }
+            $body = $response->getBody();
+            $respCode = $response->getStatusCode();
+
+            if ($respCode >= 400) {
+                return $this->l10n->t('Bad credentials');
             } else {
-                return json_decode($result, true);
+                return json_decode($body, true);
             }
         } catch (\Exception $e) {
             $this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
@@ -121,40 +134,49 @@ class MastodonAPIService {
 
     public function request($url, $accessToken, $endPoint, $params = [], $method = 'GET') {
         try {
+            $url = $url . '/api/v1/' . $endPoint;
             $options = [
-                'http' => [
-                    'header'  => 'Authorization: Bearer ' . $accessToken .
-                        "\r\nUser-Agent: Nextcloud Mastodon integration",
-                    'method' => $method,
+                'headers' => [
+                    'Authorization'  => 'Bearer ' . $accessToken,
+                    'User-Agent' => 'Nextcloud Mastodon integration',
                 ]
             ];
 
-            $url = $url . '/api/v1/' . $endPoint;
             if (count($params) > 0) {
-                // manage array parameters
-                $paramsContent = '';
-                foreach ($params as $key => $value) {
-                    if (is_array($value)) {
-                        foreach ($value as $oneArrayValue) {
-                            $paramsContent .= $key . '[]=' . urlencode($oneArrayValue) . '&';
-                        }
-                        unset($params[$key]);
-                    }
-                }
-                $paramsContent .= http_build_query($params);
                 if ($method === 'GET') {
+                    // manage array parameters
+                    $paramsContent = '';
+                    foreach ($params as $key => $value) {
+                        if (is_array($value)) {
+                            foreach ($value as $oneArrayValue) {
+                                $paramsContent .= $key . '[]=' . urlencode($oneArrayValue) . '&';
+                            }
+                            unset($params[$key]);
+                        }
+                    }
+                    $paramsContent .= http_build_query($params);
                     $url .= '?' . $paramsContent;
                 } else {
-                    $options['http']['content'] = $paramsContent;
+                    $options['body'] = $params;
                 }
             }
 
-            $context = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);
-            if (!$result) {
+            if ($method === 'GET') {
+                $response = $this->client->get($url, $options);
+            } else if ($method === 'POST') {
+                $response = $this->client->post($url, $options);
+            } else if ($method === 'PUT') {
+                $response = $this->client->put($url, $options);
+            } else if ($method === 'DELETE') {
+                $response = $this->client->delete($url, $options);
+            }
+            $body = $response->getBody();
+            $respCode = $response->getStatusCode();
+
+            if ($respCode >= 400) {
                 return $this->l10n->t('Bad credentials');
             } else {
-                return json_decode($result, true);
+                return json_decode($body, true);
             }
         } catch (\Exception $e) {
             $this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
