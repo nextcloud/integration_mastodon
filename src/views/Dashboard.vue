@@ -214,7 +214,7 @@ export default {
             } else if (['follow', 'follow_request'].includes(n.type)) {
                 return generateUrl('/svg/core/actions/toggle?color=' + this.themingColor)
             } else if (['favourite'].includes(n.type)) {
-                return generateUrl('/svg/core/actions/star?color=' + this.themingColor)
+                return generateUrl('/svg/core/actions/starred?color=' + this.themingColor)
             } else if (['reblog'].includes(n.type)) {
                 return generateUrl('/svg/core/actions/play-next?color=' + this.themingColor)
             }
