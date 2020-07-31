@@ -96,7 +96,9 @@ class MastodonAPIController extends Controller {
      * @NoCSRFRequired
      */
     public function getMastodonAvatar($url) {
-        return new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
+        $response = new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
+        $response->cacheFor(60*60*24);
+        return $response;
     }
 
     /**
