@@ -1,66 +1,31 @@
 <template>
-    <div>
-        <ul v-if="state === 'ok'" class="notification-list">
-            <li v-for="n in notifications"
-                :key="getUniqueKey(n)"
-                @mouseover="$set(hovered, getUniqueKey(n), true)" @mouseleave="$set(hovered, getUniqueKey(n), false)">
-                <div class="popover-container">
-                    <!--Popover :open="hovered[getUniqueKey(n)]" placement="top" class="content-popover" offset="40">
-                        <template>
-                            <div class="popover-author">
-                                <Avatar
-                                    class="popover-author-avatar"
-                                    :size="24"
-                                    :url="getAuthorAvatarUrl(n)"
-                                    :tooltipMessage="n.account.display_name"
-                                    />
-                                <span class="popover-author-name">{{ getAuthorNameAndID(n) }}</span>
-                            </div>
-                            {{ getFormattedDate(n) }}
-                            <br/>
-                            <p>
-                                {{ getNotificationContent(n) }}
-                            </p>
-                        </template>
-                    </Popover-->
-                </div>
-                <a :href="getNotificationTarget(n)" target="_blank" class="notification-list__entry">
-                    <Avatar
-                        class="author-avatar"
-                        :url="getAuthorAvatarUrl(n)"
-                        :tooltipMessage="n.account.display_name"
-                        />
-                    <img class="mastodon-notification-icon" :src="getNotificationTypeImage(n)"/>
-                    <div class="notification__details">
-                        <h3>
-                            {{ getAuthorNameAndID(n) }}
-                        </h3>
-                        <p class="message">
-                            {{ getSubline(n) }}
-                        </p>
-                    </div>
+    <DashboardWidget :items="items"
+          :showMore="true"
+          @moreClicked="onMoreClick"
+          :loading="state === 'loading'">
+        <template v-slot:empty-content>
+            <div v-if="state === 'no-token'">
+                <a :href="settingsUrl">
+                    {{ t('mastodon', 'Click here to configure the access to your Mastodon account.')}}
                 </a>
-            </li>
-        </ul>
-        <div v-else-if="state === 'no-token'">
-            <a :href="settingsUrl">
-                {{ t('mastodon', 'Click here to configure the access to your Mastodon account.')}}
-            </a>
-        </div>
-        <div v-else-if="state === 'error'">
-            <a :href="settingsUrl">
-                {{ t('mastodon', 'Incorrect access token.') }}
-                {{ t('mastodon', 'Click here to configure the access to your Mastodon account.')}}
-            </a>
-        </div>
-        <div v-else-if="state === 'loading'" class="icon-loading-small"></div>
-    </div>
+            </div>
+            <div v-else-if="state === 'error'">
+                <a :href="settingsUrl">
+                    {{ t('mastodon', 'Incorrect access token.') }}
+                    {{ t('mastodon', 'Click here to configure the access to your Mastodon account.')}}
+                </a>
+            </div>
+            <div v-else-if="state === 'ok'">
+                {{ t('mastodon', 'Nothing to show') }}
+            </div>
+        </template>
+    </DashboardWidget>
 </template>
 
 <script>
 import axios from '@nextcloud/axios'
 import { generateUrl, imagePath } from '@nextcloud/router'
-import { Avatar, Popover } from '@nextcloud/vue'
+import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
@@ -70,7 +35,7 @@ export default {
 
     props: [],
     components: {
-        Avatar, Popover
+        DashboardWidget
     },
 
     beforeMount() {
@@ -89,11 +54,23 @@ export default {
             state: 'loading',
             settingsUrl: generateUrl('/settings/user/linked-accounts'),
             themingColor: OCA.Theming ? OCA.Theming.color.replace('#', '') : '0082C9',
-            hovered: {},
         }
     },
 
     computed: {
+        items() {
+            return this.notifications.map((n) => {
+                return {
+                    id: this.getUniqueKey(n),
+                    targetUrl: this.getNotificationTarget(n),
+                    avatarUrl: this.getAuthorAvatarUrl(n),
+                    //avatarUsername: '',
+                    overlayIconUrl: this.getNotificationTypeImage(n),
+                    mainText: this.getAuthorNameAndID(n),
+                    subText: this.getSubline(n),
+                }
+            })
+        },
         lastId() {
             const nbNotif = this.notifications.length
             return (nbNotif > 0) ? this.notifications[0].id : null
@@ -228,78 +205,13 @@ export default {
                 n.account.display_name + ' (' + n.account.acct + ')' :
                 n.account.acct
         },
+        onMoreClick() {
+            const win = window.open(this.mastodonUrl + '/web/notifications', '_blank')
+            win.focus()
+        },
     },
 }
 </script>
 
 <style scoped lang="scss">
-li .notification-list__entry {
-    display: flex;
-    align-items: flex-start;
-    padding: 8px;
-
-    &:hover,
-    &:focus {
-        background-color: var(--color-background-hover);
-        border-radius: var(--border-radius-large);
-    }
-    .author-avatar {
-        position: relative;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-    .notification__details {
-        padding-left: 8px;
-        max-height: 44px;
-        flex-grow: 1;
-        overflow: hidden;
-        h3,
-        .message {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .message span {
-            width: 10px;
-            display: inline-block;
-            margin-bottom: -3px;
-        }
-        h3 {
-            font-size: 100%;
-            margin: 0;
-        }
-        .message {
-            width: 100%;
-            color: var(--color-text-maxcontrast);
-        }
-    }
-    img.mastodon-notification-icon {
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        margin: 27px 0 10px 24px;
-    }
-    button.primary {
-        padding: 21px;
-        margin: 0;
-    }
-}
-.date-popover {
-    position: relative;
-    top: 7px;
-}
-.content-popover {
-    height: 0px;
-    width: 0px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.popover-container {
-    width: 100%;
-    height: 0px;
-}
-.popover-author-name {
-    vertical-align: top;
-    line-height: 24px;
-}
 </style>
