@@ -127,11 +127,11 @@ export default {
                 }
                 if (i > 0) {
                     const toAdd = this.filter(newNotifications.slice(0, i))
-                    this.notifications = toAdd.concat(this.notifications).slice(0, 7)
+                    this.notifications = toAdd.concat(this.notifications)
                 }
             } else {
                 // first time we don't check the date
-                this.notifications = this.filter(newNotifications).slice(0, 7)
+                this.notifications = this.filter(newNotifications)
             }
         },
         filter(notifications) {
