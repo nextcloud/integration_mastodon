@@ -66,7 +66,7 @@ export default {
                     avatarUrl: this.getAuthorAvatarUrl(n),
                     //avatarUsername: '',
                     overlayIconUrl: this.getNotificationTypeImage(n),
-                    mainText: this.getAuthorNameAndID(n),
+                    mainText: this.getMainText(n),
                     subText: this.getSubline(n),
                 }
             })
@@ -148,7 +148,7 @@ export default {
             }
             return ''
         },
-        getSubline(n) {
+        getMainText(n) {
             if (['favourite', 'mention', 'reblog'].includes(n.type)) {
                 return this.html2text(n.status.content)
             } else if (n.type === 'follow') {
@@ -157,6 +157,9 @@ export default {
                 return t('mastodon', 'wants to follow you')
             }
             return ''
+        },
+        getSubline(n) {
+            return this.getAuthorNameAndID(n)
         },
         getNotificationContent(n) {
             if (['favourite', 'mention', 'reblog'].includes(n.type)) {
@@ -187,13 +190,13 @@ export default {
         },
         getNotificationTypeImage(n) {
             if (n.type === 'mention') {
-                return generateUrl('/svg/core/actions/sound?color=' + this.themingColor)
+                return generateUrl('/svg/mastodon/arobase?color=777777')
             } else if (['follow', 'follow_request'].includes(n.type)) {
-                return generateUrl('/svg/core/actions/toggle?color=' + this.themingColor)
+                return generateUrl('/svg/mastodon/add_user?color=ffffff')
             } else if (['favourite'].includes(n.type)) {
-                return generateUrl('/svg/core/actions/starred?color=' + this.themingColor)
+                return generateUrl('/svg/mastodon/starred?color=ffffff')
             } else if (['reblog'].includes(n.type)) {
-                return generateUrl('/svg/core/actions/play-next?color=' + this.themingColor)
+                return generateUrl('/svg/mastodon/retweet?color=ffffff')
             }
             return ''
         },
