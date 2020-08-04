@@ -23,9 +23,10 @@
 
 namespace OCA\Mastodon\Dashboard;
 
+use OCP\Dashboard\IWidget;
 use OCP\IL10N;
 
-class MastodonPanel implements \OCP\Dashboard\IPanel {
+class MastodonWidget implements IWidget {
 
 	/** @var IL10N */
 	private $l10n;

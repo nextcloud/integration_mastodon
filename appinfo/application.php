@@ -18,7 +18,7 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 
 use OCA\Mastodon\Controller\PageController;
-use OCA\Mastodon\Dashboard\MastodonPanel;
+use OCA\Mastodon\Dashboard\MastodonWidget;
 
 /**
  * Class Application
@@ -39,7 +39,7 @@ class Application extends App implements IBootstrap {
     }
 
     public function register(IRegistrationContext $context): void {
-        $context->registerDashboardPanel(MastodonPanel::class);
+        $context->registerDashboardWidget(MastodonWidget::class);
     }
 
     public function boot(IBootContext $context): void {
