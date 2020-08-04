@@ -1,7 +1,6 @@
 <template>
     <DashboardWidget :items="items"
-          :showMore="true"
-          @moreClicked="onMoreClick"
+          :showMoreUrl="showMoreUrl"
           :loading="state === 'loading'">
         <template v-slot:empty-content>
             <div v-if="state === 'no-token'">
@@ -58,6 +57,9 @@ export default {
     },
 
     computed: {
+        showMoreUrl() {
+            return this.mastodonUrl + '/web/notifications'
+        },
         items() {
             return this.notifications.map((n) => {
                 return {
@@ -207,10 +209,6 @@ export default {
             return n.account.display_name ?
                 n.account.display_name + ' (' + n.account.acct + ')' :
                 n.account.acct
-        },
-        onMoreClick() {
-            const win = window.open(this.mastodonUrl + '/web/notifications', '_blank')
-            win.focus()
         },
     },
 }
