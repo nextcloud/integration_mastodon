@@ -138,9 +138,9 @@ export default {
     width: 100%;
 }
 .mastodon-grid-form {
-    width: 700px;
+    max-width: 900px;
     display: grid;
-    grid-template: 1fr / 233px 233px 300px;
+    grid-template: 1fr / 1fr 1fr 1fr;
     margin-left: 30px;
     button .icon {
         margin-bottom: -1px;
