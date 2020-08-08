@@ -184,4 +184,45 @@ class MastodonAPIService {
         }
     }
 
+    public function requestOAuthAccessToken($mastodonUrl, $params = [], $method = 'GET') {
+        try {
+            $url = $mastodonUrl . '/oauth/token';
+            $options = [
+                'headers' => [
+                    'User-Agent'  => 'Nextcloud Mastodon integration',
+                ]
+            ];
+
+            if (count($params) > 0) {
+                if ($method === 'GET') {
+                    $paramsContent = http_build_query($params);
+                    $url .= '?' . $paramsContent;
+                } else {
+                    $options['body'] = $params;
+                }
+            }
+
+            if ($method === 'GET') {
+                $response = $this->client->get($url, $options);
+            } else if ($method === 'POST') {
+                $response = $this->client->post($url, $options);
+            } else if ($method === 'PUT') {
+                $response = $this->client->put($url, $options);
+            } else if ($method === 'DELETE') {
+                $response = $this->client->delete($url, $options);
+            }
+            $body = $response->getBody();
+            $respCode = $response->getStatusCode();
+
+            if ($respCode >= 400) {
+                return $this->l10n->t('OAuth access token refused');
+            } else {
+                return json_decode($body, true);
+            }
+        } catch (\Exception $e) {
+            $this->logger->warning('Mastodon OAuth error : '.$e, array('app' => $this->appName));
+            return $e;
+        }
+    }
+
 }

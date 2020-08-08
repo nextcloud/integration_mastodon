@@ -30,7 +30,8 @@ use OCP\IRequest;
 use OCP\IDBConnection;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
-use OCP\Http\Client\IClientService;
+
+use OCA\Mastodon\Service\MastodonAPIService;
 
 class ConfigController extends Controller {
 
@@ -50,7 +51,7 @@ class ConfigController extends Controller {
                                 IURLGenerator $urlGenerator,
                                 IL10N $l,
                                 ILogger $logger,
-                                IClientService $clientService,
+                                MastodonAPIService $mastodonAPIService,
                                 $userId) {
         parent::__construct($AppName, $request);
         $this->l = $l;
@@ -61,7 +62,7 @@ class ConfigController extends Controller {
         $this->dbconnection = $dbconnection;
         $this->urlGenerator = $urlGenerator;
         $this->logger = $logger;
-        $this->clientService = $clientService;
+        $this->mastodonAPIService = $mastodonAPIService;
     }
 
     /**
@@ -88,7 +89,7 @@ class ConfigController extends Controller {
 
         if ($mastodonUrl !== '' and $clientID !== '' and $clientSecret !== '' and $code !== '') {
             $redirect_uri = $this->urlGenerator->linkToRouteAbsolute('mastodon.config.oauthRedirect');
-            $result = $this->requestOAuthAccessToken($mastodonUrl, [
+            $result = $this->mastodonAPIService->requestOAuthAccessToken($mastodonUrl, [
                 'client_id' => $clientID,
                 'client_secret' => $clientSecret,
                 'code' => $code,
@@ -113,47 +114,4 @@ class ConfigController extends Controller {
             '?mastodonToken=error&message=' . urlencode($result)
         );
     }
-
-    private function requestOAuthAccessToken($mastodonUrl, $params = [], $method = 'GET') {
-        $client = $this->clientService->newClient();
-        try {
-            $url = $mastodonUrl . '/oauth/token';
-            $options = [
-                'headers' => [
-                    'User-Agent'  => 'Nextcloud Mastodon integration',
-                ]
-            ];
-
-            if (count($params) > 0) {
-                if ($method === 'GET') {
-                    $paramsContent = http_build_query($params);
-                    $url .= '?' . $paramsContent;
-                } else {
-                    $options['body'] = $params;
-                }
-            }
-
-            if ($method === 'GET') {
-                $response = $client->get($url, $options);
-            } else if ($method === 'POST') {
-                $response = $client->post($url, $options);
-            } else if ($method === 'PUT') {
-                $response = $client->put($url, $options);
-            } else if ($method === 'DELETE') {
-                $response = $client->delete($url, $options);
-            }
-            $body = $response->getBody();
-            $respCode = $response->getStatusCode();
-
-            if ($respCode >= 400) {
-                return $this->l10n->t('OAuth access token refused');
-            } else {
-                return json_decode($body, true);
-            }
-        } catch (\Exception $e) {
-            $this->logger->warning('Mastodon OAuth error : '.$e, array('app' => $this->appName));
-            return $e;
-        }
-    }
-
 }
