@@ -76,7 +76,7 @@ class MastodonWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function load(): void {
-        \OC_Util::addScript('mastodon', 'dashboard');
+        \OC_Util::addScript('mastodon', 'mastodon-dashboard');
         \OC_Util::addStyle('mastodon', 'dashboard');
     }
 }
