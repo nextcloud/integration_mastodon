@@ -17,10 +17,10 @@ import Dashboard from './views/Dashboard'
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	OCA.Dashboard.register('mastodon', (el) => {
+	OCA.Dashboard.register('mastodon', (el, { widget }) => {
 		const View = Vue.extend(Dashboard)
 		new View({
-			propsData: {},
+			propsData: { title: widget.title },
 		}).$mount(el)
 	})
 

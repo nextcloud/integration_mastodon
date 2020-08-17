@@ -48,7 +48,7 @@ class MastodonWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function getTitle(): string {
-        return $this->l10n->t('Mastodon');
+        return $this->l10n->t('Mastodon notifications');
         }
 
 	/**
