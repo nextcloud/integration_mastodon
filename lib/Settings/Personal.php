@@ -10,6 +10,8 @@ use OCP\Util;
 use OCP\IURLGenerator;
 use OCP\IInitialStateService;
 
+use OCA\Mastodon\AppInfo\Application;
+
 class Personal implements ISettings {
 
     private $request;
@@ -39,15 +41,15 @@ class Personal implements ISettings {
      * @return TemplateResponse
      */
     public function getForm() {
-        $token = $this->config->getUserValue($this->userId, 'mastodon', 'token', '');
-        $url = $this->config->getUserValue($this->userId, 'mastodon', 'url', '');
+        $token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
+        $url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
 
         $userConfig = [
             'token' => $token,
             'url' => $url
         ];
         $this->initialStateService->provideInitialState($this->appName, 'user-config', $userConfig);
-        return new TemplateResponse('mastodon', 'personalSettings');
+        return new TemplateResponse(Application::APP_ID, 'personalSettings');
     }
 
     public function getSection() {

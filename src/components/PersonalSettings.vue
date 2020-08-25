@@ -2,30 +2,30 @@
 	<div id="mastodon_prefs" class="section">
 		<h2>
 			<a class="icon icon-mastodon" />
-			{{ t('mastodon', 'Mastodon') }}
+			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
 		<div class="mastodon-grid-form">
 			<label for="mastodon-url">
 				<a class="icon icon-link" />
-				{{ t('mastodon', 'Mastodon instance address') }}
+				{{ t('integration_mastodon', 'Mastodon instance address') }}
 			</label>
 			<input id="mastodon-url"
 				v-model="state.url"
 				type="text"
-				:placeholder="t('mastodon', 'Mastodon instance URL')"
+				:placeholder="t('integration_mastodon', 'Mastodon instance URL')"
 				@input="onInput">
 			<button id="mastodon-oauth" @click="onOAuthClick">
 				<span class="icon icon-external" />
-				{{ t('mastodon', 'Get access with OAuth') }}
+				{{ t('integration_mastodon', 'Get access with OAuth') }}
 			</button>
 			<label for="mastodon-token">
 				<a class="icon icon-category-auth" />
-				{{ t('mastodon', 'Mastodon access token') }}
+				{{ t('integration_mastodon', 'Mastodon access token') }}
 			</label>
 			<input id="mastodon-token"
 				v-model="state.token"
 				type="password"
-				:placeholder="t('mastodon', 'Authenticate with OAuth')"
+				:placeholder="t('integration_mastodon', 'Authenticate with OAuth')"
 				@input="onInput">
 		</div>
 	</div>
@@ -48,7 +48,7 @@ export default {
 
 	data() {
 		return {
-			state: loadState('mastodon', 'user-config'),
+			state: loadState('integration_mastodon', 'user-config'),
 		}
 	},
 
@@ -57,12 +57,13 @@ export default {
 
 	mounted() {
 		const paramString = window.location.search.substr(1)
+		// eslint-disable-next-line
 		const urlParams = new URLSearchParams(paramString)
 		const mToken = urlParams.get('mastodonToken')
 		if (mToken === 'success') {
-			showSuccess(t('mastodon', 'Mastodon OAuth access token successfully retrieved!'))
+			showSuccess(t('integration_mastodon', 'Mastodon OAuth access token successfully retrieved!'))
 		} else if (mToken === 'error') {
-			showError(t('mastodon', 'Mastodon OAuth access token could not be obtained:') + ' ' + urlParams.get('message'))
+			showError(t('integration_mastodon', 'Mastodon OAuth access token could not be obtained:') + ' ' + urlParams.get('message'))
 		}
 	},
 
@@ -87,14 +88,14 @@ export default {
 					url: this.state.url,
 				},
 			}
-			const url = generateUrl('/apps/mastodon/config')
+			const url = generateUrl('/apps/integration_mastodon/config')
 			axios.put(url, req)
 				.then((response) => {
-					showSuccess(t('mastodon', 'Mastodon options saved.'))
+					showSuccess(t('integration_mastodon', 'Mastodon options saved.'))
 				})
 				.catch((error) => {
 					showError(
-						t('mastodon', 'Failed to save Mastodon options')
+						t('integration_mastodon', 'Failed to save Mastodon options')
 						+ ': ' + error.response.request.responseText
 					)
 				})
@@ -104,19 +105,19 @@ export default {
 		onOAuthClick() {
 			// first we need to add an app to the target instance
 			// so we get client_id and client_secret
-			const redirectEndpoint = generateUrl('/apps/mastodon/oauth-redirect')
+			const redirectEndpoint = generateUrl('/apps/integration_mastodon/oauth-redirect')
 			const redirectUri = OC.getProtocol() + '://' + OC.getHostName() + redirectEndpoint
 			const req = {
 				redirect_uris: redirectUri,
 			}
-			const url = generateUrl('/apps/mastodon/oauth-app')
+			const url = generateUrl('/apps/integration_mastodon/oauth-app')
 			axios.post(url, req)
 				.then((response) => {
 					this.oAuthStep1(response.data.client_id)
 				})
 				.catch((error) => {
 					showError(
-						t('mastodon', 'Failed to add Mastodon OAuth app')
+						t('integration_mastodon', 'Failed to add Mastodon OAuth app')
 						+ ': ' + error.response.request.responseText
 					)
 				})
@@ -125,7 +126,7 @@ export default {
 		},
 		oAuthStep1(clientId) {
 			// redirect to '/oauth/auhorize' api endpoint to get a code
-			const redirectEndpoint = generateUrl('/apps/mastodon/oauth-redirect')
+			const redirectEndpoint = generateUrl('/apps/integration_mastodon/oauth-redirect')
 			const redirectUri = OC.getProtocol() + '://' + OC.getHostName() + redirectEndpoint
 			const requestUrl = this.state.url + '/oauth/authorize?client_id=' + encodeURIComponent(clientId)
 				+ '&redirect_uri=' + encodeURIComponent(redirectUri)

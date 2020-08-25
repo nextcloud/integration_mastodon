@@ -31,6 +31,7 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
 use OCA\Mastodon\Service\MastodonAPIService;
+use OCA\Mastodon\AppInfo\Application;
 
 class MastodonAPIController extends Controller {
 
@@ -58,8 +59,8 @@ class MastodonAPIController extends Controller {
         $this->config = $config;
         $this->logger = $logger;
         $this->mastodonAPIService = $mastodonAPIService;
-        $this->accessToken = $this->config->getUserValue($this->userId, 'mastodon', 'token', '');
-        $this->mastodonUrl = $this->config->getUserValue($this->userId, 'mastodon', 'url', '');
+        $this->accessToken = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
+        $this->mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
     }
 
     /**
@@ -78,8 +79,8 @@ class MastodonAPIController extends Controller {
         $result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
         if (is_array($result)) {
             // we save the client ID and secret and give the client ID back to the UI
-            $this->config->setUserValue($this->userId, 'mastodon', 'client_id', $result['client_id']);
-            $this->config->setUserValue($this->userId, 'mastodon', 'client_secret', $result['client_secret']);
+            $this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
+            $this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
             $data = [
                 'client_id' => $result['client_id']
             ];

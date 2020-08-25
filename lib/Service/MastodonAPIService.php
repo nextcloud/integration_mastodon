@@ -15,6 +15,8 @@ use OCP\IL10N;
 use OCP\ILogger;
 use OCP\Http\Client\IClientService;
 
+use OCA\Mastodon\AppInfo\Application;
+
 class MastodonAPIService {
 
     private $l10n;
@@ -83,10 +85,10 @@ class MastodonAPIService {
 
     public function declareApp($url, $redirect_uris) {
         $params = [
-            'client_name' => $this->l10n->t('mastodon', 'Nextcloud Mastodon integration app'),
+            'client_name' => $this->l10n->t(Application::APP_ID, 'Nextcloud Mastodon integration app'),
             'redirect_uris' => $redirect_uris,
             'scopes' => 'read write follow',
-            'website' => 'https://github.com/nextcloud/mastodon'
+            'website' => 'https://github.com/nextcloud/integration_mastodon'
         ];
         return $this->anonymousRequest($url, 'apps', $params, 'POST');
     }

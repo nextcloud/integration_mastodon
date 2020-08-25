@@ -27,13 +27,15 @@ use OCA\Mastodon\Dashboard\MastodonWidget;
  */
 class Application extends App implements IBootstrap {
 
+    public const APP_ID = 'integration_mastodon';
+
     /**
      * Constructor
      *
      * @param array $urlParams
      */
     public function __construct(array $urlParams = []) {
-        parent::__construct('mastodon', $urlParams);
+        parent::__construct(self::APP_ID, $urlParams);
 
         $container = $this->getContainer();
     }

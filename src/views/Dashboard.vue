@@ -6,17 +6,17 @@
 		<template v-slot:empty-content>
 			<div v-if="state === 'no-token'">
 				<a :href="settingsUrl">
-					{{ t('mastodon', 'Click here to configure the access to your Mastodon account.') }}
+					{{ t('integration_mastodon', 'Click here to configure the access to your Mastodon account.') }}
 				</a>
 			</div>
 			<div v-else-if="state === 'error'">
 				<a :href="settingsUrl">
-					{{ t('mastodon', 'Incorrect access token.') }}
-					{{ t('mastodon', 'Click here to configure the access to your Mastodon account.') }}
+					{{ t('integration_mastodon', 'Incorrect access token.') }}
+					{{ t('integration_mastodon', 'Click here to configure the access to your Mastodon account.') }}
 				</a>
 			</div>
 			<div v-else-if="state === 'ok'">
-				{{ t('mastodon', 'Nothing to show') }}
+				{{ t('integration_mastodon', 'Nothing to show') }}
 			</div>
 		</template>
 	</DashboardWidget>
@@ -28,6 +28,7 @@ import { generateUrl } from '@nextcloud/router'
 import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
+// eslint-disable-next-line
 import { getLocale } from '@nextcloud/l10n'
 
 export default {
@@ -97,7 +98,7 @@ export default {
 		async launchLoop() {
 			// get mastodon URL first
 			try {
-				const response = await axios.get(generateUrl('/apps/mastodon/url'))
+				const response = await axios.get(generateUrl('/apps/integration_mastodon/url'))
 				this.mastodonUrl = response.data.replace(/\/+$/, '')
 			} catch (error) {
 				console.debug(error)
@@ -111,7 +112,7 @@ export default {
 			req.params = {
 				since: this.lastId,
 			}
-			axios.get(generateUrl('/apps/mastodon/notifications'), req).then((response) => {
+			axios.get(generateUrl('/apps/integration_mastodon/notifications'), req).then((response) => {
 				this.processNotifications(response.data)
 				this.state = 'ok'
 			}).catch((error) => {
@@ -119,7 +120,7 @@ export default {
 				if (error.response && error.response.status === 400) {
 					this.state = 'no-token'
 				} else if (error.response && error.response.status === 401) {
-					showError(t('mastodon', 'Failed to get Mastodon notifications.'))
+					showError(t('integration_mastodon', 'Failed to get Mastodon notifications.'))
 					this.state = 'error'
 				} else {
 					// there was an error in notif processing
@@ -161,9 +162,9 @@ export default {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
 				return this.html2text(n.status.content)
 			} else if (n.type === 'follow') {
-				return t('mastodon', 'is following you')
+				return t('integration_mastodon', 'is following you')
 			} else if (n.type === 'follow_request') {
-				return t('mastodon', 'wants to follow you')
+				return t('integration_mastodon', 'wants to follow you')
 			}
 			return ''
 		},
@@ -174,9 +175,9 @@ export default {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
 				return this.html2text(n.status.content)
 			} else if (n.type === 'follow') {
-				return t('mastodon', '{name} is following you', { name: this.getAuthorNameAndID(n) })
+				return t('integration_mastodon', '{name} is following you', { name: this.getAuthorNameAndID(n) })
 			} else if (n.type === 'follow_request') {
-				return t('mastodon', '{name} wants to follow you', { name: this.getAuthorNameAndID(n) })
+				return t('integration_mastodon', '{name} wants to follow you', { name: this.getAuthorNameAndID(n) })
 			}
 			return ''
 		},
@@ -194,18 +195,18 @@ export default {
 		},
 		getAuthorAvatarUrl(n) {
 			return (n.account && n.account.avatar)
-				? generateUrl('/apps/mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.account.avatar)
+				? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.account.avatar)
 				: ''
 		},
 		getNotificationTypeImage(n) {
 			if (n.type === 'mention') {
-				return generateUrl('/svg/mastodon/arobase?color=777777')
+				return generateUrl('/svg/integration_mastodon/arobase?color=777777')
 			} else if (['follow', 'follow_request'].includes(n.type)) {
-				return generateUrl('/svg/mastodon/add_user?color=ffffff')
+				return generateUrl('/svg/integration_mastodon/add_user?color=ffffff')
 			} else if (['favourite'].includes(n.type)) {
-				return generateUrl('/svg/mastodon/starred?color=ffffff')
+				return generateUrl('/svg/integration_mastodon/starred?color=ffffff')
 			} else if (['reblog'].includes(n.type)) {
-				return generateUrl('/svg/mastodon/retweet?color=ffffff')
+				return generateUrl('/svg/integration_mastodon/retweet?color=ffffff')
 			}
 			return ''
 		},

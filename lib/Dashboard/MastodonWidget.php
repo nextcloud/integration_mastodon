@@ -26,6 +26,8 @@ namespace OCA\Mastodon\Dashboard;
 use OCP\Dashboard\IWidget;
 use OCP\IL10N;
 
+use OCA\Mastodon\AppInfo\Application;
+
 class MastodonWidget implements IWidget {
 
 	/** @var IL10N */
@@ -41,7 +43,7 @@ class MastodonWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function getId(): string {
-		return 'mastodon';
+		return 'mastodon_notifications';
 	}
 
 	/**
@@ -76,7 +78,7 @@ class MastodonWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function load(): void {
-        \OC_Util::addScript('mastodon', 'mastodon-dashboard');
-        \OC_Util::addStyle('mastodon', 'dashboard');
+        \OC_Util::addScript(Application::APP_ID, Application::APP_ID . '-dashboard');
+        \OC_Util::addStyle(Application::APP_ID, 'dashboard');
     }
 }

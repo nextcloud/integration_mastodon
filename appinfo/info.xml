@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <info>
-    <id>mastodon</id>
-    <name>Mastodon</name>
+    <id>integration_mastodon</id>
+    <name>Mastodon integration</name>
     <summary> </summary><description> </description>
     <version>0.0.1</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>Mastodon</namespace>
     <documentation>
-        <developer>https://nowhere.org/wikis/devdoc</developer>
+        <developer>https://github.com/nextcloud/integration_mastodon/wikis/devdoc</developer>
     </documentation>
     <category>integration</category>
-    <website>https://github.com/nextcloud/mastodon</website>
+    <website>https://github.com/nextcloud/integration_mastodon</website>
     <bugs>https://github.com/nextcloud/mastodon/issues</bugs>
     <dependencies>
         <database min-version="9.4">pgsql</database>

@@ -32,9 +32,9 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
 use OCA\Mastodon\Service\MastodonAPIService;
+use OCA\Mastodon\AppInfo\Application;
 
 class ConfigController extends Controller {
-
 
     private $userId;
     private $config;
@@ -71,7 +71,7 @@ class ConfigController extends Controller {
      */
     public function setConfig($values) {
         foreach ($values as $key => $value) {
-            $this->config->setUserValue($this->userId, 'mastodon', $key, $value);
+            $this->config->setUserValue($this->userId, Application::APP_ID, $key, $value);
         }
         $response = new DataResponse(1);
         return $response;
@@ -83,12 +83,12 @@ class ConfigController extends Controller {
      * @NoCSRFRequired
      */
     public function oauthRedirect($code = '') {
-        $mastodonUrl = $this->config->getUserValue($this->userId, 'mastodon', 'url', '');
-        $clientID = $this->config->getUserValue($this->userId, 'mastodon', 'client_id', '');
-        $clientSecret = $this->config->getUserValue($this->userId, 'mastodon', 'client_secret', '');
+        $mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
+        $clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id', '');
+        $clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret', '');
 
         if ($mastodonUrl !== '' and $clientID !== '' and $clientSecret !== '' and $code !== '') {
-            $redirect_uri = $this->urlGenerator->linkToRouteAbsolute('mastodon.config.oauthRedirect');
+            $redirect_uri = $this->urlGenerator->linkToRouteAbsolute('integration_mastodon.config.oauthRedirect');
             $result = $this->mastodonAPIService->requestOAuthAccessToken($mastodonUrl, [
                 'client_id' => $clientID,
                 'client_secret' => $clientSecret,
@@ -99,7 +99,7 @@ class ConfigController extends Controller {
             ], 'POST');
             if (is_array($result) and isset($result['access_token'])) {
                 $accessToken = $result['access_token'];
-                $this->config->setUserValue($this->userId, 'mastodon', 'token', $accessToken);
+                $this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
                 return new RedirectResponse(
                     $this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'linked-accounts']) .
                     '?mastodonToken=success'
