@@ -4,12 +4,12 @@
     <name>Mastodon integration</name>
     <summary>Integration of Mastodon self-hosted social networking service</summary>
     <description><![CDATA[Mastodon integration provides a dashboard widget displaying your important notifications.]]></description>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>Mastodon</namespace>
     <documentation>
-        <developer>https://github.com/eneiluj/integration_mastodon/wikis/devdoc</developer>
+        <developer>https://github.com/eneiluj/integration_mastodon/wikis</developer>
     </documentation>
     <category>integration</category>
     <category>dashboard</category>
