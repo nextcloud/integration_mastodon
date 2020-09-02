@@ -2,17 +2,20 @@
 <info>
     <id>integration_mastodon</id>
     <name>Mastodon integration</name>
-    <summary> </summary><description> </description>
+    <summary>Integration of Mastodon self-hosted social networking service</summary>
+    <description><![CDATA[Mastodon integration provides a dashboard widget displaying your important notifications.]]></description>
     <version>0.0.1</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>Mastodon</namespace>
     <documentation>
-        <developer>https://github.com/nextcloud/integration_mastodon/wikis/devdoc</developer>
+        <developer>https://github.com/eneiluj/integration_mastodon/wikis/devdoc</developer>
     </documentation>
     <category>integration</category>
-    <website>https://github.com/nextcloud/integration_mastodon</website>
-    <bugs>https://github.com/nextcloud/mastodon/issues</bugs>
+    <category>dashboard</category>
+    <website>https://github.com/eneiluj/integration_mastodon</website>
+    <bugs>https://github.com/eneiluj/mastodon/issues</bugs>
+    <screenshot>https://github.com/eneiluj/integration_mastodon/raw/master/img/screenshot1.jpg</screenshot>
     <dependencies>
         <database min-version="9.4">pgsql</database>
         <database>sqlite</database>

@@ -106,7 +106,7 @@ export default {
 			// first we need to add an app to the target instance
 			// so we get client_id and client_secret
 			const redirectEndpoint = generateUrl('/apps/integration_mastodon/oauth-redirect')
-			const redirectUri = OC.getProtocol() + '://' + OC.getHostName() + redirectEndpoint
+			const redirectUri = window.location.protocol + '//' + window.location.host + redirectEndpoint
 			const req = {
 				redirect_uris: redirectUri,
 			}
@@ -127,7 +127,7 @@ export default {
 		oAuthStep1(clientId) {
 			// redirect to '/oauth/auhorize' api endpoint to get a code
 			const redirectEndpoint = generateUrl('/apps/integration_mastodon/oauth-redirect')
-			const redirectUri = OC.getProtocol() + '://' + OC.getHostName() + redirectEndpoint
+			const redirectUri = window.location.protocol + '//' + window.location.host + redirectEndpoint
 			const requestUrl = this.state.url + '/oauth/authorize?client_id=' + encodeURIComponent(clientId)
 				+ '&redirect_uri=' + encodeURIComponent(redirectUri)
 				+ '&response_type=code'
