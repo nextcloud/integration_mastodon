@@ -14,7 +14,7 @@
     <category>integration</category>
     <category>dashboard</category>
     <website>https://github.com/eneiluj/integration_mastodon</website>
-    <bugs>https://github.com/eneiluj/mastodon/issues</bugs>
+    <bugs>https://github.com/eneiluj/integration_mastodon/issues</bugs>
     <screenshot>https://github.com/eneiluj/integration_mastodon/raw/master/img/screenshot1.jpg</screenshot>
     <dependencies>
         <database min-version="9.4">pgsql</database>
