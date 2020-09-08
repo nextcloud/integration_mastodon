@@ -19,6 +19,7 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
 
 use OCA\Mastodon\Controller\PageController;
 use OCA\Mastodon\Dashboard\MastodonWidget;
+use OCA\Mastodon\Dashboard\MastodonHomeWidget;
 
 /**
  * Class Application
@@ -42,6 +43,7 @@ class Application extends App implements IBootstrap {
 
     public function register(IRegistrationContext $context): void {
         $context->registerDashboardWidget(MastodonWidget::class);
+        $context->registerDashboardWidget(MastodonHomeWidget::class);
     }
 
     public function boot(IBootContext $context): void {

@@ -31,7 +31,7 @@ import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
 
 export default {
-	name: 'Dashboard',
+	name: 'DashboardHome',
 
 	components: {
 		DashboardWidget,
@@ -53,12 +53,13 @@ export default {
 			state: 'loading',
 			settingsUrl: generateUrl('/settings/user/linked-accounts'),
 			themingColor: OCA.Theming ? OCA.Theming.color.replace('#', '') : '0082C9',
+			darkThemeColor: OCA.Accessibility.theme === 'dark' ? 'ffffff' : '181818',
 		}
 	},
 
 	computed: {
 		showMoreUrl() {
-			return this.mastodonUrl + '/web/notifications'
+			return this.mastodonUrl
 		},
 		items() {
 			return this.notifications.map((n) => {
@@ -67,7 +68,7 @@ export default {
 					targetUrl: this.getNotificationTarget(n),
 					avatarUrl: this.getAuthorAvatarUrl(n),
 					// avatarUsername: '',
-					overlayIconUrl: this.getNotificationTypeImage(n),
+					// overlayIconUrl: this.getNotificationTypeImage(n),
 					mainText: this.getMainText(n),
 					subText: this.getSubline(n),
 				}
@@ -111,7 +112,7 @@ export default {
 			req.params = {
 				since: this.lastId,
 			}
-			axios.get(generateUrl('/apps/integration_mastodon/notifications'), req).then((response) => {
+			axios.get(generateUrl('/apps/integration_mastodon/home'), req).then((response) => {
 				this.processNotifications(response.data)
 				this.state = 'ok'
 			}).catch((error) => {
@@ -119,7 +120,7 @@ export default {
 				if (error.response && error.response.status === 400) {
 					this.state = 'no-token'
 				} else if (error.response && error.response.status === 401) {
-					showError(t('integration_mastodon', 'Failed to get Mastodon notifications.'))
+					showError(t('integration_mastodon', 'Failed to get Mastodon home timeline.'))
 					this.state = 'error'
 				} else {
 					// there was an error in notif processing
@@ -148,37 +149,20 @@ export default {
 			return notifications
 		},
 		getNotificationTarget(n) {
-			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
-				return n.status.url
-			} else if (['follow'].includes(n.type)) {
-				return n.account.url
-			} else if (['follow_request'].includes(n.type)) {
-				return this.mastodonUrl + '/web/follow_requests'
-			}
-			return ''
-		},
-		getMainText(n) {
-			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
-				return this.html2text(n.status.content)
-			} else if (n.type === 'follow') {
-				return t('integration_mastodon', 'is following you')
-			} else if (n.type === 'follow_request') {
-				return t('integration_mastodon', 'wants to follow you')
-			}
-			return ''
+			return n.url
+				? n.url
+				: n.reblog && n.reblog.url
+					? n.reblog.url
+					: ''
 		},
 		getSubline(n) {
 			return this.getAuthorNameAndID(n)
 		},
-		getNotificationContent(n) {
-			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
-				return this.html2text(n.status.content)
-			} else if (n.type === 'follow') {
-				return t('integration_mastodon', '{name} is following you', { name: this.getAuthorNameAndID(n) })
-			} else if (n.type === 'follow_request') {
-				return t('integration_mastodon', '{name} wants to follow you', { name: this.getAuthorNameAndID(n) })
-			}
-			return ''
+		getMainText(n) {
+			return this.getContent(n)
+		},
+		getContent(n) {
+			return this.html2text(n.content) || t('integration_mastodon', 'No text content')
 		},
 		html2text(s) {
 			if (!s || s === '') {
@@ -198,16 +182,7 @@ export default {
 				: ''
 		},
 		getNotificationTypeImage(n) {
-			if (n.type === 'mention') {
-				return generateUrl('/svg/integration_mastodon/arobase?color=777777')
-			} else if (['follow', 'follow_request'].includes(n.type)) {
-				return generateUrl('/svg/integration_mastodon/add_user?color=ffffff')
-			} else if (['favourite'].includes(n.type)) {
-				return generateUrl('/svg/integration_mastodon/starred?color=ffffff')
-			} else if (['reblog'].includes(n.type)) {
-				return generateUrl('/svg/integration_mastodon/retweet?color=ffffff')
-			}
-			return ''
+			return generateUrl('/svg/core/places/home?color=' + this.darkThemeColor)
 		},
 		getFormattedDate(n) {
 			return moment(n.created_at).locale(this.locale).format('LLL')

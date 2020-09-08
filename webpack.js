@@ -11,6 +11,7 @@ const config = {
 	entry: {
 		personalSettings: path.join(__dirname, 'src', 'personalSettings.js'),
 		dashboard: path.join(__dirname, 'src', 'dashboard.js'),
+		dashboardHome: path.join(__dirname, 'src', 'dashboardHome.js'),
 	},
 }
 

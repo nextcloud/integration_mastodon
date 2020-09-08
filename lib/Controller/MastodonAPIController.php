@@ -67,7 +67,7 @@ class MastodonAPIController extends Controller {
      * get notification list
      * @NoAdminRequired
      */
-    public function getMastodonUrl() {
+    public function getMastodonUrl(): DataResponse {
         return new DataResponse($this->mastodonUrl);
     }
 
@@ -75,7 +75,7 @@ class MastodonAPIController extends Controller {
      * get notification list
      * @NoAdminRequired
      */
-    public function declareApp($redirect_uris = '') {
+    public function declareApp(string $redirect_uris = ''): DataResponse {
         $result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
         if (is_array($result)) {
             // we save the client ID and secret and give the client ID back to the UI
@@ -96,9 +96,26 @@ class MastodonAPIController extends Controller {
      * @NoAdminRequired
      * @NoCSRFRequired
      */
-    public function getMastodonAvatar($url) {
+    public function getMastodonAvatar($url): DataDisplayResponse {
         $response = new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
         $response->cacheFor(60*60*24);
+        return $response;
+    }
+
+    /**
+     * get home timeline
+     * @NoAdminRequired
+     */
+    public function getHomeTimeline(?int $since): DataResponse {
+        if ($this->accessToken === '') {
+            return new DataResponse($result, 400);
+        }
+        $result = $this->mastodonAPIService->getHomeTimeline($this->mastodonUrl, $this->accessToken, $since);
+        if (!isset($result['error'])) {
+            $response = new DataResponse($result);
+        } else {
+            $response = new DataResponse($result, 401);
+        }
         return $response;
     }
 
@@ -106,12 +123,12 @@ class MastodonAPIController extends Controller {
      * get notification list
      * @NoAdminRequired
      */
-    public function getNotifications($since = null) {
+    public function getNotifications(?int $since): DataResponse {
         if ($this->accessToken === '') {
             return new DataResponse($result, 400);
         }
         $result = $this->mastodonAPIService->getNotifications($this->mastodonUrl, $this->accessToken, $since);
-        if (is_array($result)) {
+        if (!isset($result['error'])) {
             $response = new DataResponse($result);
         } else {
             $response = new DataResponse($result, 401);

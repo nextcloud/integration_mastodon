@@ -38,7 +38,7 @@ class MastodonAPIService {
         $this->client = $clientService->newClient();
     }
 
-    public function getHomeTimeline($url, $accessToken, $since = null) {
+    public function getHomeTimeline(string $url, string $accessToken, ?int $since): array {
         $params = [
             'limit' => 30
         ];
@@ -53,7 +53,7 @@ class MastodonAPIService {
         return $home;
     }
 
-    public function getNotifications($url, $accessToken, $since = null) {
+    public function getNotifications(string $url, string $accessToken, ?int $since): array {
         $params = [
             'limit' => 30
         ];
@@ -79,11 +79,11 @@ class MastodonAPIService {
         return $notifications;
     }
 
-    public function getMastodonAvatar($url) {
+    public function getMastodonAvatar(string $url) {
         return $this->client->get($url)->getBody();
     }
 
-    public function declareApp($url, $redirect_uris) {
+    public function declareApp(string $url, string $redirect_uris): array {
         $params = [
             'client_name' => $this->l10n->t(Application::APP_ID, 'Nextcloud Mastodon integration app'),
             'redirect_uris' => $redirect_uris,
@@ -93,7 +93,7 @@ class MastodonAPIService {
         return $this->anonymousRequest($url, 'apps', $params, 'POST');
     }
 
-    public function anonymousRequest($url, $endPoint, $params = [], $method = 'GET') {
+    public function anonymousRequest(string $url, string $endPoint, array $params = [], string $method = 'GET'): array {
         try {
             $url = $url . '/api/v1/' . $endPoint;
             $options = [
@@ -124,17 +124,17 @@ class MastodonAPIService {
             $respCode = $response->getStatusCode();
 
             if ($respCode >= 400) {
-                return $this->l10n->t('Bad credentials');
+                return ['error' => $this->l10n->t('Bad credentials')];
             } else {
                 return json_decode($body, true);
             }
         } catch (\Exception $e) {
-            $this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
-            return $e;
+            $this->logger->warning('Mastodon API error : '.$e->getMessage(), array('app' => $this->appName));
+            return ['error' => $e->getMessage()];
         }
     }
 
-    public function request($url, $accessToken, $endPoint, $params = [], $method = 'GET') {
+    public function request(string $url, string $accessToken, string $endPoint, array $params = [], string $method = 'GET'): array {
         try {
             $url = $url . '/api/v1/' . $endPoint;
             $options = [
@@ -176,17 +176,17 @@ class MastodonAPIService {
             $respCode = $response->getStatusCode();
 
             if ($respCode >= 400) {
-                return $this->l10n->t('Bad credentials');
+                return ['error' => $this->l10n->t('Bad credentials')];
             } else {
                 return json_decode($body, true);
             }
         } catch (\Exception $e) {
             $this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
-            return $e;
+            return ['error' => $e->getMessage()];
         }
     }
 
-    public function requestOAuthAccessToken($mastodonUrl, $params = [], $method = 'GET') {
+    public function requestOAuthAccessToken(string $mastodonUrl, array $params = [], string $method = 'GET'): array {
         try {
             $url = $mastodonUrl . '/oauth/token';
             $options = [
@@ -217,13 +217,13 @@ class MastodonAPIService {
             $respCode = $response->getStatusCode();
 
             if ($respCode >= 400) {
-                return $this->l10n->t('OAuth access token refused');
+                return ['error' => $this->l10n->t('OAuth access token refused')];
             } else {
                 return json_decode($body, true);
             }
         } catch (\Exception $e) {
             $this->logger->warning('Mastodon OAuth error : '.$e, array('app' => $this->appName));
-            return $e;
+            return ['error' => $e->getMessage()];
         }
     }
 
