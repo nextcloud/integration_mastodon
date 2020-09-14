@@ -93,7 +93,7 @@ class MastodonAPIService {
         return $this->anonymousRequest($url, 'apps', $params, 'POST');
     }
 
-    public function anonymousRequest(string $url, string $endPoint, array $params = [], string $method = 'GET'): array {
+    public function anonymousRequest(string $url, string $endPoint, ?array $params = [], ?string $method = 'GET'): array {
         try {
             $url = $url . '/api/v1/' . $endPoint;
             $options = [

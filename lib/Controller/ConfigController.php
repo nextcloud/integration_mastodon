@@ -100,6 +100,12 @@ class ConfigController extends Controller {
             if (is_array($result) and isset($result['access_token'])) {
                 $accessToken = $result['access_token'];
                 $this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
+                // get user info accounts/verify_credentials
+                $info = $this->mastodonAPIService->request($mastodonUrl, $accessToken, 'accounts/verify_credentials');
+                if (isset($info['id']) && isset($info['username'])) {
+                    $this->config->setUserValue($this->userId, Application::APP_ID, 'user_id', $info['id']);
+                    $this->config->setUserValue($this->userId, Application::APP_ID, 'user_name', $info['username']);
+                }
                 return new RedirectResponse(
                     $this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
                     '?mastodonToken=success'

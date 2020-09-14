@@ -4,29 +4,34 @@
 			<a class="icon icon-mastodon" />
 			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
-		<div class="mastodon-grid-form">
-			<label for="mastodon-url">
-				<a class="icon icon-link" />
-				{{ t('integration_mastodon', 'Mastodon instance address') }}
-			</label>
-			<input id="mastodon-url"
-				v-model="state.url"
-				type="text"
-				:placeholder="t('integration_mastodon', 'Mastodon instance URL')"
-				@input="onInput">
-			<button id="mastodon-oauth" @click="onOAuthClick">
+		<div id="mastodon-content">
+			<div class="mastodon-grid-form">
+				<label for="mastodon-url">
+					<a class="icon icon-link" />
+					{{ t('integration_mastodon', 'Mastodon instance address') }}
+				</label>
+				<input id="mastodon-url"
+					v-model="state.url"
+					type="text"
+					:disabled="connected === true"
+					:placeholder="t('integration_mastodon', 'Mastodon instance URL')"
+					@input="onInput">
+			</div>
+			<button v-if="state.url && !connected" id="mastodon-oauth" @click="onOAuthClick">
 				<span class="icon icon-external" />
-				{{ t('integration_mastodon', 'Get access with OAuth') }}
+				{{ t('integration_mastodon', 'Connect to Mastodon') }}
 			</button>
-			<label for="mastodon-token">
-				<a class="icon icon-category-auth" />
-				{{ t('integration_mastodon', 'Mastodon access token') }}
-			</label>
-			<input id="mastodon-token"
-				v-model="state.token"
-				type="password"
-				:placeholder="t('integration_mastodon', 'Authenticate with OAuth')"
-				@input="onInput">
+			<div v-if="connected" class="mastodon-grid-form">
+                <label class="mastodon-connected">
+                    <a class="icon icon-checkmark-color" />
+                    {{ t('integration_mastodon', 'Connected as {user}', { user: state.user_name }) }}
+                </label>
+                <button id="mastodon-rm-cred" @click="onLogoutClick">
+                    <span class="icon icon-close" />
+                    {{ t('integration_mastodon', 'Disconnect from Mastodon') }}
+                </button>
+                <span />
+            </div>
 		</div>
 	</div>
 </template>
@@ -52,7 +57,12 @@ export default {
 		}
 	},
 
-	watch: {
+	computed: {
+		connected() {
+			return this.state.url && this.state.url !== ''
+				&& this.state.token && this.state.token !== ''
+				&& this.state.user_name && this.state.user_name !== ''
+		},
 	},
 
 	mounted() {
@@ -68,6 +78,10 @@ export default {
 	},
 
 	methods: {
+		onLogoutClick() {
+            this.state.token = ''
+            this.saveOptions()
+        },
 		onInput() {
 			const that = this
 			delay(function() {
@@ -92,6 +106,12 @@ export default {
 			axios.put(url, req)
 				.then((response) => {
 					showSuccess(t('integration_mastodon', 'Mastodon options saved.'))
+					if (response.data.user_name !== undefined) {
+                        this.state.user_name = response.data.user_name
+                        if (response.data.user_name === '') {
+                            showError(t('integration_mastodon', 'Incorrect access token'))
+                        }
+                    }
 				})
 				.catch((error) => {
 					showError(
@@ -146,10 +166,9 @@ export default {
 	width: 100%;
 }
 .mastodon-grid-form {
-	max-width: 900px;
+	max-width: 600px;
 	display: grid;
-	grid-template: 1fr / 1fr 1fr 1fr;
-	margin-left: 30px;
+	grid-template: 1fr / 1fr 1fr;
 	button .icon {
 		margin-bottom: -1px;
 	}
@@ -169,5 +188,8 @@ export default {
 }
 body.dark .icon-mastodon {
 	background-image: url(./../../img/app.svg);
+}
+#mastodon-content {
+	margin-left: 40px;
 }
 </style>
