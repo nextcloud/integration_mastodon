@@ -101,7 +101,7 @@ class ConfigController extends Controller {
                 $accessToken = $result['access_token'];
                 $this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
                 return new RedirectResponse(
-                    $this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'linked-accounts']) .
+                    $this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
                     '?mastodonToken=success'
                 );
             }
@@ -110,7 +110,7 @@ class ConfigController extends Controller {
             $result = $this->l->t('Error during OAuth exchanges');
         }
         return new RedirectResponse(
-            $this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'linked-accounts']) .
+            $this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
             '?mastodonToken=error&message=' . urlencode($result)
         );
     }
