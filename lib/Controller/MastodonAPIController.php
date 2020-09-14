@@ -36,104 +36,104 @@ use OCA\Mastodon\AppInfo\Application;
 class MastodonAPIController extends Controller {
 
 
-    private $userId;
-    private $config;
-    private $dbconnection;
-    private $dbtype;
+	private $userId;
+	private $config;
+	private $dbconnection;
+	private $dbtype;
 
-    public function __construct($AppName,
-                                IRequest $request,
-                                IServerContainer $serverContainer,
-                                IConfig $config,
-                                IL10N $l10n,
-                                IAppManager $appManager,
-                                IAppData $appData,
-                                ILogger $logger,
-                                MastodonAPIService $mastodonAPIService,
-                                $userId) {
-        parent::__construct($AppName, $request);
-        $this->userId = $userId;
-        $this->l10n = $l10n;
-        $this->appData = $appData;
-        $this->serverContainer = $serverContainer;
-        $this->config = $config;
-        $this->logger = $logger;
-        $this->mastodonAPIService = $mastodonAPIService;
-        $this->accessToken = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
-        $this->mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
-    }
+	public function __construct($AppName,
+								IRequest $request,
+								IServerContainer $serverContainer,
+								IConfig $config,
+								IL10N $l10n,
+								IAppManager $appManager,
+								IAppData $appData,
+								ILogger $logger,
+								MastodonAPIService $mastodonAPIService,
+								$userId) {
+		parent::__construct($AppName, $request);
+		$this->userId = $userId;
+		$this->l10n = $l10n;
+		$this->appData = $appData;
+		$this->serverContainer = $serverContainer;
+		$this->config = $config;
+		$this->logger = $logger;
+		$this->mastodonAPIService = $mastodonAPIService;
+		$this->accessToken = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
+		$this->mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
+	}
 
-    /**
-     * get notification list
-     * @NoAdminRequired
-     */
-    public function getMastodonUrl(): DataResponse {
-        return new DataResponse($this->mastodonUrl);
-    }
+	/**
+	 * get notification list
+	 * @NoAdminRequired
+	 */
+	public function getMastodonUrl(): DataResponse {
+		return new DataResponse($this->mastodonUrl);
+	}
 
-    /**
-     * get notification list
-     * @NoAdminRequired
-     */
-    public function declareApp(string $redirect_uris = ''): DataResponse {
-        $result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
-        if (is_array($result)) {
-            // we save the client ID and secret and give the client ID back to the UI
-            $this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
-            $this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
-            $data = [
-                'client_id' => $result['client_id']
-            ];
-            $response = new DataResponse($data);
-        } else {
-            $response = new DataResponse($result, 401);
-        }
-        return $response;
-    }
+	/**
+	 * get notification list
+	 * @NoAdminRequired
+	 */
+	public function declareApp(string $redirect_uris = ''): DataResponse {
+		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
+		if (is_array($result)) {
+			// we save the client ID and secret and give the client ID back to the UI
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
+			$data = [
+				'client_id' => $result['client_id']
+			];
+			$response = new DataResponse($data);
+		} else {
+			$response = new DataResponse($result, 401);
+		}
+		return $response;
+	}
 
-    /**
-     * get mastodon user avatar
-     * @NoAdminRequired
-     * @NoCSRFRequired
-     */
-    public function getMastodonAvatar($url): DataDisplayResponse {
-        $response = new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
-        $response->cacheFor(60*60*24);
-        return $response;
-    }
+	/**
+	 * get mastodon user avatar
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 */
+	public function getMastodonAvatar($url): DataDisplayResponse {
+		$response = new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
+		$response->cacheFor(60*60*24);
+		return $response;
+	}
 
-    /**
-     * get home timeline
-     * @NoAdminRequired
-     */
-    public function getHomeTimeline(?int $since): DataResponse {
-        if ($this->accessToken === '') {
-            return new DataResponse($result, 400);
-        }
-        $result = $this->mastodonAPIService->getHomeTimeline($this->mastodonUrl, $this->accessToken, $since);
-        if (!isset($result['error'])) {
-            $response = new DataResponse($result);
-        } else {
-            $response = new DataResponse($result, 401);
-        }
-        return $response;
-    }
+	/**
+	 * get home timeline
+	 * @NoAdminRequired
+	 */
+	public function getHomeTimeline(?int $since): DataResponse {
+		if ($this->accessToken === '') {
+			return new DataResponse($result, 400);
+		}
+		$result = $this->mastodonAPIService->getHomeTimeline($this->mastodonUrl, $this->accessToken, $since);
+		if (!isset($result['error'])) {
+			$response = new DataResponse($result);
+		} else {
+			$response = new DataResponse($result, 401);
+		}
+		return $response;
+	}
 
-    /**
-     * get notification list
-     * @NoAdminRequired
-     */
-    public function getNotifications(?int $since): DataResponse {
-        if ($this->accessToken === '') {
-            return new DataResponse($result, 400);
-        }
-        $result = $this->mastodonAPIService->getNotifications($this->mastodonUrl, $this->accessToken, $since);
-        if (!isset($result['error'])) {
-            $response = new DataResponse($result);
-        } else {
-            $response = new DataResponse($result, 401);
-        }
-        return $response;
-    }
+	/**
+	 * get notification list
+	 * @NoAdminRequired
+	 */
+	public function getNotifications(?int $since): DataResponse {
+		if ($this->accessToken === '') {
+			return new DataResponse($result, 400);
+		}
+		$result = $this->mastodonAPIService->getNotifications($this->mastodonUrl, $this->accessToken, $since);
+		if (!isset($result['error'])) {
+			$response = new DataResponse($result);
+		} else {
+			$response = new DataResponse($result, 401);
+		}
+		return $response;
+	}
 
 }

@@ -28,25 +28,25 @@ use OCA\Mastodon\Dashboard\MastodonHomeWidget;
  */
 class Application extends App implements IBootstrap {
 
-    public const APP_ID = 'integration_mastodon';
+	public const APP_ID = 'integration_mastodon';
 
-    /**
-     * Constructor
-     *
-     * @param array $urlParams
-     */
-    public function __construct(array $urlParams = []) {
-        parent::__construct(self::APP_ID, $urlParams);
+	/**
+	 * Constructor
+	 *
+	 * @param array $urlParams
+	 */
+	public function __construct(array $urlParams = []) {
+		parent::__construct(self::APP_ID, $urlParams);
 
-        $container = $this->getContainer();
-    }
+		$container = $this->getContainer();
+	}
 
-    public function register(IRegistrationContext $context): void {
-        $context->registerDashboardWidget(MastodonWidget::class);
-        $context->registerDashboardWidget(MastodonHomeWidget::class);
-    }
+	public function register(IRegistrationContext $context): void {
+		$context->registerDashboardWidget(MastodonWidget::class);
+		$context->registerDashboardWidget(MastodonHomeWidget::class);
+	}
 
-    public function boot(IBootContext $context): void {
-    }
+	public function boot(IBootContext $context): void {
+	}
 }
 

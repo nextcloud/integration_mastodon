@@ -50,8 +50,8 @@ class MastodonWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function getTitle(): string {
-        return $this->l10n->t('Mastodon notifications');
-        }
+		return $this->l10n->t('Mastodon notifications');
+		}
 
 	/**
 	 * @inheritDoc
@@ -78,7 +78,7 @@ class MastodonWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function load(): void {
-        \OC_Util::addScript(Application::APP_ID, Application::APP_ID . '-dashboard');
-        \OC_Util::addStyle(Application::APP_ID, 'dashboard');
-    }
+		\OC_Util::addScript(Application::APP_ID, Application::APP_ID . '-dashboard');
+		\OC_Util::addStyle(Application::APP_ID, 'dashboard');
+	}
 }

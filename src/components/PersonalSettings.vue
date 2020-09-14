@@ -22,16 +22,16 @@
 				{{ t('integration_mastodon', 'Connect to Mastodon') }}
 			</button>
 			<div v-if="connected" class="mastodon-grid-form">
-                <label class="mastodon-connected">
-                    <a class="icon icon-checkmark-color" />
-                    {{ t('integration_mastodon', 'Connected as {user}', { user: state.user_name }) }}
-                </label>
-                <button id="mastodon-rm-cred" @click="onLogoutClick">
-                    <span class="icon icon-close" />
-                    {{ t('integration_mastodon', 'Disconnect from Mastodon') }}
-                </button>
-                <span />
-            </div>
+				<label class="mastodon-connected">
+					<a class="icon icon-checkmark-color" />
+					{{ t('integration_mastodon', 'Connected as {user}', { user: state.user_name }) }}
+				</label>
+				<button id="mastodon-rm-cred" @click="onLogoutClick">
+					<span class="icon icon-close" />
+					{{ t('integration_mastodon', 'Disconnect from Mastodon') }}
+				</button>
+				<span />
+			</div>
 		</div>
 	</div>
 </template>
@@ -79,9 +79,9 @@ export default {
 
 	methods: {
 		onLogoutClick() {
-            this.state.token = ''
-            this.saveOptions()
-        },
+			this.state.token = ''
+			this.saveOptions()
+		},
 		onInput() {
 			const that = this
 			delay(function() {
@@ -107,11 +107,11 @@ export default {
 				.then((response) => {
 					showSuccess(t('integration_mastodon', 'Mastodon options saved.'))
 					if (response.data.user_name !== undefined) {
-                        this.state.user_name = response.data.user_name
-                        if (response.data.user_name === '') {
-                            showError(t('integration_mastodon', 'Incorrect access token'))
-                        }
-                    }
+						this.state.user_name = response.data.user_name
+						if (response.data.user_name === '') {
+							showError(t('integration_mastodon', 'Incorrect access token'))
+						}
+					}
 				})
 				.catch((error) => {
 					showError(
