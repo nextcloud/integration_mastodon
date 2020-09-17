@@ -108,7 +108,7 @@ class MastodonAPIController extends Controller {
 	 */
 	public function getHomeTimeline(?int $since): DataResponse {
 		if ($this->accessToken === '') {
-			return new DataResponse($result, 400);
+			return new DataResponse(null, 400);
 		}
 		$result = $this->mastodonAPIService->getHomeTimeline($this->mastodonUrl, $this->accessToken, $since);
 		if (!isset($result['error'])) {
@@ -125,7 +125,7 @@ class MastodonAPIController extends Controller {
 	 */
 	public function getNotifications(?int $since): DataResponse {
 		if ($this->accessToken === '') {
-			return new DataResponse($result, 400);
+			return new DataResponse(null, 400);
 		}
 		$result = $this->mastodonAPIService->getNotifications($this->mastodonUrl, $this->accessToken, $since);
 		if (!isset($result['error'])) {
