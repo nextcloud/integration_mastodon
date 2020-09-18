@@ -186,7 +186,7 @@ export default {
 	height: 23px;
 	margin-bottom: -4px;
 }
-body.dark .icon-mastodon {
+body.theme--dark .icon-mastodon {
 	background-image: url(./../../img/app.svg);
 }
 #mastodon-content {
