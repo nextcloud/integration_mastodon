@@ -4,20 +4,18 @@
 		:show-more-text="title"
 		:loading="state === 'loading'">
 		<template v-slot:empty-content>
-			<div v-if="state === 'no-token'">
-				<a :href="settingsUrl">
-					{{ t('integration_mastodon', 'Click here to configure the access to your Mastodon account.') }}
-				</a>
-			</div>
-			<div v-else-if="state === 'error'">
-				<a :href="settingsUrl">
-					{{ t('integration_mastodon', 'Incorrect access token.') }}
-					{{ t('integration_mastodon', 'Click here to configure the access to your Mastodon account.') }}
-				</a>
-			</div>
-			<div v-else-if="state === 'ok'">
-				{{ t('integration_mastodon', 'Nothing to show') }}
-			</div>
+			<EmptyContent
+				v-if="emptyContentMessage"
+				:icon="emptyContentIcon">
+				<template #desc>
+					{{ emptyContentMessage }}
+					<div v-if="state === 'no-token' || state === 'error'" class="connect-button">
+						<a class="button" :href="settingsUrl">
+							{{ t('integration_mastodon', 'Connect to Mastodon') }}
+						</a>
+					</div>
+				</template>
+			</EmptyContent>
 		</template>
 	</DashboardWidget>
 </template>
@@ -29,12 +27,13 @@ import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
+import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent'
 
 export default {
 	name: 'DashboardHome',
 
 	components: {
-		DashboardWidget,
+		DashboardWidget, EmptyContent,
 	},
 
 	props: {
@@ -84,6 +83,26 @@ export default {
 		},
 		lastMoment() {
 			return moment(this.lastDate)
+		},
+		emptyContentMessage() {
+			if (this.state === 'no-token') {
+				return t('integration_mastodon', 'No Mastodon account connected')
+			} else if (this.state === 'error') {
+				return t('integration_mastodon', 'Error connecting to Mastodon')
+			} else if (this.state === 'ok') {
+				return t('integration_mastodon', 'No Mastodon home toots!')
+			}
+			return ''
+		},
+		emptyContentIcon() {
+			if (this.state === 'no-token') {
+				return 'icon-mastodon'
+			} else if (this.state === 'error') {
+				return 'icon-close'
+			} else if (this.state === 'ok') {
+				return 'icon-checkmark'
+			}
+			return 'icon-checkmark'
 		},
 	},
 
@@ -197,4 +216,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+::v-deep .connect-button {
+	margin-top: 10px;
+}
 </style>
