@@ -109,13 +109,13 @@ export default {
 					if (response.data.user_name !== undefined) {
 						this.state.user_name = response.data.user_name
 						if (response.data.user_name === '') {
-							showError(t('integration_mastodon', 'Incorrect access token'))
+							showError(t('integration_mastodon', 'Incorrect access token.'))
 						}
 					}
 				})
 				.catch((error) => {
 					showError(
-						t('integration_mastodon', 'Failed to save Mastodon options')
+						t('integration_mastodon', 'Failed to save Mastodon options.')
 						+ ': ' + error.response.request.responseText
 					)
 				})
@@ -137,7 +137,7 @@ export default {
 				})
 				.catch((error) => {
 					showError(
-						t('integration_mastodon', 'Failed to add Mastodon OAuth app')
+						t('integration_mastodon', 'Failed to add Mastodon OAuth app.')
 						+ ': ' + error.response.request.responseText
 					)
 				})
