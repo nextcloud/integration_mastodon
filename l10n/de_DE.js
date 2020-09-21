@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Error getting OAuth access token" : "Fehler beim Abrufen des OAuth-Zugriffstokens",
     "Error during OAuth exchanges" : "Fehler beim OAuth-Austausch",
+    "Mastodon notifications" : "Mastodon Benachrichtigungen",
     "Bad credentials" : "Falsche Anmeldeinformationen",
     "OAuth access token refused" : "OAuth-Zugriffstoken abgelehnt",
     "Connected accounts" : "Verbundene Konten",
@@ -10,10 +11,11 @@ OC.L10N.register(
     "Connect to Mastodon" : "Mit Mastodon verbunden",
     "Connected as {user}" : "Verbunden als {user}",
     "Mastodon options saved." : "Mastodon-Einstellungen gespeichert.",
-    "Incorrect access token" : "Zugriffstoken nicht korrekt",
-    "Error connecting to Mastodon" : "Fehler bei der Verbindung mit Mastodon",
+    "Failed to get Mastodon notifications." : "Fehler beim Abrufen der Mastodon-Benachrichtigungen.",
     "is following you" : "folgt Ihnen",
     "wants to follow you" : "möchte Ihnen folgen",
-    "{name} wants to follow you" : "{name} möchte Ihnen folgen"
+    "{name} is following you" : "{name} folgt Ihnen",
+    "{name} wants to follow you" : "{name} möchte Ihnen folgen",
+    "Error connecting to Mastodon" : "Fehler bei der Verbindung mit Mastodon"
 },
 "nplurals=2; plural=(n != 1);");

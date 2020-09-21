@@ -9,14 +9,13 @@ OC.L10N.register(
     "Connected as {user}" : "Connesso come {user}",
     "Disconnect from Mastodon" : "Disconnetti da Mastodon",
     "Mastodon options saved." : "Opzioni di Mastodon salvate.",
-    "Incorrect access token" : "Token di accesso non corretto",
-    "Failed to save Mastodon options" : "Salvataggio delle opzioni di Mastodon non riuscito",
-    "No Mastodon account connected" : "Nessun account Mastodon connesso",
-    "Error connecting to Mastodon" : "Errore durante la connessione a Mastodon",
+    "Incorrect access token." : "Token di accesso non corretto.",
     "No Mastodon notifications!" : "Nessuna notifica Mastodon!",
     "is following you" : "ti segue",
     "wants to follow you" : "vuole seguirti",
     "{name} is following you" : "{name} ti segue",
-    "{name} wants to follow you" : "{name} vuole seguirti"
+    "{name} wants to follow you" : "{name} vuole seguirti",
+    "No Mastodon account connected" : "Nessun account Mastodon connesso",
+    "Error connecting to Mastodon" : "Errore durante la connessione a Mastodon"
 },
 "nplurals=2; plural=(n != 1);");
