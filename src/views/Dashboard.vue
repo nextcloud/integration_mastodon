@@ -85,9 +85,9 @@ export default {
 		},
 		emptyContentMessage() {
 			if (this.state === 'no-token') {
-				return t('integration_mastodon', 'No Mastodon account connected.')
+				return t('integration_mastodon', 'No Mastodon account connected')
 			} else if (this.state === 'error') {
-				return t('integration_mastodon', 'Error connecting to Mastodon.')
+				return t('integration_mastodon', 'Error connecting to Mastodon')
 			} else if (this.state === 'ok') {
 				return t('integration_mastodon', 'No Mastodon notifications!')
 			}
