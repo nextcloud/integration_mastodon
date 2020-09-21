@@ -1,7 +1,5 @@
-# Mastodon Nextcloud application
+# Mastodon integration into Nextcloud
 
-This app adds a dashboard widget to see your main Mastodon notifications.
+🐘 Put a Mastodon in your engine!
 
-## Releases
-
-...
+This app provides dashboard widgets displaying your important Mastodon notifications and your home timeline.

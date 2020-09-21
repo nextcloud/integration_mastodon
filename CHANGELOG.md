@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.3 – 2020-09-21
+### Added
+* second widget displaying home timeline
+
+### Changed
+* improve authentication design
+* improve widgets empty content
+
 ## 0.0.2 – 2020-09-02
 ### Fixed
 * image loading with new webpack config
