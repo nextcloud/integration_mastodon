@@ -38,7 +38,13 @@ class MastodonAPIService {
 		$this->client = $clientService->newClient();
 	}
 
-	public function getHomeTimeline(string $url, string $accessToken, ?int $since): array {
+	/**
+	 * @param string $url
+	 * @param string $accessToken
+	 * @param ?int $since
+	 * @return array
+	 */
+	public function getHomeTimeline(string $url, string $accessToken, ?int $since = null): array {
 		$params = [
 			'limit' => 30
 		];
@@ -53,7 +59,13 @@ class MastodonAPIService {
 		return $home;
 	}
 
-	public function getNotifications(string $url, string $accessToken, ?int $since): array {
+	/**
+	 * @param string $url
+	 * @param string $accessToken
+	 * @param ?int $since
+	 * @return array
+	 */
+	public function getNotifications(string $url, string $accessToken, ?int $since = null): array {
 		$params = [
 			'limit' => 30
 		];
@@ -79,10 +91,19 @@ class MastodonAPIService {
 		return $notifications;
 	}
 
-	public function getMastodonAvatar(string $url): string {
+	/**
+	 * @param string $url
+	 * @return ?string
+	 */
+	public function getMastodonAvatar(string $url): ?string {
 		return $this->client->get($url)->getBody();
 	}
 
+	/**
+	 * @param string $url
+	 * @param string $redirect_uris
+	 * @return array
+	 */
 	public function declareApp(string $url, string $redirect_uris): array {
 		$params = [
 			'client_name' => $this->l10n->t(Application::APP_ID, 'Nextcloud Mastodon integration app'),
@@ -93,7 +114,14 @@ class MastodonAPIService {
 		return $this->anonymousRequest($url, 'apps', $params, 'POST');
 	}
 
-	public function anonymousRequest(string $url, string $endPoint, ?array $params = [], ?string $method = 'GET'): array {
+	/**
+	 * @param string $url
+	 * @param string $endPoint
+	 * @param array $params
+	 * @param string $method
+	 * @return array
+	 */
+	public function anonymousRequest(string $url, string $endPoint, array $params = [], string $method = 'GET'): array {
 		try {
 			$url = $url . '/api/v1/' . $endPoint;
 			$options = [
@@ -134,6 +162,14 @@ class MastodonAPIService {
 		}
 	}
 
+	/**
+	 * @param string $url
+	 * @param string $accessToken
+	 * @param string $endPoint
+	 * @param array $params
+	 * @param string $method
+	 * @return array
+	 */
 	public function request(string $url, string $accessToken, string $endPoint, array $params = [], string $method = 'GET'): array {
 		try {
 			$url = $url . '/api/v1/' . $endPoint;
@@ -186,6 +222,12 @@ class MastodonAPIService {
 		}
 	}
 
+	/**
+	 * @param string $mastodonUrl
+	 * @param array $params
+	 * @param string $method
+	 * @return array
+	 */
 	public function requestOAuthAccessToken(string $mastodonUrl, array $params = [], string $method = 'GET'): array {
 		try {
 			$url = $mastodonUrl . '/oauth/token';
@@ -226,5 +268,4 @@ class MastodonAPIService {
 			return ['error' => $e->getMessage()];
 		}
 	}
-
 }

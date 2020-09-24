@@ -66,6 +66,8 @@ class MastodonAPIController extends Controller {
 	/**
 	 * get notification list
 	 * @NoAdminRequired
+	 *
+	 * @return DataResponse
 	 */
 	public function getMastodonUrl(): DataResponse {
 		return new DataResponse($this->mastodonUrl);
@@ -74,6 +76,9 @@ class MastodonAPIController extends Controller {
 	/**
 	 * get notification list
 	 * @NoAdminRequired
+	 *
+	 * @param string $redirect_uris
+	 * @return DataResponse
 	 */
 	public function declareApp(string $redirect_uris = ''): DataResponse {
 		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
@@ -95,8 +100,11 @@ class MastodonAPIController extends Controller {
 	 * get mastodon user avatar
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
+	 *
+	 * @param string $url
+	 * @return DataDisplayResponse
 	 */
-	public function getMastodonAvatar($url): DataDisplayResponse {
+	public function getMastodonAvatar(string $url): DataDisplayResponse {
 		$response = new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
 		$response->cacheFor(60*60*24);
 		return $response;
@@ -105,8 +113,11 @@ class MastodonAPIController extends Controller {
 	/**
 	 * get home timeline
 	 * @NoAdminRequired
+	 *
+	 * @param ?int $since
+	 * @return DataResponse
 	 */
-	public function getHomeTimeline(?int $since): DataResponse {
+	public function getHomeTimeline(?int $since = null): DataResponse {
 		if ($this->accessToken === '') {
 			return new DataResponse(null, 400);
 		}
@@ -122,8 +133,11 @@ class MastodonAPIController extends Controller {
 	/**
 	 * get notification list
 	 * @NoAdminRequired
+	 *
+	 * @param ?int $since
+	 * @return DataResponse
 	 */
-	public function getNotifications(?int $since): DataResponse {
+	public function getNotifications(?int $since = null): DataResponse {
 		if ($this->accessToken === '') {
 			return new DataResponse(null, 400);
 		}

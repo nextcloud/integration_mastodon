@@ -68,11 +68,22 @@ class ConfigController extends Controller {
 	/**
 	 * set config values
 	 * @NoAdminRequired
+	 *
+	 * @param array $values
+	 * @return DataResponse
 	 */
-	public function setConfig($values) {
+	public function setConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
 			$this->config->setUserValue($this->userId, Application::APP_ID, $key, $value);
 		}
+
+		if (isset($values['token']) && $values['token'] === '') {
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'user_id', '');
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'user_name', '');
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', '');
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', '');
+		}
+
 		$response = new DataResponse(1);
 		return $response;
 	}
@@ -81,8 +92,11 @@ class ConfigController extends Controller {
 	 * receive oauth code and get oauth access token
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
+	 *
+	 * @param string $code
+	 * @return RedirectResponse
 	 */
-	public function oauthRedirect($code = '') {
+	public function oauthRedirect(string $code = ''): RedirectResponse {
 		$mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
 		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id', '');
 		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret', '');
@@ -97,12 +111,12 @@ class ConfigController extends Controller {
 				'grant_type' => 'authorization_code',
 				'scope' => 'read write follow'
 			], 'POST');
-			if (is_array($result) and isset($result['access_token'])) {
+			if (is_array($result, $result['access_token'])) {
 				$accessToken = $result['access_token'];
 				$this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
 				// get user info accounts/verify_credentials
 				$info = $this->mastodonAPIService->request($mastodonUrl, $accessToken, 'accounts/verify_credentials');
-				if (isset($info['id']) && isset($info['username'])) {
+				if (isset($info['id'], $info['username'])) {
 					$this->config->setUserValue($this->userId, Application::APP_ID, 'user_id', $info['id']);
 					$this->config->setUserValue($this->userId, Application::APP_ID, 'user_name', $info['username']);
 				}

@@ -40,7 +40,7 @@ class Personal implements ISettings {
 	/**
 	 * @return TemplateResponse
 	 */
-	public function getForm() {
+	public function getForm(): TemplateResponse {
 		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
 		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
 		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name', '');
@@ -54,11 +54,11 @@ class Personal implements ISettings {
 		return new TemplateResponse(Application::APP_ID, 'personalSettings');
 	}
 
-	public function getSection() {
+	public function getSection(): string {
 		return 'connected-accounts';
 	}
 
-	public function getPriority() {
+	public function getPriority(): int {
 		return 15;
 	}
 }
