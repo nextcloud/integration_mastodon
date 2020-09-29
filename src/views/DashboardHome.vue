@@ -139,7 +139,7 @@ export default {
 				if (error.response && error.response.status === 400) {
 					this.state = 'no-token'
 				} else if (error.response && error.response.status === 401) {
-					showError(t('integration_mastodon', 'Failed to get Mastodon home timeline.'))
+					showError(t('integration_mastodon', 'Failed to get Mastodon home timeline'))
 					this.state = 'error'
 				} else {
 					// there was an error in notif processing

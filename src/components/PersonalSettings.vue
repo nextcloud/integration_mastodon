@@ -105,7 +105,7 @@ export default {
 			const url = generateUrl('/apps/integration_mastodon/config')
 			axios.put(url, req)
 				.then((response) => {
-					showSuccess(t('integration_mastodon', 'Mastodon options saved.'))
+					showSuccess(t('integration_mastodon', 'Mastodon options saved'))
 					if (response.data.user_name !== undefined) {
 						this.state.user_name = response.data.user_name
 						if (response.data.user_name === '') {
