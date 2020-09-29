@@ -71,7 +71,7 @@ export default {
 		const urlParams = new URLSearchParams(paramString)
 		const mToken = urlParams.get('mastodonToken')
 		if (mToken === 'success') {
-			showSuccess(t('integration_mastodon', 'Mastodon OAuth access token successfully retrieved!'))
+			showSuccess(t('integration_mastodon', 'Successfully connected to Mastodon!'))
 		} else if (mToken === 'error') {
 			showError(t('integration_mastodon', 'Mastodon OAuth access token could not be obtained:') + ' ' + urlParams.get('message'))
 		}
