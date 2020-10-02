@@ -9,3 +9,9 @@ export function delay(callback, ms) {
 		}, ms || 0)
 	}
 }
+
+export function truncateString(s, len) {
+	return s.length > len
+		? s.substring(0, len) + '…'
+		: s
+}

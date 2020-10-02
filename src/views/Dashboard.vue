@@ -28,6 +28,7 @@ import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
 import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent'
+import { truncateString } from '../utils'
 
 export default {
 	name: 'Dashboard',
@@ -178,16 +179,30 @@ export default {
 		},
 		getMainText(n) {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
-				return this.html2text(n.status.content)
+				let text = this.html2text(n.status.content)
+				while (text.startsWith('@')) {
+					text = text.replace(/^@[^\s]*\s?/, '')
+				}
+				return text
 			} else if (n.type === 'follow') {
-				return t('integration_mastodon', 'is following you')
+				return t('integration_mastodon', '{name} is following you', { name: this.getShortName(n) })
 			} else if (n.type === 'follow_request') {
-				return t('integration_mastodon', 'wants to follow you')
+				return t('integration_mastodon', '{name} wants to follow you', { name: this.getShortName(n) })
 			}
 			return ''
 		},
+		getShortName(n) {
+			return n.account.display_name
+				? truncateString(n.account.display_name, 10)
+				: truncateString(n.account.acct, 10)
+		},
 		getSubline(n) {
 			return this.getAuthorNameAndID(n)
+		},
+		getAuthorNameAndID(n) {
+			return n.account.display_name
+				? n.account.display_name + ' (' + n.account.acct + ')'
+				: n.account.acct
 		},
 		getNotificationContent(n) {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
@@ -230,11 +245,6 @@ export default {
 		},
 		getFormattedDate(n) {
 			return moment(n.created_at).locale(this.locale).format('LLL')
-		},
-		getAuthorNameAndID(n) {
-			return n.account.display_name
-				? n.account.display_name + ' (' + n.account.acct + ')'
-				: n.account.acct
 		},
 	},
 }
