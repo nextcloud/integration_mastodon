@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.4 – 2020-10-02
+### Added
+- lots of translations
+
+### Changed
+- improve items content (handle reblog, remove @mentions...)
+
 ## 0.0.3 – 2020-09-21
 ### Added
 * second widget displaying home timeline
