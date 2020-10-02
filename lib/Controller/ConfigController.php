@@ -111,7 +111,7 @@ class ConfigController extends Controller {
 				'grant_type' => 'authorization_code',
 				'scope' => 'read write follow'
 			], 'POST');
-			if (is_array($result, $result['access_token'])) {
+			if (isset($result['access_token'])) {
 				$accessToken = $result['access_token'];
 				$this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
 				// get user info accounts/verify_credentials
@@ -125,13 +125,13 @@ class ConfigController extends Controller {
 					'?mastodonToken=success'
 				);
 			}
-			$result = $this->l->t('Error getting OAuth access token') . ' ' . $result;
+			$result = $this->l->t('Error getting OAuth access token') . ' ' . $result['error'];
 		} else {
 			$result = $this->l->t('Error during OAuth exchanges');
 		}
 		return new RedirectResponse(
 			$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
-			'?mastodonToken=error&message=' . urlencode($result)
+			'?mastodonToken=error&message=' . urlencode($result['error'])
 		);
 	}
 }
