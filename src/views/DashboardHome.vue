@@ -67,7 +67,7 @@ export default {
 					targetUrl: this.getNotificationTarget(n),
 					avatarUrl: this.getAuthorAvatarUrl(n),
 					// avatarUsername: '',
-					// overlayIconUrl: this.getNotificationTypeImage(n),
+					overlayIconUrl: this.getNotificationTypeImage(n),
 					mainText: this.getMainText(n),
 					subText: this.getSubline(n),
 				}
@@ -175,10 +175,16 @@ export default {
 					: ''
 		},
 		getSubline(n) {
-			return this.getAuthorNameAndID(n)
+			return n.reblog && n.reblog.account && n.reblog.account.acct
+				? n.reblog.account.acct + ' (⮔ ' + n.account.acct + ')'
+				: this.getAuthorNameAndID(n)
 		},
 		getMainText(n) {
-			return this.getContent(n)
+			let text = this.getContent(n)
+			while (text.startsWith('@')) {
+				text = text.replace(/^@[^\s]*\s?/, '')
+			}
+			return text
 		},
 		getContent(n) {
 			return this.html2text(n.content) || t('integration_mastodon', 'No text content')
@@ -190,18 +196,22 @@ export default {
 			const temp = document.createElement('template')
 			s = s.trim()
 			temp.innerHTML = s
-			return temp.content.firstChild.textContent
+			return temp.content.textContent
 		},
 		getUniqueKey(n) {
 			return n.id
 		},
 		getAuthorAvatarUrl(n) {
-			return (n.account && n.account.avatar)
-				? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.account.avatar)
-				: ''
+			return n.reblog && n.reblog.account && n.reblog.account.avatar
+				? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.reblog.account.avatar)
+				: (n.account && n.account.avatar)
+					? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('url') + '=' + encodeURIComponent(n.account.avatar)
+					: ''
 		},
 		getNotificationTypeImage(n) {
-			return generateUrl('/svg/core/places/home?color=' + this.darkThemeColor)
+			return n.reblog && n.reblog.account
+				? generateUrl('/svg/integration_mastodon/retweet?color=ffffff')
+				: ''
 		},
 		getFormattedDate(n) {
 			return moment(n.created_at).locale(this.locale).format('LLL')
