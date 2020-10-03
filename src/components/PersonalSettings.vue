@@ -17,7 +17,11 @@
 					:placeholder="t('integration_mastodon', 'Mastodon instance URL')"
 					@input="onInput">
 			</div>
-			<button v-if="state.url && !connected" id="mastodon-oauth" @click="onOAuthClick">
+			<button v-if="state.url && !connected"
+				id="mastodon-oauth"
+				:disabled="loading === true"
+				:class="{ loading }"
+				@click="onOAuthClick">
 				<span class="icon icon-external" />
 				{{ t('integration_mastodon', 'Connect to Mastodon') }}
 			</button>
@@ -54,6 +58,7 @@ export default {
 	data() {
 		return {
 			state: loadState('integration_mastodon', 'user-config'),
+			loading: false,
 		}
 	},
 
@@ -83,6 +88,7 @@ export default {
 			this.saveOptions()
 		},
 		onInput() {
+			this.loading = true
 			const that = this
 			delay(function() {
 				that.saveOptions()
@@ -120,6 +126,7 @@ export default {
 					)
 				})
 				.then(() => {
+					this.loading = false
 				})
 		},
 		onOAuthClick() {
