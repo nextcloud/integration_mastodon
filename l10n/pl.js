@@ -26,8 +26,6 @@ OC.L10N.register(
     "Error connecting to Mastodon" : "Błąd podczas łączenia się z Mastodonem",
     "No Mastodon notifications!" : "Brak powiadomień Mastodona!",
     "Failed to get Mastodon notifications" : "Nie udało się pobrać powiadomień Mastodona",
-    "is following you" : "obserwuje Ciebie",
-    "wants to follow you" : "chce podążać za Tobą",
     "{name} is following you" : "{name} obserwuje Ciebie",
     "{name} wants to follow you" : "{name} chce obserwować Ciebie",
     "No Mastodon home toots!" : "Żadnych tutów domowych Mastodona!",

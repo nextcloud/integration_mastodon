@@ -13,8 +13,6 @@ OC.L10N.register(
     "No Mastodon account connected" : "Mastodon-tiliä ei ole yhdistetty",
     "Error connecting to Mastodon" : "Virhe yhdistäessä Mastodoniin",
     "No Mastodon notifications!" : "Ei Mastodon-ilmoituksia!",
-    "is following you" : "seuraa sinua",
-    "wants to follow you" : "haluaa seurata sinua",
     "{name} is following you" : "{name} seuraa sinua",
     "{name} wants to follow you" : "{name} haluaa seurata sinua",
     "No text content" : "Ei tekstisisältöä"

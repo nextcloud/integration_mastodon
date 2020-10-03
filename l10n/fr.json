@@ -24,8 +24,6 @@
     "Error connecting to Mastodon" : "Erreur de connexion à Mastodon",
     "No Mastodon notifications!" : "Pas de notification Mastodon !",
     "Failed to get Mastodon notifications" : "Impossible d'obtenir les notifications Mastodon",
-    "is following you" : "vous suit",
-    "wants to follow you" : "veut vous suivre",
     "{name} is following you" : "{name} vous suit",
     "{name} wants to follow you" : "{name} veut vous suivre",
     "No Mastodon home toots!" : "Pas de pouet Mastodon !",

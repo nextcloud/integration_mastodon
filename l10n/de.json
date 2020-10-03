@@ -24,8 +24,6 @@
     "Error connecting to Mastodon" : "Fehler bei der Verbindung mit Mastodon",
     "No Mastodon notifications!" : "Keine Mastodon-Benachrichtigungen!",
     "Failed to get Mastodon notifications" : "Fehler beim Abrufen der Mastodon-Benachrichtigungen",
-    "is following you" : "folgt Dir",
-    "wants to follow you" : "möchte Dir folgen",
     "{name} is following you" : "{name} folgt Dir",
     "{name} wants to follow you" : "{name} möchte Dir folgen",
     "No Mastodon home toots!" : "Keine Mastodon Home Toots!",

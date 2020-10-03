@@ -16,8 +16,6 @@ OC.L10N.register(
     "Connected as {user}" : "Verbonden als {user}",
     "Disconnect from Mastodon" : "Verbinding met Mastodon verbreken",
     "Mastodon OAuth access token could not be obtained:" : "Mastodon OAuth access token kon niet worden opgehaald:",
-    "is following you" : "volgt jou",
-    "wants to follow you" : "wil je volgen",
     "{name} is following you" : "{name} volgt je",
     "{name} wants to follow you" : "{name} wil je volgen",
     "No text content" : "Geen tekst-inhoud"

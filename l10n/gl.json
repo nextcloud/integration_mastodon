@@ -24,8 +24,6 @@
     "Error connecting to Mastodon" : "Produciuse un erro ao conectar co Mastodon",
     "No Mastodon notifications!" : "Non hai notificacións de Mastodon.",
     "Failed to get Mastodon notifications" : "Produciuse un fallo ao obter as notificacións de Mastodon",
-    "is following you" : "está a seguilo",
-    "wants to follow you" : "quere seguilo",
     "{name} is following you" : "{name} está a seguilo",
     "{name} wants to follow you" : "{name} quere seguilo",
     "No Mastodon home toots!" : "Non hai «toots» persoais de Mastodon.",

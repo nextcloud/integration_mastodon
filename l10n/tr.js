@@ -26,8 +26,6 @@ OC.L10N.register(
     "Error connecting to Mastodon" : "Mastodon bağlantısı kurulurken sorun çıktı",
     "No Mastodon notifications!" : "Herhangi bir Mastodon bildirimi yok!",
     "Failed to get Mastodon notifications" : "Mastodon bildirimleri alınamadı",
-    "is following you" : "sizi takip ediyor",
-    "wants to follow you" : "sizi takip etmek istiyor",
     "{name} is following you" : "{name} sizi takip ediyor",
     "{name} wants to follow you" : "{name} sizi takip etmek istiyor",
     "No Mastodon home toots!" : "Mastodon ana sayfasında bir şey yok!",
