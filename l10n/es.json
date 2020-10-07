@@ -1,5 +1,5 @@
 { "translations": {
-    "Error getting OAuth access token" : "Error al conseguir el token de acceso OAuth",
+    "Error getting OAuth access token" : "Error al obtener el token de acceso OAuth",
     "Error during OAuth exchanges" : "Error durante los intercambios OAuth",
     "Mastodon home timeline" : "Timeline de Mastodon",
     "Mastodon notifications" : "Notificaciones de Mastodon",
@@ -20,14 +20,14 @@
     "Incorrect access token" : "Token de acceso incorrecto",
     "Failed to save Mastodon options" : "Fallo al guardar las opciones de Mastodon",
     "Failed to add Mastodon OAuth app" : "Fallo al añadir la app OAuth de Mastodon",
-    "No Mastodon account connected" : "No ha ninguna cuenta de Mastodon conectada",
+    "No Mastodon account connected" : "No hay ninguna cuenta de Mastodon conectada",
     "Error connecting to Mastodon" : "Error al conectar con Mastodon",
     "No Mastodon notifications!" : "No hay notificaciones de Mastodon.",
-    "Failed to get Mastodon notifications" : "Fallo al conseguir las notificaciones de Mastodon",
+    "Failed to get Mastodon notifications" : "Fallo al obtener las notificaciones de Mastodon",
     "{name} is following you" : "{name} te ha seguido",
     "{name} wants to follow you" : "{name} quiere seguirte",
     "No Mastodon home toots!" : "No hay toots de Mastodon.",
-    "Failed to get Mastodon home timeline" : "Fallo al conseguir el timeline de Mastodon",
+    "Failed to get Mastodon home timeline" : "Fallo al obtener el timeline de Mastodon",
     "No text content" : "No hay contenido de texto"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
