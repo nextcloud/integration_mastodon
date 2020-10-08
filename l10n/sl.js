@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Error getting OAuth access token" : "Napaka med pridobivanjem žetona OAuth za dostop",
     "Error during OAuth exchanges" : " Napaka med izmenjavo podatkov OAuth",
     "Bad credentials" : "Neustrezna poverila",
     "OAuth access token refused" : " Žeton OAuth za dostop je bil zavrnjen",
