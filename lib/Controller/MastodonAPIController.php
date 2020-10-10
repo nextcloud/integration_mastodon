@@ -105,9 +105,16 @@ class MastodonAPIController extends Controller {
 	 * @return DataDisplayResponse
 	 */
 	public function getMastodonAvatar(string $url): DataDisplayResponse {
-		$response = new DataDisplayResponse($this->mastodonAPIService->getMastodonAvatar($url));
-		$response->cacheFor(60*60*24);
-		return $response;
+		$avatar = $this->mastodonAPIService->getMastodonAvatar(
+			$url, $this->mastodonUrl, $this->accessToken, $this->userId
+		);
+		if (is_null($avatar)) {
+			return new DataDisplayResponse('', 401);
+		} else {
+			$response = new DataDisplayResponse($avatar);
+			$response->cacheFor(60*60*24);
+			return $response;
+		}
 	}
 
 	/**

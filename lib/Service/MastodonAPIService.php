@@ -12,6 +12,7 @@
 namespace OCA\Mastodon\Service;
 
 use OCP\IL10N;
+use OCP\IConfig;
 use Psr\Log\LoggerInterface;
 use OCP\Http\Client\IClientService;
 
@@ -29,10 +30,12 @@ class MastodonAPIService {
 		string $appName,
 		LoggerInterface $logger,
 		IL10N $l10n,
+		IConfig $config,
 		IClientService $clientService
 	) {
 		$this->appName = $appName;
 		$this->l10n = $l10n;
+		$this->config = $config;
 		$this->logger = $logger;
 		$this->clientService = $clientService;
 		$this->client = $clientService->newClient();
@@ -92,11 +95,30 @@ class MastodonAPIService {
 	}
 
 	/**
-	 * @param string $url
+	 * @param string $avatarUrl
+	 * @param string $mastodonUrl
+	 * @param string $accessToken
+	 * @param string $userId
 	 * @return ?string
 	 */
-	public function getMastodonAvatar(string $url): ?string {
-		return $this->client->get($url)->getBody();
+	public function getMastodonAvatar(string $avatarUrl, string $mastodonUrl, string $accessToken, string $userId): ?string {
+		// read or get instance avatar URL
+		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname', '');
+		if ($instanceImageHostname === '') {
+			$instanceInfo = $this->request($mastodonUrl, $accessToken, 'instance');
+			if (!isset($instanceInfo['error']) && isset($instanceInfo['thumbnail'])) {
+				$tUrl = parse_url($instanceInfo['thumbnail']);
+				$instanceImageHostname = $tUrl['host'] ?? '';
+				$this->config->setUserValue($userId, Application::APP_ID, 'instance_image_hostname', $instanceImageHostname);
+			}
+		}
+
+		// check the avatar hostname is the same as instance thumbnail
+		$aUrl = parse_url($avatarUrl);
+		if ($aUrl['host'] === $instanceImageHostname) {
+			return $this->client->get($avatarUrl)->getBody();
+		}
+		return null;
 	}
 
 	/**
