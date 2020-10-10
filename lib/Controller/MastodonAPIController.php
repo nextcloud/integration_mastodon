@@ -101,12 +101,12 @@ class MastodonAPIController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 *
-	 * @param string $url
+	 * @param string $imageUrl
 	 * @return DataDisplayResponse
 	 */
-	public function getMastodonAvatar(string $url): DataDisplayResponse {
+	public function getMastodonAvatar(string $imageUrl): DataDisplayResponse {
 		$avatar = $this->mastodonAPIService->getMastodonAvatar(
-			$url, $this->mastodonUrl, $this->accessToken, $this->userId
+			$imageUrl, $this->mastodonUrl, $this->accessToken, $this->userId
 		);
 		if (is_null($avatar)) {
 			return new DataDisplayResponse('', 401);
