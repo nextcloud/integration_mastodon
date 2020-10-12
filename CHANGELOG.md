@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.5 – 2020-10-12
+### Changed
+- restrict avatar URL proxying
+
+### Fixed
+- various small design issues
+
 ## 0.0.4 – 2020-10-02
 ### Added
 - lots of translations
