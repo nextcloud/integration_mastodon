@@ -104,18 +104,15 @@ class MastodonAPIService {
 	public function getMastodonAvatar(string $avatarUrl, string $mastodonUrl, string $accessToken, string $userId): ?string {
 		// read or get instance avatar URL
 		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname', '');
-		if ($instanceImageHostname === '') {
-			$instanceInfo = $this->request($mastodonUrl, $accessToken, 'instance');
-			if (!isset($instanceInfo['error']) && isset($instanceInfo['thumbnail'])) {
-				$tUrl = parse_url($instanceInfo['thumbnail']);
-				$instanceImageHostname = $tUrl['host'] ?? '';
-				$this->config->setUserValue($userId, Application::APP_ID, 'instance_image_hostname', $instanceImageHostname);
-			}
-		}
+		$instanceContactImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_contact_image_hostname', '');
 
-		// check the avatar hostname is the same as instance thumbnail
+		// check the avatar hostname is the same as the account avatar one or the mastodon instance one
+		$mUrl = parse_url($mastodonUrl);
 		$aUrl = parse_url($avatarUrl);
-		if ($aUrl['host'] === $instanceImageHostname) {
+		if ($aUrl['host'] === $instanceImageHostname
+			|| $aUrl['host'] === $instanceContactImageHostname
+			|| $aUrl['host'] === $mUrl['host']
+		) {
 			return $this->client->get($avatarUrl)->getBody();
 		}
 		return null;

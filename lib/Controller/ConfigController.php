@@ -84,6 +84,7 @@ class ConfigController extends Controller {
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', '');
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', '');
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_image_hostname', '');
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname', '');
 		}
 
 		$response = new DataResponse(1);
@@ -118,9 +119,18 @@ class ConfigController extends Controller {
 				$this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
 				// get user info accounts/verify_credentials
 				$info = $this->mastodonAPIService->request($mastodonUrl, $accessToken, 'accounts/verify_credentials');
-				if (isset($info['id'], $info['username'])) {
+				if (isset($info['id'], $info['username'], $info['avatar'])) {
 					$this->config->setUserValue($this->userId, Application::APP_ID, 'user_id', $info['id']);
 					$this->config->setUserValue($this->userId, Application::APP_ID, 'user_name', $info['username']);
+					$aUrl = parse_url($info['avatar']);
+					$instanceImageHostname = $aUrl['host'] ?? '';
+					$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_image_hostname', $instanceImageHostname);
+					$instanceInfo = $this->mastodonAPIService->request($mastodonUrl, $accessToken, 'instance');
+					if (isset($instanceInfo['contact_account'], $instanceInfo['contact_account']['avatar'])) {
+						$aUrl = parse_url($instanceInfo['contact_account']['avatar']);
+						$instanceContactImageHostname = $aUrl['host'] ?? '';
+						$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname', $instanceContactImageHostname);
+					}
 				}
 				return new RedirectResponse(
 					$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
