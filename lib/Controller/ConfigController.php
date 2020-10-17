@@ -57,6 +57,7 @@ class ConfigController extends Controller {
 		$this->l = $l;
 		$this->userId = $userId;
 		$this->appData = $appData;
+		$this->appName = $AppName;
 		$this->serverContainer = $serverContainer;
 		$this->config = $config;
 		$this->dbconnection = $dbconnection;
@@ -82,6 +83,7 @@ class ConfigController extends Controller {
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'user_name', '');
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', '');
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', '');
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_image_hostname', '');
 		}
 
 		$response = new DataResponse(1);
@@ -101,7 +103,7 @@ class ConfigController extends Controller {
 		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id', '');
 		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret', '');
 
-		if ($mastodonUrl !== '' and $clientID !== '' and $clientSecret !== '' and $code !== '') {
+		if ($mastodonUrl !== '' && $clientID !== '' && $clientSecret !== '' && $code !== '') {
 			$redirect_uri = $this->urlGenerator->linkToRouteAbsolute('integration_mastodon.config.oauthRedirect');
 			$result = $this->mastodonAPIService->requestOAuthAccessToken($mastodonUrl, [
 				'client_id' => $clientID,
@@ -124,14 +126,18 @@ class ConfigController extends Controller {
 					$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
 					'?mastodonToken=success'
 				);
+			} else {
+				$result = $this->l->t('Error getting OAuth access token') . ' ' . ($result['error'] ?? 'undefined token');
 			}
-			$result = $this->l->t('Error getting OAuth access token') . ' ' . $result['error'];
 		} else {
+			$warning = 'Mastodon OAuth redirect error : code=' . $code . ' ; url=' . $mastodonUrl
+				. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret;
+			$this->logger->warning($warning, ['app' => $this->appName]);
 			$result = $this->l->t('Error during OAuth exchanges');
 		}
 		return new RedirectResponse(
 			$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
-			'?mastodonToken=error&message=' . urlencode($result['error'])
+			'?mastodonToken=error&message=' . urlencode($result)
 		);
 	}
 }
