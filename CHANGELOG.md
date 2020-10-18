@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.7 – 2020-10-18
+### Changed
+- more logs on oauth app declaration error
+
 ## 0.0.6 – 2020-10-18
 ### Changed
 - improve avatar hostname check
