@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.6 – 2020-10-18
+### Changed
+- improve avatar hostname check
+- use webpack 5 and style lint
+- more error logs on OAuth problems
+
 ## 0.0.5 – 2020-10-12
 ### Changed
 - restrict avatar URL proxying

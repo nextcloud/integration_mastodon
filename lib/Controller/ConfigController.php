@@ -137,11 +137,14 @@ class ConfigController extends Controller {
 					'?mastodonToken=success'
 				);
 			} else {
+				$warning = 'Mastodon OAuth get token error : code=' . $code . ' ; url=' . $mastodonUrl
+					. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret . ' ; redirect_uri=' . $redirect_uri;
+				$this->logger->warning($warning, ['app' => $this->appName]);
 				$result = $this->l->t('Error getting OAuth access token') . ' ' . ($result['error'] ?? 'undefined token');
 			}
 		} else {
 			$warning = 'Mastodon OAuth redirect error : code=' . $code . ' ; url=' . $mastodonUrl
-				. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret;
+				. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret . ' ; redirect_uri=' . $redirect_uri;
 			$this->logger->warning($warning, ['app' => $this->appName]);
 			$result = $this->l->t('Error during OAuth exchanges');
 		}
