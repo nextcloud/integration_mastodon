@@ -55,6 +55,7 @@ class MastodonAPIController extends Controller {
 		$this->userId = $userId;
 		$this->l10n = $l10n;
 		$this->appData = $appData;
+		$this->appName = $AppName;
 		$this->serverContainer = $serverContainer;
 		$this->config = $config;
 		$this->logger = $logger;
@@ -82,7 +83,7 @@ class MastodonAPIController extends Controller {
 	 */
 	public function declareApp(string $redirect_uris = ''): DataResponse {
 		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uris);
-		if (is_array($result)) {
+		if (isset($result['client_id'], $result['client_secret'])) {
 			// we save the client ID and secret and give the client ID back to the UI
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
@@ -91,6 +92,8 @@ class MastodonAPIController extends Controller {
 			];
 			$response = new DataResponse($data);
 		} else {
+			$warning = 'Mastodon app declaration error : ' . ($result['error'] ?? '');
+			$this->logger->warning($warning, ['app' => $this->appName]);
 			$response = new DataResponse($result, 401);
 		}
 		return $response;
