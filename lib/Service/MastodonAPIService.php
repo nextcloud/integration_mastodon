@@ -15,6 +15,7 @@ use OCP\IL10N;
 use OCP\IConfig;
 use Psr\Log\LoggerInterface;
 use OCP\Http\Client\IClientService;
+use OCP\IURLGenerator;
 
 use OCA\Mastodon\AppInfo\Application;
 
@@ -26,17 +27,17 @@ class MastodonAPIService {
 	/**
 	 * Service to make requests to Mastodon v1 API
 	 */
-	public function __construct (
-		string $appName,
-		LoggerInterface $logger,
-		IL10N $l10n,
-		IConfig $config,
-		IClientService $clientService
-	) {
+	public function __construct (string $appName,
+								LoggerInterface $logger,
+								IL10N $l10n,
+								IConfig $config,
+								IURLGenerator $urlGenerator,
+								IClientService $clientService) {
 		$this->appName = $appName;
 		$this->l10n = $l10n;
 		$this->config = $config;
 		$this->logger = $logger;
+		$this->urlGenerator = $urlGenerator;
 		$this->clientService = $clientService;
 		$this->client = $clientService->newClient();
 	}
@@ -123,10 +124,11 @@ class MastodonAPIService {
 	 * @param string $redirect_uris
 	 * @return array
 	 */
-	public function declareApp(string $url, string $redirect_uris): array {
+	public function declareApp(string $url): array {
+		$redirect_uri = $this->urlGenerator->linkToRouteAbsolute('integration_mastodon.config.oauthRedirect');
 		$params = [
 			'client_name' => $this->l10n->t(Application::APP_ID, 'Nextcloud Mastodon integration app'),
-			'redirect_uris' => $redirect_uris,
+			'redirect_uris' => $redirect_uri,
 			'scopes' => 'read write follow',
 			'website' => 'https://github.com/nextcloud/integration_mastodon'
 		];
