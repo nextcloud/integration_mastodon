@@ -78,12 +78,14 @@ class MastodonAPIController extends Controller {
 	 * get notification list
 	 * @NoAdminRequired
 	 *
+	 * @param string $redirect_uri
 	 * @return DataResponse
 	 */
-	public function declareApp(): DataResponse {
-		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl);
+	public function declareApp(string $redirect_uri): DataResponse {
+		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uri);
 		if (isset($result['client_id'], $result['client_secret'])) {
 			// we save the client ID and secret and give the client ID back to the UI
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'redirect_uri', $redirect_uri);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
 			$data = [

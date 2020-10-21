@@ -124,8 +124,7 @@ class MastodonAPIService {
 	 * @param string $redirect_uris
 	 * @return array
 	 */
-	public function declareApp(string $url): array {
-		$redirect_uri = $this->urlGenerator->linkToRouteAbsolute('integration_mastodon.config.oauthRedirect');
+	public function declareApp(string $url, string $redirect_uri): array {
 		$params = [
 			'client_name' => $this->l10n->t(Application::APP_ID, 'Nextcloud Mastodon integration app'),
 			'redirect_uris' => $redirect_uri,

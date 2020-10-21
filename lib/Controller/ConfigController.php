@@ -105,7 +105,7 @@ class ConfigController extends Controller {
 		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret', '');
 
 		if ($mastodonUrl !== '' && $clientID !== '' && $clientSecret !== '' && $code !== '') {
-			$redirect_uri = $this->urlGenerator->linkToRouteAbsolute('integration_mastodon.config.oauthRedirect');
+			$redirect_uri = $this->config->getUserValue($this->userId, Application::APP_ID, 'redirect_uri', '');
 			$result = $this->mastodonAPIService->requestOAuthAccessToken($mastodonUrl, [
 				'client_id' => $clientID,
 				'client_secret' => $clientSecret,

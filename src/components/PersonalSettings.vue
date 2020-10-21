@@ -59,6 +59,7 @@ export default {
 		return {
 			state: loadState('integration_mastodon', 'user-config'),
 			loading: false,
+			redirect_uri: window.location.protocol + '//' + window.location.host + generateUrl('/apps/integration_mastodon/oauth-redirect'),
 		}
 	},
 
@@ -132,7 +133,9 @@ export default {
 		onOAuthClick() {
 			// first we need to add an app to the target instance
 			// so we get client_id and client_secret
-			const req = {}
+			const req = {
+				redirect_uri: this.redirect_uri,
+			}
 			const url = generateUrl('/apps/integration_mastodon/oauth-app')
 			axios.post(url, req)
 				.then((response) => {
@@ -149,7 +152,7 @@ export default {
 		},
 		oAuthStep1(clientId) {
 			const requestUrl = this.state.url + '/oauth/authorize?client_id=' + encodeURIComponent(clientId)
-				+ '&redirect_uri=' + encodeURIComponent(this.state.redirect_url)
+				+ '&redirect_uri=' + encodeURIComponent(this.redirect_uri)
 				+ '&response_type=code'
 				+ '&scope=' + encodeURIComponent('read write follow')
 			window.location.replace(requestUrl)

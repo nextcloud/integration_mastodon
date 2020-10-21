@@ -44,12 +44,10 @@ class Personal implements ISettings {
 		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
 		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
 		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name', '');
-		$redirectUrl = $this->urlGenerator->linkToRouteAbsolute('integration_mastodon.config.oauthRedirect');
 
 		$userConfig = [
 			'token' => $token,
 			'url' => $url,
-			'redirect_url' => $redirectUrl,
 			'user_name' => $userName,
 		];
 		$this->initialStateService->provideInitialState($this->appName, 'user-config', $userConfig);
