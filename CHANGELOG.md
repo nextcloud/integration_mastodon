@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.9 – 2020-10-22
+### Added
+- automatic release
+
+### Fixed
+- finally use browser side redirect URI
+
 ## 0.0.8 – 2020-10-19
 ### Fixed
 - mismatch redirect URL between server side and browser side (possibly because of overwrite.cli.url)
