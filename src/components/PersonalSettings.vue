@@ -107,7 +107,7 @@ export default {
 					this.state.url = 'https://' + this.state.url
 				}
 			}
-			delay(function() {
+			delay(() => {
 				this.saveOptions({ url: this.state.url })
 			}, 2000)()
 		},
