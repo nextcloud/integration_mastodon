@@ -62,7 +62,7 @@ class Application extends App implements IBootstrap {
 			if ($this->config->getUserValue($userId, self::APP_ID, 'navigation_enabled', '0') === '1') {
 				$mastoUrl = $this->config->getUserValue($userId, self::APP_ID, 'url', '');
 				if ($mastoUrl !== '') {
-					$container->query(\OCP\INavigationManager::class)->add(function () use ($container, $gitlabUrl) {
+					$container->query(\OCP\INavigationManager::class)->add(function () use ($container, $mastoUrl) {
 						$urlGenerator = $container->query(\OCP\IURLGenerator::class);
 						$l10n = $container->query(\OCP\IL10N::class);
 						return [
