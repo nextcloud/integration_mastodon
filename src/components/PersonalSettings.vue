@@ -5,6 +5,16 @@
 			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
 		<div id="mastodon-content">
+			<div id="toggle-mastodon-navigation-link">
+				<input
+					id="mastodon-link"
+					type="checkbox"
+					class="checkbox"
+					:checked="state.navigation_enabled"
+					@input="onNavigationChange">
+				<label for="mastodon-link">{{ t('integration_mastodon', 'Enable navigation link') }}</label>
+			</div>
+			<br><br>
 			<div class="mastodon-grid-form">
 				<label for="mastodon-url">
 					<a class="icon icon-link" />
@@ -86,16 +96,10 @@ export default {
 	methods: {
 		onLogoutClick() {
 			this.state.token = ''
-			this.saveOptions()
+			this.saveOptions({ token: this.state.token })
 		},
 		onInput() {
 			this.loading = true
-			const that = this
-			delay(function() {
-				that.saveOptions()
-			}, 2000)()
-		},
-		saveOptions() {
 			if (!this.state.url.startsWith('https://')) {
 				if (this.state.url.startsWith('http://')) {
 					this.state.url = this.state.url.replace('http://', 'https://')
@@ -103,11 +107,17 @@ export default {
 					this.state.url = 'https://' + this.state.url
 				}
 			}
+			delay(function() {
+				this.saveOptions({ url: this.state.url })
+			}, 2000)()
+		},
+		onNavigationChange(e) {
+			this.state.navigation_enabled = e.target.checked
+			this.saveOptions({ navigation_enabled: this.state.navigation_enabled ? '1' : '0' })
+		},
+		saveOptions(values) {
 			const req = {
-				values: {
-					token: this.state.token,
-					url: this.state.url,
-				},
+				values,
 			}
 			const url = generateUrl('/apps/integration_mastodon/config')
 			axios.put(url, req)
@@ -123,7 +133,7 @@ export default {
 				.catch((error) => {
 					showError(
 						t('integration_mastodon', 'Failed to save Mastodon options')
-						+ ': ' + error.response.request.responseText
+						+ ': ' + error.response?.request?.responseText
 					)
 				})
 				.then(() => {

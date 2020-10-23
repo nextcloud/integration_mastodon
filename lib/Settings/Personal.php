@@ -44,11 +44,13 @@ class Personal implements ISettings {
 		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
 		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
 		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name', '');
+		$navigationEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'navigation_enabled', '0');
 
 		$userConfig = [
 			'token' => $token,
 			'url' => $url,
 			'user_name' => $userName,
+			'navigation_enabled' => ($navigationEnabled === '1'),
 		];
 		$this->initialStateService->provideInitialState($this->appName, 'user-config', $userConfig);
 		return new TemplateResponse(Application::APP_ID, 'personalSettings');
