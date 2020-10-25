@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Produciuse un erro ao obter o testemuño de acceso OAuth",
     "Error during OAuth exchanges" : "Produciuse un erro durante os intercambios de OAuth",
     "Mastodon home timeline" : "Liña temporal de inicio de Mastodon",
@@ -11,6 +12,7 @@ OC.L10N.register(
     "Mastodon integration" : "Integración de Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integración do servizo de rede social descentralizada de Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A integración de Mastodon fornece un trebello de panel que amosa as súas notificacións\n     importantes e a súa liña temporal.",
+    "Enable navigation link" : "Activar a ligazón de navegación",
     "Mastodon instance address" : "Enderezo da instancia de Mastodon",
     "Mastodon instance URL" : "URL da instancia de Mastodon",
     "Connect to Mastodon" : "Conectar con Mastodon",
