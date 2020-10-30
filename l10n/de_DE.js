@@ -15,7 +15,7 @@ OC.L10N.register(
     "Enable navigation link" : "Navigations-Link aktivieren",
     "Mastodon instance address" : "Adresse der Mastodon-Instanz",
     "Mastodon instance URL" : "URL der Mastodon-Instanz",
-    "Connect to Mastodon" : "Mit Mastodon verbunden",
+    "Connect to Mastodon" : "Mit Mastodon verbinden",
     "Connected as {user}" : "Verbunden als {user}",
     "Disconnect from Mastodon" : "Von Mastodon trennen",
     "Successfully connected to Mastodon!" : "Erfolgreich mit Mastodon verbunden!",
