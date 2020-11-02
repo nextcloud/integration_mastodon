@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "OAuth erişim kodu alınırken sorun çıktı",
     "Error during OAuth exchanges" : "OAuth takasında sorun çıktı",
     "Mastodon home timeline" : "Mastodon ana sayfası zaman akışı",
@@ -11,6 +12,7 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon bütünleştirmesi",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon kişisel olarak barındırılan sosyal ağ hizmeti bütünleştirmesi",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano gereçleri sağlar.",
+    "Enable navigation link" : "Gezinme bağlantısı kullanılsın",
     "Mastodon instance address" : "Mastodon kopyası adresi",
     "Mastodon instance URL" : "Mastodon kopyası adresi",
     "Connect to Mastodon" : "Mastodon bağlantısı kur",
