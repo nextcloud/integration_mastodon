@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.10 – 2020-11-08
+### Added
+- optional navigation link to mastodon instance
+
+### Changed
+- bump js libs
+
+### Fixed
+- make app icon dimensions square
 ## 0.0.9 – 2020-10-22
 ### Added
 - automatic release
