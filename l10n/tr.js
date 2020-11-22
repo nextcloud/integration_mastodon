@@ -11,7 +11,7 @@ OC.L10N.register(
     "Connected accounts" : "Bağlı hesaplar",
     "Mastodon integration" : "Mastodon bütünleştirmesi",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon kişisel olarak barındırılan sosyal ağ hizmeti bütünleştirmesi",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano gereçleri sağlar.",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano bileşenleri sağlar.",
     "Enable navigation link" : "Gezinme bağlantısı kullanılsın",
     "Mastodon instance address" : "Mastodon kopyası adresi",
     "Mastodon instance URL" : "Mastodon kopyası adresi",
