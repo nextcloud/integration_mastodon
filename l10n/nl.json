@@ -14,8 +14,12 @@
     "Connected as {user}" : "Verbonden als {user}",
     "Disconnect from Mastodon" : "Verbinding met Mastodon verbreken",
     "Mastodon OAuth access token could not be obtained:" : "Mastodon OAuth access token kon niet worden opgehaald:",
+    "No Mastodon account connected" : "Geen Mastodon-account verbonden",
+    "Error connecting to Mastodon" : "Fout bij het verbinden met Mastodon",
+    "No Mastodon notifications!" : "Geen Mastodon meldingen!",
     "{name} is following you" : "{name} volgt je",
     "{name} wants to follow you" : "{name} wil je volgen",
+    "No Mastodon home toots!" : "Geen Mastodon home toots!",
     "No text content" : "Geen tekst-inhoud"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
