@@ -14,6 +14,8 @@
     "Connected as {user}" : "Verbonden als {user}",
     "Disconnect from Mastodon" : "Verbinding met Mastodon verbreken",
     "Mastodon OAuth access token could not be obtained:" : "Mastodon OAuth access token kon niet worden opgehaald:",
+    "Incorrect access token" : "Onjuist access token",
+    "Failed to add Mastodon OAuth app" : "Kon Mastodon OAuth app niet toevoegen",
     "No Mastodon account connected" : "Geen Mastodon-account verbonden",
     "Error connecting to Mastodon" : "Fout bij het verbinden met Mastodon",
     "No Mastodon notifications!" : "Geen Mastodon meldingen!",
