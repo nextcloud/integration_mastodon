@@ -10,6 +10,7 @@ OC.L10N.register(
     "OAuth access token refused" : " Žeton OAuth za dostop je bil zavrnjen",
     "Connected accounts" : "Povezani računi",
     "Mastodon integration" : "Podpora za račune Mastodon",
+    "Enable navigation link" : "Omogoči povezave za krmarjenje",
     "Mastodon instance address" : "Naslov povezave do računa Mastodon",
     "Mastodon instance URL" : "Naslov URL povezave Mastodon",
     "Connect to Mastodon" : "Poveži z računom Mastodon",
