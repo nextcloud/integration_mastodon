@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.11 – 2020-12-10
+### Changed
+- bump js libs
+
+### Fixed
+- avoid crash when accessibility app is not installed
+
 ## 0.0.10 – 2020-11-08
 ### Added
 - optional navigation link to mastodon instance
