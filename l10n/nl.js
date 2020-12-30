@@ -12,6 +12,7 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon integratie",
     "Integration of Mastodon self-hosted social networking service" : "Integratie met Mastodon self-hosted social networking service",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon integratie biedt een dashboardwidgets die je belangrijke meldingen en je persoonlijke tijdlijn weergeven.",
+    "Enable navigation link" : "Inschakelen navigatielink",
     "Mastodon instance address" : "Adres Mastodon instance",
     "Mastodon instance URL" : "Mastodon instance URL",
     "Connect to Mastodon" : "Verbinden met Mastodon",
