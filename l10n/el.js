@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Σφάλμα κατά τη λήψη διακριτικού πρόσβασης OAuth",
     "Error during OAuth exchanges" : "Σφάλμα κατά την ανταλλαγή OAuth",
     "Mastodon home timeline" : "Χρονολόγιο του Mastodon",
@@ -11,6 +12,9 @@ OC.L10N.register(
     "Mastodon integration" : "Ενσωμάτωση Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Ενσωμάτωση της υπηρεσίας κοινωνικής δικτύωσης Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Η ενσωμάτωση του Mastodon παρέχει μικροεφαρμογή για τον πίνακα ελέγχου που εμφανίζει τις σημαντικές ειδοποιήσεις και το χρονολόγιό σας.",
+    "Enable navigation link" : "Ενεργοποίηση συνδέσμου πλοήγησης",
+    "Mastodon instance address" : "Διεύθυνση περιστατικού Mastodon",
+    "Mastodon instance URL" : "URL περιστατικού Mastodon",
     "Connect to Mastodon" : "Σύνδεση στο Mastodon",
     "Connected as {user}" : "Συνδεδεμένος ως {user}",
     "Disconnect from Mastodon" : "Αποσύνδεση από το Mastodon",
@@ -19,6 +23,7 @@ OC.L10N.register(
     "Mastodon options saved" : "Αποθηκεύτηκαν οι επιλογές του Mastodon",
     "Incorrect access token" : "Λανθασμένο διακριτικό πρόσβασης",
     "Failed to save Mastodon options" : "Αποτυχία αποθήκευσης επιλογών Mastodon",
+    "Failed to add Mastodon OAuth app" : "Αποτυχία προσθήκης εφαρμογής Mastodon OAuth",
     "No Mastodon account connected" : "Κανένας συνδεδεμένος λογαριασμός Mastodon",
     "Error connecting to Mastodon" : "Σφάλμα σύνδεσης στο Mastodon",
     "No Mastodon notifications!" : "Καμία ειδοποίηση Mastodon!",
