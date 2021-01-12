@@ -7,6 +7,7 @@ OC.L10N.register(
     "OAuth access token refused" : "QAuth sarbide tokena ukatua izan da",
     "Connected accounts" : "Konektaturiko kontuak",
     "Mastodon integration" : "Mastodon integrazioa",
+    "Enable navigation link" : "Gaitu nabigazio esteka",
     "Connect to Mastodon" : "Konektatu Mastodon-era",
     "Connected as {user}" : "{user} gisa konektatuta",
     "Disconnect from Mastodon" : "Deskonektatu Mastodon-etik",
