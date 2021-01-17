@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Erreur lors de l'obtention du jeton d'accès OAuth",
     "Error during OAuth exchanges" : "Erreur lors des échanges OAuth",
     "Mastodon home timeline" : "Fil d'actualités Mastodon",

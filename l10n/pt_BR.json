@@ -9,14 +9,22 @@
     "Connected accounts" : "Contas conectadas",
     "Mastodon integration" : "Integração de Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integração do serviço de rede social auto-hospedado Mastodon",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A integração do Mastodon fornece widgets de painel exibindo suas notificações importantes e sua linha do tempo inicial.",
     "Mastodon instance address" : "Endereço de instância Mastodon",
     "Mastodon instance URL" : "URL da instância Mastodon",
     "Connect to Mastodon" : "Conecte-se ao Mastodon",
     "Connected as {user}" : "Conectado como {user}",
     "Disconnect from Mastodon" : "Desconecte-se do Mastodon",
     "Mastodon OAuth access token could not be obtained:" : "Não foi possível obter o token de acesso Mastodon OAuth:",
+    "Incorrect access token" : "Token de acesso incorreto",
+    "Failed to save Mastodon options" : "Falha ao salvar opções de Mastodon",
+    "Failed to add Mastodon OAuth app" : "Falha ao adicionar aplicativo Mastodon OAuth",
+    "No Mastodon account connected" : "Nenhuma conta Mastodon conectada",
+    "Error connecting to Mastodon" : "Erro conectando ao Mastodon",
+    "No Mastodon notifications!" : "Nenhuma notificação Mastodon!",
     "{name} is following you" : "{name} está seguindo você",
     "{name} wants to follow you" : "{name} quer seguir você",
+    "No Mastodon home toots!" : "Nenhum Mastodon caseiro!",
     "No text content" : "Sem conteúdo de texto"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
