@@ -17,6 +17,7 @@
     "Connected as {user}" : "Povezan je uporabniški račun {user}",
     "Disconnect from Mastodon" : "Prekini povezavo z računom Mastodon",
     "Successfully connected to Mastodon!" : "Povezava z Mastodon je uspešno vzpostavljena!",
+    "Mastodon OAuth access token could not be obtained:" : "Žetona dostopa OAuth za Mastodon ni mogoče pridobiti:",
     "Mastodon options saved" : "Nastavitve Mastodon so shranjene",
     "Incorrect access token" : "Neveljaven žeton za dostop",
     "Failed to save Mastodon options" : "Shranjevanje nastavitev Mastodon je spodletelo",
