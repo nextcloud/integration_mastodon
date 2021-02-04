@@ -23,6 +23,7 @@ OC.L10N.register(
     "Mastodon options saved" : "Nastavitve Mastodon so shranjene",
     "Incorrect access token" : "Neveljaven žeton za dostop",
     "Failed to save Mastodon options" : "Shranjevanje nastavitev Mastodon je spodletelo",
+    "Failed to add Mastodon OAuth app" : "Dodajanje programa za overitev Mastodon OAuth je spodletelo",
     "No Mastodon account connected" : "Ni še povezanega računa Mastodon",
     "Error connecting to Mastodon" : "Napaka povezovanja z računom Mastodon",
     "No Mastodon notifications!" : "Ni obvestil Mastodon!",
