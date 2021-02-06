@@ -4,7 +4,7 @@ OC.L10N.register(
     "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "取得 OAuth 存取權杖時發生錯誤",
     "Error during OAuth exchanges" : "OAuth 交換時發生錯誤",
-    "Mastodon home timeline" : "Mastodon 家時間軸",
+    "Mastodon home timeline" : "Mastodon 主頁時間軸",
     "Mastodon notifications" : "Mastodon 通知",
     "Bad credentials" : "錯誤的憑證",
     "OAuth access token refused" : "OAuth 存取權杖被拒絕",
@@ -31,7 +31,7 @@ OC.L10N.register(
     "{name} is following you" : "{name} 正在追蹤您",
     "{name} wants to follow you" : "{name} 想要追蹤您",
     "No Mastodon home toots!" : "沒有 Mastodon 家嘟文！",
-    "Failed to get Mastodon home timeline" : "取得 Mastodon 家時間軸失敗",
+    "Failed to get Mastodon home timeline" : "取得 Mastodon 主頁時間軸失敗",
     "No text content" : "無文字內容"
 },
 "nplurals=1; plural=0;");
