@@ -1,11 +1,31 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "OAuthアクセストークン取得時のエラー",
     "Error during OAuth exchanges" : "OAuth通信中のエラー",
+    "Mastodon home timeline" : "Mastodon のホームタイムライン",
+    "Mastodon notifications" : "Mastodon の通知",
     "Bad credentials" : "不正な資格情報",
     "OAuth access token refused" : "OAuthアクセストークンが拒否されました",
     "Connected accounts" : "接続済みアカウント",
-    "Connected as {user}" : "{user} を接続済み"
+    "Mastodon integration" : "Mastodon の統合",
+    "Enable navigation link" : "ナビゲーションリンクを有効化",
+    "Mastodon instance address" : "Mastodon インスタンスのアドレス",
+    "Mastodon instance URL" : "Mastodon インスタンスの URL",
+    "Connect to Mastodon" : "Mastodon に接続",
+    "Connected as {user}" : "{user} を接続済み",
+    "Disconnect from Mastodon" : "Mastodon から切断",
+    "Successfully connected to Mastodon!" : "Mastodon への接続に成功しました！",
+    "Mastodon options saved" : "Mastodon の設定を保存しました",
+    "Incorrect access token" : "アクセストークンが正しくありません",
+    "Failed to save Mastodon options" : "Mastodon の設定の保存に失敗しました",
+    "No Mastodon account connected" : "Mastodon アカウントは接続されていません",
+    "Error connecting to Mastodon" : "Mastodon への接続中にエラーが発生しました",
+    "No Mastodon notifications!" : "Mastodon の通知はありません",
+    "Failed to get Mastodon notifications" : "Mastodon の通知の取得に失敗しました",
+    "{name} is following you" : "{name} があなたをフォロー",
+    "No Mastodon home toots!" : "Mastodon のホームにトゥートはありません",
+    "Failed to get Mastodon home timeline" : "Mastodon のホームタイムラインの取得に失敗しました"
 },
 "nplurals=1; plural=0;");
