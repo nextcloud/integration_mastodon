@@ -27,7 +27,7 @@ OC.L10N.register(
     "No Mastodon account connected" : "未連線至 Mastodon 帳號",
     "Error connecting to Mastodon" : "連線至 Mastodon 時發生錯誤",
     "No Mastodon notifications!" : "無 Mastodon 通知！",
-    "Failed to get Mastodon notifications" : "取得 Mastodon 通知失敗",
+    "Failed to get Mastodon notifications" : "未能獲取 GitLab 通知",
     "{name} is following you" : "{name} 正在追蹤您",
     "{name} wants to follow you" : "{name} 想要追蹤您",
     "No Mastodon home toots!" : "沒有 Mastodon 家嘟文！",
