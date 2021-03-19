@@ -67,7 +67,7 @@ export default {
 					id: this.getUniqueKey(n),
 					targetUrl: this.getNotificationTarget(n),
 					avatarUrl: this.getAuthorAvatarUrl(n),
-					// avatarUsername: '',
+					avatarUsername: '',
 					overlayIconUrl: this.getNotificationTypeImage(n),
 					mainText: this.getMainText(n),
 					subText: this.getSubline(n),
