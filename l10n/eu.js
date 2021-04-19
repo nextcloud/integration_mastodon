@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Errorea OAuth sarbide tokena eskuratzen",
     "Error during OAuth exchanges" : "Errorea QAuth trukeak egitean",
     "Mastodon notifications" : "Mastodon jakinarazpenak",
@@ -15,6 +16,7 @@ OC.L10N.register(
     "Connected as {user}" : "{user} gisa konektatuta",
     "Disconnect from Mastodon" : "Deskonektatu Mastodon-etik",
     "Incorrect access token" : "Sarbide token okerra",
+    "Failed to save Mastodon options" : "Mastodon aukerak gordetzeak huts egin du",
     "No Mastodon account connected" : "Ez dago Mastodon konturik konektatuta",
     "No Mastodon notifications!" : "Ez dago Mastodon jakinarazpenik!"
 },
