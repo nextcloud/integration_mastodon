@@ -18,6 +18,7 @@ OC.L10N.register(
     "Incorrect access token" : "Sarbide token okerra",
     "Failed to save Mastodon options" : "Mastodon aukerak gordetzeak huts egin du",
     "No Mastodon account connected" : "Ez dago Mastodon konturik konektatuta",
-    "No Mastodon notifications!" : "Ez dago Mastodon jakinarazpenik!"
+    "No Mastodon notifications!" : "Ez dago Mastodon jakinarazpenik!",
+    "No text content" : "Ez dago testu edukirik"
 },
 "nplurals=2; plural=(n != 1);");
