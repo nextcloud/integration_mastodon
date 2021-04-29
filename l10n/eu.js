@@ -17,10 +17,12 @@ OC.L10N.register(
     "Connect to Mastodon" : "Konektatu Mastodon-era",
     "Connected as {user}" : "{user} gisa konektatuta",
     "Disconnect from Mastodon" : "Deskonektatu Mastodon-etik",
+    "Mastodon options saved" : "Mastodon aukerak gordeta",
     "Incorrect access token" : "Sarbide token okerra",
     "Failed to save Mastodon options" : "Mastodon aukerak gordetzeak huts egin du",
     "No Mastodon account connected" : "Ez dago Mastodon konturik konektatuta",
     "No Mastodon notifications!" : "Ez dago Mastodon jakinarazpenik!",
+    "Failed to get Mastodon notifications" : "Mastodon jakinarazpenak lortzeak huts egin du",
     "No text content" : "Ez dago testu edukirik"
 },
 "nplurals=2; plural=(n != 1);");
