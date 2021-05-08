@@ -11,7 +11,7 @@ OC.L10N.register(
     "Connected accounts" : "Verbundene Konten",
     "Mastodon integration" : "Mastodon-Einbindung",
     "Integration of Mastodon self-hosted social networking service" : "Einbindung des selbst gehosteten sozialen Netzwerkdienstes Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Die Mastodon-Iintegration bietet Dashboard-Widgets, in dem deine wichtigen Benachrichtigungen und deine eigene Zeitleiste angezeigt werden.",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Die Mastodon-Iintegration bietet Dashboard-Widgets, in dem Deine wichtigen Benachrichtigungen und Deine eigene Zeitleiste angezeigt werden.",
     "Enable navigation link" : "Navigations-Link aktivieren",
     "Mastodon instance address" : "Adresse der Mastodon-Instanz",
     "Mastodon instance URL" : "URL der Mastodon-Instanz",
