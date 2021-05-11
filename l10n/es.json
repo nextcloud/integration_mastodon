@@ -24,7 +24,7 @@
     "Failed to add Mastodon OAuth app" : "Fallo al añadir la app OAuth de Mastodon",
     "No Mastodon account connected" : "No hay ninguna cuenta de Mastodon conectada",
     "Error connecting to Mastodon" : "Error al conectar con Mastodon",
-    "No Mastodon notifications!" : "No hay notificaciones de Mastodon.",
+    "No Mastodon notifications!" : "¡No hay notificaciones de Mastodon!",
     "Failed to get Mastodon notifications" : "Fallo al obtener las notificaciones de Mastodon",
     "{name} is following you" : "{name} te ha seguido",
     "{name} wants to follow you" : "{name} quiere seguirte",
