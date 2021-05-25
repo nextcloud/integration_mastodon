@@ -30,6 +30,7 @@ OC.L10N.register(
     "Failed to get Mastodon notifications" : "Pridobivanje obvestil Mastodon je spodletelo",
     "{name} is following you" : "{name} vam sledi",
     "{name} wants to follow you" : "{name} vam želi slediti",
+    "No Mastodon home toots!" : "Ni še zabeleženih objav Mastodon!",
     "Failed to get Mastodon home timeline" : "Pridobivanje časovnice objav Mastodon je spodletelo",
     "No text content" : "Ni besedilne vsebine"
 },
