@@ -9,7 +9,7 @@ OC.L10N.register(
     "Connected accounts" : "Anslutna konton",
     "Mastodon integration" : "Mastodon-integrering",
     "Integration of Mastodon self-hosted social networking service" : "Integrering med det självservade sociala nätverket Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon-integrering tillhandahåller dashboard-widgets med dina viktiga aviseringar och hem-tidslinje.",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon-integrering tillhandahåller instrumentpanelsgränssnittskomponenter med dina viktiga aviseringar och hem-tidslinje.",
     "Enable navigation link" : "Aktivera navigeringslänk",
     "Mastodon instance address" : "Mastodon-instansens adress",
     "Mastodon instance URL" : "Mastodon-instansens URL",
