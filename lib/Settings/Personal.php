@@ -2,36 +2,30 @@
 namespace OCA\Mastodon\Settings;
 
 use OCP\AppFramework\Http\TemplateResponse;
-use OCP\IRequest;
-use OCP\IL10N;
+use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
 use OCP\Settings\ISettings;
-use OCP\Util;
-use OCP\IURLGenerator;
-use OCP\IInitialStateService;
 
 use OCA\Mastodon\AppInfo\Application;
 
 class Personal implements ISettings {
 
-	private $request;
+	/**
+	 * @var IConfig
+	 */
 	private $config;
-	private $dataDirPath;
-	private $urlGenerator;
-	private $l;
+	/**
+	 * @var IInitialState
+	 */
+	private $initialStateService;
+	/**
+	 * @var string|null
+	 */
+	private $userId;
 
-	public function __construct(
-						string $appName,
-						IL10N $l,
-						IRequest $request,
-						IConfig $config,
-						IURLGenerator $urlGenerator,
-						IInitialStateService $initialStateService,
-						$userId) {
-		$this->appName = $appName;
-		$this->urlGenerator = $urlGenerator;
-		$this->request = $request;
-		$this->l = $l;
+	public function __construct(IConfig $config,
+								IInitialState $initialStateService,
+								?string $userId) {
 		$this->config = $config;
 		$this->initialStateService = $initialStateService;
 		$this->userId = $userId;
@@ -41,9 +35,9 @@ class Personal implements ISettings {
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token', '');
-		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
-		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name', '');
+		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token');
+		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url');
+		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name');
 		$navigationEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'navigation_enabled', '0');
 
 		$userConfig = [
@@ -52,7 +46,7 @@ class Personal implements ISettings {
 			'user_name' => $userName,
 			'navigation_enabled' => ($navigationEnabled === '1'),
 		];
-		$this->initialStateService->provideInitialState($this->appName, 'user-config', $userConfig);
+		$this->initialStateService->provideInitialState('user-config', $userConfig);
 		return new TemplateResponse(Application::APP_ID, 'personalSettings');
 	}
 

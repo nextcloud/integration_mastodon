@@ -11,18 +11,36 @@
 
 namespace OCA\Mastodon\Service;
 
+use Datetime;
+use Exception;
 use OCP\IL10N;
 use OCP\IConfig;
 use Psr\Log\LoggerInterface;
 use OCP\Http\Client\IClientService;
-use OCP\IURLGenerator;
 
 use OCA\Mastodon\AppInfo\Application;
 
 class MastodonAPIService {
-
-	private $l10n;
+	/**
+	 * @var string
+	 */
+	private $appName;
+	/**
+	 * @var LoggerInterface
+	 */
 	private $logger;
+	/**
+	 * @var IL10N
+	 */
+	private $l10n;
+	/**
+	 * @var IConfig
+	 */
+	private $config;
+	/**
+	 * @var \OCP\Http\Client\IClient
+	 */
+	private $client;
 
 	/**
 	 * Service to make requests to Mastodon v1 API
@@ -31,14 +49,11 @@ class MastodonAPIService {
 								LoggerInterface $logger,
 								IL10N $l10n,
 								IConfig $config,
-								IURLGenerator $urlGenerator,
 								IClientService $clientService) {
 		$this->appName = $appName;
+		$this->logger = $logger;
 		$this->l10n = $l10n;
 		$this->config = $config;
-		$this->logger = $logger;
-		$this->urlGenerator = $urlGenerator;
-		$this->clientService = $clientService;
 		$this->client = $clientService->newClient();
 	}
 
@@ -84,10 +99,10 @@ class MastodonAPIService {
 		$notifications = $this->request($url, $accessToken, 'notifications', $params);
 
 		// sort merged results by date
-		$a = usort($notifications, function($a, $b) {
-			$a = new \Datetime($a['created_at']);
+		usort($notifications, function($a, $b) {
+			$a = new Datetime($a['created_at']);
 			$ta = $a->getTimestamp();
-			$b = new \Datetime($b['created_at']);
+			$b = new Datetime($b['created_at']);
 			$tb = $b->getTimestamp();
 			return ($ta > $tb) ? -1 : 1;
 		});
@@ -98,14 +113,13 @@ class MastodonAPIService {
 	/**
 	 * @param string $avatarUrl
 	 * @param string $mastodonUrl
-	 * @param string $accessToken
 	 * @param string $userId
 	 * @return ?string
 	 */
-	public function getMastodonAvatar(string $avatarUrl, string $mastodonUrl, string $accessToken, string $userId): ?string {
+	public function getMastodonAvatar(string $avatarUrl, string $mastodonUrl, string $userId): ?string {
 		// read or get instance avatar URL
-		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname', '');
-		$instanceContactImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_contact_image_hostname', '');
+		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname');
+		$instanceContactImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_contact_image_hostname');
 
 		// check the avatar hostname is the same as the account avatar one or the mastodon instance one
 		$mUrl = parse_url($mastodonUrl);
@@ -121,7 +135,7 @@ class MastodonAPIService {
 
 	/**
 	 * @param string $url
-	 * @param string $redirect_uris
+	 * @param string $redirect_uri
 	 * @return array
 	 */
 	public function declareApp(string $url, string $redirect_uri): array {
@@ -167,6 +181,8 @@ class MastodonAPIService {
 				$response = $this->client->put($url, $options);
 			} else if ($method === 'DELETE') {
 				$response = $this->client->delete($url, $options);
+			} else {
+				return ['error' => $this->l10n->t('Bad HTTP method')];
 			}
 			$body = $response->getBody();
 			$respCode = $response->getStatusCode();
@@ -176,7 +192,7 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			$this->logger->warning('Mastodon API error : '.$e->getMessage(), array('app' => $this->appName));
 			return ['error' => $e->getMessage()];
 		}
@@ -227,6 +243,8 @@ class MastodonAPIService {
 				$response = $this->client->put($url, $options);
 			} else if ($method === 'DELETE') {
 				$response = $this->client->delete($url, $options);
+			} else {
+				return ['error' => $this->l10n->t('Bad HTTP method')];
 			}
 			$body = $response->getBody();
 			$respCode = $response->getStatusCode();
@@ -236,7 +254,7 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			$this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
 			return ['error' => $e->getMessage()];
 		}
@@ -274,6 +292,8 @@ class MastodonAPIService {
 				$response = $this->client->put($url, $options);
 			} else if ($method === 'DELETE') {
 				$response = $this->client->delete($url, $options);
+			} else {
+				return ['error' => $this->l10n->t('Bad HTTP method')];
 			}
 			$body = $response->getBody();
 			$respCode = $response->getStatusCode();
@@ -283,7 +303,7 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			$this->logger->warning('Mastodon OAuth error : '.$e, array('app' => $this->appName));
 			return ['error' => $e->getMessage()];
 		}

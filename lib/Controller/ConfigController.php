@@ -11,23 +11,12 @@
 
 namespace OCA\Mastodon\Controller;
 
-use OCP\App\IAppManager;
-use OCP\Files\IAppData;
-use OCP\AppFramework\Http\DataDisplayResponse;
-
 use OCP\IURLGenerator;
 use OCP\IConfig;
-use OCP\IServerContainer;
 use OCP\IL10N;
 use Psr\Log\LoggerInterface;
-
-use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\RedirectResponse;
-
-use OCP\AppFramework\Http\ContentSecurityPolicy;
-
 use OCP\IRequest;
-use OCP\IDBConnection;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
@@ -36,34 +25,47 @@ use OCA\Mastodon\AppInfo\Application;
 
 class ConfigController extends Controller {
 
-	private $userId;
+	/**
+	 * @var IConfig
+	 */
 	private $config;
-	private $dbconnection;
-	private $dbtype;
+	/**
+	 * @var IURLGenerator
+	 */
+	private $urlGenerator;
+	/**
+	 * @var IL10N
+	 */
+	private $l;
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
+	/**
+	 * @var MastodonAPIService
+	 */
+	private $mastodonAPIService;
+	/**
+	 * @var string|null
+	 */
+	private $userId;
 
-	public function __construct($AppName,
+	public function __construct(string $appName,
 								IRequest $request,
-								IServerContainer $serverContainer,
 								IConfig $config,
-								IAppManager $appManager,
-								IAppData $appData,
-								IDBConnection $dbconnection,
 								IURLGenerator $urlGenerator,
 								IL10N $l,
 								LoggerInterface $logger,
 								MastodonAPIService $mastodonAPIService,
-								$userId) {
-		parent::__construct($AppName, $request);
-		$this->l = $l;
-		$this->userId = $userId;
-		$this->appData = $appData;
-		$this->appName = $AppName;
-		$this->serverContainer = $serverContainer;
+								?string $userId) {
+		parent::__construct($appName, $request);
+		$this->appName = $appName;
 		$this->config = $config;
-		$this->dbconnection = $dbconnection;
 		$this->urlGenerator = $urlGenerator;
+		$this->l = $l;
 		$this->logger = $logger;
 		$this->mastodonAPIService = $mastodonAPIService;
+		$this->userId = $userId;
 	}
 
 	/**
@@ -87,8 +89,7 @@ class ConfigController extends Controller {
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname', '');
 		}
 
-		$response = new DataResponse(1);
-		return $response;
+		return new DataResponse(1);
 	}
 
 	/**
@@ -100,12 +101,12 @@ class ConfigController extends Controller {
 	 * @return RedirectResponse
 	 */
 	public function oauthRedirect(string $code = ''): RedirectResponse {
-		$mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', '');
-		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id', '');
-		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret', '');
+		$mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url');
+		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id');
+		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret');
+		$redirect_uri = $this->config->getUserValue($this->userId, Application::APP_ID, 'redirect_uri');
 
 		if ($mastodonUrl !== '' && $clientID !== '' && $clientSecret !== '' && $code !== '') {
-			$redirect_uri = $this->config->getUserValue($this->userId, Application::APP_ID, 'redirect_uri', '');
 			$result = $this->mastodonAPIService->requestOAuthAccessToken($mastodonUrl, [
 				'client_id' => $clientID,
 				'client_secret' => $clientSecret,
