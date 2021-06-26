@@ -6,6 +6,7 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "OAuth 交換時發生錯誤",
     "Mastodon home timeline" : "Mastodon 主頁時間軸",
     "Mastodon notifications" : "Mastodon 通知",
+    "Bad HTTP method" : "不正確的 HTTP 方法",
     "Bad credentials" : "錯誤的憑證",
     "OAuth access token refused" : "OAuth 存取權杖被拒絕",
     "Connected accounts" : "已連線的帳號",

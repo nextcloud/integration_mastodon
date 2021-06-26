@@ -6,6 +6,7 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "Chyba při výměnách informací v rámci OAuth",
     "Mastodon home timeline" : "Domovská časová osa v Mastodon",
     "Mastodon notifications" : "Upozorňování z Mastodon",
+    "Bad HTTP method" : "Nesprávná HTTP metoda",
     "Bad credentials" : "Nesprávné přihlašovací údaje",
     "OAuth access token refused" : "OAuth přístupový token odmítnut",
     "Connected accounts" : "Propojené účty",
