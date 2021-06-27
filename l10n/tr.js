@@ -6,6 +6,7 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "OAuth takasında sorun çıktı",
     "Mastodon home timeline" : "Mastodon ana sayfası zaman akışı",
     "Mastodon notifications" : "Mastodon bildirimleri",
+    "Bad HTTP method" : "HTTP yöntemi hatalı",
     "Bad credentials" : "Kimlik doğrulama bilgileri hatalı",
     "OAuth access token refused" : "OAuth erişim kodu reddedildi",
     "Connected accounts" : "Bağlı hesaplar",
