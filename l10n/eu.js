@@ -6,6 +6,7 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "Errorea QAuth trukeak egitean",
     "Mastodon home timeline" : "Mastodoneko denbora-lerro nagusia",
     "Mastodon notifications" : "Mastodon jakinarazpenak",
+    "Bad HTTP method" : "HTTP metodo okerra",
     "Bad credentials" : "Kredentzial okerrak",
     "OAuth access token refused" : "QAuth sarbide tokena ukatua izan da",
     "Connected accounts" : "Konektaturiko kontuak",
