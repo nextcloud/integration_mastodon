@@ -1,0 +1,28 @@
+{ "translations": {
+    "Mastodon" : "Mastodon",
+    "Error getting OAuth access token" : "Chyba pri získavaní prístupového tokenu OAuth",
+    "Error during OAuth exchanges" : "Chyba počas výmeny OAuth",
+    "Mastodon notifications" : "Upozornenia Mastodon",
+    "Bad HTTP method" : "Zlá metóda HTTP",
+    "Bad credentials" : "Nesprávne prihlasovacie údaje",
+    "OAuth access token refused" : "Prístupový token OAuth bol zamietnutý",
+    "Connected accounts" : "Prepojené účty",
+    "Mastodon integration" : "Matodon integrácia",
+    "Connect to Mastodon" : "Pripojiť k Mastodon",
+    "Connected as {user}" : "Pripojený ako {user}",
+    "Disconnect from Mastodon" : "Odpojiť od Mastodon",
+    "Successfully connected to Mastodon!" : "Úspešne pripojené k Mastodon!",
+    "Mastodon OAuth access token could not be obtained:" : "Mastodon prístupový token OAuth sa nepodarilo získať:",
+    "Mastodon options saved" : "Nastavenia Mastodon boli uložené",
+    "Incorrect access token" : "Nesprávny prístupový token",
+    "Failed to save Mastodon options" : "Nepodarilo sa uložiť nastavenia Mastodon",
+    "Failed to add Mastodon OAuth app" : "Nepodarilo sa pridať Mastodon OAuth aplikáciu",
+    "No Mastodon account connected" : "Nie je pripojený žiadny Mastodon účet",
+    "Error connecting to Mastodon" : "Chyba pri pripájaní k Mastodon",
+    "No Mastodon notifications!" : "Žiadne upozornenia z Mastodon!",
+    "Failed to get Mastodon notifications" : "Chyba pri získavaní upozornení z Mastodon",
+    "{name} is following you" : "{name} vás nasleduje",
+    "{name} wants to follow you" : "{name} vás chce nasledovať",
+    "No text content" : "Žiadny textový obsah"
+},"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
+}
