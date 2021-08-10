@@ -6,6 +6,7 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "Pogreška tijekom razmjene radi autentifikacije OAuth",
     "Mastodon home timeline" : "Mastodon vremenska traka",
     "Mastodon notifications" : "Mastodon obavijesti",
+    "Bad HTTP method" : "Pogrešna metoda HTTP-a",
     "Bad credentials" : "Pogrešne vjerodajnice",
     "OAuth access token refused" : "Odbijen token za pristup OAuth",
     "Connected accounts" : "Povezani računi",
