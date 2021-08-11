@@ -4,6 +4,7 @@ OC.L10N.register(
     "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Chyba pri získavaní prístupového tokenu OAuth",
     "Error during OAuth exchanges" : "Chyba počas výmeny OAuth",
+    "Mastodon home timeline" : "Domáca časová os v Mastodon",
     "Mastodon notifications" : "Upozornenia Mastodon",
     "Bad HTTP method" : "Zlá metóda HTTP",
     "Bad credentials" : "Nesprávne prihlasovacie údaje",
