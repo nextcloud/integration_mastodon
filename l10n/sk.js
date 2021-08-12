@@ -11,6 +11,8 @@ OC.L10N.register(
     "OAuth access token refused" : "Prístupový token OAuth bol zamietnutý",
     "Connected accounts" : "Prepojené účty",
     "Mastodon integration" : "Matodon integrácia",
+    "Integration of Mastodon self-hosted social networking service" : "Integrácia služby sociálnych sietí Mastodon na vašom serveri",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integrácia so službou Mastodon poskytuje miniaplikácie na paneli, ktoré zobrazujú vaše dôležité upozornenia a domácu časovú os.",
     "Enable navigation link" : "Povoliť navigačný odkaz",
     "Mastodon instance address" : "Adresa inštancie Mastodon",
     "Mastodon instance URL" : "URL inštancie Mastodon",
@@ -29,6 +31,8 @@ OC.L10N.register(
     "Failed to get Mastodon notifications" : "Chyba pri získavaní upozornení z Mastodon",
     "{name} is following you" : "{name} vás nasleduje",
     "{name} wants to follow you" : "{name} vás chce nasledovať",
+    "No Mastodon home toots!" : "Žiadne domovské Mastodon toots!",
+    "Failed to get Mastodon home timeline" : "Nepodarilo sa získať domovskú časovú osu z Mastodon",
     "No text content" : "Žiadny textový obsah"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");
