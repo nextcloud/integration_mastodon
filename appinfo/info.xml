@@ -4,7 +4,7 @@
     <name>Mastodon integration</name>
     <summary>Integration of Mastodon self-hosted social networking service</summary>
     <description><![CDATA[Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline.]]></description>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>Mastodon</namespace>
@@ -17,9 +17,6 @@
     <bugs>https://github.com/nextcloud/integration_mastodon/issues</bugs>
     <screenshot>https://github.com/nextcloud/integration_mastodon/raw/master/img/screenshot1.jpg</screenshot>
     <dependencies>
-        <database min-version="9.4">pgsql</database>
-        <database>sqlite</database>
-        <database min-version="5.5">mysql</database>
         <nextcloud min-version="22" max-version="24"/>
     </dependencies>
     <settings>
