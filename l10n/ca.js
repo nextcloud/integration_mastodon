@@ -16,7 +16,7 @@ OC.L10N.register(
     "Mastodon instance address" : "Adreça de la instància Mastodon",
     "Mastodon instance URL" : "URL de la instància Mastodon",
     "Connect to Mastodon" : "Connecta amb Mastodon",
-    "Connected as {user}" : "S'ha connectat com a {usuari}",
+    "Connected as {user}" : "S'ha connectat com a {user}",
     "Disconnect from Mastodon" : "DEsconnecta de Mastodon",
     "Successfully connected to Mastodon!" : "S'ha connectat satisfactòriament a Mastodon!",
     "Mastodon OAuth access token could not be obtained:" : "No s'ha pogut obtenir l'identificador OAuth de Mastodon:",
