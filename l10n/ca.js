@@ -6,6 +6,7 @@ OC.L10N.register(
     "Error during OAuth exchanges" : "Error durant els intercanvis d'OAuth",
     "Mastodon home timeline" : "Línia temporal local del Mastodon",
     "Mastodon notifications" : "Notificacions del Mastodon",
+    "Bad HTTP method" : "Mètode HTTP incorrecte",
     "Bad credentials" : "Credencials dolentes",
     "OAuth access token refused" : "S'ha rebutjat el testimoni d'accés oAuth",
     "Connected accounts" : "Comptes connectades",
