@@ -35,4 +35,4 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Impossible d'obtenir le fil d'actualités Mastodon",
     "No text content" : "Aucun contenu textuel"
 },
-"nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
+"nplurals=2; plural=(n > 1);");
