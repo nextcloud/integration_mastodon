@@ -1,7 +1,7 @@
 { "translations": {
     "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Hiba történt az OAuth hozzáférési token lekérése során",
-    "Error during OAuth exchanges" : "Hiba történt az OAuth cserék során",
+    "Error during OAuth exchanges" : "Hiba történt az OAuth üzenetváltás során",
     "Mastodon home timeline" : "Mastodon idővonal",
     "Mastodon notifications" : "Mastodon értesítések",
     "Bad HTTP method" : "Hibás HTTP metódus",
@@ -10,7 +10,7 @@
     "Connected accounts" : "Kapcsolt fiókok",
     "Mastodon integration" : "Mastodon integráció",
     "Integration of Mastodon self-hosted social networking service" : "A Mastodon önállóan üzemeltetett közösségi hálózati szolgáltatás integrálása",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A Mastodon integráció irányítópult widgeteket kínál, amelyek megjelenítik a fontos értesítéseket és idővonalat.",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A Mastodon integráció egy irányítópult-modult kínál, amely megjeleníti a fontos értesítéseket és idővonalat.",
     "Enable navigation link" : "Navigációs hivatkozás engedélyezése",
     "Mastodon instance address" : "Mastodon példány címe",
     "Mastodon instance URL" : "Mastodon példány URL-je",
@@ -21,15 +21,16 @@
     "Mastodon OAuth access token could not be obtained:" : "A Mastodon OAuth hozzáférési tokent nem sikerült beszerezni:",
     "Mastodon options saved" : "Mastodon beállítások mentve.",
     "Incorrect access token" : "Helytelen hozzáférési token",
-    "Failed to save Mastodon options" : "Mastodon beállítások mentése sikertelen.",
+    "Failed to save Mastodon options" : "A Mastodon beállítások mentése sikertelen.",
     "Failed to add Mastodon OAuth app" : "A Mastodon OAuth alkalmazás hozzáadása sikertelen",
     "No Mastodon account connected" : "Nincs Mastodon fiók csatlakoztatva",
-    "Error connecting to Mastodon" : "Hiba a Mastodonhoz való csatlakozásban",
+    "Error connecting to Mastodon" : "Hiba a Mastodonhoz történő kapcsolódás során",
     "No Mastodon notifications!" : "Nincsenek Mastodon értesítések",
     "Failed to get Mastodon notifications" : "A Mastodon értesítések elérése sikertelen",
     "{name} is following you" : "{name} követi Önt",
     "{name} wants to follow you" : "{name} követni szeretné Önt",
-    "Failed to get Mastodon home timeline" : "A Mastodon idővonal elérése sikertelen",
+    "No Mastodon home toots!" : "Nincsenek tülkök a helyi Mastodon idővonalon.",
+    "Failed to get Mastodon home timeline" : "A helyi Mastodon idővonal elérése sikertelen",
     "No text content" : "Nincs szöveges tartalom"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
