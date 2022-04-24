@@ -5,6 +5,7 @@ OC.L10N.register(
     "Error getting OAuth access token" : "Kunde inte hämta OAuth-token",
     "Mastodon home timeline" : "Hem-tidslinje på Mastodon",
     "Mastodon notifications" : "Mastodon-aviseringar",
+    "Bad HTTP method" : "Felaktig HTTP-metod",
     "Bad credentials" : "Ogiltiga inloggningsuppgifter",
     "Connected accounts" : "Anslutna konton",
     "Mastodon integration" : "Mastodon-integrering",

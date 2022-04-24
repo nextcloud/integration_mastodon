@@ -4,6 +4,7 @@
     "Error during OAuth exchanges" : "Ошибка во время обмена данными OAuth",
     "Mastodon home timeline" : "Mastodon домашняя лента",
     "Mastodon notifications" : "Уведомления Mastodon",
+    "Bad HTTP method" : "Неверный метод HTTP",
     "Bad credentials" : "Неверные учётные данные",
     "OAuth access token refused" : "Токен доступа OAuth отклонён",
     "Connected accounts" : "Подключённые учётные записи",

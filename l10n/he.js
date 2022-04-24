@@ -7,7 +7,10 @@ OC.L10N.register(
     "Mastodon home timeline" : "ציר הזמן של הבית של Mastodon",
     "Mastodon notifications" : "התראות Mastodon",
     "Bad credentials" : "פרטי גישה שגויים",
+    "OAuth access token refused" : "אסימון הגישה ב־OAuth סורב",
     "Connected accounts" : "חשבונות מקושרים",
-    "Mastodon integration" : "שילוב עם Mastodon"
+    "Mastodon integration" : "שילוב עם Mastodon",
+    "Enable navigation link" : "הפעלת קישור ניווט",
+    "Incorrect access token" : "אסימון הגישה שגוי"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;");

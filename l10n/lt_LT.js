@@ -1,6 +1,12 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Error getting OAuth access token" : "Klaida gaunant „OAuth“ prieigos raktą",
+    "Error during OAuth exchanges" : "Klaida „OAuth“ apsikeitimo metu",
+    "Bad HTTP method" : "Blogas HTTP metodas",
+    "Bad credentials" : "Blogi prisijungimo duomenys",
+    "OAuth access token refused" : "„OAuth“ prieigos raktas atmestas",
+    "Connected accounts" : "Prijungtos paskyros",
     "Mastodon instance address" : "„Mastodon“ egzemplioriaus adresas",
     "Mastodon instance URL" : "„Mastodon“ egzemplioriaus URL",
     "Connect to Mastodon" : "Prisijungti prie „Mastodon“",
