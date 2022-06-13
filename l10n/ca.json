@@ -7,7 +7,7 @@
     "Bad HTTP method" : "Mètode HTTP incorrecte",
     "Bad credentials" : "Credencials dolentes",
     "OAuth access token refused" : "S'ha rebutjat el testimoni d'accés oAuth",
-    "Connected accounts" : "Comptes connectades",
+    "Connected accounts" : "Comptes connectats",
     "Mastodon integration" : "Integració amb el Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integració del servei de xarxa social autohostatjada Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "La integració amb Mastodon proporciona ginys de tauler que us mostren les notificacions importants de la vostra línia temporal local",
