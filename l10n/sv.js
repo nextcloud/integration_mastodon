@@ -3,10 +3,12 @@ OC.L10N.register(
     {
     "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Kunde inte hämta OAuth-token",
+    "Error during OAuth exchanges" : "Fel vid utväxling av OAuth-token",
     "Mastodon home timeline" : "Hem-tidslinje på Mastodon",
     "Mastodon notifications" : "Mastodon-aviseringar",
     "Bad HTTP method" : "Felaktig HTTP-metod",
     "Bad credentials" : "Ogiltiga inloggningsuppgifter",
+    "OAuth access token refused" : "OAuth-token avvisades",
     "Connected accounts" : "Anslutna konton",
     "Mastodon integration" : "Mastodon-integrering",
     "Integration of Mastodon self-hosted social networking service" : "Integrering med det självservade sociala nätverket Mastodon",
