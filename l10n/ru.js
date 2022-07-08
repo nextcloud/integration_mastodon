@@ -21,7 +21,7 @@ OC.L10N.register(
     "Disconnect from Mastodon" : "Отключиться от Mastodon",
     "Successfully connected to Mastodon!" : "Соединение с Mastodon успешно установлено.",
     "Mastodon OAuth access token could not be obtained:" : "Не удалось получить токен доступа OAuth Mastodon:",
-    "Mastodon options saved" : "Параметры для Mastodon сохранены",
+    "Mastodon options saved" : "Параметры Mastodon сохранены",
     "Incorrect access token" : "Некорректный токен доступа",
     "Failed to save Mastodon options" : "Не удалось сохранить параметры Mastodon",
     "Failed to add Mastodon OAuth app" : "Не удалось добавить приложение Mastodon OAuth",
