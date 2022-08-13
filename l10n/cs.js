@@ -12,7 +12,7 @@ OC.L10N.register(
     "Connected accounts" : "Propojené účty",
     "Mastodon integration" : "Napojení na Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Napojení na službu sociální sítě, provozované u vás – Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Napojení na Mastodon poskytuje ovládací prvek na přehled, zobrazující důležitá upozornění a vaši domovskou časovou osu.",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Napojení na Mastodon poskytuje ovládací prvek pro nástěnku, zobrazující důležitá upozornění a vaši domovskou časovou osu.",
     "Enable navigation link" : "Povolit navigační odkaz",
     "Mastodon instance address" : "Adresa instance Mastodon",
     "Mastodon instance URL" : "URL adresa instance Mastodon",
