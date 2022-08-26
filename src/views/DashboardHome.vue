@@ -43,7 +43,7 @@ import CloseIcon from 'vue-material-design-icons/Close.vue'
 import MastodonIcon from '../components/icons/MastodonIcon.vue'
 
 import axios from '@nextcloud/axios'
-import { generateUrl } from '@nextcloud/router'
+import { generateUrl, imagePath } from '@nextcloud/router'
 import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
@@ -274,7 +274,7 @@ export default {
 		},
 		getNotificationTypeImage(n) {
 			return n.reblog && n.reblog.account
-				? generateUrl('/svg/integration_mastodon/retweet?color=ffffff')
+				? imagePath('integration_mastodon', 'retweet.svg')
 				: ''
 		},
 		getFormattedDate(n) {

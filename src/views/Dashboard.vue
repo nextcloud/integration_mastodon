@@ -43,7 +43,7 @@ import CloseIcon from 'vue-material-design-icons/Close.vue'
 import MastodonIcon from '../components/icons/MastodonIcon.vue'
 
 import axios from '@nextcloud/axios'
-import { generateUrl } from '@nextcloud/router'
+import { generateUrl, imagePath } from '@nextcloud/router'
 import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
@@ -297,13 +297,13 @@ export default {
 		},
 		getNotificationTypeImage(n) {
 			if (n.type === 'mention') {
-				return generateUrl('/svg/integration_mastodon/arobase?color=777777')
+				return imagePath('integration_mastodon', 'arobase.svg')
 			} else if (['follow', 'follow_request'].includes(n.type)) {
-				return generateUrl('/svg/integration_mastodon/add_user?color=ffffff')
+				return imagePath('integration_mastodon', 'add_user.svg')
 			} else if (['favourite'].includes(n.type)) {
-				return generateUrl('/svg/integration_mastodon/starred?color=ffffff')
+				return imagePath('integration_mastodon', 'starred.svg')
 			} else if (['reblog'].includes(n.type)) {
-				return generateUrl('/svg/integration_mastodon/retweet?color=ffffff')
+				return imagePath('integration_mastodon', 'retweet.svg')
 			}
 			return ''
 		},
