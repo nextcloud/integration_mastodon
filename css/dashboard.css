@@ -1,7 +1,7 @@
 .icon-mastodon {
-	background-image: url(./../img/app-dark.svg);
+	background-image: url('../img/app-dark.svg');
 }
 
 body.theme--dark .icon-mastodon {
-	background-image: url(./../img/app.svg);
+	background-image: url('../img/app.svg');
 }

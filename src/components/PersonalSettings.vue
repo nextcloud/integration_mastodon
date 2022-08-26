@@ -1,23 +1,18 @@
 <template>
 	<div id="mastodon_prefs" class="section">
 		<h2>
-			<a class="icon icon-mastodon" />
+			<MastodonIcon :size="20" class="icon" />
 			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
 		<div id="mastodon-content">
-			<div id="toggle-mastodon-navigation-link">
-				<input
-					id="mastodon-link"
-					type="checkbox"
-					class="checkbox"
-					:checked="state.navigation_enabled"
-					@input="onNavigationChange">
-				<label for="mastodon-link">{{ t('integration_mastodon', 'Enable navigation link') }}</label>
-			</div>
-			<br><br>
-			<div class="mastodon-grid-form">
+			<CheckboxRadioSwitch
+				:checked="state.navigation_enabled"
+				@update:checked="onCheckboxChanged($event, 'navigation_enabled')">
+				{{ t('integration_mastodon', 'Enable navigation link') }}
+			</CheckboxRadioSwitch>
+			<div class="line">
 				<label for="mastodon-url">
-					<a class="icon icon-link" />
+					<EarthIcon :size="20" class="icon" />
 					{{ t('integration_mastodon', 'Mastodon instance address') }}
 				</label>
 				<input id="mastodon-url"
@@ -27,41 +22,60 @@
 					:placeholder="t('integration_mastodon', 'Mastodon instance URL')"
 					@input="onInput">
 			</div>
-			<button v-if="state.url && !connected"
+			<NcButton v-if="!connected"
 				id="mastodon-oauth"
-				:disabled="loading === true"
+				:disabled="loading === true || !state.url"
 				:class="{ loading }"
 				@click="onOAuthClick">
-				<span class="icon icon-external" />
+				<template #icon>
+					<OpenInNewIcon :size="20" />
+				</template>
 				{{ t('integration_mastodon', 'Connect to Mastodon') }}
-			</button>
-			<div v-if="connected" class="mastodon-grid-form">
+			</NcButton>
+			<div v-if="connected" class="line">
 				<label class="mastodon-connected">
-					<a class="icon icon-checkmark-color" />
+					<CheckIcon :size="20" class="icon" />
 					{{ t('integration_mastodon', 'Connected as {user}', { user: state.user_name }) }}
 				</label>
-				<button id="mastodon-rm-cred" @click="onLogoutClick">
-					<span class="icon icon-close" />
+				<NcButton @click="onLogoutClick">
+					<template #icon>
+						<CloseIcon :size="20" />
+					</template>
 					{{ t('integration_mastodon', 'Disconnect from Mastodon') }}
-				</button>
-				<span />
+				</NcButton>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
+import CheckIcon from 'vue-material-design-icons/Check.vue'
+import CloseIcon from 'vue-material-design-icons/Close.vue'
+import EarthIcon from 'vue-material-design-icons/Earth.vue'
+
+import MastodonIcon from './icons/MastodonIcon.vue'
+
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
-import { delay } from '../utils'
+import { delay } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
-import '@nextcloud/dialogs/styles/toast.scss'
+
+import NcButton from '@nextcloud/vue/dist/Components/Button.js'
+import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch.js'
 
 export default {
 	name: 'PersonalSettings',
 
 	components: {
+		CheckboxRadioSwitch,
+		MastodonIcon,
+		NcButton,
+		CloseIcon,
+		CheckIcon,
+		OpenInNewIcon,
+		EarthIcon,
 	},
 
 	props: [],
@@ -101,20 +115,13 @@ export default {
 		},
 		onInput() {
 			this.loading = true
-			if (!this.state.url.startsWith('https://')) {
-				if (this.state.url.startsWith('http://')) {
-					this.state.url = this.state.url.replace('http://', 'https://')
-				} else {
-					this.state.url = 'https://' + this.state.url
-				}
-			}
 			delay(() => {
 				this.saveOptions({ url: this.state.url })
 			}, 2000)()
 		},
-		onNavigationChange(e) {
-			this.state.navigation_enabled = e.target.checked
-			this.saveOptions({ navigation_enabled: this.state.navigation_enabled ? '1' : '0' })
+		onCheckboxChanged(newValue, key) {
+			this.state[key] = newValue
+			this.saveOptions({ [key]: this.state[key] ? '1' : '0' })
 		},
 		saveOptions(values) {
 			const req = {
@@ -173,45 +180,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.mastodon-grid-form label {
-	line-height: 38px;
-}
+#mastodon_prefs {
+	#mastodon-content {
+		margin-left: 40px;
+	}
+	h2,
+	.line,
+	.settings-hint {
+		display: flex;
+		align-items: center;
+		.icon {
+			margin-right: 4px;
+		}
+	}
 
-.mastodon-grid-form input {
-	width: 100%;
-}
+	h2 .icon {
+		margin-right: 8px;
+	}
 
-.mastodon-grid-form {
-	max-width: 600px;
-	display: grid;
-	grid-template: 1fr / 1fr 1fr;
-	button .icon {
-		margin-bottom: -1px;
+	.line {
+		> label {
+			width: 300px;
+			display: flex;
+			align-items: center;
+		}
+		> input {
+			width: 250px;
+		}
 	}
 }
-
-#mastodon_prefs .icon {
-	display: inline-block;
-	width: 32px;
-}
-
-#mastodon_prefs .grid-form .icon {
-	margin-bottom: -3px;
-}
-
-.icon-mastodon {
-	background-image: url(./../../img/app-dark.svg);
-	background-size: 23px 23px;
-	height: 23px;
-	margin-bottom: -4px;
-}
-
-body.theme--dark .icon-mastodon {
-	background-image: url(./../../img/app.svg);
-}
-
-#mastodon-content {
-	margin-left: 40px;
-}
-
 </style>

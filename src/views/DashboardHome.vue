@@ -5,14 +5,29 @@
 		:loading="state === 'loading'">
 		<template #empty-content>
 			<EmptyContent
-				v-if="emptyContentMessage"
-				:icon="emptyContentIcon">
+				v-if="emptyContentMessage">
+				<template #icon>
+					<component :is="emptyContentIcon" />
+				</template>
 				<template #desc>
 					{{ emptyContentMessage }}
 					<div v-if="state === 'no-token' || state === 'error'" class="connect-button">
-						<a class="button" :href="settingsUrl">
-							{{ t('integration_mastodon', 'Connect to Mastodon') }}
+						<a v-if="!oauth_is_possible"
+							:href="settingsUrl">
+							<NcButton>
+								<template #icon>
+									<LoginVariantIcon />
+								</template>
+								{{ t('integration_mastodon', 'Connect to Mastodon') }}
+							</NcButton>
 						</a>
+						<NcButton v-else
+							@click="onOauthClick">
+							<template #icon>
+								<LoginVariantIcon />
+							</template>
+							{{ t('integration_mastodon', 'Connect to {url}', { url: mastodonUrl }) }}
+						</NcButton>
 					</div>
 				</template>
 			</EmptyContent>
@@ -21,20 +36,33 @@
 </template>
 
 <script>
+import LoginVariantIcon from 'vue-material-design-icons/LoginVariant.vue'
+import CheckIcon from 'vue-material-design-icons/Check.vue'
+import CloseIcon from 'vue-material-design-icons/Close.vue'
+
+import MastodonIcon from '../components/icons/MastodonIcon.vue'
+
 import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
 import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
-import '@nextcloud/dialogs/styles/toast.scss'
 import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
-import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent'
+
+import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent.js'
+import NcButton from '@nextcloud/vue/dist/Components/Button.js'
 
 export default {
 	name: 'DashboardHome',
 
 	components: {
-		DashboardWidget, EmptyContent,
+		NcButton,
+		DashboardWidget,
+		EmptyContent,
+		LoginVariantIcon,
+		CloseIcon,
+		CheckIcon,
+		MastodonIcon,
 	},
 
 	props: {
@@ -97,13 +125,13 @@ export default {
 		},
 		emptyContentIcon() {
 			if (this.state === 'no-token') {
-				return 'icon-mastodon'
+				return MastodonIcon
 			} else if (this.state === 'error') {
-				return 'icon-close'
+				return CloseIcon
 			} else if (this.state === 'ok') {
-				return 'icon-checkmark'
+				return CheckIcon
 			}
-			return 'icon-checkmark'
+			return CheckIcon
 		},
 	},
 
