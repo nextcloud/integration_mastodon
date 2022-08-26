@@ -23,7 +23,9 @@
 
 namespace OCA\Mastodon\Dashboard;
 
+use OCP\AppFramework\Services\IInitialState;
 use OCP\Dashboard\IWidget;
+use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\Util;
@@ -38,11 +40,29 @@ class MastodonHomeWidget implements IWidget {
 	 * @var IURLGenerator
 	 */
 	private $url;
+	/**
+	 * @var IConfig
+	 */
+	private $config;
+	/**
+	 * @var IInitialState
+	 */
+	private $initialStateService;
+	/**
+	 * @var string|null
+	 */
+	private $userId;
 
 	public function __construct(IL10N $l10n,
-								IURLGenerator $url) {
+								IConfig $config,
+								IURLGenerator $url,
+								IInitialState $initialStateService,
+								?string $userId) {
 		$this->l10n = $l10n;
 		$this->url = $url;
+		$this->config = $config;
+		$this->initialStateService = $initialStateService;
+		$this->userId = $userId;
 	}
 
 	/**
@@ -84,6 +104,17 @@ class MastodonHomeWidget implements IWidget {
 	 * @inheritDoc
 	 */
 	public function load(): void {
+		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
+		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
+		$oauthPossible = $url !== '';
+		$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0');
+
+		$userConfig = [
+			'oauth_is_possible' => $oauthPossible,
+			'use_popup' => ($usePopup === '1'),
+			'url' => $url,
+		];
+		$this->initialStateService->provideInitialState('user-config', $userConfig);
 		Util::addScript(Application::APP_ID, Application::APP_ID . '-dashboardHome');
 		Util::addStyle(Application::APP_ID, 'dashboard');
 	}

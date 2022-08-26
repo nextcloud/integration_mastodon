@@ -26,7 +26,7 @@
 				id="mastodon-oauth"
 				:disabled="loading === true || !state.url"
 				:class="{ loading }"
-				@click="onOAuthClick">
+				@click="onConnectClick">
 				<template #icon>
 					<OpenInNewIcon :size="20" />
 				</template>
@@ -59,7 +59,7 @@ import MastodonIcon from './icons/MastodonIcon.vue'
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
-import { delay } from '../utils.js'
+import { delay, oauthConnect } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 
 import NcButton from '@nextcloud/vue/dist/Components/Button.js'
@@ -148,32 +148,17 @@ export default {
 					this.loading = false
 				})
 		},
-		onOAuthClick() {
-			// first we need to add an app to the target instance
-			// so we get client_id and client_secret
-			const req = {
-				redirect_uri: this.redirect_uri,
+		onConnectClick() {
+			if (this.state.use_popup) {
+				oauthConnect(this.state.url, null, true)
+					.then((data) => {
+						this.state.token = 'dummyToken'
+						this.state.user_name = data.userName
+						this.state.user_displayname = data.userDisplayName
+					})
+			} else {
+				oauthConnect(this.state.url, 'settings')
 			}
-			const url = generateUrl('/apps/integration_mastodon/oauth-app')
-			axios.post(url, req)
-				.then((response) => {
-					this.oAuthStep1(response.data.client_id)
-				})
-				.catch((error) => {
-					showError(
-						t('integration_mastodon', 'Failed to add Mastodon OAuth app')
-						+ ': ' + error.response.request.responseText
-					)
-				})
-				.then(() => {
-				})
-		},
-		oAuthStep1(clientId) {
-			const requestUrl = this.state.url + '/oauth/authorize?client_id=' + encodeURIComponent(clientId)
-				+ '&redirect_uri=' + encodeURIComponent(this.redirect_uri)
-				+ '&response_type=code'
-				+ '&scope=' + encodeURIComponent('read write follow')
-			window.location.replace(requestUrl)
 		},
 	},
 }

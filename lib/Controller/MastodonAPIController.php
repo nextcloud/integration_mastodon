@@ -13,6 +13,7 @@ namespace OCA\Mastodon\Controller;
 
 use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\IConfig;
+use OCP\PreConditionNotMetException;
 use Psr\Log\LoggerInterface;
 use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
@@ -79,15 +80,20 @@ class MastodonAPIController extends Controller {
 	 * @NoAdminRequired
 	 *
 	 * @param string $redirect_uri
+	 * @param string|null $oauth_origin
 	 * @return DataResponse
+	 * @throws PreConditionNotMetException
 	 */
-	public function declareApp(string $redirect_uri): DataResponse {
+	public function declareApp(string $redirect_uri, ?string $oauth_origin = null): DataResponse {
 		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uri);
 		if (isset($result['client_id'], $result['client_secret'])) {
 			// we save the client ID and secret and give the client ID back to the UI
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'redirect_uri', $redirect_uri);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
+			if ($oauth_origin !== null) {
+				$this->config->setUserValue($this->userId, Application::APP_ID, 'oauth_origin', $oauth_origin);
+			}
 			$data = [
 				'client_id' => $result['client_id']
 			];

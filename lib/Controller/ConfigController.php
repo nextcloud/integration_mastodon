@@ -11,9 +11,12 @@
 
 namespace OCA\Mastodon\Controller;
 
+use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IInitialState;
 use OCP\IURLGenerator;
 use OCP\IConfig;
 use OCP\IL10N;
+use OCP\PreConditionNotMetException;
 use Psr\Log\LoggerInterface;
 use OCP\AppFramework\Http\RedirectResponse;
 use OCP\IRequest;
@@ -49,12 +52,17 @@ class ConfigController extends Controller {
 	 * @var string|null
 	 */
 	private $userId;
+	/**
+	 * @var IInitialState
+	 */
+	private $initialStateService;
 
 	public function __construct(string $appName,
 								IRequest $request,
 								IConfig $config,
 								IURLGenerator $urlGenerator,
 								IL10N $l,
+								IInitialState $initialStateService,
 								LoggerInterface $logger,
 								MastodonAPIService $mastodonAPIService,
 								?string $userId) {
@@ -66,6 +74,7 @@ class ConfigController extends Controller {
 		$this->logger = $logger;
 		$this->mastodonAPIService = $mastodonAPIService;
 		$this->userId = $userId;
+		$this->initialStateService = $initialStateService;
 	}
 
 	/**
@@ -81,12 +90,12 @@ class ConfigController extends Controller {
 		}
 
 		if (isset($values['token']) && $values['token'] === '') {
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'user_id', '');
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'user_name', '');
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', '');
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', '');
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_image_hostname', '');
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname', '');
+			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'user_id');
+			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'user_name');
+			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'client_id');
+			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'client_secret');
+			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'instance_image_hostname');
+			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname');
 		}
 
 		return new DataResponse(1);
@@ -106,15 +115,30 @@ class ConfigController extends Controller {
 	}
 
 	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 *
+	 * @param string $user_name
+	 * @param string $user_displayname
+	 * @return TemplateResponse
+	 */
+	public function popupSuccessPage(string $user_name, string $user_displayname): TemplateResponse {
+		$this->initialStateService->provideInitialState('popup-data', ['user_name' => $user_name, 'user_displayname' => $user_displayname]);
+		return new TemplateResponse(Application::APP_ID, 'popupSuccess', [], TemplateResponse::RENDER_AS_GUEST);
+	}
+
+	/**
 	 * receive oauth code and get oauth access token
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 *
 	 * @param string $code
 	 * @return RedirectResponse
+	 * @throws PreConditionNotMetException
 	 */
 	public function oauthRedirect(string $code = ''): RedirectResponse {
-		$mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url');
+		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
+		$mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
 		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id');
 		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret');
 		$redirect_uri = $this->config->getUserValue($this->userId, Application::APP_ID, 'redirect_uri');
@@ -146,10 +170,33 @@ class ConfigController extends Controller {
 						$this->config->setUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname', $instanceContactImageHostname);
 					}
 				}
-				return new RedirectResponse(
-					$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
-					'?mastodonToken=success'
-				);
+
+				$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0') === '1';
+				if ($usePopup) {
+					return new RedirectResponse(
+						$this->urlGenerator->linkToRoute('integration_mastodon.config.popupSuccessPage', [
+							'user_name' => $info['username'] ?? '',
+							'user_displayname' => $info['userdisplayname'] ?? '',
+						])
+					);
+				} else {
+					$oauthOrigin = $this->config->getUserValue($this->userId, Application::APP_ID, 'oauth_origin');
+					$this->config->deleteUserValue($this->userId, Application::APP_ID, 'oauth_origin');
+					if ($oauthOrigin === 'settings') {
+						return new RedirectResponse(
+							$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
+							'?mastodonToken=success'
+						);
+					} elseif ($oauthOrigin === 'dashboard') {
+						return new RedirectResponse(
+							$this->urlGenerator->linkToRoute('dashboard.dashboard.index')
+						);
+					}
+					return new RedirectResponse(
+						$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
+						'?mastodonToken=success'
+					);
+				}
 			} else {
 				$warning = 'Mastodon OAuth get token error : code=' . $code . ' ; url=' . $mastodonUrl
 					. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret . ' ; redirect_uri=' . $redirect_uri;

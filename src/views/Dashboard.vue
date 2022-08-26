@@ -12,7 +12,7 @@
 				<template #desc>
 					{{ emptyContentMessage }}
 					<div v-if="state === 'no-token' || state === 'error'" class="connect-button">
-						<a v-if="!oauth_is_possible"
+						<a v-if="!initialState.oauth_is_possible"
 							:href="settingsUrl">
 							<NcButton>
 								<template #icon>
@@ -48,18 +48,20 @@ import { DashboardWidget } from '@nextcloud/vue-dashboard'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
-import { truncateString } from '../utils.js'
+import { loadState } from '@nextcloud/initial-state'
 
 import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent.js'
 import NcButton from '@nextcloud/vue/dist/Components/Button.js'
+
+import { oauthConnect, oauthConnectConfirmDialog, truncateString } from '../utils.js'
 
 export default {
 	name: 'Dashboard',
 
 	components: {
+		NcButton,
 		DashboardWidget,
 		EmptyContent,
-		NcButton,
 		LoginVariantIcon,
 		CloseIcon,
 		CheckIcon,
@@ -75,18 +77,21 @@ export default {
 
 	data() {
 		return {
-			mastodonUrl: null,
 			notifications: [],
 			locale: getLocale(),
 			loop: null,
 			state: 'loading',
 			settingsUrl: generateUrl('/settings/user/connected-accounts'),
 			themingColor: OCA.Theming ? OCA.Theming.color.replace('#', '') : '0082C9',
+			initialState: loadState('integration_mastodon', 'user-config'),
 			windowVisibility: true,
 		}
 	},
 
 	computed: {
+		mastodonUrl() {
+			return this.initialState?.url?.replace(/\/+$/, '')
+		},
 		showMoreUrl() {
 			return this.mastodonUrl + '/web/notifications'
 		},
@@ -159,21 +164,29 @@ export default {
 	},
 
 	methods: {
+		onOauthClick() {
+			oauthConnectConfirmDialog(this.mastodonUrl).then((result) => {
+				if (result) {
+					if (this.initialState.use_popup) {
+						this.state = 'loading'
+						oauthConnect(this.mastodonUrl, null, true)
+							.then((data) => {
+								this.stopLoop()
+								this.launchLoop()
+							})
+					} else {
+						oauthConnect(this.mastodonUrl, 'dashboard')
+					}
+				}
+			})
+		},
 		changeWindowVisibility() {
 			this.windowVisibility = !document.hidden
 		},
 		stopLoop() {
 			clearInterval(this.loop)
 		},
-		async launchLoop() {
-			// get mastodon URL first
-			try {
-				const response = await axios.get(generateUrl('/apps/integration_mastodon/url'))
-				this.mastodonUrl = response.data.replace(/\/+$/, '')
-			} catch (error) {
-				console.debug(error)
-			}
-			// then launch the loop
+		launchLoop() {
 			this.fetchNotifications()
 			this.loop = setInterval(() => this.fetchNotifications(), 60000)
 		},
