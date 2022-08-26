@@ -1,0 +1,125 @@
+<template>
+	<div id="mastodon_prefs" class="section">
+		<h2>
+			<MastodonIcon class="icon" />
+			{{ t('integration_mastodon', 'Mastodon integration') }}
+		</h2>
+		<div id="mastodon-content">
+			<div class="line">
+				<label for="mastodon-oauth-instance">
+					<EarthIcon :size="20" class="icon" />
+					{{ t('integration_mastodon', 'Default mastodon instance address') }}
+				</label>
+				<input id="mastodon-oauth-instance"
+					v-model="state.oauth_instance_url"
+					type="text"
+					:placeholder="t('integration_mastodon', 'Default address')"
+					@input="onInput">
+			</div>
+			<CheckboxRadioSwitch
+				:checked.sync="state.use_popup"
+				@update:checked="onUsePopupChanged">
+				{{ t('integration_mastodon', 'Use a popup to authenticate') }}
+			</CheckboxRadioSwitch>
+		</div>
+	</div>
+</template>
+
+<script>
+import EarthIcon from 'vue-material-design-icons/Earth.vue'
+
+import MastodonIcon from './icons/MastodonIcon.vue'
+
+import { loadState } from '@nextcloud/initial-state'
+import { generateUrl } from '@nextcloud/router'
+import axios from '@nextcloud/axios'
+import { delay } from '../utils.js'
+import { showSuccess, showError } from '@nextcloud/dialogs'
+
+import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch.js'
+
+export default {
+	name: 'AdminSettings',
+
+	components: {
+		MastodonIcon,
+		CheckboxRadioSwitch,
+		EarthIcon,
+	},
+
+	props: [],
+
+	data() {
+		return {
+			state: loadState('integration_mastodon', 'admin-config'),
+		}
+	},
+
+	watch: {
+	},
+
+	mounted() {
+	},
+
+	methods: {
+		onUsePopupChanged(newValue) {
+			this.saveOptions({ use_popup: newValue ? '1' : '0' })
+		},
+		onInput() {
+			delay(() => {
+				this.saveOptions({
+					oauth_instance_url: this.state.oauth_instance_url,
+				})
+			}, 2000)()
+		},
+		saveOptions(values) {
+			const req = {
+				values,
+			}
+			const url = generateUrl('/apps/integration_mastodon/admin-config')
+			axios.put(url, req).then((response) => {
+				showSuccess(t('integration_mastodon', 'Mastodon admin options saved'))
+			}).catch((error) => {
+				showError(
+					t('integration_mastodon', 'Failed to save Mastodon admin options')
+					+ ': ' + (error.response?.request?.responseText ?? '')
+				)
+				console.debug(error)
+			})
+		},
+	},
+}
+</script>
+
+<style scoped lang="scss">
+#mastodon_prefs {
+	#mastodon-content{
+		margin-left: 40px;
+	}
+
+	h2,
+	.line,
+	.settings-hint {
+		display: flex;
+		align-items: center;
+		.icon {
+			margin-right: 4px;
+		}
+	}
+
+	h2 .icon {
+		margin-right: 8px;
+	}
+
+	.line {
+		> label {
+			width: 300px;
+			display: flex;
+			align-items: center;
+		}
+		> input {
+			width: 250px;
+		}
+	}
+}
+</style>

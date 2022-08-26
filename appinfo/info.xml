@@ -20,6 +20,8 @@
         <nextcloud min-version="22" max-version="25"/>
     </dependencies>
     <settings>
+		<admin>OCA\Mastodon\Settings\Admin</admin>
+        <admin-section>OCA\Mastodon\Settings\AdminSection</admin-section>
         <personal>OCA\Mastodon\Settings\Personal</personal>
         <personal-section>OCA\Mastodon\Settings\PersonalSection</personal-section>
     </settings>
