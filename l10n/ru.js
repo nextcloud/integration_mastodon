@@ -24,7 +24,7 @@ OC.L10N.register(
     "Mastodon options saved" : "Параметры Mastodon сохранены",
     "Incorrect access token" : "Некорректный токен доступа",
     "Failed to save Mastodon options" : "Не удалось сохранить параметры Mastodon",
-    "Failed to add Mastodon OAuth app" : "Не удалось добавить приложение Mastodon OAuth",
+    "Connect to {url}" : "Подключиться к {url}",
     "No Mastodon account connected" : "Учётная запись Mastodon не подключена",
     "Error connecting to Mastodon" : "Ошибка подключения к Mastodon",
     "No Mastodon notifications!" : "Нет уведомлений Mastodon!",

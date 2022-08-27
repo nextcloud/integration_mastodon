@@ -16,6 +16,7 @@ OC.L10N.register(
     "Connected as {user}" : "Yhdistetty käyttäjänä {user}",
     "Disconnect from Mastodon" : "Katkaise yhteys Mastodoniin",
     "Incorrect access token" : "Virheellinen käyttöpoletti",
+    "Connect to {url}" : "Yhdistä osoitteeseen {url}",
     "No Mastodon account connected" : "Mastodon-tiliä ei ole yhdistetty",
     "Error connecting to Mastodon" : "Virhe yhdistäessä Mastodoniin",
     "No Mastodon notifications!" : "Ei Mastodon-ilmoituksia!",

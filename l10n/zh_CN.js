@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "Mastodon 选项已保存",
     "Incorrect access token" : "访问令牌不正确",
     "Failed to save Mastodon options" : "无法保存 Mastodon 选项",
-    "Failed to add Mastodon OAuth app" : "无法添加 Mastodon OAuth 应用",
     "No Mastodon account connected" : "未连接到 Mastodon 账号",
     "Error connecting to Mastodon" : "连接到 Mastodon 时出错",
     "No Mastodon notifications!" : "没有 Mastodon 通知！",

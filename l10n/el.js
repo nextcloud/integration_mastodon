@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "Αποθηκεύτηκαν οι επιλογές του Mastodon",
     "Incorrect access token" : "Λανθασμένο διακριτικό πρόσβασης",
     "Failed to save Mastodon options" : "Αποτυχία αποθήκευσης επιλογών Mastodon",
-    "Failed to add Mastodon OAuth app" : "Αποτυχία προσθήκης εφαρμογής Mastodon OAuth",
     "No Mastodon account connected" : "Κανένας συνδεδεμένος λογαριασμός Mastodon",
     "Error connecting to Mastodon" : "Σφάλμα σύνδεσης στο Mastodon",
     "No Mastodon notifications!" : "Καμία ειδοποίηση Mastodon!",

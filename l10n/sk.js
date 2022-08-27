@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "Nastavenia Mastodon boli uložené",
     "Incorrect access token" : "Nesprávny prístupový token",
     "Failed to save Mastodon options" : "Nepodarilo sa uložiť nastavenia Mastodon",
-    "Failed to add Mastodon OAuth app" : "Nepodarilo sa pridať Mastodon OAuth aplikáciu",
     "No Mastodon account connected" : "Nie je pripojený žiadny Mastodon účet",
     "Error connecting to Mastodon" : "Chyba pri pripájaní k Mastodon",
     "No Mastodon notifications!" : "Žiadne upozornenia z Mastodon!",

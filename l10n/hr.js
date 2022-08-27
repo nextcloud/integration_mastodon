@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "Postavke Mastodona su spremljene",
     "Incorrect access token" : "Pogrešan token za pristup",
     "Failed to save Mastodon options" : "Spremanje postavki Mastodona nije uspjelo",
-    "Failed to add Mastodon OAuth app" : "Dodavanje aplikacije Mastodon OAuth nije uspjelo",
     "No Mastodon account connected" : "Nema povezanih Mastodon računa",
     "Error connecting to Mastodon" : "Pogreška pri povezivanju s Mastodonom",
     "No Mastodon notifications!" : "Nema Mastodon obavijesti!",

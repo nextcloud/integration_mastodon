@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "S'han desat les opcions de Mastodon",
     "Incorrect access token" : "Testimoni d'accés incorrecte",
     "Failed to save Mastodon options" : "No s'han pogut desar les opcions de Mastodon",
-    "Failed to add Mastodon OAuth app" : "No s'ha pogut afegir l'aplicació Mastodon OAuth",
     "No Mastodon account connected" : "No s'ha connectat el compte de Mastodon",
     "Error connecting to Mastodon" : "S'ha produït un error en connectar a Mastodon",
     "No Mastodon notifications!" : "No hi ha cap notificació de Mastodon!",

@@ -22,7 +22,6 @@
     "Mastodon options saved" : "Mastodon-inställningarna har sparats",
     "Incorrect access token" : "Ogiltig åtkomst-token",
     "Failed to save Mastodon options" : "Kunde inte spara Mastodon-inställningarna",
-    "Failed to add Mastodon OAuth app" : "Kunde inte lägga till Mastodons OAuth-app",
     "No Mastodon account connected" : "Inget Mastodon-konto anslutet",
     "Error connecting to Mastodon" : "Kunde inte ansluta till Mastodon",
     "No Mastodon notifications!" : "Inga Mastodon-aviseringar!",

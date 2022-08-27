@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "Sèberos Mastodon sarvados",
     "Incorrect access token" : "Su token de intrada non est giustu",
     "Failed to save Mastodon options" : "No at fatu a sarvare is sèberos de Mastodon",
-    "Failed to add Mastodon OAuth app" : "No at fatu a agiùnghere s'aplicatzione OAuth de Mastodon",
     "No Mastodon account connected" : "Perunu contu Mastodon connètidu",
     "Error connecting to Mastodon" : "Errore in sa connessione a Mastodon",
     "No Mastodon notifications!" : "Peruna notìfica de Mastodon",

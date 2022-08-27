@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon options saved" : "Mastodon opties bewaard",
     "Incorrect access token" : "Onjuist access token",
     "Failed to save Mastodon options" : "Kon Mastodon-opties niet opslaan",
-    "Failed to add Mastodon OAuth app" : "Kon Mastodon OAuth app niet toevoegen",
     "No Mastodon account connected" : "Geen Mastodon-account verbonden",
     "Error connecting to Mastodon" : "Fout bij het verbinden met Mastodon",
     "No Mastodon notifications!" : "Geen Mastodon meldingen!",
