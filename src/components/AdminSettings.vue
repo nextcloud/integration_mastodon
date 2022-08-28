@@ -8,7 +8,7 @@
 			<div class="line">
 				<label for="mastodon-oauth-instance">
 					<EarthIcon :size="20" class="icon" />
-					{{ t('integration_mastodon', 'Default mastodon instance address') }}
+					{{ t('integration_mastodon', 'Default Mastodon instance address') }}
 				</label>
 				<input id="mastodon-oauth-instance"
 					v-model="state.oauth_instance_url"
@@ -78,10 +78,10 @@ export default {
 			}
 			const url = generateUrl('/apps/integration_mastodon/admin-config')
 			axios.put(url, req).then((response) => {
-				showSuccess(t('integration_mastodon', 'Mastodon admin options saved'))
+				showSuccess(t('integration_mastodon', 'Mastodon administrator options saved'))
 			}).catch((error) => {
 				showError(
-					t('integration_mastodon', 'Failed to save Mastodon admin options')
+					t('integration_mastodon', 'Failed to save Mastodon administrator options')
 					+ ': ' + (error.response?.request?.responseText ?? '')
 				)
 				console.debug(error)
