@@ -13,13 +13,17 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon integráció",
     "Integration of Mastodon self-hosted social networking service" : "A Mastodon önállóan üzemeltetett közösségi hálózati szolgáltatás integrálása",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A Mastodon integráció egy irányítópult-modult kínál, amely megjeleníti a fontos értesítéseket és idővonalat.",
+    "Default mastodon instance address" : "Alapértelmezett Mastodon-példány címe",
+    "Default address" : "Alapértelmezett cím",
     "Use a popup to authenticate" : "Felugró ablak használata a hitelesítéshez",
+    "Mastodon admin options saved" : "A Mastodon rendszergazdai beállításai mentve",
+    "Failed to save Mastodon admin options" : "A Mastodon rendszergazdai beállításainak mentése sikertelen",
     "Enable navigation link" : "Navigációs hivatkozás engedélyezése",
     "Mastodon instance address" : "Mastodon példány címe",
     "Mastodon instance URL" : "Mastodon példány URL-je",
     "Connect to Mastodon" : "Kapcsolódás a Mastodonhoz",
-    "Connected as {user}" : "Kapcsolódva {user} felhasználóként",
-    "Disconnect from Mastodon" : "Kapcsolat bontása a Mastodonnal.",
+    "Connected as {user}" : "Kapcsolódva mint {user}",
+    "Disconnect from Mastodon" : "Kapcsolat bontása a Mastodonnal",
     "Successfully connected to Mastodon!" : "Sikeresen kapcsolódva a Mastodonhoz",
     "Mastodon OAuth access token could not be obtained:" : "A Mastodon OAuth hozzáférési tokent nem sikerült beszerezni:",
     "Mastodon options saved" : "Mastodon beállítások mentve.",
@@ -34,6 +38,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} követni szeretné Önt",
     "No Mastodon home toots!" : "Nincsenek tülkök a helyi Mastodon idővonalon.",
     "Failed to get Mastodon home timeline" : "A helyi Mastodon idővonal elérése sikertelen",
-    "No text content" : "Nincs szöveges tartalom"
+    "No text content" : "Nincs szöveges tartalom",
+    "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen"
 },
 "nplurals=2; plural=(n != 1);");

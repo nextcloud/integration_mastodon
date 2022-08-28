@@ -13,7 +13,11 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon bütünleştirmesi",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon kişisel olarak barındırılan sosyal ağ hizmeti bütünleştirmesi",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano bileşenleri sağlar.",
+    "Default mastodon instance address" : "Varsayılan Mastodon kopyası adresi",
+    "Default address" : "Varsayılan adres",
     "Use a popup to authenticate" : "Kimlik doğrulaması için açılan pencere kullanılsın",
+    "Mastodon admin options saved" : "Mastodon yönetici ayarları kaydedildi",
+    "Failed to save Mastodon admin options" : "Mastodon yönetici ayarları kaydedilemedi",
     "Enable navigation link" : "Gezinme bağlantısı kullanılsın",
     "Mastodon instance address" : "Mastodon kopyası adresi",
     "Mastodon instance URL" : "Mastodon kopyası adresi",
@@ -34,6 +38,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} sizi takip etmek istiyor",
     "No Mastodon home toots!" : "Mastodon ana sayfasında bir şey yok!",
     "Failed to get Mastodon home timeline" : "Mastodon ana sayfası zaman akışı alınamadı",
-    "No text content" : "Metin içeriği yok"
+    "No text content" : "Metin içeriği yok",
+    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi"
 },
 "nplurals=2; plural=(n > 1);");

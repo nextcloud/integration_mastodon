@@ -13,7 +13,11 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon 整合",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon 可自架社群網路服務的整合",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon 整合提供了可以顯示您最重要通知與您的家時間軸的儀表板小工具。",
+    "Default mastodon instance address" : "默認 Mastodon 站台地址",
+    "Default address" : "默認地址",
     "Use a popup to authenticate" : "使用彈出窗口進行身份驗證",
+    "Mastodon admin options saved" : "已儲存 Mastodon 管理員選項",
+    "Failed to save Mastodon admin options" : "儲存 Mastodon 管理員選項失敗",
     "Enable navigation link" : "啟用導覽連結",
     "Mastodon instance address" : "Mastodon 站台地址",
     "Mastodon instance URL" : "Mastodon 站台 URL",
@@ -34,6 +38,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} 想要追蹤您",
     "No Mastodon home toots!" : "沒有 Mastodon 家嘟文！",
     "Failed to get Mastodon home timeline" : "取得 Mastodon 主頁時間軸失敗",
-    "No text content" : "無文字內容"
+    "No text content" : "無文字內容",
+    "Failed to create Mastodon OAuth app" : "創建 Mastodon OAuth 應用程式失敗"
 },
 "nplurals=1; plural=0;");
