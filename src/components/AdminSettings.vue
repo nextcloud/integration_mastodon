@@ -8,7 +8,7 @@
 			<div class="line">
 				<label for="mastodon-oauth-instance">
 					<EarthIcon :size="20" class="icon" />
-					{{ t('integration_mastodon', 'Default Mastodon instance address') }}
+					{{ t('integration_mastodon', 'Default mastodon instance address') }}
 				</label>
 				<input id="mastodon-oauth-instance"
 					v-model="state.oauth_instance_url"
