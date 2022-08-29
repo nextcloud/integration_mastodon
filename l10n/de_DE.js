@@ -13,7 +13,6 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon-Einbindung",
     "Integration of Mastodon self-hosted social networking service" : "Einbindung des selbst gehosteten sozialen Netzwerkdienstes Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Die Mastodon-Iintegration bietet Dashboard-Widgets, in dem Ihre wichtigen Benachrichtigungen und Ihre eigene Zeitleiste angezeigt werden.",
-    "Default mastodon instance address" : "Standard-Adresse der Mastodon-Instanz",
     "Default address" : "Standard-Adresse",
     "Use a popup to authenticate" : "Popup zur Authentifizierung verwenden",
     "Mastodon admin options saved" : "Mastodon-Administrator-Einstellungen gespeichert.",

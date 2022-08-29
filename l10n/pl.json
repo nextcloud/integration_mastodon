@@ -11,7 +11,10 @@
     "Mastodon integration" : "Integracja Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integracja samoobsługowego serwisu społecznościowego Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integracja Mastodon zapewnia widżety na pulpit wyświetlające ważne powiadomienia i główną oś czasu.",
+    "Default address" : "Adres domyślny",
     "Use a popup to authenticate" : "Użyj wyskakującego okienka do uwierzytelnienia",
+    "Mastodon admin options saved" : "Opcje administratora Mastodon zostały zapisane",
+    "Failed to save Mastodon admin options" : "Nie udało się zapisać opcji administratora Mastodon",
     "Enable navigation link" : "Włącz połączenie nawigacyjne",
     "Mastodon instance address" : "Adres instancji Mastodon",
     "Mastodon instance URL" : "Adres URL instancji Mastodon",
@@ -32,6 +35,7 @@
     "{name} wants to follow you" : "{name} chce obserwować Ciebie",
     "No Mastodon home toots!" : "Żadnych tutów domowych Mastodona!",
     "Failed to get Mastodon home timeline" : "Nie udało się pobrać domowej osi czasu Mastodon",
-    "No text content" : "Brak treści tekstowej"
+    "No text content" : "Brak treści tekstowej",
+    "Failed to create Mastodon OAuth app" : "Nie udało się utworzyć OAuth aplikacji Mastodon"
 },"pluralForm" :"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);"
 }
