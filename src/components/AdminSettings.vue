@@ -78,10 +78,10 @@ export default {
 			}
 			const url = generateUrl('/apps/integration_mastodon/admin-config')
 			axios.put(url, req).then((response) => {
-				showSuccess(t('integration_mastodon', 'Mastodon admin options saved'))
+				showSuccess(t('integration_mastodon', 'Mastodon administrator options saved'))
 			}).catch((error) => {
 				showError(
-					t('integration_mastodon', 'Failed to save Mastodon admin options')
+					t('integration_mastodon', 'Failed to save Mastodon administrator options')
 					+ ': ' + (error.response?.request?.responseText ?? '')
 				)
 				console.debug(error)
