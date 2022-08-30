@@ -15,8 +15,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano bileşenleri sağlar.",
     "Default address" : "Varsayılan adres",
     "Use a popup to authenticate" : "Kimlik doğrulaması için açılan pencere kullanılsın",
-    "Mastodon admin options saved" : "Mastodon yönetici ayarları kaydedildi",
-    "Failed to save Mastodon admin options" : "Mastodon yönetici ayarları kaydedilemedi",
     "Enable navigation link" : "Gezinme bağlantısı kullanılsın",
     "Mastodon instance address" : "Mastodon kopyası adresi",
     "Mastodon instance URL" : "Mastodon kopyası adresi",
