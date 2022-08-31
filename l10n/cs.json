@@ -14,6 +14,8 @@
     "Default Mastodon instance address" : "Adresa výchozí instance Mastodon",
     "Default address" : "Výchozí adresa",
     "Use a popup to authenticate" : "Ověřte se ve vyskakovacím okně",
+    "Mastodon administrator options saved" : "Předvolby správy pro Mastodon uloženy",
+    "Failed to save Mastodon administrator options" : "Nepodařilo se uložit předvolby správy Mastodon",
     "Enable navigation link" : "Povolit navigační odkaz",
     "Mastodon instance address" : "Adresa instance Mastodon",
     "Mastodon instance URL" : "URL adresa instance Mastodon",

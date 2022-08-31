@@ -16,6 +16,8 @@ OC.L10N.register(
     "Default Mastodon instance address" : "Standard-Adresse der Mastodon-Instanz",
     "Default address" : "Standard-Adresse",
     "Use a popup to authenticate" : "Popup zur Authentifizierung verwenden",
+    "Mastodon administrator options saved" : "Mastodon Administrator-Einstellungen gespeichert",
+    "Failed to save Mastodon administrator options" : "Fehler beim Speichern der Mastodon Administrator-Einstellungen",
     "Enable navigation link" : "Navigations-Link aktivieren",
     "Mastodon instance address" : "Adresse der Mastodon-Instanz",
     "Mastodon instance URL" : "URL der Mastodon-Instanz",

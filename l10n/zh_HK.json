@@ -14,6 +14,8 @@
     "Default Mastodon instance address" : "默認 Mastodon 站台地址",
     "Default address" : "默認地址",
     "Use a popup to authenticate" : "使用彈出窗口進行身份驗證",
+    "Mastodon administrator options saved" : "已儲存 Mastodon 管理員選項",
+    "Failed to save Mastodon administrator options" : "儲存 Mastodon 管理員選項失敗",
     "Enable navigation link" : "啟用導覽連結",
     "Mastodon instance address" : "Mastodon 站台地址",
     "Mastodon instance URL" : "Mastodon 站台 URL",
