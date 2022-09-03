@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.0.3 – 2022-09-03
+### Added
+- allow connection via oauth from the dashboard
+- admin settings to set the default mastodon url
+- optionally use a popup to authenticate
+
+### Changed
+- bump js libs
+- use material icons
+- use node 16, adjust to new eslint config
+- get ready for NC 25, remove svg api, etc...
+
 ## 1.0.1 – 2021-06-28
 ### Changed
 - stop polling widget content when document is hidden

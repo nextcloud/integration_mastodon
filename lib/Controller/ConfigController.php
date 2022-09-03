@@ -83,6 +83,7 @@ class ConfigController extends Controller {
 	 *
 	 * @param array $values
 	 * @return DataResponse
+	 * @throws PreConditionNotMetException
 	 */
 	public function setConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
