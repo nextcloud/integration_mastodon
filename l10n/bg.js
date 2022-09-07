@@ -13,7 +13,11 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon интеграция",
     "Integration of Mastodon self-hosted social networking service" : "Интегриране на услугата за социални мрежи, самостоятелно хоствана от Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Интеграцията на Mastodon предоставя изпълними модули на таблото, показващи важните за вас известия и вашата домашна времева линия.",
+    "Default Mastodon instance address" : "Адрес по подразбиране на екземпляр на Mastodon",
+    "Default address" : "Адрес по подразбиране",
     "Use a popup to authenticate" : "Използване на изскачащ прозорец за удостоверяване",
+    "Mastodon administrator options saved" : "Опциите на администратор на Mastodon са записани",
+    "Failed to save Mastodon administrator options" : "Неуспешно записване на опциите за администратор на Mastodon",
     "Enable navigation link" : "Активиране на връзка за навигация",
     "Mastodon instance address" : "Адрес на екземпляр на Mastodon",
     "Mastodon instance URL" : "URL адрес на екземпляр на Mastodon",
@@ -34,6 +38,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} иска да ви следва",
     "No Mastodon home toots!" : "Няма домашни тутс/публикации/ от  Mastodon!",
     "Failed to get Mastodon home timeline" : "Неуспешно изтегляне на домашна времева линия на Mastodon",
-    "No text content" : "Няма текстово съдържание"
+    "No text content" : "Няма текстово съдържание",
+    "Failed to create Mastodon OAuth app" : "Неуспешно създаване на приложение Mastodon OAuth"
 },
 "nplurals=2; plural=(n != 1);");
