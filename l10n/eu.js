@@ -13,6 +13,7 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon integrazioa",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon norberak-ostatatutako sare sozialen zerbitzuaren integrazioa",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon integrazioak zure jakinarazpen garrantzitsuak eta denbora-lerro nagusia erakusten dituen panel-widgeta  eskaintzen du.",
+    "Default Mastodon instance address" : "Mastodon instantzia helbide lehenetsia",
     "Default address" : "Helbide lehenetsia",
     "Use a popup to authenticate" : "Erabili laster-menua autentifikatzeko",
     "Enable navigation link" : "Gaitu nabigazio esteka",

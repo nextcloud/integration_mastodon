@@ -25,6 +25,7 @@ OC.L10N.register(
     "Mastodon options saved" : "Options Mastodon enregistrées",
     "Incorrect access token" : "Jeton d'accès incorrect",
     "Failed to save Mastodon options" : "Impossible d'enregistrer les options Mastodon",
+    "Connect to {url}" : "Se connecter à {url}",
     "No Mastodon account connected" : "Aucun compte Mastodon connecté",
     "Error connecting to Mastodon" : "Erreur de connexion à Mastodon",
     "No Mastodon notifications!" : "Pas de notification Mastodon !",
