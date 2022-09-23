@@ -16,6 +16,8 @@ OC.L10N.register(
     "Default Mastodon instance address" : "Mastodon instantzia helbide lehenetsia",
     "Default address" : "Helbide lehenetsia",
     "Use a popup to authenticate" : "Erabili laster-menua autentifikatzeko",
+    "Mastodon administrator options saved" : "Mastodon administratzaile aukerak ondo gorde dira",
+    "Failed to save Mastodon administrator options" : "Mastodon administratzaile aukerak gordetzeak huts egin du",
     "Enable navigation link" : "Gaitu nabigazio esteka",
     "Mastodon instance address" : "Mastodon instantzia helbidea",
     "Mastodon instance URL" : "Mastodon instantzia URLa",
@@ -36,6 +38,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name}-(e)k jarraitu egin nahi zaitu",
     "No Mastodon home toots!" : "Ez dago Mastodon mezurik!",
     "Failed to get Mastodon home timeline" : "Mastodoneko denbora-lerro nagusia ekartzeak huts egin du",
-    "No text content" : "Ez dago testu edukirik"
+    "No text content" : "Ez dago testu edukirik",
+    "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu"
 },
 "nplurals=2; plural=(n != 1);");
