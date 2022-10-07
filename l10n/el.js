@@ -13,6 +13,7 @@ OC.L10N.register(
     "Mastodon integration" : "Ενσωμάτωση Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Ενσωμάτωση της υπηρεσίας κοινωνικής δικτύωσης Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Η ενσωμάτωση του Mastodon παρέχει μικροεφαρμογή για τον πίνακα ελέγχου που εμφανίζει τις σημαντικές ειδοποιήσεις και το χρονολόγιό σας.",
+    "Use a popup to authenticate" : "Χρησιμοποιήστε ένα αναδυόμενο παράθυρο για έλεγχο ταυτότητας",
     "Enable navigation link" : "Ενεργοποίηση συνδέσμου πλοήγησης",
     "Mastodon instance address" : "Διεύθυνση περιστατικού Mastodon",
     "Mastodon instance URL" : "URL εγκατάστασης Mastodon",
