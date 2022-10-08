@@ -11,6 +11,7 @@
     "Mastodon integration" : "Matodon integrácia",
     "Integration of Mastodon self-hosted social networking service" : "Integrácia služby sociálnych sietí Mastodon na vašom serveri",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integrácia so službou Mastodon poskytuje miniaplikácie na paneli, ktoré zobrazujú vaše dôležité upozornenia a domácu časovú os.",
+    "Use a popup to authenticate" : "Pre overenie použite kontextové okno",
     "Enable navigation link" : "Povoliť navigačný odkaz",
     "Mastodon instance address" : "Adresa inštancie Mastodon",
     "Mastodon instance URL" : "URL inštancie Mastodon",
