@@ -13,7 +13,11 @@ OC.L10N.register(
     "Mastodon integration" : "Integración con Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integración del servicio de red social autoalojado Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "La integración con Mastodon ofrece widgets que muestran tus notificaciones y el timeline.",
+    "Default Mastodon instance address" : "Dirección de la instancia Mastodon predeterminada",
+    "Default address" : "Dirección predeterminada",
     "Use a popup to authenticate" : "Usa una ventana emergente para autenticar",
+    "Mastodon administrator options saved" : "Opciones de administrador de Mastodon guardadas",
+    "Failed to save Mastodon administrator options" : "Fallo al guardar las opciones de administrador de Mastodon",
     "Enable navigation link" : "Habilita el enlace de navegación",
     "Mastodon instance address" : "Dirección de la instancia de Mastodon",
     "Mastodon instance URL" : "URL de la instancia de Mastodon",
@@ -34,6 +38,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} quiere seguirte",
     "No Mastodon home toots!" : "No hay toots de Mastodon.",
     "Failed to get Mastodon home timeline" : "Fallo al obtener el timeline de Mastodon",
-    "No text content" : "No hay contenido de texto"
+    "No text content" : "No hay contenido de texto",
+    "Failed to create Mastodon OAuth app" : "Fallo al crear la app OAuth de Mastodon"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
