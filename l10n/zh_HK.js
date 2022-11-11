@@ -30,7 +30,7 @@ OC.L10N.register(
     "Incorrect access token" : "不正確的存取權杖",
     "Failed to save Mastodon options" : "儲存 Mastodon 選項失敗",
     "Connect to {url}" : "連線至 {url}",
-    "No Mastodon account connected" : "未連線至 Mastodon 帳號",
+    "No Mastodon account connected" : "未連線至 Mastodon 賬戶",
     "Error connecting to Mastodon" : "連線至 Mastodon 時發生錯誤",
     "No Mastodon notifications!" : "無 Mastodon 通知！",
     "Failed to get Mastodon notifications" : "未能獲取 GitLab 通知",
