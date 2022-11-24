@@ -93,7 +93,7 @@ export default {
 			return this.initialState?.url?.replace(/\/+$/, '')
 		},
 		showMoreUrl() {
-			return this.mastodonUrl + '/web/notifications'
+			return this.mastodonUrl + '/notifications'
 		},
 		items() {
 			return this.notifications.map((n) => {
