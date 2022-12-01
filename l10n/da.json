@@ -1,0 +1,5 @@
+{ "translations": {
+    "Connected accounts" : "Forbundne konti",
+    "Connected as {user}" : "Forbundet som {user}"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
