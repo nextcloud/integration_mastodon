@@ -36,7 +36,7 @@ OC.L10N.register(
     "Failed to get Mastodon notifications" : "Fehler beim Abrufen der Mastodon-Benachrichtigungen",
     "{name} is following you" : "{name} folgt dir",
     "{name} wants to follow you" : "{name} möchte dir folgen",
-    "No Mastodon home toots!" : "Keine Mastodon Home Toots!",
+    "No Mastodon home toots!" : "Keine Mastodon Home Tröts!",
     "Failed to get Mastodon home timeline" : "Fehler beim Abrufen der Mastodon-Home-Zeitleiste",
     "No text content" : "Kein Textinhalt",
     "Failed to create Mastodon OAuth app" : "Fehler beim Erstellen der Mastodon OAuth-App"
