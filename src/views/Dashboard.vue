@@ -227,14 +227,15 @@ export default {
 			}
 		},
 		filter(notifications) {
+			// return notifications.filter(n => n.type === 'favourite')
 			// no filtering for the moment
 			return notifications
 		},
 		getNotificationTarget(n) {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
-				return n.status.url
+				return this.mastodonUrl + '/@' + n.account?.acct + '/' + n.status?.id
 			} else if (['follow'].includes(n.type)) {
-				return n.account.url
+				return this.mastodonUrl + '/@' + n.account?.acct
 			} else if (['follow_request'].includes(n.type)) {
 				return this.mastodonUrl + '/web/follow_requests'
 			}
