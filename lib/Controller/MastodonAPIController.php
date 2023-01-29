@@ -56,7 +56,6 @@ class MastodonAPIController extends Controller {
 								MastodonAPIService $mastodonAPIService,
 								?string $userId) {
 		parent::__construct($appName, $request);
-		$this->appName = $appName;
 		$this->config = $config;
 		$this->logger = $logger;
 		$this->mastodonAPIService = $mastodonAPIService;
@@ -100,7 +99,7 @@ class MastodonAPIController extends Controller {
 			$response = new DataResponse($data);
 		} else {
 			$warning = 'Mastodon app declaration error : ' . ($result['error'] ?? '');
-			$this->logger->warning($warning, ['app' => $this->appName]);
+			$this->logger->warning($warning, ['app' => Application::APP_ID]);
 			$response = new DataResponse($result, 401);
 		}
 		return $response;
