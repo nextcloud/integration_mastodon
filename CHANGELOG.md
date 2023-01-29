@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.0.6 – 2023-01-29
+### Fixed
+- fix dashboard widget target URLs for notifications too
+  [#41](https://github.com/nextcloud/integration_mastodon/issues/41) @BenDundon
+
 ## 1.0.5 – 2023-01-29
 ### Changed
 - use https by default
