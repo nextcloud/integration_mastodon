@@ -28,52 +28,31 @@ use OCA\Mastodon\AppInfo\Application;
 
 class ConfigController extends Controller {
 
-	/**
-	 * @var IConfig
-	 */
-	private $config;
-	/**
-	 * @var IURLGenerator
-	 */
-	private $urlGenerator;
-	/**
-	 * @var IL10N
-	 */
-	private $l;
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-	/**
-	 * @var MastodonAPIService
-	 */
-	private $mastodonAPIService;
-	/**
-	 * @var string|null
-	 */
-	private $userId;
-	/**
-	 * @var IInitialState
-	 */
-	private $initialStateService;
+	private IConfig $config;
+	private IURLGenerator $urlGenerator;
+	private IL10N $l;
+	private IInitialState $initialStateService;
+	private LoggerInterface $logger;
+	private MastodonAPIService $mastodonAPIService;
+	private ?string $userId;
 
-	public function __construct(string $appName,
-								IRequest $request,
-								IConfig $config,
-								IURLGenerator $urlGenerator,
-								IL10N $l,
-								IInitialState $initialStateService,
-								LoggerInterface $logger,
+	public function __construct(string             $appName,
+								IRequest           $request,
+								IConfig            $config,
+								IURLGenerator      $urlGenerator,
+								IL10N              $l,
+								IInitialState      $initialStateService,
+								LoggerInterface    $logger,
 								MastodonAPIService $mastodonAPIService,
-								?string $userId) {
+								?string            $userId) {
 		parent::__construct($appName, $request);
 		$this->config = $config;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
+		$this->initialStateService = $initialStateService;
 		$this->logger = $logger;
 		$this->mastodonAPIService = $mastodonAPIService;
 		$this->userId = $userId;
-		$this->initialStateService = $initialStateService;
 	}
 
 	/**

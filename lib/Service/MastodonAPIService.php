@@ -15,6 +15,7 @@ use Datetime;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
+use OCP\Http\Client\IClient;
 use OCP\IL10N;
 use OCP\IConfig;
 use Psr\Log\LoggerInterface;
@@ -24,22 +25,10 @@ use OCA\Mastodon\AppInfo\Application;
 use Throwable;
 
 class MastodonAPIService {
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-	/**
-	 * @var IL10N
-	 */
-	private $l10n;
-	/**
-	 * @var IConfig
-	 */
-	private $config;
-	/**
-	 * @var \OCP\Http\Client\IClient
-	 */
-	private $client;
+	private LoggerInterface $logger;
+	private IL10N $l10n;
+	private IConfig $config;
+	private IClient $client;
 
 	/**
 	 * Service to make requests to Mastodon v1 API
@@ -49,10 +38,10 @@ class MastodonAPIService {
 								IL10N $l10n,
 								IConfig $config,
 								IClientService $clientService) {
+		$this->client = $clientService->newClient();
 		$this->logger = $logger;
 		$this->l10n = $l10n;
 		$this->config = $config;
-		$this->client = $clientService->newClient();
 	}
 
 	/**
@@ -121,16 +110,17 @@ class MastodonAPIService {
 	}
 
 	/**
-	 * @param string $avatarUrl
-	 * @param string $mastodonUrl
 	 * @param string $userId
+	 * @param string $avatarUrl
 	 * @return ?string
+	 * @throws Exception
 	 */
-	public function getMastodonAvatar(string $avatarUrl, string $mastodonUrl, string $userId): ?string {
+	public function getMastodonAvatar(string $userId, string $avatarUrl): ?string {
 		// read or get instance avatar URL
 		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname');
 		$instanceContactImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_contact_image_hostname');
 
+		$mastodonUrl = $this->getMastodonUrl($userId);
 		// check the avatar hostname is the same as the account avatar one or the mastodon instance one
 		$mUrl = parse_url($mastodonUrl);
 		$aUrl = parse_url($avatarUrl);
@@ -190,11 +180,12 @@ class MastodonAPIService {
 	}
 
 	/**
-	 * @param string $url
+	 * @param string $userId
 	 * @param string $redirect_uri
 	 * @return array
 	 */
-	public function declareApp(string $url, string $redirect_uri): array {
+	public function declareApp(string $userId, string $redirect_uri): array {
+		$url = $this->getMastodonUrl($userId);
 		$params = [
 			'client_name' => $this->l10n->t(Application::APP_ID, 'Nextcloud Mastodon integration app'),
 			'redirect_uris' => $redirect_uri,

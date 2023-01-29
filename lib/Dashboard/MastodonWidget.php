@@ -35,41 +35,25 @@ use OCA\Mastodon\AppInfo\Application;
 
 class MastodonWidget implements IWidget {
 
-	/** @var IL10N */
-	private $l10n;
-	/**
-	 * @var IURLGenerator
-	 */
-	private $url;
-	/**
-	 * @var IInitialState
-	 */
-	private $initialStateService;
-	/**
-	 * @var string|null
-	 */
-	private $userId;
-	/**
-	 * @var IConfig
-	 */
-	private $config;
-	/**
-	 * @var MastodonAPIService
-	 */
-	private $mastodonAPIService;
+	private IL10N $l10n;
+	private IConfig $config;
+	private MastodonAPIService $mastodonAPIService;
+	private IURLGenerator $url;
+	private IInitialState $initialStateService;
+	private ?string $userId;
 
-	public function __construct(IL10N $l10n,
-								IConfig $config,
+	public function __construct(IL10N              $l10n,
+								IConfig            $config,
 								MastodonAPIService $mastodonAPIService,
-								IURLGenerator $url,
-								IInitialState $initialStateService,
-								?string $userId) {
+								IURLGenerator      $url,
+								IInitialState      $initialStateService,
+								?string            $userId) {
 		$this->l10n = $l10n;
+		$this->config = $config;
+		$this->mastodonAPIService = $mastodonAPIService;
 		$this->url = $url;
 		$this->initialStateService = $initialStateService;
 		$this->userId = $userId;
-		$this->config = $config;
-		$this->mastodonAPIService = $mastodonAPIService;
 	}
 
 	/**

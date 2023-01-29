@@ -24,54 +24,31 @@ use OCA\Mastodon\AppInfo\Application;
 
 class MastodonAPIController extends Controller {
 
-	/**
-	 * @var IConfig
-	 */
-	private $config;
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-	/**
-	 * @var MastodonAPIService
-	 */
-	private $mastodonAPIService;
-	/**
-	 * @var string|null
-	 */
-	private $userId;
-	/**
-	 * @var string
-	 */
-	private $accessToken;
-	/**
-	 * @var string
-	 */
-	private $mastodonUrl;
+	private IConfig $config;
+	private LoggerInterface $logger;
+	private MastodonAPIService $mastodonAPIService;
+	private ?string $userId;
 
-	public function __construct(string $appName,
-								IRequest $request,
-								IConfig $config,
-								LoggerInterface $logger,
+	public function __construct(string             $appName,
+								IRequest           $request,
+								IConfig            $config,
+								LoggerInterface    $logger,
 								MastodonAPIService $mastodonAPIService,
-								?string $userId) {
+								?string            $userId) {
 		parent::__construct($appName, $request);
 		$this->config = $config;
 		$this->logger = $logger;
 		$this->mastodonAPIService = $mastodonAPIService;
 		$this->userId = $userId;
-		$this->accessToken = $this->config->getUserValue($this->userId, Application::APP_ID, 'token');
-		$this->mastodonUrl = $mastodonAPIService->getMastodonUrl($this->userId);
 	}
 
 	/**
-	 * get notification list
 	 * @NoAdminRequired
 	 *
 	 * @return DataResponse
 	 */
 	public function getMastodonUrl(): DataResponse {
-		return new DataResponse($this->mastodonUrl);
+		return new DataResponse($this->mastodonAPIService->getMastodonUrl($this->userId));
 	}
 
 	/**
@@ -84,7 +61,7 @@ class MastodonAPIController extends Controller {
 	 * @throws PreConditionNotMetException
 	 */
 	public function declareApp(string $redirect_uri, ?string $oauth_origin = null): DataResponse {
-		$result = $this->mastodonAPIService->declareApp($this->mastodonUrl, $redirect_uri);
+		$result = $this->mastodonAPIService->declareApp($this->userId, $redirect_uri);
 		if (isset($result['client_id'], $result['client_secret'])) {
 			// we save the client ID and secret and give the client ID back to the UI
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'redirect_uri', $redirect_uri);
@@ -114,9 +91,7 @@ class MastodonAPIController extends Controller {
 	 * @return DataDisplayResponse
 	 */
 	public function getMastodonAvatar(string $imageUrl): DataDisplayResponse {
-		$avatar = $this->mastodonAPIService->getMastodonAvatar(
-			$imageUrl, $this->mastodonUrl, $this->userId
-		);
+		$avatar = $this->mastodonAPIService->getMastodonAvatar($this->userId, $imageUrl);
 		if (is_null($avatar)) {
 			return new DataDisplayResponse('', 401);
 		} else {
@@ -134,9 +109,6 @@ class MastodonAPIController extends Controller {
 	 * @return DataResponse
 	 */
 	public function getHomeTimeline(?int $since = null): DataResponse {
-		if ($this->accessToken === '') {
-			return new DataResponse(null, 400);
-		}
 		$result = $this->mastodonAPIService->getHomeTimeline($this->userId, $since);
 		if (!isset($result['error'])) {
 			$response = new DataResponse($result);
@@ -154,9 +126,6 @@ class MastodonAPIController extends Controller {
 	 * @return DataResponse
 	 */
 	public function getNotifications(?int $since = null): DataResponse {
-		if ($this->accessToken === '') {
-			return new DataResponse(null, 400);
-		}
 		$result = $this->mastodonAPIService->getNotifications($this->userId, $since);
 		if (!isset($result['error'])) {
 			$response = new DataResponse($result);

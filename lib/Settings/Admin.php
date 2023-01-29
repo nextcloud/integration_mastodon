@@ -10,16 +10,10 @@ use OCA\Mastodon\AppInfo\Application;
 
 class Admin implements ISettings {
 
-	/**
-	 * @var IConfig
-	 */
-	private $config;
-	/**
-	 * @var IInitialState
-	 */
-	private $initialStateService;
+	private IConfig $config;
+	private IInitialState $initialStateService;
 
-	public function __construct(IConfig $config,
+	public function __construct(IConfig       $config,
 								IInitialState $initialStateService) {
 		$this->config = $config;
 		$this->initialStateService = $initialStateService;
