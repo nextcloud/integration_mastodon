@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.0.4 – 2023-01-29
+### Changed
+- update npm pkgs
+- adjust to @nextcloud/vue 7.x
+- navigation link opens Mastodon in a new tab
+
+### Fixed
+- safer network error handling
+
 ## 1.0.3 – 2022-09-03
 ### Added
 - allow connection via oauth from the dashboard
