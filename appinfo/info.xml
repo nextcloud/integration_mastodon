@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <info>
-    <id>integration_mastodon</id>
-    <name>Mastodon integration</name>
-    <summary>Integration of Mastodon self-hosted social networking service</summary>
-    <description><![CDATA[Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline.]]></description>
-    <version>2.0.0</version>
-    <licence>agpl</licence>
-    <author>Julien Veyssier</author>
-    <namespace>Mastodon</namespace>
-    <documentation>
-        <developer>https://github.com/nextcloud/integration_mastodon</developer>
-    </documentation>
-    <category>integration</category>
-    <category>dashboard</category>
-    <website>https://github.com/nextcloud/integration_mastodon</website>
-    <bugs>https://github.com/nextcloud/integration_mastodon/issues</bugs>
-    <screenshot>https://github.com/nextcloud/integration_mastodon/raw/main/img/screenshot1.jpg</screenshot>
-    <dependencies>
-        <nextcloud min-version="26" max-version="26"/>
-    </dependencies>
-    <settings>
+	<id>integration_mastodon</id>
+	<name>Mastodon integration</name>
+	<summary>Integration of Mastodon self-hosted social networking service</summary>
+	<description><![CDATA[Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline.]]></description>
+	<version>2.0.0</version>
+	<licence>agpl</licence>
+	<author>Julien Veyssier</author>
+	<namespace>Mastodon</namespace>
+	<documentation>
+		<developer>https://github.com/nextcloud/integration_mastodon</developer>
+	</documentation>
+	<category>integration</category>
+	<category>dashboard</category>
+	<website>https://github.com/nextcloud/integration_mastodon</website>
+	<bugs>https://github.com/nextcloud/integration_mastodon/issues</bugs>
+	<screenshot>https://github.com/nextcloud/integration_mastodon/raw/main/img/screenshot1.jpg</screenshot>
+	<dependencies>
+		<nextcloud min-version="26" max-version="26"/>
+	</dependencies>
+	<settings>
 		<admin>OCA\Mastodon\Settings\Admin</admin>
-        <admin-section>OCA\Mastodon\Settings\AdminSection</admin-section>
-        <personal>OCA\Mastodon\Settings\Personal</personal>
-        <personal-section>OCA\Mastodon\Settings\PersonalSection</personal-section>
-    </settings>
+		<admin-section>OCA\Mastodon\Settings\AdminSection</admin-section>
+		<personal>OCA\Mastodon\Settings\Personal</personal>
+		<personal-section>OCA\Mastodon\Settings\PersonalSection</personal-section>
+	</settings>
 </info>
