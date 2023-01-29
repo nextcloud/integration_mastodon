@@ -168,7 +168,6 @@ class MastodonAPIService {
 			}, $statuses);
 
 			$hashtags = $searchResult['hashtags'] ?? [];
-			$hashtags = $searchResult['hashtags'] ?? [];
 			$hashtags = array_map(static function (array $entry) {
 				$entry['type'] = 'hashtag';
 				return $entry;

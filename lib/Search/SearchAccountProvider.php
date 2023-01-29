@@ -36,7 +36,7 @@ use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
 
-class MastodonSearchProvider implements IProvider {
+class SearchAccountProvider implements IProvider {
 
 	private IAppManager $appManager;
 	private IL10N $l10n;
@@ -63,14 +63,14 @@ class MastodonSearchProvider implements IProvider {
 	 * @inheritDoc
 	 */
 	public function getId(): string {
-		return 'mastodon-search-multi';
+		return 'mastodon-search-accounts';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getName(): string {
-		return $this->l10n->t('Mastodon accounts, hashtags and statuses');
+		return $this->l10n->t('Mastodon accounts');
 	}
 
 	/**
@@ -103,7 +103,7 @@ class MastodonSearchProvider implements IProvider {
 			return SearchResult::paginated($this->getName(), [], 0);
 		}
 
-		$searchResult = $this->mastodonAPIService->search($user->getUID(), $term, null, $offset, $limit);
+		$searchResult = $this->mastodonAPIService->search($user->getUID(), $term, 'accounts', $offset, $limit);
 		if (isset($searchResult['error'])) {
 			$items = [];
 		} else {
@@ -131,57 +131,21 @@ class MastodonSearchProvider implements IProvider {
 	}
 
 	protected function getMainText(array $entry): string {
-		if ($entry['type'] === 'account') {
-			if (isset($entry['display_name'])) {
-				return '👤 ' . $entry['display_name'] . ' (' . $entry['acct'] . ')';
-			} else {
-				return '👤 ' . $entry['acct'];
-			}
-		} elseif ($entry['type'] === 'status') {
-			$content = '';
-			if (isset($entry['content']) && $entry['content']) {
-				$content = $this->utilsService->html2text($entry['content']);
-			} elseif (isset($entry['reblog'], $entry['reblog']['content']) && $entry['reblog']['content']) {
-				$content = $this->utilsService->html2text($entry['reblog']['content']);
-			}
-			return '💬 ' . $content;
-		} elseif ($entry['type'] === 'hashtag') {
-			return $entry['name'];
+		if (isset($entry['display_name'])) {
+			return '👤 ' . $entry['display_name'] . ' (' . $entry['acct'] . ')';
 		}
-		return '';
+		return '👤 ' . ($entry['acct'] ?? '???');
 	}
 
 	protected function getSubline(array $entry): string {
-		if ($entry['type'] === 'account') {
-			return $entry['acct'];
-		} elseif ($entry['type'] === 'status') {
-			if (isset($entry['reblog'], $entry['reblog']['account'], $entry['reblog']['account']['acct']) && $entry['reblog']['account']['acct']) {
-				return $entry['reblog']['account']['acct'] . ' (' . $this->l10n->t('Reblog from %1$s', [$entry['account']['acct']]) . ')';
-			} elseif (isset($entry['account'], $entry['account']['display_name']) && $entry['account']['display_name']) {
-				return $entry['account']['display_name'] . ' (' . $entry['account']['acct'] . ')';
-			} else {
-				return $entry['account']['acct'];
-			}
-		} elseif ($entry['type'] === 'hashtag') {
-			if (isset($entry['history']) && is_array($entry['history']) && isset($entry['history'][0])) {
-				return $this->l10n->t('Used %1$s times by %2$s accounts', [$entry['history'][0]['uses'], $entry['history'][0]['accounts']]);
-			}
-		}
-		return '';
+		return $entry['acct'];
 	}
 
 	protected function getLink(array $entry, string $mastodonUrl): string {
-		if ($entry['type'] === 'account') {
-			// this is the account URL on its Mastodon instance
-			// return $entry['url'];
-			// this is on the user's instance
-			return $mastodonUrl . '/@' . $entry['acct'];
-		} elseif ($entry['type'] === 'status') {
-			return $mastodonUrl . '/@' . $entry['account']['acct'] . '/' . $entry['id'];
-		} elseif ($entry['type'] === 'hashtag') {
-			return $entry['url'];
-		}
-		return '';
+		// this is the account URL on its Mastodon instance
+		// return $entry['url'];
+		// this is on the instance where the search was done
+		return $mastodonUrl . '/@' . $entry['acct'];
 	}
 
 	protected function getIconUrl(array $entry): string {
@@ -189,19 +153,10 @@ class MastodonSearchProvider implements IProvider {
 	}
 
 	protected function getThumbnailUrl(array $entry): array {
-		if ($entry['type'] === 'account') {
-			$url = $this->urlGenerator->linkToRouteAbsolute(
-				Application::APP_ID . '.mastodonAPI.getMastodonAvatar',
-				['imageUrl' => $entry['avatar']]
-			);
-		} elseif ($entry['type'] === 'status') {
-			$url = $this->urlGenerator->linkToRouteAbsolute(
-				Application::APP_ID . '.mastodonAPI.getMastodonAvatar',
-				['imageUrl' => $entry['account']['avatar']]
-			);
-		} elseif ($entry['type'] === 'hashtag') {
-			$url = $this->urlGenerator->linkToRouteAbsolute('core.GuestAvatar.getAvatar', ['guestName' => '#', 'size' => 44]);
-		}
+		$url = $this->urlGenerator->linkToRouteAbsolute(
+			Application::APP_ID . '.mastodonAPI.getMastodonAvatar',
+			['imageUrl' => $entry['avatar']]
+		);
 		return [true, $url];
 	}
 }

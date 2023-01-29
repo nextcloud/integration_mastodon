@@ -25,7 +25,6 @@ namespace OCA\Mastodon\Reference;
 use OC\Collaboration\Reference\LinkReferenceProvider;
 use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\ISearchableReferenceProvider;
-use OCP\Collaboration\Reference\Reference;
 use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Mastodon\AppInfo\Application;
 use OCA\Mastodon\Service\MastodonAPIService;
@@ -36,10 +35,6 @@ use OCP\IL10N;
 use OCP\IURLGenerator;
 
 class MastodonReferenceProvider extends ADiscoverableReferenceProvider implements ISearchableReferenceProvider {
-
-	private const RICH_OBJECT_TYPE_ACCOUNT = Application::APP_ID . '_account';
-	private const RICH_OBJECT_TYPE_STATUS = Application::APP_ID . '_status';
-	private const RICH_OBJECT_TYPE_HASHTAG = Application::APP_ID . '_hashtag';
 
 	private MastodonAPIService $mastodonAPIService;
 	private ?string $userId;
@@ -69,14 +64,14 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	 * @inheritDoc
 	 */
 	public function getId(): string	{
-		return 'mastodon-items';
+		return 'mastodon-people-toot';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getTitle(): string {
-		return $this->l10n->t('Mastodon accounts, hashtags and statuses');
+		return $this->l10n->t('Mastodon people and toots');
 	}
 
 	/**
@@ -100,7 +95,8 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	 */
 	public function getSupportedSearchProviderIds(): array {
 		$searchProviderIds = [
-			'mastodon-search-multi',
+			'mastodon-search-toots',
+			'mastodon-search-accounts',
 		];
 		if ($this->userId !== null) {
 			$searchItemsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_enabled', '1') === '1';
@@ -122,8 +118,15 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 			return false;
 		}
 
+		// never resolve mastodon
+		// leave it to the linkReferenceProvider which does it pretty well
+		return false;
+
 		// link examples:
-		return preg_match('/^(?:https?:\/\/)?(?:www\.)?themoviedb\.org\/movie\/\d+/i', $referenceText) === 1;
+		// https://instance.org/@user/123456
+		// https://instance.org/@user@instance.net/987654
+		return preg_match('/^(?:https?:\/\/)?(?:www\.)?[^\/]+\/@[^\/@]+\/\d+/i', $referenceText) === 1
+			|| preg_match('/^(?:https?:\/\/)?(?:www\.)?[^\/]+\/@[^\/@]+@[^\/@]+\/\d+/i', $referenceText) === 1;
 	}
 
 	/**
@@ -146,11 +149,21 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	 * @return array|null
 	 */
 	private function getUrlInfo(string $url): ?array {
-		preg_match('/^(?:https?:\/\/)?(?:www\.)?\/(\d+)/i', $url, $matches);
-		if (count($matches) > 1) {
+		preg_match('/^(?:https?:\/\/)?(?:www\.)?([^\/]+)\/@([^\/@]+)@([^\/@]+)\/(\d+)/i', $url, $matches);
+		if (count($matches) > 4) {
 			return [
-				'type' => '',
-				'id' => (int) $matches[1],
+				'instance' => $matches[1],
+				'username' => $matches[2],
+				'id' => (int) $matches[4],
+			];
+		}
+
+		preg_match('/^(?:https?:\/\/)?(?:www\.)?([^\/]+)\/@([^\/@]+)\/(\d+)/i', $url, $matches);
+		if (count($matches) > 3) {
+			return [
+				'instance' => $matches[1],
+				'username' => $matches[2],
+				'id' => (int) $matches[4],
 			];
 		}
 
