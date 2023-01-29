@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.0.5 – 2023-01-29
+### Changed
+- use https by default
+  [#40](https://github.com/nextcloud/integration_mastodon/issues/40) @ianrenton
+
+### Fixed
+- trim Mastodon URL (slashes, spaces etc...)
+  [#1](https://github.com/nextcloud/integration_mastodon/issues/1) @juliushaertl
+- open posts in user's instance instead of author's one
+  [#41](https://github.com/nextcloud/integration_mastodon/issues/41) @BenDundon
+- fix reblog content
+
 ## 1.0.4 – 2023-01-29
 ### Changed
 - update npm pkgs
