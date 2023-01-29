@@ -231,15 +231,11 @@ export default {
 			return notifications
 		},
 		getNotificationTarget(n) {
-			return n.url
-				? n.url
-				: n.reblog && n.reblog.url
-					? n.reblog.url
-					: ''
+			return this.mastodonUrl + '/@' + n.account?.acct + '/' + n.id
 		},
 		getSubline(n) {
 			return n.reblog && n.reblog.account && n.reblog.account.acct
-				? n.reblog.account.acct + ' (⮔ ' + n.account.acct + ')'
+				? n.reblog.account.acct + ' (' + t('integration_mastodon', 'Reblog from {name}', { name: n.account.acct }) + ')'
 				: this.getAuthorNameAndID(n)
 		},
 		getMainText(n) {
@@ -250,7 +246,11 @@ export default {
 			return text
 		},
 		getContent(n) {
-			return this.html2text(n.content) || t('integration_mastodon', 'No text content')
+			return n.content
+				? this.html2text(n.content)
+				: n.reblog?.content
+					? this.html2text(n.reblog.content)
+					: t('integration_mastodon', 'No text content')
 		},
 		html2text(s) {
 			if (!s || s === '') {
