@@ -292,7 +292,7 @@ export default {
 		},
 		getAuthorAvatarUrl(n) {
 			return (n.account && n.account.avatar)
-				? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('imageUrl') + '=' + encodeURIComponent(n.account.avatar)
+				? generateUrl('/apps/integration_mastodon/avatar?imageUrl={url}', { url: n.account.avatar })
 				: ''
 		},
 		getNotificationTypeImage(n) {

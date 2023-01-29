@@ -266,9 +266,9 @@ export default {
 		},
 		getAuthorAvatarUrl(n) {
 			return n.reblog && n.reblog.account && n.reblog.account.avatar
-				? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('imageUrl') + '=' + encodeURIComponent(n.reblog.account.avatar)
+				? generateUrl('/apps/integration_mastodon/avatar?imageUrl={url}', { url: n.reblog.account.avatar })
 				: (n.account && n.account.avatar)
-					? generateUrl('/apps/integration_mastodon/avatar?') + encodeURIComponent('imageUrl') + '=' + encodeURIComponent(n.account.avatar)
+					? generateUrl('/apps/integration_mastodon/avatar?imageUrl={url}', { url: n.account.avatar })
 					: ''
 		},
 		getNotificationTypeImage(n) {
