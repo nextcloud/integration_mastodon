@@ -56,6 +56,19 @@ class MastodonAPIService {
 	}
 
 	/**
+	 * @param string $userId
+	 * @return string
+	 */
+	public function getMastodonUrl(string $userId): string {
+		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
+		$mastodonUrl = $this->config->getUserValue($userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
+		if ($mastodonUrl !== '' && substr($mastodonUrl, 0, 4) !== 'http') {
+			$mastodonUrl = 'https://' . $mastodonUrl;
+		}
+		return $mastodonUrl;
+	}
+
+	/**
 	 * @param string $url
 	 * @param string $accessToken
 	 * @param ?int $since

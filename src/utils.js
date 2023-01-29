@@ -21,6 +21,9 @@ export function truncateString(s, len) {
 }
 
 export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
+	const targetMastodonUrl = mastodonUrl.startsWith('http')
+		? mastodonUrl
+		: 'https://' + mastodonUrl
 	const redirectUri = window.location.protocol + '//' + window.location.host + generateUrl('/apps/integration_mastodon/oauth-redirect')
 
 	const req = {
@@ -31,7 +34,7 @@ export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
 	return new Promise((resolve, reject) => {
 		axios.post(url, req).then((response) => {
 			const clientId = response.data.client_id
-			const requestUrl = mastodonUrl + '/oauth/authorize?client_id=' + encodeURIComponent(clientId)
+			const requestUrl = targetMastodonUrl + '/oauth/authorize?client_id=' + encodeURIComponent(clientId)
 				+ '&redirect_uri=' + encodeURIComponent(redirectUri)
 				+ '&response_type=code'
 				+ '&scope=' + encodeURIComponent('read write follow')
@@ -60,6 +63,9 @@ export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
 }
 
 export function oauthConnectConfirmDialog(mastodonUrl) {
+	const targetMastodonUrl = mastodonUrl.startsWith('http')
+		? mastodonUrl
+		: 'https://' + mastodonUrl
 	return new Promise((resolve, reject) => {
 		const settingsLink = generateUrl('/settings/user/connected-accounts')
 		const linkText = t('integration_mastodon', 'Connected accounts')
@@ -67,7 +73,7 @@ export function oauthConnectConfirmDialog(mastodonUrl) {
 		OC.dialogs.message(
 			t('integration_mastodon', 'You need to connect before using the Mastodon integration.')
 			+ '<br><br>'
-			+ t('integration_mastodon', 'Do you want to connect to {mastodonUrl}?', { mastodonUrl })
+			+ t('integration_mastodon', 'Do you want to connect to {mastodonUrl}?', { mastodonUrl: targetMastodonUrl })
 			+ '<br><br>'
 			+ t(
 				'integration_mastodon',

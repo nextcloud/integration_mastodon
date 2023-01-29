@@ -10,6 +10,7 @@
 namespace OCA\Mastodon\AppInfo;
 
 use Closure;
+use OCA\Mastodon\Service\MastodonAPIService;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\INavigationManager;
@@ -58,22 +59,22 @@ class Application extends App implements IBootstrap {
 		$context->injectFn(Closure::fromCallable([$this, 'registerNavigation']));
 	}
 
-	public function registerNavigation(IUserSession $userSession): void {
+	public function registerNavigation(IUserSession $userSession, MastodonAPIService $mastodonAPIService): void {
 		$user = $userSession->getUser();
 		if ($user !== null) {
 			$userId = $user->getUID();
 			$container = $this->getContainer();
 
 			if ($this->config->getUserValue($userId, self::APP_ID, 'navigation_enabled', '0') === '1') {
-				$mastoUrl = $this->config->getUserValue($userId, self::APP_ID, 'url', '');
-				if ($mastoUrl !== '') {
-					$container->get(INavigationManager::class)->add(function () use ($container, $mastoUrl) {
+				$mastodonUrl = $mastodonAPIService->getMastodonUrl($userId);
+				if ($mastodonUrl !== '') {
+					$container->get(INavigationManager::class)->add(function () use ($container, $mastodonUrl) {
 						$urlGenerator = $container->get(IURLGenerator::class);
 						$l10n = $container->get(IL10N::class);
 						return [
 							'id' => self::APP_ID,
 							'order' => 10,
-							'href' => $mastoUrl,
+							'href' => $mastodonUrl,
 							'target' => '_blank',
 							'icon' => $urlGenerator->imagePath(self::APP_ID, 'app.svg'),
 							'name' => $l10n->t('Mastodon'),

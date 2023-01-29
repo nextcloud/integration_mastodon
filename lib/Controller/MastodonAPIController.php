@@ -61,7 +61,7 @@ class MastodonAPIController extends Controller {
 		$this->mastodonAPIService = $mastodonAPIService;
 		$this->userId = $userId;
 		$this->accessToken = $this->config->getUserValue($this->userId, Application::APP_ID, 'token');
-		$this->mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url');
+		$this->mastodonUrl = $mastodonAPIService->getMastodonUrl($this->userId);
 	}
 
 	/**

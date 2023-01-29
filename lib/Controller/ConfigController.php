@@ -137,8 +137,7 @@ class ConfigController extends Controller {
 	 * @throws PreConditionNotMetException
 	 */
 	public function oauthRedirect(string $code = ''): RedirectResponse {
-		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
-		$mastodonUrl = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
+		$mastodonUrl = $this->mastodonAPIService->getMastodonUrl($this->userId);
 		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id');
 		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret');
 		$redirect_uri = $this->config->getUserValue($this->userId, Application::APP_ID, 'redirect_uri');
