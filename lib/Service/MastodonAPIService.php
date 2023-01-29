@@ -65,7 +65,7 @@ class MastodonAPIService {
 		if ($mastodonUrl !== '' && substr($mastodonUrl, 0, 4) !== 'http') {
 			$mastodonUrl = 'https://' . $mastodonUrl;
 		}
-		return $mastodonUrl;
+		return trim($mastodonUrl, "/ \n\r\t\v\x00");
 	}
 
 	/**

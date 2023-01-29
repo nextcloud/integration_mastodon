@@ -20,10 +20,17 @@ export function truncateString(s, len) {
 		: s
 }
 
+function getCleanMastodonUrl(url) {
+	const cleanUrl = url.startsWith('http')
+		? url
+		: 'https://' + url
+	return cleanUrl
+		.trim()
+		.replace(/\/+$/, '')
+}
+
 export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
-	const targetMastodonUrl = mastodonUrl.startsWith('http')
-		? mastodonUrl
-		: 'https://' + mastodonUrl
+	const targetMastodonUrl = getCleanMastodonUrl(mastodonUrl)
 	const redirectUri = window.location.protocol + '//' + window.location.host + generateUrl('/apps/integration_mastodon/oauth-redirect')
 
 	const req = {
@@ -63,9 +70,7 @@ export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
 }
 
 export function oauthConnectConfirmDialog(mastodonUrl) {
-	const targetMastodonUrl = mastodonUrl.startsWith('http')
-		? mastodonUrl
-		: 'https://' + mastodonUrl
+	const targetMastodonUrl = getCleanMastodonUrl(mastodonUrl)
 	return new Promise((resolve, reject) => {
 		const settingsLink = generateUrl('/settings/user/connected-accounts')
 		const linkText = t('integration_mastodon', 'Connected accounts')
