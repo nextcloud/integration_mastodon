@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.0.0 – 2023-01-30
+### Added
+- search providers
+- reference providers associated with the search
+
 ## 1.0.5 – 2023-01-29
 ### Changed
 - use https by default

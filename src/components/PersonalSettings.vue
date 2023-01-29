@@ -46,9 +46,19 @@
 			</div>
 			<div v-if="connected" class="connected-settings">
 				<NcCheckboxRadioSwitch
-					:checked="state.search_enabled"
-					@update:checked="onCheckboxChanged($event, 'search_enabled')">
-					{{ t('integration_mastodon', 'Enable search for accounts, hashtags and statuses') }}
+					:checked="state.search_statuses_enabled"
+					@update:checked="onCheckboxChanged($event, 'search_statuses_enabled')">
+					{{ t('integration_mastodon', 'Enable statuses search') }}
+				</NcCheckboxRadioSwitch>
+				<NcCheckboxRadioSwitch
+					:checked="state.search_accounts_enabled"
+					@update:checked="onCheckboxChanged($event, 'search_accounts_enabled')">
+					{{ t('integration_mastodon', 'Enable accounts search') }}
+				</NcCheckboxRadioSwitch>
+				<NcCheckboxRadioSwitch
+					:checked="state.search_hashtags_enabled"
+					@update:checked="onCheckboxChanged($event, 'search_hashtags_enabled')">
+					{{ t('integration_mastodon', 'Enable hashtags search') }}
 				</NcCheckboxRadioSwitch>
 			</div>
 		</div>

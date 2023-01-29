@@ -36,7 +36,7 @@ use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
 
-class SearchTootProvider implements IProvider {
+class SearchStatusesProvider implements IProvider {
 
 	private IAppManager $appManager;
 	private IL10N $l10n;
@@ -63,7 +63,7 @@ class SearchTootProvider implements IProvider {
 	 * @inheritDoc
 	 */
 	public function getId(): string {
-		return 'mastodon-search-toots';
+		return 'mastodon-search-statuses';
 	}
 
 	/**
@@ -98,7 +98,7 @@ class SearchTootProvider implements IProvider {
 		$offset = $query->getCursor();
 		$offset = $offset ? intval($offset) : 0;
 
-		$searchEnabled = $this->config->getUserValue($user->getUID(), Application::APP_ID, 'search_enabled', '0') === '1';
+		$searchEnabled = $this->config->getUserValue($user->getUID(), Application::APP_ID, 'search_statuses_enabled', '1') === '1';
 		if (!$searchEnabled) {
 			return SearchResult::paginated($this->getName(), [], 0);
 		}

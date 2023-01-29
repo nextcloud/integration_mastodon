@@ -64,14 +64,14 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	 * @inheritDoc
 	 */
 	public function getId(): string	{
-		return 'mastodon-people-toot';
+		return 'mastodon-multi';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getTitle(): string {
-		return $this->l10n->t('Mastodon people and toots');
+		return $this->l10n->t('Mastodon people, toots and hashtags');
 	}
 
 	/**
@@ -94,18 +94,27 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	 * @inheritDoc
 	 */
 	public function getSupportedSearchProviderIds(): array {
-		$searchProviderIds = [
-			'mastodon-search-toots',
-			'mastodon-search-accounts',
-		];
 		if ($this->userId !== null) {
-			$searchItemsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_enabled', '1') === '1';
-			if ($searchItemsEnabled) {
-				return $searchProviderIds;
+			$searchProviderIds = [];
+			$searchStatusesEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_statuses_enabled', '1') === '1';
+			if ($searchStatusesEnabled) {
+				$searchProviderIds[] = 'mastodon-search-statuses';
 			}
-			return [];
+			$searchAccountsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_accounts_enabled', '1') === '1';
+			if ($searchAccountsEnabled) {
+				$searchProviderIds[] = 'mastodon-search-accounts';
+			}
+			$searchTagsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_hashtags_enabled', '1') === '1';
+			if ($searchTagsEnabled) {
+				$searchProviderIds[] = 'mastodon-search-hashtags';
+			}
+			return $searchProviderIds;
 		}
-		return $searchProviderIds;
+		return [
+			'mastodon-search-statuses',
+			'mastodon-search-accounts',
+			'mastodon-search-hashtags',
+		];
 	}
 
 	/**

@@ -36,7 +36,7 @@ use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
 
-class SearchAccountProvider implements IProvider {
+class SearchHashtagsProvider implements IProvider {
 
 	private IAppManager $appManager;
 	private IL10N $l10n;
@@ -63,14 +63,14 @@ class SearchAccountProvider implements IProvider {
 	 * @inheritDoc
 	 */
 	public function getId(): string {
-		return 'mastodon-search-accounts';
+		return 'mastodon-search-hashtags';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getName(): string {
-		return $this->l10n->t('Mastodon accounts');
+		return $this->l10n->t('Mastodon hashtags');
 	}
 
 	/**
@@ -98,26 +98,25 @@ class SearchAccountProvider implements IProvider {
 		$offset = $query->getCursor();
 		$offset = $offset ? intval($offset) : 0;
 
-		$searchEnabled = $this->config->getUserValue($user->getUID(), Application::APP_ID, 'search_enabled', '0') === '1';
+		$searchEnabled = $this->config->getUserValue($user->getUID(), Application::APP_ID, 'search_hashtags_enabled', '1') === '1';
 		if (!$searchEnabled) {
 			return SearchResult::paginated($this->getName(), [], 0);
 		}
 
-		$searchResult = $this->mastodonAPIService->search($user->getUID(), $term, 'accounts', $offset, $limit);
+		$searchResult = $this->mastodonAPIService->search($user->getUID(), $term, 'hashtags', $offset, $limit);
 		if (isset($searchResult['error'])) {
 			$items = [];
 		} else {
 			$items = $searchResult;
 		}
 
-		$mastodonUrl = $this->mastodonAPIService->getMastodonUrl($user->getUID());
-		$formattedResults = array_map(function (array $entry) use ($mastodonUrl): MastodonSearchResultEntry {
+		$formattedResults = array_map(function (array $entry): MastodonSearchResultEntry {
 			[$rounded, $thumbnailUrl] = $this->getThumbnailUrl($entry);
 			return new MastodonSearchResultEntry(
 				$thumbnailUrl,
 				$this->getMainText($entry),
 				$this->getSubline($entry),
-				$this->getLink($entry, $mastodonUrl),
+				$this->getLink($entry),
 				$this->getIconUrl($entry),
 				$rounded
 			);
@@ -131,21 +130,18 @@ class SearchAccountProvider implements IProvider {
 	}
 
 	protected function getMainText(array $entry): string {
-		if (isset($entry['display_name'])) {
-			return '👤 ' . $entry['display_name'] . ' (' . $entry['acct'] . ')';
-		}
-		return '👤 ' . ($entry['acct'] ?? '???');
+		return $entry['name'];
 	}
 
 	protected function getSubline(array $entry): string {
-		return $entry['acct'];
+		if (isset($entry['history']) && is_array($entry['history']) && isset($entry['history'][0])) {
+			return $this->l10n->t('Used %1$s times by %2$s accounts', [$entry['history'][0]['uses'], $entry['history'][0]['accounts']]);
+		}
+		return '';
 	}
 
-	protected function getLink(array $entry, string $mastodonUrl): string {
-		// this is the account URL on its Mastodon instance
-		// return $entry['url'];
-		// this is on the instance where the search was done
-		return $mastodonUrl . '/@' . $entry['acct'];
+	protected function getLink(array $entry): string {
+		return $entry['url'];
 	}
 
 	protected function getIconUrl(array $entry): string {
@@ -153,10 +149,7 @@ class SearchAccountProvider implements IProvider {
 	}
 
 	protected function getThumbnailUrl(array $entry): array {
-		$url = $this->urlGenerator->linkToRouteAbsolute(
-			Application::APP_ID . '.mastodonAPI.getMastodonAvatar',
-			['imageUrl' => $entry['avatar']]
-		);
+		$url = $this->urlGenerator->linkToRouteAbsolute('core.GuestAvatar.getAvatar', ['guestName' => '#', 'size' => 44]);
 		return [true, $url];
 	}
 }

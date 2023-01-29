@@ -11,8 +11,9 @@ namespace OCA\Mastodon\AppInfo;
 
 use Closure;
 use OCA\Mastodon\Reference\MastodonReferenceProvider;
-use OCA\Mastodon\Search\SearchAccountProvider;
-use OCA\Mastodon\Search\SearchTootProvider;
+use OCA\Mastodon\Search\SearchAccountsProvider;
+use OCA\Mastodon\Search\SearchHashtagsProvider;
+use OCA\Mastodon\Search\SearchStatusesProvider;
 use OCA\Mastodon\Service\MastodonAPIService;
 use OCP\IConfig;
 use OCP\IL10N;
@@ -40,8 +41,9 @@ class Application extends App implements IBootstrap {
 		$context->registerDashboardWidget(MastodonWidget::class);
 		$context->registerDashboardWidget(MastodonHomeWidget::class);
 
-		$context->registerSearchProvider(SearchTootProvider::class);
-		$context->registerSearchProvider(SearchAccountProvider::class);
+		$context->registerSearchProvider(SearchStatusesProvider::class);
+		$context->registerSearchProvider(SearchAccountsProvider::class);
+		$context->registerSearchProvider(SearchHashtagsProvider::class);
 
 		$context->registerReferenceProvider(MastodonReferenceProvider::class);
 	}
