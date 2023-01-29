@@ -37,7 +37,8 @@ class Personal implements ISettings {
 	public function getForm(): TemplateResponse {
 		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token');
 		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name');
-		$navigationEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'navigation_enabled', '0');
+		$navigationEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'navigation_enabled', '0') === '1';
+		$searchEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_enabled', '1') === '1';
 
 		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
 		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
@@ -48,7 +49,8 @@ class Personal implements ISettings {
 			'url' => $url,
 			'use_popup' => ($usePopup === '1'),
 			'user_name' => $userName,
-			'navigation_enabled' => ($navigationEnabled === '1'),
+			'navigation_enabled' => $navigationEnabled,
+			'search_enabled' => $searchEnabled,
 		];
 		$this->initialStateService->provideInitialState('user-config', $userConfig);
 		return new TemplateResponse(Application::APP_ID, 'personalSettings');

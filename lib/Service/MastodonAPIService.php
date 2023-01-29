@@ -69,12 +69,11 @@ class MastodonAPIService {
 	}
 
 	/**
-	 * @param string $url
-	 * @param string $accessToken
+	 * @param string|null $userId
 	 * @param ?int $since
 	 * @return array
 	 */
-	public function getHomeTimeline(string $url, string $accessToken, ?int $since = null): array {
+	public function getHomeTimeline(?string $userId, ?int $since = null): array {
 		$params = [
 			'limit' => 30
 		];
@@ -82,7 +81,7 @@ class MastodonAPIService {
 		if (!is_null($since)) {
 			$params['since_id'] = $since;
 		}
-		$home = $this->request($url, $accessToken, 'timelines/home', $params);
+		$home = $this->request($userId, 'timelines/home', $params);
 		foreach ($home as $key => $value) {
 			$home[$key]['type'] = 'home';
 		}
@@ -90,12 +89,12 @@ class MastodonAPIService {
 	}
 
 	/**
-	 * @param string $url
-	 * @param string $accessToken
+	 * @param string|null $userId
 	 * @param ?int $since
 	 * @return array
+	 * @throws Exception
 	 */
-	public function getNotifications(string $url, string $accessToken, ?int $since = null): array {
+	public function getNotifications(?string $userId, ?int $since = null): array {
 		$params = [
 			'limit' => 30
 		];
@@ -107,7 +106,7 @@ class MastodonAPIService {
 			unset($params['since_id']);
 		}
 		$params['exclude_types'] = ['poll'];
-		$notifications = $this->request($url, $accessToken, 'notifications', $params);
+		$notifications = $this->request($userId, 'notifications', $params);
 
 		// sort merged results by date
 		usort($notifications, function($a, $b) {
@@ -142,6 +141,52 @@ class MastodonAPIService {
 			return $this->client->get($avatarUrl)->getBody();
 		}
 		return null;
+	}
+
+	/**
+	 * @param string|null $userId
+	 * @param string $query
+	 * @param string|null $type
+	 * @param int $offset
+	 * @param int $limit
+	 * @return array
+	 */
+	public function search(?string $userId, string $query, ?string $type = null, int $offset = 0, int $limit = 5): array {
+		$params = [
+			'limit' => $limit,
+			'offset' => $offset,
+			'q' => $query,
+		];
+		if ($type !== null) {
+			$params['type'] = $type;
+		}
+		$searchResult = $this->request($userId, 'search', $params, 'GET', 2);
+		if ($type !== null) {
+			return $searchResult[$type] ?? $searchResult;
+		}
+		if (!isset($searchResult['error'])) {
+			$accounts = $searchResult['accounts'] ?? [];
+			$accounts = array_map(static function (array $entry) {
+				$entry['type'] = 'account';
+				return $entry;
+			}, $accounts);
+
+			$statuses = $searchResult['statuses'] ?? [];
+			$statuses = array_map(static function (array $entry) {
+				$entry['type'] = 'status';
+				return $entry;
+			}, $statuses);
+
+			$hashtags = $searchResult['hashtags'] ?? [];
+			$hashtags = $searchResult['hashtags'] ?? [];
+			$hashtags = array_map(static function (array $entry) {
+				$entry['type'] = 'hashtag';
+				return $entry;
+			}, $hashtags);
+
+			return array_merge($accounts, $statuses, $hashtags);
+		}
+		return $searchResult;
 	}
 
 	/**
@@ -210,16 +255,18 @@ class MastodonAPIService {
 	}
 
 	/**
-	 * @param string $url
-	 * @param string $accessToken
+	 * @param string|null $userId
 	 * @param string $endPoint
 	 * @param array $params
 	 * @param string $method
+	 * @param int $apiVersion
 	 * @return array
 	 */
-	public function request(string $url, string $accessToken, string $endPoint, array $params = [], string $method = 'GET'): array {
+	public function request(?string $userId, string $endPoint, array $params = [], string $method = 'GET', int $apiVersion = 1): array {
+		$url = $this->getMastodonUrl($userId);
+		$accessToken = $this->config->getUserValue($userId, Application::APP_ID, 'token');
 		try {
-			$url = $url . '/api/v1/' . $endPoint;
+			$url = $url . '/api/v' . $apiVersion . '/' . $endPoint;
 			$options = [
 				'headers' => [
 					'Authorization'  => 'Bearer ' . $accessToken,
@@ -269,16 +316,16 @@ class MastodonAPIService {
 			$responseBody = $e->getResponse()->getBody();
 			$parsedResponseBody = json_decode($responseBody, true);
 			if ($e->getResponse()->getStatusCode() === 404) {
-				$this->logger->debug('Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
+				$this->logger->debug('1Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
 			} else {
-				$this->logger->warning('Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
+				$this->logger->warning('2Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
 			}
 			return [
 				'error' => $e->getMessage(),
 				'body' => $parsedResponseBody,
 			];
 		} catch (Exception | Throwable $e) {
-			$this->logger->warning('Mastodon API error : '.$e, ['app' => Application::APP_ID]);
+			$this->logger->warning('3Mastodon API error : '.$e, ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}

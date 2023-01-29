@@ -10,6 +10,8 @@
 namespace OCA\Mastodon\AppInfo;
 
 use Closure;
+use OCA\Mastodon\Reference\MastodonReferenceProvider;
+use OCA\Mastodon\Search\MastodonSearchProvider;
 use OCA\Mastodon\Service\MastodonAPIService;
 use OCP\IConfig;
 use OCP\IL10N;
@@ -38,11 +40,6 @@ class Application extends App implements IBootstrap {
 	 */
 	private $config;
 
-	/**
-	 * Constructor
-	 *
-	 * @param array $urlParams
-	 */
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
 
@@ -53,6 +50,8 @@ class Application extends App implements IBootstrap {
 	public function register(IRegistrationContext $context): void {
 		$context->registerDashboardWidget(MastodonWidget::class);
 		$context->registerDashboardWidget(MastodonHomeWidget::class);
+		$context->registerSearchProvider(MastodonSearchProvider::class);
+		$context->registerReferenceProvider(MastodonReferenceProvider::class);
 	}
 
 	public function boot(IBootContext $context): void {

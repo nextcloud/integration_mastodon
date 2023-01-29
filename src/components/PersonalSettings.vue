@@ -44,6 +44,13 @@
 					{{ t('integration_mastodon', 'Disconnect from Mastodon') }}
 				</NcButton>
 			</div>
+			<div v-if="connected" class="connected-settings">
+				<NcCheckboxRadioSwitch
+					:checked="state.search_enabled"
+					@update:checked="onCheckboxChanged($event, 'search_enabled')">
+					{{ t('integration_mastodon', 'Enable search for accounts, hashtags and statuses') }}
+				</NcCheckboxRadioSwitch>
+			</div>
 		</div>
 	</div>
 </template>
