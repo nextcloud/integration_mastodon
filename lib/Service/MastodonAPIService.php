@@ -13,12 +13,15 @@ namespace OCA\Mastodon\Service;
 
 use Datetime;
 use Exception;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use OCP\IL10N;
 use OCP\IConfig;
 use Psr\Log\LoggerInterface;
 use OCP\Http\Client\IClientService;
 
 use OCA\Mastodon\AppInfo\Application;
+use Throwable;
 
 class MastodonAPIService {
 	/**
@@ -192,7 +195,7 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (Exception $e) {
+		} catch (Exception | Throwable $e) {
 			$this->logger->warning('Mastodon API error : '.$e->getMessage(), array('app' => $this->appName));
 			return ['error' => $e->getMessage()];
 		}
@@ -254,8 +257,20 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (Exception $e) {
-			$this->logger->warning('Mastodon API error : '.$e, array('app' => $this->appName));
+		} catch (ClientException | ServerException $e) {
+			$responseBody = $e->getResponse()->getBody();
+			$parsedResponseBody = json_decode($responseBody, true);
+			if ($e->getResponse()->getStatusCode() === 404) {
+				$this->logger->debug('Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
+			} else {
+				$this->logger->warning('Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
+			}
+			return [
+				'error' => $e->getMessage(),
+				'body' => $parsedResponseBody,
+			];
+		} catch (Exception | Throwable $e) {
+			$this->logger->warning('Mastodon API error : '.$e, ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}
@@ -303,7 +318,7 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (Exception $e) {
+		} catch (Exception | Throwable $e) {
 			$this->logger->warning('Mastodon OAuth error : '.$e, array('app' => $this->appName));
 			return ['error' => $e->getMessage()];
 		}
