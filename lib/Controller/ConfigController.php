@@ -67,7 +67,6 @@ class ConfigController extends Controller {
 								MastodonAPIService $mastodonAPIService,
 								?string $userId) {
 		parent::__construct($appName, $request);
-		$this->appName = $appName;
 		$this->config = $config;
 		$this->urlGenerator = $urlGenerator;
 		$this->l = $l;
@@ -201,13 +200,13 @@ class ConfigController extends Controller {
 			} else {
 				$warning = 'Mastodon OAuth get token error : code=' . $code . ' ; url=' . $mastodonUrl
 					. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret . ' ; redirect_uri=' . $redirect_uri;
-				$this->logger->warning($warning, ['app' => $this->appName]);
+				$this->logger->warning($warning, ['app' => Application::APP_ID]);
 				$result = $this->l->t('Error getting OAuth access token') . ' ' . ($result['error'] ?? 'undefined token');
 			}
 		} else {
 			$warning = 'Mastodon OAuth redirect error : code=' . $code . ' ; url=' . $mastodonUrl
 				. ' ; clientId=' . $clientID . ' ; clientSecret=' . $clientSecret . ' ; redirect_uri=' . $redirect_uri;
-			$this->logger->warning($warning, ['app' => $this->appName]);
+			$this->logger->warning($warning, ['app' => Application::APP_ID]);
 			$result = $this->l->t('Error during OAuth exchanges');
 		}
 		return new RedirectResponse(

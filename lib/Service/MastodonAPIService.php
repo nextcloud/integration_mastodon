@@ -25,10 +25,6 @@ use Throwable;
 
 class MastodonAPIService {
 	/**
-	 * @var string
-	 */
-	private $appName;
-	/**
 	 * @var LoggerInterface
 	 */
 	private $logger;
@@ -53,7 +49,6 @@ class MastodonAPIService {
 								IL10N $l10n,
 								IConfig $config,
 								IClientService $clientService) {
-		$this->appName = $appName;
 		$this->logger = $logger;
 		$this->l10n = $l10n;
 		$this->config = $config;
@@ -196,7 +191,7 @@ class MastodonAPIService {
 				return json_decode($body, true);
 			}
 		} catch (Exception | Throwable $e) {
-			$this->logger->warning('Mastodon API error : '.$e->getMessage(), array('app' => $this->appName));
+			$this->logger->warning('Mastodon API error : '.$e->getMessage(), ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}
@@ -319,7 +314,7 @@ class MastodonAPIService {
 				return json_decode($body, true);
 			}
 		} catch (Exception | Throwable $e) {
-			$this->logger->warning('Mastodon OAuth error : '.$e, array('app' => $this->appName));
+			$this->logger->warning('Mastodon OAuth error : '.$e, ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}
