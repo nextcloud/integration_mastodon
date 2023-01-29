@@ -1,0 +1,14 @@
+{
+    "name": "nextcloud/integration_mastodon",
+    "type": "project",
+    "require": {
+        "html2text/html2text": "^4.3"
+    },
+    "license": "AGPLv3",
+    "authors": [
+        {
+            "name": "Julien Veyssier",
+            "email": "julien-nc@posteo.net"
+        }
+    ]
+}

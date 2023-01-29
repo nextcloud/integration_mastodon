@@ -26,6 +26,7 @@ namespace OCA\Mastodon\Search;
 
 use OCA\Mastodon\Service\MastodonAPIService;
 use OCA\Mastodon\AppInfo\Application;
+use OCA\Mastodon\Service\UtilsService;
 use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IConfig;
@@ -42,17 +43,20 @@ class MastodonSearchProvider implements IProvider {
 	private IConfig $config;
 	private MastodonAPIService $mastodonAPIService;
 	private IURLGenerator $urlGenerator;
+	private UtilsService $utilsService;
 
 	public function __construct(IAppManager        $appManager,
 								IL10N              $l10n,
 								IConfig            $config,
 								IURLGenerator      $urlGenerator,
+								UtilsService       $utilsService,
 								MastodonAPIService     $mastodonAPIService) {
 		$this->appManager = $appManager;
 		$this->l10n = $l10n;
 		$this->config = $config;
 		$this->mastodonAPIService = $mastodonAPIService;
 		$this->urlGenerator = $urlGenerator;
+		$this->utilsService = $utilsService;
 	}
 
 	/**
@@ -134,11 +138,13 @@ class MastodonSearchProvider implements IProvider {
 				return '👤 ' . $entry['acct'];
 			}
 		} elseif ($entry['type'] === 'status') {
+			$content = '';
 			if (isset($entry['content']) && $entry['content']) {
-				return '💬 ' . $entry['content'];
+				$content = $this->utilsService->html2text($entry['content']);
 			} elseif (isset($entry['reblog'], $entry['reblog']['content']) && $entry['reblog']['content']) {
-				return '💬 ' . $entry['reblog']['content'];
+				$content = $this->utilsService->html2text($entry['reblog']['content']);
 			}
+			return '💬 ' . $content;
 		} elseif ($entry['type'] === 'hashtag') {
 			return $entry['name'];
 		}
@@ -166,12 +172,13 @@ class MastodonSearchProvider implements IProvider {
 
 	protected function getLink(array $entry, string $mastodonUrl): string {
 		if ($entry['type'] === 'account') {
-//			return $entry['url'];
+			// this is the account URL on its Mastodon instance
+			// return $entry['url'];
+			// this is on the user's instance
 			return $mastodonUrl . '/@' . $entry['acct'];
 		} elseif ($entry['type'] === 'status') {
 			return $mastodonUrl . '/@' . $entry['account']['acct'] . '/' . $entry['id'];
 		} elseif ($entry['type'] === 'hashtag') {
-			error_log('HHHHHHHHHHHHHH '.json_encode($entry));
 			return $entry['url'];
 		}
 		return '';
