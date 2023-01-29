@@ -41,10 +41,10 @@
 		"@nextcloud/axios": "^2.0.0",
 		"@nextcloud/dialogs": "^3.1.1",
 		"@nextcloud/initial-state": "^2.0.0",
-		"@nextcloud/l10n": "^1.4.1",
+		"@nextcloud/l10n": "^2.0.1",
 		"@nextcloud/moment": "^1.1.1",
 		"@nextcloud/router": "^2.0.0",
-		"@nextcloud/vue": "^5.4.0",
+		"@nextcloud/vue": "^7.5.0",
 		"@nextcloud/vue-dashboard": "^2.0.1",
 		"vue": "^2.6.11",
 		"vue-material-design-icons": "^5.1.2"

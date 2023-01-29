@@ -5,11 +5,11 @@
 			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
 		<div id="mastodon-content">
-			<CheckboxRadioSwitch
+			<NcCheckboxRadioSwitch
 				:checked="state.navigation_enabled"
 				@update:checked="onCheckboxChanged($event, 'navigation_enabled')">
 				{{ t('integration_mastodon', 'Enable navigation link') }}
-			</CheckboxRadioSwitch>
+			</NcCheckboxRadioSwitch>
 			<div class="line">
 				<label for="mastodon-url">
 					<EarthIcon :size="20" class="icon" />
@@ -62,14 +62,14 @@ import axios from '@nextcloud/axios'
 import { delay, oauthConnect } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 
-import NcButton from '@nextcloud/vue/dist/Components/Button.js'
-import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/CheckboxRadioSwitch.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
 
 export default {
 	name: 'PersonalSettings',
 
 	components: {
-		CheckboxRadioSwitch,
+		NcCheckboxRadioSwitch,
 		MastodonIcon,
 		NcButton,
 		CloseIcon,

@@ -4,13 +4,12 @@
 		:show-more-text="title"
 		:loading="state === 'loading'">
 		<template #empty-content>
-			<EmptyContent
-				v-if="emptyContentMessage">
+			<NcEmptyContent v-if="emptyContentMessage"
+				:title="emptyContentMessage">
 				<template #icon>
 					<component :is="emptyContentIcon" />
 				</template>
-				<template #desc>
-					{{ emptyContentMessage }}
+				<template #action>
 					<div v-if="state === 'no-token' || state === 'error'" class="connect-button">
 						<a v-if="!initialState.oauth_is_possible"
 							:href="settingsUrl">
@@ -30,7 +29,7 @@
 						</NcButton>
 					</div>
 				</template>
-			</EmptyContent>
+			</NcEmptyContent>
 		</template>
 	</DashboardWidget>
 </template>
@@ -50,8 +49,8 @@ import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
 import { loadState } from '@nextcloud/initial-state'
 
-import EmptyContent from '@nextcloud/vue/dist/Components/EmptyContent.js'
-import NcButton from '@nextcloud/vue/dist/Components/Button.js'
+import NcEmptyContent from '@nextcloud/vue/dist/Components/NcEmptyContent.js'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 
 import { oauthConnect, oauthConnectConfirmDialog, truncateString } from '../utils.js'
 
@@ -61,7 +60,7 @@ export default {
 	components: {
 		NcButton,
 		DashboardWidget,
-		EmptyContent,
+		NcEmptyContent,
 		LoginVariantIcon,
 		CloseIcon,
 		CheckIcon,
