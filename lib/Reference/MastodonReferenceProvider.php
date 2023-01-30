@@ -71,6 +71,27 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	 * @inheritDoc
 	 */
 	public function getTitle(): string {
+		if ($this->userId !== null) {
+			$searchStatusesEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_statuses_enabled', '1') === '1';
+			$searchAccountsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_accounts_enabled', '1') === '1';
+			$searchTagsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_hashtags_enabled', '1') === '1';
+			if ($searchStatusesEnabled && $searchAccountsEnabled && $searchTagsEnabled) {
+				return $this->l10n->t('Mastodon people, toots and hashtags');
+			} elseif ($searchStatusesEnabled && $searchAccountsEnabled) {
+				return $this->l10n->t('Mastodon people and toots');
+			} elseif ($searchStatusesEnabled && $searchTagsEnabled) {
+				return $this->l10n->t('Mastodon toots and hashtags');
+			} elseif ($searchTagsEnabled && $searchAccountsEnabled) {
+				return $this->l10n->t('Mastodon people and hashtags');
+			} elseif ($searchTagsEnabled) {
+				return $this->l10n->t('Mastodon hashtags');
+			} elseif ($searchAccountsEnabled) {
+				return $this->l10n->t('Mastodon people');
+			} elseif ($searchStatusesEnabled) {
+				return $this->l10n->t('Mastodon toots');
+			}
+			return $this->l10n->t('Mastodon');
+		}
 		return $this->l10n->t('Mastodon people, toots and hashtags');
 	}
 
