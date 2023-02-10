@@ -9,17 +9,17 @@
  * @copyright Julien Veyssier 2020
  */
 
-import Vue from 'vue'
-import './bootstrap.js'
-import DashboardHome from './views/DashboardHome.vue'
+__webpack_nonce__ = btoa(OC.requestToken) // eslint-disable-line
+__webpack_public_path__ = OC.linkTo('integration_mastodon', 'js/') // eslint-disable-line
 
-document.addEventListener('DOMContentLoaded', function() {
-
-	OCA.Dashboard.register('mastodon_home_timeline', (el, { widget }) => {
+document.addEventListener('DOMContentLoaded', () => {
+	OCA.Dashboard.register('mastodon_home_timeline', async (el, { widget }) => {
+		const { default: Vue } = await import(/* webpackChunkName: "vue-lazy" */'vue')
+		Vue.mixin({ methods: { t, n } })
+		const { default: DashboardHome } = await import(/* webpackChunkName: "dashboard-home-lazy" */'./views/DashboardHome.vue')
 		const View = Vue.extend(DashboardHome)
 		new View({
 			propsData: { title: widget.title },
 		}).$mount(el)
 	})
-
 })
