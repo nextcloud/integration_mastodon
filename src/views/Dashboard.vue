@@ -227,9 +227,8 @@ export default {
 			}
 		},
 		filter(notifications) {
-			// return notifications.filter(n => n.type === 'favourite')
-			// no filtering for the moment
-			return notifications
+			// avoid mentions with no status
+			return notifications.filter(n => n.type !== 'mention' || !!n.status)
 		},
 		getNotificationTarget(n) {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
@@ -243,11 +242,13 @@ export default {
 		},
 		getMainText(n) {
 			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
-				let text = this.html2text(n.status.content)
-				while (text.startsWith('@')) {
-					text = text.replace(/^@[^\s]*\s?/, '')
+				if (n.status) {
+					let text = this.html2text(n.status.content)
+					while (text.startsWith('@')) {
+						text = text.replace(/^@[^\s]*\s?/, '')
+					}
+					return text
 				}
-				return text
 			} else if (n.type === 'follow') {
 				return t('integration_mastodon', '{name} is following you', { name: this.getShortName(n) })
 			} else if (n.type === 'follow_request') {
