@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.0.1 – 2023-02-27
+### Changed
+- reduce log output
+- update npm pkgs
+- polish search providers
+
 ## 2.0.0 – 2023-01-30
 ### Added
 - search providers
