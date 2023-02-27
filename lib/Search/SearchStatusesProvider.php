@@ -35,6 +35,7 @@ use OCP\IUser;
 use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
+use OCP\Search\SearchResultEntry;
 
 class SearchStatusesProvider implements IProvider {
 
@@ -111,9 +112,9 @@ class SearchStatusesProvider implements IProvider {
 		}
 
 		$mastodonUrl = $this->mastodonAPIService->getMastodonUrl($user->getUID());
-		$formattedResults = array_map(function (array $entry) use ($mastodonUrl): MastodonSearchResultEntry {
+		$formattedResults = array_map(function (array $entry) use ($mastodonUrl): SearchResultEntry {
 			[$rounded, $thumbnailUrl] = $this->getThumbnailUrl($entry);
-			return new MastodonSearchResultEntry(
+			return new SearchResultEntry(
 				$thumbnailUrl,
 				$this->getMainText($entry),
 				$this->getSubline($entry),

@@ -26,7 +26,6 @@ namespace OCA\Mastodon\Search;
 
 use OCA\Mastodon\Service\MastodonAPIService;
 use OCA\Mastodon\AppInfo\Application;
-use OCA\Mastodon\Service\UtilsService;
 use OCP\App\IAppManager;
 use OCP\IL10N;
 use OCP\IConfig;
@@ -35,6 +34,7 @@ use OCP\IUser;
 use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
+use OCP\Search\SearchResultEntry;
 
 class SearchAccountsProvider implements IProvider {
 
@@ -43,20 +43,17 @@ class SearchAccountsProvider implements IProvider {
 	private IConfig $config;
 	private MastodonAPIService $mastodonAPIService;
 	private IURLGenerator $urlGenerator;
-	private UtilsService $utilsService;
 
 	public function __construct(IAppManager        $appManager,
 								IL10N              $l10n,
 								IConfig            $config,
 								IURLGenerator      $urlGenerator,
-								UtilsService       $utilsService,
 								MastodonAPIService     $mastodonAPIService) {
 		$this->appManager = $appManager;
 		$this->l10n = $l10n;
 		$this->config = $config;
 		$this->mastodonAPIService = $mastodonAPIService;
 		$this->urlGenerator = $urlGenerator;
-		$this->utilsService = $utilsService;
 	}
 
 	/**
@@ -111,9 +108,9 @@ class SearchAccountsProvider implements IProvider {
 		}
 
 		$mastodonUrl = $this->mastodonAPIService->getMastodonUrl($user->getUID());
-		$formattedResults = array_map(function (array $entry) use ($mastodonUrl): MastodonSearchResultEntry {
+		$formattedResults = array_map(function (array $entry) use ($mastodonUrl): SearchResultEntry {
 			[$rounded, $thumbnailUrl] = $this->getThumbnailUrl($entry);
-			return new MastodonSearchResultEntry(
+			return new SearchResultEntry(
 				$thumbnailUrl,
 				$this->getMainText($entry),
 				$this->getSubline($entry),

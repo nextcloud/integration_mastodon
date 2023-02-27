@@ -254,7 +254,13 @@ class MastodonAPIService {
 	 */
 	public function request(?string $userId, string $endPoint, array $params = [], string $method = 'GET', int $apiVersion = 1): array {
 		$url = $this->getMastodonUrl($userId);
+		if (!$url) {
+			return ['error' => 'No Mastodon instance configured'];
+		}
 		$accessToken = $this->config->getUserValue($userId, Application::APP_ID, 'token');
+		if (!$accessToken) {
+			return ['error' => 'Not connected to any mastodon account'];
+		}
 		try {
 			$url = $url . '/api/v' . $apiVersion . '/' . $endPoint;
 			$options = [
@@ -306,16 +312,16 @@ class MastodonAPIService {
 			$responseBody = $e->getResponse()->getBody();
 			$parsedResponseBody = json_decode($responseBody, true);
 			if ($e->getResponse()->getStatusCode() === 404) {
-				$this->logger->debug('1Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
+				$this->logger->debug('Mastodon API error (404): ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
 			} else {
-				$this->logger->warning('2Mastodon API error : ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
+				$this->logger->warning('Mastodon API error: ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);
 			}
 			return [
 				'error' => $e->getMessage(),
 				'body' => $parsedResponseBody,
 			];
 		} catch (Exception | Throwable $e) {
-			$this->logger->warning('3Mastodon API error : '.$e, ['app' => Application::APP_ID]);
+			$this->logger->debug('Mastodon API unknown error: '.$e, ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}
