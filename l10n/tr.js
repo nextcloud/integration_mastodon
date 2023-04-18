@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "OAuth erişim kodu alınırken sorun çıktı",
-    "Error during OAuth exchanges" : "OAuth takasında sorun çıktı",
+    "Error during OAuth exchanges" : "OAuth alış verişinde sorun çıktı",
     "Mastodon home timeline" : "Mastodon ana sayfası zaman akışı",
     "Mastodon notifications" : "Mastodon bildirimleri",
     "Mastodon people, toots and hashtags" : "Mastodon kişi, toot ve hashtag ögeleri",
