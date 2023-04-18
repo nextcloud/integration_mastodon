@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright Copyright (c) 2023 Julien Veyssier <eneiluj@posteo.net>
+ * @copyright Copyright (c) 2023 Julien Veyssier <julien-nc@posteo.net>
  *
- * @author Julien Veyssier <eneiluj@posteo.net>
+ * @author Julien Veyssier <julien-nc@posteo.net>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -27,7 +27,6 @@ use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\ISearchableReferenceProvider;
 use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Mastodon\AppInfo\Application;
-use OCA\Mastodon\Service\MastodonAPIService;
 use OCP\Collaboration\Reference\IReference;
 use OCP\IConfig;
 use OCP\IL10N;
@@ -36,28 +35,12 @@ use OCP\IURLGenerator;
 
 class MastodonReferenceProvider extends ADiscoverableReferenceProvider implements ISearchableReferenceProvider {
 
-	private MastodonAPIService $mastodonAPIService;
-	private ?string $userId;
-	private IConfig $config;
-	private ReferenceManager $referenceManager;
-	private IL10N $l10n;
-	private IURLGenerator $urlGenerator;
-	private LinkReferenceProvider $linkReferenceProvider;
-
-	public function __construct(MastodonAPIService $mastodonAPIService,
-								IConfig $config,
-								IL10N $l10n,
-								IURLGenerator $urlGenerator,
-								ReferenceManager $referenceManager,
-								LinkReferenceProvider $linkReferenceProvider,
-								?string $userId) {
-		$this->mastodonAPIService = $mastodonAPIService;
-		$this->userId = $userId;
-		$this->config = $config;
-		$this->referenceManager = $referenceManager;
-		$this->l10n = $l10n;
-		$this->urlGenerator = $urlGenerator;
-		$this->linkReferenceProvider = $linkReferenceProvider;
+	public function __construct(private IConfig $config,
+								private IL10N $l10n,
+								private IURLGenerator $urlGenerator,
+								private ReferenceManager $referenceManager,
+								private LinkReferenceProvider $linkReferenceProvider,
+								private ?string $userId) {
 	}
 
 	/**

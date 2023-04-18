@@ -5,7 +5,7 @@
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the COPYING file.
  *
- * @author Julien Veyssier <eneiluj@posteo.net>
+ * @author Julien Veyssier <julien-nc@posteo.net>
  * @copyright Julien Veyssier 2020
  */
 
@@ -28,31 +28,16 @@ use OCA\Mastodon\AppInfo\Application;
 
 class ConfigController extends Controller {
 
-	private IConfig $config;
-	private IURLGenerator $urlGenerator;
-	private IL10N $l;
-	private IInitialState $initialStateService;
-	private LoggerInterface $logger;
-	private MastodonAPIService $mastodonAPIService;
-	private ?string $userId;
-
-	public function __construct(string             $appName,
-								IRequest           $request,
-								IConfig            $config,
-								IURLGenerator      $urlGenerator,
-								IL10N              $l,
-								IInitialState      $initialStateService,
-								LoggerInterface    $logger,
-								MastodonAPIService $mastodonAPIService,
-								?string            $userId) {
+	public function __construct(string                     $appName,
+								IRequest           	       $request,
+								private IConfig            $config,
+								private IURLGenerator      $urlGenerator,
+								private IL10N              $l,
+								private IInitialState      $initialStateService,
+								private LoggerInterface    $logger,
+								private MastodonAPIService $mastodonAPIService,
+								private ?string            $userId) {
 		parent::__construct($appName, $request);
-		$this->config = $config;
-		$this->urlGenerator = $urlGenerator;
-		$this->l = $l;
-		$this->initialStateService = $initialStateService;
-		$this->logger = $logger;
-		$this->mastodonAPIService = $mastodonAPIService;
-		$this->userId = $userId;
 	}
 
 	/**

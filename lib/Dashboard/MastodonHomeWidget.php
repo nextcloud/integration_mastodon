@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright Copyright (c) 2020 Julien Veyssier <eneiluj@posteo.net>
+ * @copyright Copyright (c) 2020 Julien Veyssier <julien-nc@posteo.net>
  *
- * @author Julien Veyssier <eneiluj@posteo.net>
+ * @author Julien Veyssier <julien-nc@posteo.net>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -35,25 +35,12 @@ use OCA\Mastodon\AppInfo\Application;
 
 class MastodonHomeWidget implements IWidget {
 
-	private IL10N $l10n;
-	private IConfig $config;
-	private MastodonAPIService $mastodonAPIService;
-	private IURLGenerator $url;
-	private IInitialState $initialStateService;
-	private ?string $userId;
-
-	public function __construct(IL10N              $l10n,
-								IConfig            $config,
-								MastodonAPIService $mastodonAPIService,
-								IURLGenerator      $url,
-								IInitialState      $initialStateService,
-								?string            $userId) {
-		$this->l10n = $l10n;
-		$this->config = $config;
-		$this->mastodonAPIService = $mastodonAPIService;
-		$this->url = $url;
-		$this->initialStateService = $initialStateService;
-		$this->userId = $userId;
+	public function __construct(private IL10N              $l10n,
+								private IConfig            $config,
+								private MastodonAPIService $mastodonAPIService,
+								private IURLGenerator      $url,
+								private IInitialState      $initialStateService,
+								private ?string            $userId) {
 	}
 
 	/**

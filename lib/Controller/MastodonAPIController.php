@@ -5,7 +5,7 @@
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the COPYING file.
  *
- * @author Julien Veyssier <eneiluj@posteo.net>
+ * @author Julien Veyssier <julien-nc@posteo.net>
  * @copyright Julien Veyssier 2020
  */
 
@@ -24,22 +24,13 @@ use OCA\Mastodon\AppInfo\Application;
 
 class MastodonAPIController extends Controller {
 
-	private IConfig $config;
-	private LoggerInterface $logger;
-	private MastodonAPIService $mastodonAPIService;
-	private ?string $userId;
-
 	public function __construct(string             $appName,
 								IRequest           $request,
-								IConfig            $config,
-								LoggerInterface    $logger,
-								MastodonAPIService $mastodonAPIService,
-								?string            $userId) {
+								private IConfig            $config,
+								private LoggerInterface    $logger,
+								private MastodonAPIService $mastodonAPIService,
+								private ?string            $userId) {
 		parent::__construct($appName, $request);
-		$this->config = $config;
-		$this->logger = $logger;
-		$this->mastodonAPIService = $mastodonAPIService;
-		$this->userId = $userId;
 	}
 
 	/**

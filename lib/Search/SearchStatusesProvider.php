@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2023, Julien Veyssier
  *
- * @author Julien Veyssier <eneiluj@posteo.net>
+ * @author Julien Veyssier <julien-nc@posteo.net>
  *
  * @license AGPL-3.0
  *
@@ -39,25 +39,12 @@ use OCP\Search\SearchResultEntry;
 
 class SearchStatusesProvider implements IProvider {
 
-	private IAppManager $appManager;
-	private IL10N $l10n;
-	private IConfig $config;
-	private MastodonAPIService $mastodonAPIService;
-	private IURLGenerator $urlGenerator;
-	private UtilsService $utilsService;
-
-	public function __construct(IAppManager        $appManager,
-								IL10N              $l10n,
-								IConfig            $config,
-								IURLGenerator      $urlGenerator,
-								UtilsService       $utilsService,
-								MastodonAPIService     $mastodonAPIService) {
-		$this->appManager = $appManager;
-		$this->l10n = $l10n;
-		$this->config = $config;
-		$this->mastodonAPIService = $mastodonAPIService;
-		$this->urlGenerator = $urlGenerator;
-		$this->utilsService = $utilsService;
+	public function __construct(private IAppManager        $appManager,
+								private IL10N              $l10n,
+								private IConfig            $config,
+								private IURLGenerator      $urlGenerator,
+								private UtilsService       $utilsService,
+								private MastodonAPIService $mastodonAPIService) {
 	}
 
 	/**

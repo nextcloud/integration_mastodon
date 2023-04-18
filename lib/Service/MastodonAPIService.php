@@ -24,24 +24,19 @@ use OCP\Http\Client\IClientService;
 use OCA\Mastodon\AppInfo\Application;
 use Throwable;
 
+/**
+ * Service to make requests to Mastodon v1 API
+ */
 class MastodonAPIService {
-	private LoggerInterface $logger;
-	private IL10N $l10n;
-	private IConfig $config;
+
 	private IClient $client;
 
-	/**
-	 * Service to make requests to Mastodon v1 API
-	 */
 	public function __construct (string $appName,
-								LoggerInterface $logger,
-								IL10N $l10n,
-								IConfig $config,
+								private LoggerInterface $logger,
+								private IL10N $l10n,
+								private IConfig $config,
 								IClientService $clientService) {
 		$this->client = $clientService->newClient();
-		$this->logger = $logger;
-		$this->l10n = $l10n;
-		$this->config = $config;
 	}
 
 	/**
