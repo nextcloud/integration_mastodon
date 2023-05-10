@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.0.2 – 2023-05-10
+
+### Changed
+
+- add NC 27 support
+- update npm pkgs
+
 ## 2.0.1 – 2023-02-27
 ### Changed
 - reduce log output
