@@ -1,0 +1,7 @@
+{ "translations": {
+    "Mastodon" : "Mastodon",
+    "Mastodon hashtags" : "Etiquetes de Mastodon",
+    "Mastodon people" : "Persones de Mastodon",
+    "Mastodon toots" : "Artículos de Mastodon"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
