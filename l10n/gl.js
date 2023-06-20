@@ -26,7 +26,7 @@ OC.L10N.register(
     "Default address" : "Enderezo predeterminado",
     "Use a popup to authenticate" : "Use unha xanela emerxente para autenticarse",
     "Mastodon administrator options saved" : "Gardáronse as opcións do administrador de Mastodon",
-    "Failed to save Mastodon administrator options" : "Non se puideron gardar as opcións do administrador de Mastodon",
+    "Failed to save Mastodon administrator options" : "Non foi posíbel gardar as opcións do administrador de Mastodon",
     "Enable navigation link" : "Activar a ligazón de navegación",
     "Mastodon instance address" : "Enderezo da instancia de Mastodon",
     "Mastodon instance URL" : "URL da instancia de Mastodon",
