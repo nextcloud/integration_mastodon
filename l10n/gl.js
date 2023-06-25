@@ -36,7 +36,7 @@ OC.L10N.register(
     "Enable statuses search" : "Activar a busca de estados",
     "Enable accounts search" : "Activa a busca de contas",
     "Enable hashtags search" : "Activar a busca de hashtags",
-    "Successfully connected to Mastodon!" : "Conectou satisfactoriamente con Mastodon",
+    "Successfully connected to Mastodon!" : "Conectou satisfactoriamente con Mastodon!",
     "Mastodon OAuth access token could not be obtained:" : "Non foi posíbel obter o testemuño de acceso OAuth de Mastodon:",
     "Mastodon options saved" : "Gardáronse as opcións de Mastodon",
     "Incorrect access token" : "Testemuño de acceso incorrecto",
