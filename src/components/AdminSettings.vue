@@ -19,7 +19,7 @@
 			<NcCheckboxRadioSwitch
 				:checked.sync="state.use_popup"
 				@update:checked="onUsePopupChanged">
-				{{ t('integration_mastodon', 'Use a popup to authenticate') }}
+				{{ t('integration_mastodon', 'Use a pop-up to authenticate') }}
 			</NcCheckboxRadioSwitch>
 		</div>
 	</div>
