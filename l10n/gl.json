@@ -39,7 +39,7 @@
     "Mastodon options saved" : "Gardáronse as opcións de Mastodon",
     "Incorrect access token" : "Testemuño de acceso incorrecto",
     "Failed to save Mastodon options" : "Produciuse un fallo ao gardar as opcións de Mastodon.",
-    "Connect to {url}" : "Conectar a {url}",
+    "Connect to {url}" : "Conectar con {url}",
     "No Mastodon account connected" : "Non hai ningunha conta de Mastodon conectada",
     "Error connecting to Mastodon" : "Produciuse un erro ao conectar con Mastodon",
     "No Mastodon notifications!" : "Non hai notificacións de Mastodon!",
