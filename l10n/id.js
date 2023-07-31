@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integrasi Mastodon menyediakan widget dasbor yang menampilkan notifikasi penting dan lini masa beranda Anda.",
     "Default Mastodon instance address" : "Alamat server Mastodon bawaan",
     "Default address" : "Alamat bawaan",
-    "Use a popup to authenticate" : "Gunakan sembulan untuk mengautentikasi",
     "Mastodon administrator options saved" : "Opsi administrator Mastodon disimpan",
     "Failed to save Mastodon administrator options" : "Gagal menyimpan opsi administrator Mastodon",
     "Enable navigation link" : "Aktifkan tautan navigasi",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Gagal mendapatkan lini masa beranda Mastodon",
     "Reblog from {name}" : "{name} membagikan",
     "No text content" : "Tidak ada konten teks",
-    "Failed to create Mastodon OAuth app" : "Gagal membuat aplikasi OAuth Mastodon"
+    "Failed to create Mastodon OAuth app" : "Gagal membuat aplikasi OAuth Mastodon",
+    "Use a popup to authenticate" : "Gunakan sembulan untuk mengautentikasi"
 },
 "nplurals=1; plural=0;");

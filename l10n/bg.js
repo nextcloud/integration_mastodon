@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Интеграцията на Mastodon предоставя изпълними модули на таблото, показващи важните за вас известия и вашата домашна времева линия.",
     "Default Mastodon instance address" : "Адрес по подразбиране на екземпляр на Mastodon",
     "Default address" : "Адрес по подразбиране",
-    "Use a popup to authenticate" : "Използване на изскачащ прозорец за удостоверяване",
     "Mastodon administrator options saved" : "Опциите на администратор на Mastodon са записани",
     "Failed to save Mastodon administrator options" : "Неуспешно записване на опциите за администратор на Mastodon",
     "Enable navigation link" : "Активиране на връзка за навигация",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Неуспешно изтегляне на домашна времева линия на Mastodon",
     "Reblog from {name}" : "Повтаряне на блог от {name}",
     "No text content" : "Няма текстово съдържание",
-    "Failed to create Mastodon OAuth app" : "Неуспешно създаване на приложение Mastodon OAuth"
+    "Failed to create Mastodon OAuth app" : "Неуспешно създаване на приложение Mastodon OAuth",
+    "Use a popup to authenticate" : "Използване на изскачащ прозорец за удостоверяване"
 },
 "nplurals=2; plural=(n != 1);");

@@ -22,7 +22,6 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A integración con Mastodon fornece un trebello de taboleiro que amosa as súas notificacións\n     importantes e a súa liña temporal de inicio.",
     "Default Mastodon instance address" : "Enderezo predeterminado da instancia de Mastodon",
     "Default address" : "Enderezo predeterminado",
-    "Use a popup to authenticate" : "Use unha xanela emerxente para autenticarse",
     "Mastodon administrator options saved" : "Gardáronse as opcións do administrador de Mastodon",
     "Failed to save Mastodon administrator options" : "Non foi posíbel gardar as opcións do administrador de Mastodon",
     "Enable navigation link" : "Activar a ligazón de navegación",
@@ -50,6 +49,7 @@
     "Failed to get Mastodon home timeline" : "Produciuse un fallo ao obter a liña temporal de inicio de Mastodon",
     "Reblog from {name}" : "Rebloguear de {name}",
     "No text content" : "Sen contido de texto",
-    "Failed to create Mastodon OAuth app" : "Produciuse un erro ao crear a aplicación Mastodon OAuth"
+    "Failed to create Mastodon OAuth app" : "Produciuse un erro ao crear a aplicación Mastodon OAuth",
+    "Use a popup to authenticate" : "Use unha xanela emerxente para autenticarse"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

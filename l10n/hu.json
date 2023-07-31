@@ -22,7 +22,6 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A Mastodon integráció egy irányítópult-modult kínál, amely megjeleníti a fontos értesítéseket és idővonalat.",
     "Default Mastodon instance address" : "Alapértelmezett Mastodon-példány címe",
     "Default address" : "Alapértelmezett cím",
-    "Use a popup to authenticate" : "Felugró ablak használata a hitelesítéshez",
     "Mastodon administrator options saved" : "A Mastodon rendszergazdai beállításai mentve",
     "Failed to save Mastodon administrator options" : "A Mastodon rendszergazdai beállításainak mentése sikertelen",
     "Enable navigation link" : "Navigációs hivatkozás engedélyezése",
@@ -50,6 +49,7 @@
     "Failed to get Mastodon home timeline" : "A helyi Mastodon idővonal elérése sikertelen",
     "Reblog from {name}" : "Újból közzétette: {name}",
     "No text content" : "Nincs szöveges tartalom",
-    "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen"
+    "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen",
+    "Use a popup to authenticate" : "Felugró ablak használata a hitelesítéshez"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

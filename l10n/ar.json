@@ -22,7 +22,6 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "تُوقّر مُكاملة ماستودون Mastodon لوحة تحكم عناصر واجهة المستخدم والتي تعرض إشعاراتك المهمة والتسلسل الزمني لصفحتك الرئيسية.",
     "Default Mastodon instance address" : "عنوان خادوم ماستودون الافتراضي",
     "Default address" : "العنوان التلقائي",
-    "Use a popup to authenticate" : "استخدم النافذة المنبثقة للتعريف عن نفسك ",
     "Mastodon administrator options saved" : "تمّ حفظ خيارات مُشرف ماستودون",
     "Failed to save Mastodon administrator options" : "فشل حفظ خيارات مُشرف ماستودون",
     "Enable navigation link" : "تمكين رابط التنقُّل",
@@ -50,6 +49,7 @@
     "Failed to get Mastodon home timeline" : "فشل في الحصول علي التسلسل الزمني للصفحة الرئيسية لماستودون",
     "Reblog from {name}" : "إعادة النشر من {name}",
     "No text content" : "لا يوجد محتوى نصي",
-    "Failed to create Mastodon OAuth app" : "فشل إنشاء تطبيق المصادقة Mastodon OAuth"
+    "Failed to create Mastodon OAuth app" : "فشل إنشاء تطبيق المصادقة Mastodon OAuth",
+    "Use a popup to authenticate" : "استخدم النافذة المنبثقة للتعريف عن نفسك "
 },"pluralForm" :"nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;"
 }

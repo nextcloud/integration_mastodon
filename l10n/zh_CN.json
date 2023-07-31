@@ -19,7 +19,6 @@
     "Integration of Mastodon self-hosted social networking service" : "Mastodon自托管社交网络服务的集成",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon集成提供了仪表盘小部件，可显示您的重要通知和主页时间线。",
     "Default Mastodon instance address" : "默认Mastodon实例地址",
-    "Use a popup to authenticate" : "使用弹出窗口进行验证",
     "Mastodon administrator options saved" : "已保存Mastodon管理员选项",
     "Failed to save Mastodon administrator options" : "保存Mastodon管理员选项失败",
     "Enable navigation link" : "启用应用图标链接至实例",
@@ -42,6 +41,7 @@
     "No Mastodon home toots!" : "没有Mastodon主页嘟文！",
     "Failed to get Mastodon home timeline" : "获取Mastodon主页时间线失败",
     "No text content" : "没有文字内容",
-    "Failed to create Mastodon OAuth app" : "创建Mastodon OAuth应用程序失败"
+    "Failed to create Mastodon OAuth app" : "创建Mastodon OAuth应用程序失败",
+    "Use a popup to authenticate" : "使用弹出窗口进行验证"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

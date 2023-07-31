@@ -13,7 +13,6 @@ OC.L10N.register(
     "Mastodon integration" : "Ενσωμάτωση Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Ενσωμάτωση της υπηρεσίας κοινωνικής δικτύωσης Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Η ενσωμάτωση του Mastodon παρέχει μικροεφαρμογή για τον πίνακα ελέγχου που εμφανίζει τις σημαντικές ειδοποιήσεις και το χρονολόγιό σας.",
-    "Use a popup to authenticate" : "Χρησιμοποιήστε ένα αναδυόμενο παράθυρο για έλεγχο ταυτότητας",
     "Enable navigation link" : "Ενεργοποίηση συνδέσμου πλοήγησης",
     "Mastodon instance address" : "Διεύθυνση περιστατικού Mastodon",
     "Mastodon instance URL" : "URL εγκατάστασης Mastodon",
@@ -33,6 +32,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "Ο {name} θέλει να σας ακολουθήσει",
     "No Mastodon home toots!" : "Άδειο το Mastodon!",
     "Failed to get Mastodon home timeline" : "Αποτυχία λήψης του χρονολογίου του Mastodon",
-    "No text content" : "Κανένα περιεχόμενο κειμένου"
+    "No text content" : "Κανένα περιεχόμενο κειμένου",
+    "Use a popup to authenticate" : "Χρησιμοποιήστε ένα αναδυόμενο παράθυρο για έλεγχο ταυτότητας"
 },
 "nplurals=2; plural=(n != 1);");

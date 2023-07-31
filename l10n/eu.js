@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon integrazioak zure jakinarazpen garrantzitsuak eta denbora-lerro nagusia erakusten dituen panel-trepeta  eskaintzen du.",
     "Default Mastodon instance address" : "Mastodon instantzia helbide lehenetsia",
     "Default address" : "Helbide lehenetsia",
-    "Use a popup to authenticate" : "Erabili laster-menua autentifikatzeko",
     "Mastodon administrator options saved" : "Mastodon administratzaile aukerak ondo gorde dira",
     "Failed to save Mastodon administrator options" : "Mastodon administratzaile aukerak gordetzeak huts egin du",
     "Enable navigation link" : "Gaitu nabigazio esteka",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Mastodoneko denbora-lerro nagusia ekartzeak huts egin du",
     "Reblog from {name}" : "{name}-ek bigloteatuta",
     "No text content" : "Ez dago testu edukirik",
-    "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu"
+    "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu",
+    "Use a popup to authenticate" : "Erabili laster-menua autentifikatzeko"
 },
 "nplurals=2; plural=(n != 1);");
