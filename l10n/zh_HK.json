@@ -22,7 +22,6 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon 整合提供了可以顯示您最重要通知與您的家時間軸的儀表板小工具。",
     "Default Mastodon instance address" : "默認 Mastodon 站台地址",
     "Default address" : "默認地址",
-    "Use a popup to authenticate" : "使用彈出窗口進行身份驗證",
     "Mastodon administrator options saved" : "已儲存 Mastodon 管理員選項",
     "Failed to save Mastodon administrator options" : "儲存 Mastodon 管理員選項失敗",
     "Enable navigation link" : "啟用導覽連結",
@@ -50,6 +49,7 @@
     "Failed to get Mastodon home timeline" : "取得 Mastodon 主頁時間軸失敗",
     "Reblog from {name}" : "轉發自 {name}",
     "No text content" : "無文字內容",
-    "Failed to create Mastodon OAuth app" : "創建 Mastodon OAuth 應用程式失敗"
+    "Failed to create Mastodon OAuth app" : "創建 Mastodon OAuth 應用程式失敗",
+    "Use a popup to authenticate" : "使用彈出窗口進行身份驗證"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

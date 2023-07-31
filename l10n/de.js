@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Die Mastodon-Iintegration bietet Dashboard-Widgets, in dem deine wichtigen Benachrichtigungen und deine eigene Zeitleiste angezeigt werden.",
     "Default Mastodon instance address" : "Standard-Adresse der Mastodon-Instanz",
     "Default address" : "Standard-Adresse",
-    "Use a popup to authenticate" : "Popup zur Authentifizierung verwenden",
     "Mastodon administrator options saved" : "Mastodon Administrator-Einstellungen gespeichert",
     "Failed to save Mastodon administrator options" : "Fehler beim Speichern der Mastodon Administrator-Einstellungen",
     "Enable navigation link" : "Navigations-Link aktivieren",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Fehler beim Abrufen der Mastodon-Home-Zeitleiste",
     "Reblog from {name}" : "Reblog von {name}",
     "No text content" : "Kein Textinhalt",
-    "Failed to create Mastodon OAuth app" : "Fehler beim Erstellen der Mastodon OAuth-App"
+    "Failed to create Mastodon OAuth app" : "Fehler beim Erstellen der Mastodon OAuth-App",
+    "Use a popup to authenticate" : "Popup zur Authentifizierung verwenden"
 },
 "nplurals=2; plural=(n != 1);");

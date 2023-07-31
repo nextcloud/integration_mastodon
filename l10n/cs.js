@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Napojení na Mastodon poskytuje ovládací prvek pro nástěnku, zobrazující důležitá upozornění a vaši domovskou časovou osu.",
     "Default Mastodon instance address" : "Adresa výchozí instance Mastodon",
     "Default address" : "Výchozí adresa",
-    "Use a popup to authenticate" : "Ověřte se ve vyskakovacím okně",
     "Mastodon administrator options saved" : "Předvolby správy pro Mastodon uloženy",
     "Failed to save Mastodon administrator options" : "Nepodařilo se uložit předvolby správy Mastodon",
     "Enable navigation link" : "Povolit navigační odkaz",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Nepodařilo se získat domovskou časovou osu z Mastodon",
     "Reblog from {name}" : "Znovu publikovat od {name}",
     "No text content" : "Žádný textový obsah",
-    "Failed to create Mastodon OAuth app" : "Nepodařilo se vytvořit Mastodon OAuth aplikaci"
+    "Failed to create Mastodon OAuth app" : "Nepodařilo se vytvořit Mastodon OAuth aplikaci",
+    "Use a popup to authenticate" : "Ověřte se ve vyskakovacím okně"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

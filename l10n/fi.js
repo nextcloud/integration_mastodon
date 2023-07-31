@@ -9,7 +9,6 @@ OC.L10N.register(
     "OAuth access token refused" : "OAuth-valtuutus hylätty",
     "Connected accounts" : "Yhdistetyt tilit",
     "Mastodon integration" : "Mastodon-integraatio",
-    "Use a popup to authenticate" : "Käytä ponnahdusikkunaa tunnistautumista varten",
     "Enable navigation link" : "Näytä navigointipalkissa",
     "Mastodon instance address" : "Mastodon-instanssin osoite",
     "Mastodon instance URL" : "Mastodon-instanssin URL",
@@ -23,6 +22,7 @@ OC.L10N.register(
     "No Mastodon notifications!" : "Ei Mastodon-ilmoituksia!",
     "{name} is following you" : "{name} seuraa sinua",
     "{name} wants to follow you" : "{name} haluaa seurata sinua",
-    "No text content" : "Ei tekstisisältöä"
+    "No text content" : "Ei tekstisisältöä",
+    "Use a popup to authenticate" : "Käytä ponnahdusikkunaa tunnistautumista varten"
 },
 "nplurals=2; plural=(n != 1);");

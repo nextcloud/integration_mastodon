@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano bileşenleri sağlar.",
     "Default Mastodon instance address" : "Varsayılan Mastodon kopyası adresi",
     "Default address" : "Varsayılan adres",
-    "Use a popup to authenticate" : "Kimlik doğrulaması için açılan pencere kullanılsın",
     "Mastodon administrator options saved" : "Mastodon yönetici ayarları kaydedildi",
     "Failed to save Mastodon administrator options" : "Mastodon yönetici ayarları kaydedilemedi",
     "Enable navigation link" : "Gezinme bağlantısı kullanılsın",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Mastodon ana sayfası zaman akışı alınamadı",
     "Reblog from {name}" : "{name} üzerinden iletildi",
     "No text content" : "Metin içeriği yok",
-    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi"
+    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
+    "Use a popup to authenticate" : "Kimlik doğrulaması için açılan pencere kullanılsın"
 },
 "nplurals=2; plural=(n > 1);");

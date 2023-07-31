@@ -13,7 +13,6 @@ OC.L10N.register(
     "Mastodon integration" : "Združevalnik Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Združevalnik za storitev samogostujočega družbenega omrežja Mastodon.",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Podpora za Mastodon omogoča gradnike nadzorne plošče za prikazovanje pomembnih obvestil in osebno časovnico objav.",
-    "Use a popup to authenticate" : "Uporabi pojavno okno za overitev",
     "Enable navigation link" : "Omogoči povezave za krmarjenje",
     "Mastodon instance address" : "Naslov povezave do računa Mastodon",
     "Mastodon instance URL" : "Naslov URL povezave Mastodon",
@@ -34,6 +33,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} vam želi slediti",
     "No Mastodon home toots!" : "Ni še zabeleženih objav Mastodon!",
     "Failed to get Mastodon home timeline" : "Pridobivanje časovnice objav Mastodon je spodletelo",
-    "No text content" : "Ni besedilne vsebine"
+    "No text content" : "Ni besedilne vsebine",
+    "Use a popup to authenticate" : "Uporabi pojavno okno za overitev"
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");

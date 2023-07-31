@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline.",
     "Default Mastodon instance address" : "Default Mastodon instance address",
     "Default address" : "Default address",
-    "Use a popup to authenticate" : "Use a popup to authenticate",
     "Mastodon administrator options saved" : "Mastodon administrator options saved",
     "Failed to save Mastodon administrator options" : "Failed to save Mastodon administrator options",
     "Enable navigation link" : "Enable navigation link",
@@ -52,6 +51,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Failed to get Mastodon home timeline",
     "Reblog from {name}" : "Reblog from {name}",
     "No text content" : "No text content",
-    "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app"
+    "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app",
+    "Use a popup to authenticate" : "Use a popup to authenticate"
 },
 "nplurals=2; plural=(n != 1);");
