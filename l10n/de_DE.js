@@ -24,6 +24,7 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Die Mastodon-Iintegration bietet Dashboard-Widgets, in dem Ihre wichtigen Benachrichtigungen und Ihre eigene Zeitleiste angezeigt werden.",
     "Default Mastodon instance address" : "Standard-Adresse der Mastodon-Instanz",
     "Default address" : "Standard-Adresse",
+    "Use a pop-up to authenticate" : "Pop-up zur Authentifizierung verwenden",
     "Mastodon administrator options saved" : "Mastodon Administrator-Einstellungen gespeichert",
     "Failed to save Mastodon administrator options" : "Fehler beim Speichern der Mastodon Administrator-Einstellungen",
     "Enable navigation link" : "Navigations-Link aktivieren",

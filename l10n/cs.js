@@ -24,6 +24,7 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Napojení na Mastodon poskytuje ovládací prvek pro nástěnku, zobrazující důležitá upozornění a vaši domovskou časovou osu.",
     "Default Mastodon instance address" : "Adresa výchozí instance Mastodon",
     "Default address" : "Výchozí adresa",
+    "Use a pop-up to authenticate" : "Ověřte se ve vyskakovacím okně",
     "Mastodon administrator options saved" : "Předvolby správy pro Mastodon uloženy",
     "Failed to save Mastodon administrator options" : "Nepodařilo se uložit předvolby správy Mastodon",
     "Enable navigation link" : "Povolit navigační odkaz",

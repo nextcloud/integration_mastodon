@@ -24,6 +24,7 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A integración con Mastodon fornece un trebello de taboleiro que amosa as súas notificacións\n     importantes e a súa liña temporal de inicio.",
     "Default Mastodon instance address" : "Enderezo predeterminado da instancia de Mastodon",
     "Default address" : "Enderezo predeterminado",
+    "Use a pop-up to authenticate" : "Usar unha xanela emerxente para autenticarse",
     "Mastodon administrator options saved" : "Gardáronse as opcións do administrador de Mastodon",
     "Failed to save Mastodon administrator options" : "Non foi posíbel gardar as opcións do administrador de Mastodon",
     "Enable navigation link" : "Activar a ligazón de navegación",
