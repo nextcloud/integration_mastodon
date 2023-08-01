@@ -22,6 +22,7 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "تُوقّر مُكاملة ماستودون Mastodon لوحة تحكم عناصر واجهة المستخدم والتي تعرض إشعاراتك المهمة والتسلسل الزمني لصفحتك الرئيسية.",
     "Default Mastodon instance address" : "عنوان خادوم ماستودون الافتراضي",
     "Default address" : "العنوان التلقائي",
+    "Use a pop-up to authenticate" : "إستعمل النافذة المنبثقة لتحقيق هويتك",
     "Mastodon administrator options saved" : "تمّ حفظ خيارات مُشرف ماستودون",
     "Failed to save Mastodon administrator options" : "فشل حفظ خيارات مُشرف ماستودون",
     "Enable navigation link" : "تمكين رابط التنقُّل",

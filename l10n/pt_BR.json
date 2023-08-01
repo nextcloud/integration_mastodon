@@ -22,6 +22,7 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A integração do Mastodon fornece widgets de painel exibindo suas notificações importantes e sua linha do tempo inicial.",
     "Default Mastodon instance address" : "Endereço padrão da instância do Mastodon",
     "Default address" : "Endereço padrão",
+    "Use a pop-up to authenticate" : "Use um pop-up para autenticar",
     "Mastodon administrator options saved" : "Opções de administrador do Mastodon salvas",
     "Failed to save Mastodon administrator options" : "Falha ao salvar as opções de administrador do Mastodon",
     "Enable navigation link" : "Habilitar link de navegação",

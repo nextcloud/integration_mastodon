@@ -24,6 +24,7 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon интеграција обезбеђује виџет контролне табле који приказује ваша важна обавештења и вашу почетну временску линију.",
     "Default Mastodon instance address" : "Подразумевана адреса Mastodon инстанце",
     "Default address" : "Подразумевана адреса",
+    "Use a pop-up to authenticate" : "Користи искачући прозор за аутентификацију",
     "Mastodon administrator options saved" : "Сачуване су Mastodon администраторске опције",
     "Failed to save Mastodon administrator options" : "Није успело чување Mastodon администраторских опција",
     "Enable navigation link" : "Укључи линк за навигацију",
