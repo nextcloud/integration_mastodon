@@ -5,6 +5,7 @@ OC.L10N.register(
     "Bad HTTP method" : "روش HTTP بد",
     "Bad credentials" : "اعتبارنامه بد",
     "OAuth access token refused" : "نشانه دسترسی OAuth رد شد",
-    "Connected accounts" : "حساب‌های متصل"
+    "Connected accounts" : "حساب‌های متصل",
+    "Connected as {user}" : "متصل به عنوان {user}"
 },
 "nplurals=2; plural=(n > 1);");
