@@ -24,6 +24,7 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon integrazioak zure jakinarazpen garrantzitsuak eta denbora-lerro nagusia erakusten dituen panel-trepeta  eskaintzen du.",
     "Default Mastodon instance address" : "Mastodon instantzia helbide lehenetsia",
     "Default address" : "Helbide lehenetsia",
+    "Use a pop-up to authenticate" : "Erabili pop-up bat autentifikatzeko",
     "Mastodon administrator options saved" : "Mastodon administratzaile aukerak ondo gorde dira",
     "Failed to save Mastodon administrator options" : "Mastodon administratzaile aukerak gordetzeak huts egin du",
     "Enable navigation link" : "Gaitu nabigazio esteka",
