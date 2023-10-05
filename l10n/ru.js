@@ -13,6 +13,7 @@ OC.L10N.register(
     "Mastodon integration" : "Интеграция Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Интеграция федеративной социальной сети Mastodon",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Интеграция Mastodon предоставляет виджеты на панели инструментов, отображающие важные уведомления и домашнюю ленту.",
+    "Use a pop-up to authenticate" : "Используйте всплывающее окно для аутентификации",
     "Enable navigation link" : "Включить ссылку для навигации",
     "Mastodon instance address" : "Адрес сервера Mastodon",
     "Mastodon instance URL" : "URL сервера Mastodon",
@@ -33,6 +34,7 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} хочет подписаться на вас",
     "No Mastodon home toots!" : "Нет домашних тутов Mastodon!",
     "Failed to get Mastodon home timeline" : "Не удалось получить домашнюю ленту Mastodon.",
-    "No text content" : "Нет текстового содержания"
+    "No text content" : "Нет текстового содержания",
+    "Use a popup to authenticate" : "Используйте всплывающее окно для аутентификации"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");
