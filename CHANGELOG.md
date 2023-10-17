@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.0.3 – 2023-10-17
+
+Maintenance update
+
+### Changed
+
+- Add Nextcloud 28 support
+- Update npm packages
+- Localization (l10n) updates
+
+### Fixed
+
+- Fixed bad character encoding displayed in old dashboard widget component (https://github.com/nextcloud/integration_mastodon/issues/53)
+- Other minor fixes
+
 ## 2.0.2 – 2023-05-10
 
 ### Changed
