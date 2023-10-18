@@ -1,7 +1,7 @@
 <template>
-	<DashboardWidget :items="items"
+	<NcDashboardWidget :items="items"
 		:show-more-url="showMoreUrl"
-		:show-more-text="title"
+		:show-more-label="title"
 		:loading="state === 'loading'">
 		<template #empty-content>
 			<NcEmptyContent v-if="emptyContentMessage"
@@ -31,7 +31,7 @@
 				</template>
 			</NcEmptyContent>
 		</template>
-	</DashboardWidget>
+	</NcDashboardWidget>
 </template>
 
 <script>
@@ -43,7 +43,7 @@ import MastodonIcon from '../components/icons/MastodonIcon.vue'
 
 import axios from '@nextcloud/axios'
 import { generateUrl, imagePath } from '@nextcloud/router'
-import { DashboardWidget } from '@nextcloud/vue-dashboard'
+import NcDashboardWidget from '@nextcloud/vue/dist/Components/NcDashboardWidget.js'
 import { showError } from '@nextcloud/dialogs'
 import moment from '@nextcloud/moment'
 import { getLocale } from '@nextcloud/l10n'
@@ -59,7 +59,7 @@ export default {
 
 	components: {
 		NcButton,
-		DashboardWidget,
+		NcDashboardWidget,
 		NcEmptyContent,
 		LoginVariantIcon,
 		CloseIcon,

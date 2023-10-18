@@ -66,8 +66,10 @@ class MastodonAPIService {
 			$params['since_id'] = $since;
 		}
 		$home = $this->request($userId, 'timelines/home', $params);
-		foreach ($home as $key => $value) {
-			$home[$key]['type'] = 'home';
+		if (!isset($home['error'])) {
+			foreach ($home as $key => $value) {
+				$home[$key]['type'] = 'home';
+			}
 		}
 		return $home;
 	}
@@ -92,14 +94,16 @@ class MastodonAPIService {
 		$params['exclude_types'] = ['poll'];
 		$notifications = $this->request($userId, 'notifications', $params);
 
-		// sort merged results by date
-		usort($notifications, function($a, $b) {
-			$a = new Datetime($a['created_at']);
-			$ta = $a->getTimestamp();
-			$b = new Datetime($b['created_at']);
-			$tb = $b->getTimestamp();
-			return ($ta > $tb) ? -1 : 1;
-		});
+		if (!isset($notifications['error'])) {
+			// sort merged results by date
+			usort($notifications, function($a, $b) {
+				$a = new Datetime($a['created_at']);
+				$ta = $a->getTimestamp();
+				$b = new Datetime($b['created_at']);
+				$tb = $b->getTimestamp();
+				return ($ta > $tb) ? -1 : 1;
+			});
+		}
 
 		return $notifications;
 	}
