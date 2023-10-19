@@ -22,6 +22,7 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A Mastodon integráció egy irányítópult-modult kínál, amely megjeleníti a fontos értesítéseket és idővonalat.",
     "Default Mastodon instance address" : "Alapértelmezett Mastodon-példány címe",
     "Default address" : "Alapértelmezett cím",
+    "Use a pop-up to authenticate" : "Felugró ablak használata a hitelesítéshez",
     "Mastodon administrator options saved" : "A Mastodon rendszergazdai beállításai mentve",
     "Failed to save Mastodon administrator options" : "A Mastodon rendszergazdai beállításainak mentése sikertelen",
     "Enable navigation link" : "Navigációs hivatkozás engedélyezése",
