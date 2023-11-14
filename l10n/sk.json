@@ -21,6 +21,8 @@
     "Connect to Mastodon" : "Pripojiť k Mastodon",
     "Connected as {user}" : "Pripojený ako {user}",
     "Disconnect from Mastodon" : "Odpojiť od Mastodon",
+    "Enable statuses search" : "Povoliť prehľadávanie stavov",
+    "Enable accounts search" : "Povoliť prehľadávanie účtov",
     "Successfully connected to Mastodon!" : "Úspešne pripojené k Mastodon!",
     "Mastodon OAuth access token could not be obtained:" : "Mastodon prístupový token OAuth sa nepodarilo získať:",
     "Mastodon options saved" : "Nastavenia Mastodon boli uložené",
