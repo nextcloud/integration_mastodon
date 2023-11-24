@@ -32,7 +32,6 @@ OC.L10N.register(
     "{name} wants to follow you" : "Ο {name} θέλει να σας ακολουθήσει",
     "No Mastodon home toots!" : "Άδειο το Mastodon!",
     "Failed to get Mastodon home timeline" : "Αποτυχία λήψης του χρονολογίου του Mastodon",
-    "No text content" : "Κανένα περιεχόμενο κειμένου",
-    "Use a popup to authenticate" : "Χρησιμοποιήστε ένα αναδυόμενο παράθυρο για έλεγχο ταυτότητας"
+    "No text content" : "Κανένα περιεχόμενο κειμένου"
 },
 "nplurals=2; plural=(n != 1);");

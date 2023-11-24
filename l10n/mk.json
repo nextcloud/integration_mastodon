@@ -6,7 +6,6 @@
     "Use a pop-up to authenticate" : "Користи скокачки прозор за автентификација",
     "Enable navigation link" : "Овозможи линк за навигација",
     "Connected as {user}" : "Поврзан како {user}",
-    "Incorrect access token" : "Неточен токен за пристап",
-    "Use a popup to authenticate" : "користи скокачки прозор за автентификација"
+    "Incorrect access token" : "Неточен токен за пристап"
 },"pluralForm" :"nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;"
 }

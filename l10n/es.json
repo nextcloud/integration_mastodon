@@ -50,7 +50,6 @@
     "Failed to get Mastodon home timeline" : "Fallo al obtener el timeline de Mastodon",
     "Reblog from {name}" : "Hacer Reblog desde {name}",
     "No text content" : "No hay contenido de texto",
-    "Failed to create Mastodon OAuth app" : "Fallo al crear la app OAuth de Mastodon",
-    "Use a popup to authenticate" : "Usa una ventana emergente para autenticar"
+    "Failed to create Mastodon OAuth app" : "Fallo al crear la app OAuth de Mastodon"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }

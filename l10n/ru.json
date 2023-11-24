@@ -32,7 +32,6 @@
     "{name} wants to follow you" : "{name} хочет подписаться на вас",
     "No Mastodon home toots!" : "Нет домашних тутов Mastodon!",
     "Failed to get Mastodon home timeline" : "Не удалось получить домашнюю ленту Mastodon.",
-    "No text content" : "Нет текстового содержания",
-    "Use a popup to authenticate" : "Используйте всплывающее окно для аутентификации"
+    "No text content" : "Нет текстового содержания"
 },"pluralForm" :"nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);"
 }

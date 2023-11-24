@@ -52,7 +52,6 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "A helyi Mastodon idővonal elérése sikertelen",
     "Reblog from {name}" : "Újból közzétette: {name}",
     "No text content" : "Nincs szöveges tartalom",
-    "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen",
-    "Use a popup to authenticate" : "Felugró ablak használata a hitelesítéshez"
+    "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen"
 },
 "nplurals=2; plural=(n != 1);");

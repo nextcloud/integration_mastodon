@@ -52,7 +52,6 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Mastodon ana sayfası zaman akışı alınamadı",
     "Reblog from {name}" : "{name} üzerinden iletildi",
     "No text content" : "Metin içeriği yok",
-    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
-    "Use a popup to authenticate" : "Kimlik doğrulaması için açılan pencere kullanılsın"
+    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi"
 },
 "nplurals=2; plural=(n > 1);");

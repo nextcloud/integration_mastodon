@@ -51,7 +51,6 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Fehler beim Abrufen der Mastodon-Home-Zeitleiste",
     "Reblog from {name}" : "Reblog von {name}",
     "No text content" : "Kein Textinhalt",
-    "Failed to create Mastodon OAuth app" : "Fehler beim Erstellen der Mastodon OAuth-App",
-    "Use a popup to authenticate" : "Popup zur Authentifizierung verwenden"
+    "Failed to create Mastodon OAuth app" : "Fehler beim Erstellen der Mastodon OAuth-App"
 },
 "nplurals=2; plural=(n != 1);");

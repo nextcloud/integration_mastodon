@@ -51,7 +51,6 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Error al obtener la línea de tiempo de inicio de Mastodon",
     "Reblog from {name}" : "Reblog de {nombre}",
     "No text content" : "Sin contenido de texto",
-    "Failed to create Mastodon OAuth app" : "Error al crear la aplicación de OAuth de Mastodon",
-    "Use a popup to authenticate" : "Usar un popup para la autenticación"
+    "Failed to create Mastodon OAuth app" : "Error al crear la aplicación de OAuth de Mastodon"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

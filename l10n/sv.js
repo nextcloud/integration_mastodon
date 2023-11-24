@@ -35,7 +35,6 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} vill följa dig",
     "No Mastodon home toots!" : "Inga tut på hem-tidslinjen!",
     "Failed to get Mastodon home timeline" : "Kunde inte hämta hem-tidslinjen från Mastodon",
-    "No text content" : "Ingen textbeskrivning",
-    "Use a popup to authenticate" : "Använd en popup för att autentisera"
+    "No text content" : "Ingen textbeskrivning"
 },
 "nplurals=2; plural=(n != 1);");

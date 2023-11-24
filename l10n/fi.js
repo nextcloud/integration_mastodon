@@ -29,7 +29,6 @@ OC.L10N.register(
     "No Mastodon notifications!" : "Ei Mastodon-ilmoituksia!",
     "{name} is following you" : "{name} seuraa sinua",
     "{name} wants to follow you" : "{name} haluaa seurata sinua",
-    "No text content" : "Ei tekstisisältöä",
-    "Use a popup to authenticate" : "Käytä ponnahdusikkunaa tunnistautumista varten"
+    "No text content" : "Ei tekstisisältöä"
 },
 "nplurals=2; plural=(n != 1);");

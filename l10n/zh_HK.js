@@ -52,7 +52,6 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "取得 Mastodon 主頁時間軸失敗",
     "Reblog from {name}" : "轉發自 {name}",
     "No text content" : "無文字內容",
-    "Failed to create Mastodon OAuth app" : "創建 Mastodon OAuth 應用程式失敗",
-    "Use a popup to authenticate" : "使用彈出窗口進行身份驗證"
+    "Failed to create Mastodon OAuth app" : "創建 Mastodon OAuth 應用程式失敗"
 },
 "nplurals=1; plural=0;");
