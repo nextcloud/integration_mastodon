@@ -24,6 +24,7 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integrasi Mastodon menyediakan widget dasbor yang menampilkan notifikasi penting dan lini masa beranda Anda.",
     "Default Mastodon instance address" : "Alamat server Mastodon bawaan",
     "Default address" : "Alamat bawaan",
+    "Use a pop-up to authenticate" : "Gunakan pop-up untuk mengautentikasi",
     "Mastodon administrator options saved" : "Opsi administrator Mastodon disimpan",
     "Failed to save Mastodon administrator options" : "Gagal menyimpan opsi administrator Mastodon",
     "Enable navigation link" : "Aktifkan tautan navigasi",
