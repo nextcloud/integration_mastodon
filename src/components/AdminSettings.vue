@@ -80,10 +80,8 @@ export default {
 			axios.put(url, req).then((response) => {
 				showSuccess(t('integration_mastodon', 'Mastodon administrator options saved'))
 			}).catch((error) => {
-				showError(
-					t('integration_mastodon', 'Failed to save Mastodon administrator options')
-					+ ': ' + (error.response?.request?.responseText ?? '')
-				)
+				showError(t('integration_mastodon', 'Failed to save Mastodon administrator options')
+					+ ': ' + (error.response?.request?.responseText ?? ''))
 				console.debug(error)
 			})
 		},

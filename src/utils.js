@@ -60,10 +60,8 @@ export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
 				window.location.replace(requestUrl)
 			}
 		}).catch((error) => {
-			showError(
-				t('integration_mastodon', 'Failed to create Mastodon OAuth app')
-				+ ': ' + (error.response?.request?.responseText ?? '')
-			)
+			showError(t('integration_mastodon', 'Failed to create Mastodon OAuth app')
+				+ ': ' + (error.response?.request?.responseText ?? ''))
 			console.error(error)
 		})
 	})
@@ -85,7 +83,7 @@ export function oauthConnectConfirmDialog(mastodonUrl) {
 				'You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings.',
 				{ settingsHtmlLink },
 				null,
-				{ escape: false }
+				{ escape: false },
 			),
 			t('integration_mastodon', 'Connect to Mastodon'),
 			'none',

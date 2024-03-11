@@ -156,10 +156,8 @@ export default {
 					}
 				})
 				.catch((error) => {
-					showError(
-						t('integration_mastodon', 'Failed to save Mastodon options')
-						+ ': ' + error.response?.request?.responseText
-					)
+					showError(t('integration_mastodon', 'Failed to save Mastodon options')
+						+ ': ' + error.response?.request?.responseText)
 				})
 				.then(() => {
 					this.loading = false
