@@ -1,6 +1,6 @@
 {
 	"name": "integration_mastodon",
-	"version": "0.0.1",
+	"version": "2.1.0",
 	"description": "Mastodon integration",
 	"main": "index.js",
 	"directories": {
