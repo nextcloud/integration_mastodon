@@ -15,6 +15,7 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon-integraatio",
     "Default Mastodon instance address" : "Mastodon-instanssin oletusosoite",
     "Default address" : "Oletusosoite",
+    "Use a pop-up to authenticate" : "Käytä ponnahdusikkunaa tunnistautumista varten",
     "Enable navigation link" : "Näytä navigointipalkissa",
     "Mastodon instance address" : "Mastodon-instanssin osoite",
     "Mastodon instance URL" : "Mastodon-instanssin URL",
