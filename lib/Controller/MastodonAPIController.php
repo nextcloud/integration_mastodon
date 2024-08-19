@@ -11,6 +11,8 @@
 
 namespace OCA\Mastodon\Controller;
 
+use OCP\AppFramework\Http\Attribute\NoAdminRequired;
+use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\IConfig;
 use OCP\PreConditionNotMetException;
@@ -24,33 +26,34 @@ use OCA\Mastodon\AppInfo\Application;
 
 class MastodonAPIController extends Controller {
 
-	public function __construct(string             $appName,
-								IRequest           $request,
-								private IConfig            $config,
-								private LoggerInterface    $logger,
-								private MastodonAPIService $mastodonAPIService,
-								private ?string            $userId) {
+	public function __construct(
+		string $appName,
+		IRequest $request,
+		private IConfig $config,
+		private LoggerInterface $logger,
+		private MastodonAPIService $mastodonAPIService,
+		private ?string $userId
+	) {
 		parent::__construct($appName, $request);
 	}
 
 	/**
-	 * @NoAdminRequired
-	 *
 	 * @return DataResponse
 	 */
+	#[NoAdminRequired]
 	public function getMastodonUrl(): DataResponse {
 		return new DataResponse($this->mastodonAPIService->getMastodonUrl($this->userId));
 	}
 
 	/**
 	 * get notification list
-	 * @NoAdminRequired
 	 *
 	 * @param string $redirect_uri
 	 * @param string|null $oauth_origin
 	 * @return DataResponse
 	 * @throws PreConditionNotMetException
 	 */
+	#[NoAdminRequired]
 	public function declareApp(string $redirect_uri, ?string $oauth_origin = null): DataResponse {
 		$result = $this->mastodonAPIService->declareApp($this->userId, $redirect_uri);
 		if (isset($result['client_id'], $result['client_secret'])) {
@@ -75,12 +78,12 @@ class MastodonAPIController extends Controller {
 
 	/**
 	 * get mastodon user avatar
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
 	 *
 	 * @param string $imageUrl
 	 * @return DataDisplayResponse
 	 */
+	#[NoAdminRequired]
+	#[NoCSRFRequired]
 	public function getMastodonAvatar(string $imageUrl): DataDisplayResponse {
 		$avatar = $this->mastodonAPIService->getMastodonAvatar($this->userId, $imageUrl);
 		if (is_null($avatar)) {
@@ -94,11 +97,11 @@ class MastodonAPIController extends Controller {
 
 	/**
 	 * get home timeline
-	 * @NoAdminRequired
 	 *
 	 * @param ?int $since
 	 * @return DataResponse
 	 */
+	#[NoAdminRequired]
 	public function getHomeTimeline(?int $since = null): DataResponse {
 		$result = $this->mastodonAPIService->getHomeTimeline($this->userId, $since);
 		if (!isset($result['error'])) {
@@ -111,11 +114,11 @@ class MastodonAPIController extends Controller {
 
 	/**
 	 * get notification list
-	 * @NoAdminRequired
 	 *
 	 * @param ?int $since
 	 * @return DataResponse
 	 */
+	#[NoAdminRequired]
 	public function getNotifications(?int $since = null): DataResponse {
 		$result = $this->mastodonAPIService->getNotifications($this->userId, $since);
 		if (!isset($result['error'])) {

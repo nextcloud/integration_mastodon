@@ -31,11 +31,13 @@ class MastodonAPIService {
 
 	private IClient $client;
 
-	public function __construct (string $appName,
-								private LoggerInterface $logger,
-								private IL10N $l10n,
-								private IConfig $config,
-								IClientService $clientService) {
+	public function __construct(
+		string $appName,
+		private LoggerInterface $logger,
+		private IL10N $l10n,
+		private IConfig $config,
+		IClientService $clientService
+	) {
 		$this->client = $clientService->newClient();
 	}
 

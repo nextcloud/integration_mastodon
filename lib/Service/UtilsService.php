@@ -16,7 +16,7 @@ use Html2Text\Html2Text;
 
 class UtilsService {
 
-	public function __construct (string $appName) {
+	public function __construct() {
 	}
 
 	/**

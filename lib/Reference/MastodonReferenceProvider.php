@@ -22,12 +22,12 @@
 
 namespace OCA\Mastodon\Reference;
 
-use OC\Collaboration\Reference\LinkReferenceProvider;
 use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\ISearchableReferenceProvider;
 use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Mastodon\AppInfo\Application;
 use OCP\Collaboration\Reference\IReference;
+use OCP\Collaboration\Reference\LinkReferenceProvider;
 use OCP\IConfig;
 use OCP\IL10N;
 
@@ -35,12 +35,14 @@ use OCP\IURLGenerator;
 
 class MastodonReferenceProvider extends ADiscoverableReferenceProvider implements ISearchableReferenceProvider {
 
-	public function __construct(private IConfig $config,
-								private IL10N $l10n,
-								private IURLGenerator $urlGenerator,
-								private ReferenceManager $referenceManager,
-								private LinkReferenceProvider $linkReferenceProvider,
-								private ?string $userId) {
+	public function __construct(
+		private IConfig $config,
+		private IL10N $l10n,
+		private IURLGenerator $urlGenerator,
+		private ReferenceManager $referenceManager,
+		private LinkReferenceProvider $linkReferenceProvider,
+		private ?string $userId
+	) {
 	}
 
 	/**

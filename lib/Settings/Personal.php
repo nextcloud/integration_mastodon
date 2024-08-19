@@ -10,9 +10,11 @@ use OCA\Mastodon\AppInfo\Application;
 
 class Personal implements ISettings {
 
-	public function __construct(private IConfig       $config,
-								private IInitialState $initialStateService,
-								private ?string       $userId) {
+	public function __construct(
+		private IConfig $config,
+		private IInitialState $initialStateService,
+		private ?string $userId
+	) {
 	}
 
 	/**
