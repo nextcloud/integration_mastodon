@@ -30,13 +30,15 @@ import EarthIcon from 'vue-material-design-icons/Earth.vue'
 
 import MastodonIcon from './icons/MastodonIcon.vue'
 
+import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
-import { delay } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
+import { confirmPassword } from '@nextcloud/password-confirmation'
 
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import { delay } from '../utils.js'
 
 export default {
 	name: 'AdminSettings',
@@ -63,7 +65,7 @@ export default {
 
 	methods: {
 		onUsePopupChanged(newValue) {
-			this.saveOptions({ use_popup: newValue ? '1' : '0' })
+			this.saveOptions({ use_popup: newValue ? '1' : '0' }, false)
 		},
 		onInput() {
 			delay(() => {
@@ -72,18 +74,24 @@ export default {
 				})
 			}, 2000)()
 		},
-		saveOptions(values) {
+		async saveOptions(values, sensitive = true) {
+			if (sensitive) {
+				await confirmPassword()
+			}
 			const req = {
 				values,
 			}
-			const url = generateUrl('/apps/integration_mastodon/admin-config')
-			axios.put(url, req).then((response) => {
-				showSuccess(t('integration_mastodon', 'Mastodon administrator options saved'))
-			}).catch((error) => {
-				showError(t('integration_mastodon', 'Failed to save Mastodon administrator options')
-					+ ': ' + (error.response?.request?.responseText ?? ''))
-				console.debug(error)
-			})
+			const url = sensitive
+				? generateUrl('/apps/integration_mastodon/sensitive-admin-config')
+				: generateUrl('/apps/integration_mastodon/admin-config')
+			axios.put(url, req)
+				.then((response) => {
+					showSuccess(t('integration_mastodon', 'Mastodon administrator options saved'))
+				})
+				.catch((error) => {
+					showError(t('integration_mastodon', 'Failed to save Mastodon administrator options'))
+					console.error(error)
+				})
 		},
 	},
 }

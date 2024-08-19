@@ -73,14 +73,16 @@ import EarthIcon from 'vue-material-design-icons/Earth.vue'
 
 import MastodonIcon from './icons/MastodonIcon.vue'
 
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
-import { delay, oauthConnect } from '../utils.js'
 import { showSuccess, showError } from '@nextcloud/dialogs'
+import { confirmPassword } from '@nextcloud/password-confirmation'
 
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import { delay, oauthConnect } from '../utils.js'
 
 export default {
 	name: 'PersonalSettings',
@@ -138,13 +140,18 @@ export default {
 		},
 		onCheckboxChanged(newValue, key) {
 			this.state[key] = newValue
-			this.saveOptions({ [key]: this.state[key] ? '1' : '0' })
+			this.saveOptions({ [key]: this.state[key] ? '1' : '0' }, false)
 		},
-		saveOptions(values) {
+		async saveOptions(values, sensitive = true) {
+			if (sensitive) {
+				await confirmPassword()
+			}
 			const req = {
 				values,
 			}
-			const url = generateUrl('/apps/integration_mastodon/config')
+			const url = sensitive
+				? generateUrl('/apps/integration_mastodon/sensitive-config')
+				: generateUrl('/apps/integration_mastodon/config')
 			axios.put(url, req)
 				.then((response) => {
 					showSuccess(t('integration_mastodon', 'Mastodon options saved'))
