@@ -10,16 +10,19 @@ use OCA\Mastodon\AppInfo\Application;
 
 class Personal implements ISettings {
 
-	public function __construct(private IConfig       $config,
-								private IInitialState $initialStateService,
-								private ?string       $userId) {
+	public function __construct(
+		private IConfig $config,
+		private IInitialState $initialStateService,
+		private ?string $userId
+	) {
 	}
 
 	/**
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token');
+		// don't expose the token to the user
+		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token') !== '' ? 'dummyToken' : '';
 		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name');
 		$navigationEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'navigation_enabled', '0') === '1';
 		$searchStatusesEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_statuses_enabled', '1') === '1';

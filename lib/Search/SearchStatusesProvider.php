@@ -39,12 +39,14 @@ use OCP\Search\SearchResultEntry;
 
 class SearchStatusesProvider implements IProvider {
 
-	public function __construct(private IAppManager        $appManager,
-								private IL10N              $l10n,
-								private IConfig            $config,
-								private IURLGenerator      $urlGenerator,
-								private UtilsService       $utilsService,
-								private MastodonAPIService $mastodonAPIService) {
+	public function __construct(
+		private IAppManager $appManager,
+		private IL10N $l10n,
+		private IConfig $config,
+		private IURLGenerator $urlGenerator,
+		private UtilsService $utilsService,
+		private MastodonAPIService $mastodonAPIService
+	) {
 	}
 
 	/**

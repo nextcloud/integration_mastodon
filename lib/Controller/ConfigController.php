@@ -11,6 +11,10 @@
 
 namespace OCA\Mastodon\Controller;
 
+use OCP\AppFramework\Http;
+use OCP\AppFramework\Http\Attribute\NoAdminRequired;
+use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\PasswordConfirmationRequired;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\IURLGenerator;
@@ -28,27 +32,49 @@ use OCA\Mastodon\AppInfo\Application;
 
 class ConfigController extends Controller {
 
-	public function __construct(string                     $appName,
-								IRequest           	       $request,
-								private IConfig            $config,
-								private IURLGenerator      $urlGenerator,
-								private IL10N              $l,
-								private IInitialState      $initialStateService,
-								private LoggerInterface    $logger,
-								private MastodonAPIService $mastodonAPIService,
-								private ?string            $userId) {
+	public function __construct(
+		string $appName,
+		IRequest $request,
+		private IConfig $config,
+		private IURLGenerator $urlGenerator,
+		private IL10N $l,
+		private IInitialState $initialStateService,
+		private LoggerInterface $logger,
+		private MastodonAPIService $mastodonAPIService,
+		private ?string $userId
+	) {
 		parent::__construct($appName, $request);
 	}
 
 	/**
-	 * set config values
-	 * @NoAdminRequired
+	 * Set config values
 	 *
 	 * @param array $values
 	 * @return DataResponse
 	 * @throws PreConditionNotMetException
 	 */
+	#[NoAdminRequired]
 	public function setConfig(array $values): DataResponse {
+		foreach ($values as $key => $value) {
+			if (in_array($key, ['token', 'url'], true)) {
+				return new DataResponse([], Http::STATUS_BAD_REQUEST);
+			}
+			$this->config->setUserValue($this->userId, Application::APP_ID, $key, $value);
+		}
+
+		return new DataResponse([]);
+	}
+
+	/**
+	 * Set sensitive config values
+	 *
+	 * @param array $values
+	 * @return DataResponse
+	 * @throws PreConditionNotMetException
+	 */
+	#[NoAdminRequired]
+	#[PasswordConfirmationRequired]
+	public function setSensitiveConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
 			$this->config->setUserValue($this->userId, Application::APP_ID, $key, $value);
 		}
@@ -62,16 +88,33 @@ class ConfigController extends Controller {
 			$this->config->deleteUserValue($this->userId, Application::APP_ID, 'instance_contact_image_hostname');
 		}
 
-		return new DataResponse(1);
+		return new DataResponse([]);
 	}
 
 	/**
-	 * set admin config values
+	 * Set admin config values
 	 *
 	 * @param array $values
 	 * @return DataResponse
 	 */
 	public function setAdminConfig(array $values): DataResponse {
+		foreach ($values as $key => $value) {
+			if (in_array($key, ['oauth_instance_url'], true)) {
+				return new DataResponse([], Http::STATUS_BAD_REQUEST);
+			}
+			$this->config->setAppValue(Application::APP_ID, $key, $value);
+		}
+		return new DataResponse('');
+	}
+
+	/**
+	 * Set sensitive admin config values
+	 *
+	 * @param array $values
+	 * @return DataResponse
+	 */
+	#[PasswordConfirmationRequired]
+	public function setSensitiveAdminConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
 			$this->config->setAppValue(Application::APP_ID, $key, $value);
 		}
@@ -79,13 +122,12 @@ class ConfigController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 *
 	 * @param string $user_name
 	 * @param string $user_displayname
 	 * @return TemplateResponse
 	 */
+	#[NoAdminRequired]
+	#[NoCSRFRequired]
 	public function popupSuccessPage(string $user_name, string $user_displayname): TemplateResponse {
 		$this->initialStateService->provideInitialState('popup-data', ['user_name' => $user_name, 'user_displayname' => $user_displayname]);
 		return new TemplateResponse(Application::APP_ID, 'popupSuccess', [], TemplateResponse::RENDER_AS_GUEST);
@@ -93,13 +135,13 @@ class ConfigController extends Controller {
 
 	/**
 	 * receive oauth code and get oauth access token
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
 	 *
 	 * @param string $code
 	 * @return RedirectResponse
 	 * @throws PreConditionNotMetException
 	 */
+	#[NoAdminRequired]
+	#[NoCSRFRequired]
 	public function oauthRedirect(string $code = ''): RedirectResponse {
 		$mastodonUrl = $this->mastodonAPIService->getMastodonUrl($this->userId);
 		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id');

@@ -4,7 +4,7 @@
 	<name>Mastodon integration</name>
 	<summary>Integration of Mastodon self-hosted social networking service</summary>
 	<description><![CDATA[Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline.]]></description>
-	<version>2.0.6</version>
+	<version>3.0.0</version>
 	<licence>agpl</licence>
 	<author>Julien Veyssier</author>
 	<namespace>Mastodon</namespace>
@@ -17,7 +17,7 @@
 	<bugs>https://github.com/nextcloud/integration_mastodon/issues</bugs>
 	<screenshot>https://github.com/nextcloud/integration_mastodon/raw/main/img/screenshot1.jpg</screenshot>
 	<dependencies>
-		<nextcloud min-version="26" max-version="30"/>
+		<nextcloud min-version="27" max-version="31"/>
 	</dependencies>
 	<settings>
 		<admin>OCA\Mastodon\Settings\Admin</admin>

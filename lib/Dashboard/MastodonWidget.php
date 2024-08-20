@@ -35,12 +35,14 @@ use OCA\Mastodon\AppInfo\Application;
 
 class MastodonWidget implements IWidget {
 
-	public function __construct(private IL10N              $l10n,
-								private IConfig            $config,
-								private MastodonAPIService $mastodonAPIService,
-								private IURLGenerator      $url,
-								private IInitialState      $initialStateService,
-								private ?string            $userId) {
+	public function __construct(
+		private IL10N $l10n,
+		private IConfig $config,
+		private MastodonAPIService $mastodonAPIService,
+		private IURLGenerator $url,
+		private IInitialState $initialStateService,
+		private ?string $userId
+	) {
 	}
 
 	/**
