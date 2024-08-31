@@ -20,6 +20,7 @@ OC.L10N.register(
     "Connect to Mastodon" : "Подключиться к Mastodon",
     "Connected as {user}" : "Подключено под именем {user}",
     "Disconnect from Mastodon" : "Отключиться от Mastodon",
+    "Enable accounts search" : "Включить поиск учетных записей",
     "Successfully connected to Mastodon!" : "Соединение с Mastodon успешно установлено.",
     "Mastodon OAuth access token could not be obtained:" : "Не удалось получить токен доступа OAuth Mastodon:",
     "Mastodon options saved" : "Параметры Mastodon сохранены",
