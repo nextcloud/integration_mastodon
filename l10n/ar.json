@@ -33,7 +33,7 @@
     "Disconnect from Mastodon" : "قطع الاتصال ببرنامج Mastodon",
     "Enable statuses search" : "تمكين البحث في الحالات",
     "Enable accounts search" : "تمكين البحث في الحسابات",
-    "Enable hashtags search" : "تمكين البحث عن الشبابيك hashtags",
+    "Enable hashtags search" : "تمكين البحث باستخدام الهاشتاق #",
     "Successfully connected to Mastodon!" : "تمّ الاتصال بنجاح بماستودون!",
     "Mastodon OAuth access token could not be obtained:" : "تعذر الحصول على أمارة الوصول access token لبرنامج ماستودون \"Mastodon\" لتطبيق المصادقة \"OAuth\":",
     "Mastodon options saved" : "تم حفظ خيارات Mastodon",
