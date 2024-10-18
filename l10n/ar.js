@@ -16,7 +16,7 @@ OC.L10N.register(
     "Used %1$s times by %2$s accounts" : "أُستُخدِمَ %1$s مرّةً من قِبَل %2$s حساب",
     "Reblog from %1$s" : "أُعيد نشره نقلاً عن %1$s",
     "Bad HTTP method" : "دالة HTTP  غير صحيحة",
-    "Bad credentials" : "حيثيّات الدخول credentials غير صحيحة",
+    "Bad credentials" : "بيانات تسجيل الدخول غير صحيحة",
     "OAuth access token refused" : "أمارة token مرفوضة",
     "Connected accounts" : "حسابات مترابطة",
     "Mastodon integration" : "تكامل برنامج Mastodon ",
