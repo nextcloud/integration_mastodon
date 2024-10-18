@@ -18,6 +18,7 @@ use GuzzleHttp\Exception\ServerException;
 use OCP\Http\Client\IClient;
 use OCP\IL10N;
 use OCP\IConfig;
+use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
 use OCP\Http\Client\IClientService;
 
@@ -36,6 +37,7 @@ class MastodonAPIService {
 		private LoggerInterface $logger,
 		private IL10N $l10n,
 		private IConfig $config,
+		private ICrypto $crypto,
 		IClientService $clientService
 	) {
 		$this->client = $clientService->newClient();
@@ -259,6 +261,7 @@ class MastodonAPIService {
 			return ['error' => 'No Mastodon instance configured'];
 		}
 		$accessToken = $this->config->getUserValue($userId, Application::APP_ID, 'token');
+		$accessToken = $accessToken === '' ? '' : $this->crypto->decrypt($accessToken);
 		if (!$accessToken) {
 			return ['error' => 'Not connected to any mastodon account'];
 		}

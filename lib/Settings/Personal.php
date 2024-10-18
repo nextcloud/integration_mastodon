@@ -4,6 +4,7 @@ namespace OCA\Mastodon\Settings;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
+use OCP\Security\ICrypto;
 use OCP\Settings\ISettings;
 
 use OCA\Mastodon\AppInfo\Application;
@@ -13,6 +14,7 @@ class Personal implements ISettings {
 	public function __construct(
 		private IConfig $config,
 		private IInitialState $initialStateService,
+		private ICrypto $crypto,
 		private ?string $userId
 	) {
 	}
@@ -21,8 +23,8 @@ class Personal implements ISettings {
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		// don't expose the token to the user
-		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token') !== '' ? 'dummyToken' : '';
+		$token = $this->config->getUserValue($this->userId, Application::APP_ID, 'token');
+		$token = $token === '' ? '' : $this->crypto->decrypt($token);
 		$userName = $this->config->getUserValue($this->userId, Application::APP_ID, 'user_name');
 		$navigationEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'navigation_enabled', '0') === '1';
 		$searchStatusesEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_statuses_enabled', '1') === '1';
@@ -34,7 +36,8 @@ class Personal implements ISettings {
 		$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0');
 
 		$userConfig = [
-			'token' => $token,
+			// don't expose the token to the user
+			'token' => $token !== '' ? 'dummyToken' : '',
 			'url' => $url,
 			'use_popup' => ($usePopup === '1'),
 			'user_name' => $userName,
