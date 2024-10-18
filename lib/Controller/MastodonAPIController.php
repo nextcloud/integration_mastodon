@@ -16,6 +16,7 @@ use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataDisplayResponse;
 use OCP\IConfig;
 use OCP\PreConditionNotMetException;
+use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
 use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
@@ -31,6 +32,7 @@ class MastodonAPIController extends Controller {
 		IRequest $request,
 		private IConfig $config,
 		private LoggerInterface $logger,
+		private ICrypto $crypto,
 		private MastodonAPIService $mastodonAPIService,
 		private ?string $userId
 	) {
@@ -59,13 +61,15 @@ class MastodonAPIController extends Controller {
 		if (isset($result['client_id'], $result['client_secret'])) {
 			// we save the client ID and secret and give the client ID back to the UI
 			$this->config->setUserValue($this->userId, Application::APP_ID, 'redirect_uri', $redirect_uri);
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $result['client_id']);
-			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $result['client_secret']);
+			$encryptedClientId = $result['client_id'] === '' ? '' : $this->crypto->encrypt($result['client_id']);
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_id', $encryptedClientId);
+			$encryptedClientSecret = $result['client_secret'] === '' ? '' : $this->crypto->encrypt($result['client_secret']);
+			$this->config->setUserValue($this->userId, Application::APP_ID, 'client_secret', $encryptedClientSecret);
 			if ($oauth_origin !== null) {
 				$this->config->setUserValue($this->userId, Application::APP_ID, 'oauth_origin', $oauth_origin);
 			}
 			$data = [
-				'client_id' => $result['client_id']
+				'client_id' => $result['client_id'],
 			];
 			$response = new DataResponse($data);
 		} else {

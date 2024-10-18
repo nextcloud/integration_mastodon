@@ -21,6 +21,7 @@ use OCP\IURLGenerator;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\PreConditionNotMetException;
+use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
 use OCP\AppFramework\Http\RedirectResponse;
 use OCP\IRequest;
@@ -40,6 +41,7 @@ class ConfigController extends Controller {
 		private IL10N $l,
 		private IInitialState $initialStateService,
 		private LoggerInterface $logger,
+		private ICrypto $crypto,
 		private MastodonAPIService $mastodonAPIService,
 		private ?string $userId
 	) {
@@ -145,7 +147,9 @@ class ConfigController extends Controller {
 	public function oauthRedirect(string $code = ''): RedirectResponse {
 		$mastodonUrl = $this->mastodonAPIService->getMastodonUrl($this->userId);
 		$clientID = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_id');
+		$clientID = $clientID === '' ? '' : $this->crypto->decrypt($clientID);
 		$clientSecret = $this->config->getUserValue($this->userId, Application::APP_ID, 'client_secret');
+		$clientSecret = $clientSecret === '' ? '' : $this->crypto->decrypt($clientSecret);
 		$redirect_uri = $this->config->getUserValue($this->userId, Application::APP_ID, 'redirect_uri');
 
 		if ($mastodonUrl !== '' && $clientID !== '' && $clientSecret !== '' && $code !== '') {
@@ -159,7 +163,8 @@ class ConfigController extends Controller {
 			], 'POST');
 			if (isset($result['access_token'])) {
 				$accessToken = $result['access_token'];
-				$this->config->setUserValue($this->userId, Application::APP_ID, 'token', $accessToken);
+				$encryptedAccessToken = $accessToken === '' ? '' : $this->crypto->encrypt($accessToken);
+				$this->config->setUserValue($this->userId, Application::APP_ID, 'token', $encryptedAccessToken);
 				// get user info accounts/verify_credentials
 				$info = $this->mastodonAPIService->request($this->userId, 'accounts/verify_credentials');
 				if (isset($info['id'], $info['username'], $info['avatar'])) {
