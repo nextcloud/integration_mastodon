@@ -19,7 +19,7 @@
 					v-model="state.url"
 					type="text"
 					:disabled="connected === true"
-					:placeholder="t('integration_mastodon', 'Mastodon instance URL')"
+					placeholder="https://example.social"
 					@input="onInput">
 			</div>
 			<NcButton v-if="!connected"

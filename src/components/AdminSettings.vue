@@ -13,7 +13,7 @@
 				<input id="mastodon-oauth-instance"
 					v-model="state.oauth_instance_url"
 					type="text"
-					:placeholder="t('integration_mastodon', 'Default address')"
+					placeholder="https://example.social"
 					@input="onInput">
 			</div>
 			<NcCheckboxRadioSwitch
