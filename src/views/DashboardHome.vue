@@ -97,6 +97,7 @@ export default {
 		items() {
 			if (this.notifications.length > 0) {
 				return this.notifications.map((n) => {
+					console.warn(n)
 					return {
 						id: this.getUniqueKey(n),
 						targetUrl: this.getNotificationTarget(n),
@@ -235,6 +236,9 @@ export default {
 			return notifications
 		},
 		getNotificationTarget(n) {
+			if (n.reblog !== null) {
+				return this.mastodonUrl + '/@' + n.reblog.account?.acct + '/' + n.reblog.id
+			}
 			return this.mastodonUrl + '/@' + n.account?.acct + '/' + n.id
 		},
 		getSubline(n) {
