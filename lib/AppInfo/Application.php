@@ -25,11 +25,14 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\EventDispatcher\Event;
+use OCP\EventDispatcher\IEventListener;
+use OCP\Util;
 
 use OCA\Mastodon\Dashboard\MastodonWidget;
 use OCA\Mastodon\Dashboard\MastodonHomeWidget;
 
-class Application extends App implements IBootstrap {
+class Application extends App implements IBootstrap, IEventListener {
 
 	public const APP_ID = 'integration_mastodon';
 
@@ -46,10 +49,19 @@ class Application extends App implements IBootstrap {
 		$context->registerSearchProvider(SearchHashtagsProvider::class);
 
 		$context->registerReferenceProvider(MastodonReferenceProvider::class);
+
+		// for socialsharing
+		// $context->registerEventListener(\OCA\Files\Event\LoadSidebar::class, self::class);
+		$context->registerEventListener(\OCA\Files\Event\LoadAdditionalScriptsEvent::class, self::class);
 	}
 
 	public function boot(IBootContext $context): void {
 		$context->injectFn(Closure::fromCallable([$this, 'registerNavigation']));
+	}
+
+	public function handle(Event $event): void {
+		Util::addScript(self::APP_ID, self::APP_ID . '-socialsharing');
+		Util::addStyle(self::APP_ID, 'socialsharing');
 	}
 
 	public function registerNavigation(IUserSession $userSession, IConfig $config, MastodonAPIService $mastodonAPIService): void {
