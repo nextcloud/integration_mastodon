@@ -10,6 +10,8 @@
 namespace OCA\Mastodon\AppInfo;
 
 use Closure;
+use OCA\Files\Event\LoadAdditionalScriptsEvent;
+use OCA\Mastodon\Listener\LoadAdditionalScriptsListener;
 use OCA\Mastodon\Reference\MastodonReferenceProvider;
 use OCA\Mastodon\Search\SearchAccountsProvider;
 use OCA\Mastodon\Search\SearchHashtagsProvider;
@@ -25,14 +27,11 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
-use OCP\EventDispatcher\Event;
-use OCP\EventDispatcher\IEventListener;
-use OCP\Util;
 
 use OCA\Mastodon\Dashboard\MastodonWidget;
 use OCA\Mastodon\Dashboard\MastodonHomeWidget;
 
-class Application extends App implements IBootstrap, IEventListener {
+class Application extends App implements IBootstrap {
 
 	public const APP_ID = 'integration_mastodon';
 
@@ -51,17 +50,11 @@ class Application extends App implements IBootstrap, IEventListener {
 		$context->registerReferenceProvider(MastodonReferenceProvider::class);
 
 		// for socialsharing
-		// $context->registerEventListener(\OCA\Files\Event\LoadSidebar::class, self::class);
-		$context->registerEventListener(\OCA\Files\Event\LoadAdditionalScriptsEvent::class, self::class);
+		$context->registerEventListener(LoadAdditionalScriptsEvent::class, LoadAdditionalScriptsListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
 		$context->injectFn(Closure::fromCallable([$this, 'registerNavigation']));
-	}
-
-	public function handle(Event $event): void {
-		Util::addScript(self::APP_ID, self::APP_ID . '-socialsharing');
-		Util::addStyle(self::APP_ID, 'socialsharing');
 	}
 
 	public function registerNavigation(IUserSession $userSession, IConfig $config, MastodonAPIService $mastodonAPIService): void {
