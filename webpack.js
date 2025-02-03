@@ -19,6 +19,7 @@ webpackConfig.entry = {
 	dashboardHome: { import: path.join(__dirname, 'src', 'dashboardHome.js'), filename: appId + '-dashboardHome.js' },
     dashboard: { import: path.join(__dirname, 'src', 'dashboard.js'), filename: appId + '-dashboard.js' },
 	popupSuccess: { import: path.join(__dirname, 'src', 'popupSuccess.js'), filename: appId + '-popupSuccess.js' },
+	socialsharing: { import: path.join(__dirname, 'src', 'socialsharing.js'), filename: appId + '-socialsharing.js' },
 }
 
 webpackConfig.plugins.push(

@@ -10,6 +10,8 @@
 namespace OCA\Mastodon\AppInfo;
 
 use Closure;
+use OCA\Files\Event\LoadAdditionalScriptsEvent;
+use OCA\Mastodon\Listener\LoadAdditionalScriptsListener;
 use OCA\Mastodon\Reference\MastodonReferenceProvider;
 use OCA\Mastodon\Search\SearchAccountsProvider;
 use OCA\Mastodon\Search\SearchHashtagsProvider;
@@ -46,6 +48,9 @@ class Application extends App implements IBootstrap {
 		$context->registerSearchProvider(SearchHashtagsProvider::class);
 
 		$context->registerReferenceProvider(MastodonReferenceProvider::class);
+
+		// for socialsharing
+		$context->registerEventListener(LoadAdditionalScriptsEvent::class, LoadAdditionalScriptsListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
