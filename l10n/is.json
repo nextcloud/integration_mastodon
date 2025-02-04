@@ -12,7 +12,6 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon-samþætting býður upp á viðmótshluta á stjórnborði sem birta mikilvægar tilkynningar og tímalínuna þína af heimasíðunni.",
     "Enable navigation link" : "Virkja flakktengil",
     "Mastodon instance address" : "Vistfang Mastodon-tilviks",
-    "Mastodon instance URL" : "Slóð á Mastodon-tilvik",
     "Connect to Mastodon" : "Tengjast við Mastodon",
     "Connected as {user}" : "Tengt sem {user}",
     "Disconnect from Mastodon" : "Aftengjast Mastodon",

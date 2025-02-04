@@ -15,7 +15,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "L'integrazione di Mastodon fornisce widget del cruscotto che visualizzano le notifiche importanti e la timeline principale.",
     "Enable navigation link" : "Abilita collegamento di navigazione",
     "Mastodon instance address" : "Indirizzo istanza Mastodon",
-    "Mastodon instance URL" : "URL istanza Mastodon",
     "Connect to Mastodon" : "Connetti a Mastodon",
     "Connected as {user}" : "Connesso come {user}",
     "Disconnect from Mastodon" : "Disconnetti da Mastodon",

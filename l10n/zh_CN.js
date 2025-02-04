@@ -25,7 +25,6 @@ OC.L10N.register(
     "Failed to save Mastodon administrator options" : "保存Mastodon管理员选项失败",
     "Enable navigation link" : "启用应用图标链接至实例",
     "Mastodon instance address" : "Mastodon实例地址",
-    "Mastodon instance URL" : "Mastodon实例URL",
     "Connect to Mastodon" : "连接到Mastodon",
     "Connected as {user}" : "作为 {user} 已连接",
     "Disconnect from Mastodon" : "从Mastodon断开连接",

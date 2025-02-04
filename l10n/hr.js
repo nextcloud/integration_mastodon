@@ -15,7 +15,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integracija s Mastodonom nudi widgete za nadzornu ploču koji prikazuju važne obavijesti i vremensku traku.",
     "Enable navigation link" : "Omogući navigacijsku poveznicu",
     "Mastodon instance address" : "Adresa instance Mastodona",
-    "Mastodon instance URL" : "URL instance Mastodona",
     "Connect to Mastodon" : "Poveži se s Mastodonom",
     "Connected as {user}" : "Povezan kao {user}",
     "Disconnect from Mastodon" : "Odspoji se s Mastodona",

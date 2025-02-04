@@ -24,7 +24,6 @@ OC.L10N.register(
     "Mastodon administrator options saved" : "Optziones de amministratzione de Mastodon sarvadas",
     "Enable navigation link" : "Ativa ligòngiu de navigatzione",
     "Mastodon instance address" : "Indiritzu istàntzia Mastodon",
-    "Mastodon instance URL" : "URL istàntzia Mastodon",
     "Connect to Mastodon" : "Connete a Mastodon",
     "Connected as {user}" : "In connessione comente {user}",
     "Disconnect from Mastodon" : "Disconnete dae Mastodon",

@@ -8,7 +8,6 @@ OC.L10N.register(
     "OAuth access token refused" : "„OAuth“ prieigos raktas atmestas",
     "Connected accounts" : "Prijungtos paskyros",
     "Mastodon instance address" : "„Mastodon“ egzemplioriaus adresas",
-    "Mastodon instance URL" : "„Mastodon“ egzemplioriaus URL",
     "Connect to Mastodon" : "Prisijungti prie „Mastodon“",
     "Connected as {user}" : "Prisijungta kaip {user}",
     "Disconnect from Mastodon" : "Atsijungti nuo „Mastodon“",

@@ -13,7 +13,6 @@ OC.L10N.register(
     "Mastodon integration" : "Mastodon の統合",
     "Enable navigation link" : "ナビゲーションリンクを有効化",
     "Mastodon instance address" : "Mastodon インスタンスのアドレス",
-    "Mastodon instance URL" : "Mastodon インスタンスの URL",
     "Connect to Mastodon" : "Mastodon に接続",
     "Connected as {user}" : "{user} を接続済み",
     "Disconnect from Mastodon" : "Mastodon から切断",

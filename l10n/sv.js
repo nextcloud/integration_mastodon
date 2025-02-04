@@ -15,7 +15,6 @@ OC.L10N.register(
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon-integrering tillhandahåller instrumentpanelsgränssnittskomponenter med dina viktiga aviseringar och hem-tidslinje.",
     "Enable navigation link" : "Aktivera navigeringslänk",
     "Mastodon instance address" : "Mastodon-instansens adress",
-    "Mastodon instance URL" : "Mastodon-instansens URL",
     "Connect to Mastodon" : "Anslut till Mastodon",
     "Connected as {user}" : "Ansluten som {user}",
     "Disconnect from Mastodon" : "Koppla ner från Mastodon",

@@ -13,7 +13,6 @@
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Η ενσωμάτωση του Mastodon παρέχει μικροεφαρμογή για τον πίνακα ελέγχου που εμφανίζει τις σημαντικές ειδοποιήσεις και το χρονολόγιό σας.",
     "Enable navigation link" : "Ενεργοποίηση συνδέσμου πλοήγησης",
     "Mastodon instance address" : "Διεύθυνση περιστατικού Mastodon",
-    "Mastodon instance URL" : "URL εγκατάστασης Mastodon",
     "Connect to Mastodon" : "Σύνδεση στο Mastodon",
     "Connected as {user}" : "Συνδεδεμένος ως {user}",
     "Disconnect from Mastodon" : "Αποσύνδεση από το Mastodon",
