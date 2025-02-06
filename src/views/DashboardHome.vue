@@ -97,7 +97,6 @@ export default {
 		items() {
 			if (this.notifications.length > 0) {
 				return this.notifications.map((n) => {
-					console.warn(n)
 					return {
 						id: this.getUniqueKey(n),
 						targetUrl: this.getNotificationTarget(n),

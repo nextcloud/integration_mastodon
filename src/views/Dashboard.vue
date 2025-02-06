@@ -231,7 +231,8 @@ export default {
 			return notifications.filter(n => n.type !== 'mention' || !!n.status)
 		},
 		getNotificationTarget(n) {
-			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
+			console.debug('getNotificationTarget', n.type, n.account?.acct, n.status?.id, n)
+			if (['favourite', 'mention', 'reblog', 'status'].includes(n.type)) {
 				return this.mastodonUrl + '/@' + n.account?.acct + '/' + n.status?.id
 			} else if (['follow'].includes(n.type)) {
 				return this.mastodonUrl + '/@' + n.account?.acct
@@ -241,7 +242,7 @@ export default {
 			return ''
 		},
 		getMainText(n) {
-			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
+			if (['favourite', 'mention', 'reblog', 'status'].includes(n.type)) {
 				if (n.status) {
 					let text = this.html2text(n.status.content)
 					while (text.startsWith('@')) {
@@ -299,6 +300,8 @@ export default {
 		getNotificationTypeImage(n) {
 			if (n.type === 'mention') {
 				return imagePath('integration_mastodon', 'arobase.svg')
+			} else if (n.type === 'status') {
+				return imagePath('integration_mastodon', 'bell.svg')
 			} else if (['follow', 'follow_request'].includes(n.type)) {
 				return imagePath('integration_mastodon', 'add_user.svg')
 			} else if (['favourite'].includes(n.type)) {
