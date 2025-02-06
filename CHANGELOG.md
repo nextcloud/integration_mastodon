@@ -6,6 +6,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.1.0 - 2025-02-06
+
+### Added 
+
+- Socialsharing feature [#80](https://github.com/nextcloud/integration_mastodon/pull/80) @janepie
+
+### Fixed
+
+- open correct link for reblogs [#79](https://github.com/nextcloud/integration_mastodon/pull/79) @janepie
+- status links in notifications [#81](https://github.com/nextcloud/integration_mastodon/pull/81) @janepie @julien-nc
+
+### Changed
+
+- Placeholder for the instance url shows an example url now [#78](https://github.com/nextcloud/integration_mastodon/pull/78) @janepie
+
+## 3.0.1 - 2025-01-03
+
+### Fixed
+
+- Corrected sensitive configs storage handling [#71](https://github.com/nextcloud/integration_mastodon/pull/71) @julien-nc
+
+
 ## 2.0.6 - 2024-07-25
 
 Maintenance update
