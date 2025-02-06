@@ -231,7 +231,8 @@ export default {
 			return notifications.filter(n => n.type !== 'mention' || !!n.status)
 		},
 		getNotificationTarget(n) {
-			if (['favourite', 'mention', 'reblog'].includes(n.type)) {
+			console.warn(n)
+			if (['favourite', 'mention', 'reblog', 'status'].includes(n.type)) {
 				return this.mastodonUrl + '/@' + n.account?.acct + '/' + n.status?.id
 			} else if (['follow'].includes(n.type)) {
 				return this.mastodonUrl + '/@' + n.account?.acct
