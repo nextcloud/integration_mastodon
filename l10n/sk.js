@@ -14,6 +14,7 @@ OC.L10N.register(
     "Integration of Mastodon self-hosted social networking service" : "Integrácia služby sociálnych sietí Mastodon na vašom serveri",
     "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Integrácia so službou Mastodon poskytuje miniaplikácie na paneli, ktoré zobrazujú vaše dôležité upozornenia a domácu časovú os.",
     "Default Mastodon instance address" : "Predvolená adresa inštancie Mastodon",
+    "Use a pop-up to authenticate" : "Pre overenie použite kontextové okno",
     "Mastodon administrator options saved" : "Možnosti administrátora Mastodon boli uložené",
     "Failed to save Mastodon administrator options" : "Nepodarilo sa uložiť možnosti administrátora Mastodon",
     "Enable navigation link" : "Povoliť navigačný odkaz",
