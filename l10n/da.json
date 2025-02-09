@@ -1,5 +1,6 @@
 { "translations": {
-    "Mastodon" : "Mastodont",
+    "Mastodon" : "Mastodon",
+    "Bad credentials" : "Forkerte legitimationsoplysninger",
     "Connected accounts" : "Forbundne konti",
     "Connected as {user}" : "Forbundet som {user}"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
