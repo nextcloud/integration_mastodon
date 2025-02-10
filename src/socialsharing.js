@@ -17,7 +17,7 @@ axios.get(url).then((response) => {
 window.addEventListener('DOMContentLoaded', () => {
 	if (OCA.Sharing && OCA.Sharing.ExternalLinkActions) {
 		OCA.Sharing.ExternalLinkActions.registerAction({
-			url: link => `${mastodonUrl}/share?text=${t('socialsharing_email', 'I shared a file with you')}:%0A%0A${link}`,
+			url: link => `${mastodonUrl}/share?text=${t('socialsharing_mastodon', 'I shared a file with you')}:%0A%0A${link}`,
 			name: t('socialsharing_mastodon', 'Share via Mastodon'),
 			icon: 'icon-social-mastodon',
 		})
