@@ -1,14 +1,22 @@
 { "translations": {
+    "Mastodon" : "„Mastodon“",
     "Error getting OAuth access token" : "Klaida gaunant „OAuth“ prieigos raktą",
     "Error during OAuth exchanges" : "Klaida „OAuth“ apsikeitimo metu",
+    "Mastodon notifications" : "„Mastodon“ pranešimai",
+    "Mastodon people" : "„Mastodon“ žmonės",
     "Bad HTTP method" : "Blogas HTTP metodas",
     "Bad credentials" : "Blogi prisijungimo duomenys",
     "OAuth access token refused" : "„OAuth“ prieigos raktas atmestas",
     "Connected accounts" : "Prijungtos paskyros",
+    "Mastodon integration" : "„Mastodon“ integracija",
     "Mastodon instance address" : "„Mastodon“ egzemplioriaus adresas",
     "Connect to Mastodon" : "Prisijungti prie „Mastodon“",
     "Connected as {user}" : "Prisijungta kaip {user}",
     "Disconnect from Mastodon" : "Atsijungti nuo „Mastodon“",
-    "Successfully connected to Mastodon!" : "Sėkmingai prisijungta prie „Mastodon“!"
+    "Enable accounts search" : "Įjungti paskyrų paiešką",
+    "Successfully connected to Mastodon!" : "Sėkmingai prisijungta prie „Mastodon“!",
+    "Error connecting to Mastodon" : "Klaida jungiantis prie „Mastodon“",
+    "No Mastodon notifications!" : "Nėra „Mastodon“ pranešimų!",
+    "Failed to get Mastodon notifications" : "Nepavyko gauti „Mastodon“ pranešimų"
 },"pluralForm" :"nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);"
 }
