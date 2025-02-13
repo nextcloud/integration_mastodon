@@ -19,7 +19,6 @@ OC.L10N.register(
     "Connected accounts" : "Contos connètidos",
     "Mastodon integration" : "Integratzione cun Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integratzione de su servìtziu de rete sotziale autònomu de Mastodon ",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "S'integratzione de Mastodon frunit trastos de su pannellu de controllu chi mustrant notìficas de importu e sa lìnia de tempus printzipale.",
     "Default Mastodon instance address" : "Indiritzu predefinidu de istàntzia de Mastodon",
     "Mastodon administrator options saved" : "Optziones de amministratzione de Mastodon sarvadas",
     "Enable navigation link" : "Ativa ligòngiu de navigatzione",

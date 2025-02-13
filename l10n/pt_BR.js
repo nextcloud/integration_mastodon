@@ -21,7 +21,6 @@ OC.L10N.register(
     "Connected accounts" : "Contas conectadas",
     "Mastodon integration" : "Integração de Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integração do serviço de rede social auto-hospedado Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A integração do Mastodon fornece widgets de painel exibindo suas notificações importantes e sua linha do tempo inicial.",
     "Default Mastodon instance address" : "Endereço padrão da instância do Mastodon",
     "Use a pop-up to authenticate" : "Use um pop-up para autenticar",
     "Mastodon administrator options saved" : "Opções de administrador do Mastodon salvas",

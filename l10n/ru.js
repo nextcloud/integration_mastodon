@@ -12,7 +12,6 @@ OC.L10N.register(
     "Connected accounts" : "Подключённые учётные записи",
     "Mastodon integration" : "Интеграция Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Интеграция федеративной социальной сети Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Интеграция Mastodon предоставляет виджеты на панели инструментов, отображающие важные уведомления и домашнюю ленту.",
     "Use a pop-up to authenticate" : "Используйте всплывающее окно для аутентификации",
     "Enable navigation link" : "Включить ссылку для навигации",
     "Mastodon instance address" : "Адрес сервера Mastodon",

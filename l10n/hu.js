@@ -21,7 +21,6 @@ OC.L10N.register(
     "Connected accounts" : "Kapcsolt fiókok",
     "Mastodon integration" : "Mastodon integráció",
     "Integration of Mastodon self-hosted social networking service" : "A Mastodon önállóan üzemeltetett közösségi hálózati szolgáltatás integrálása",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "A Mastodon integráció egy irányítópult-modult kínál, amely megjeleníti a fontos értesítéseket és idővonalat.",
     "Default Mastodon instance address" : "Alapértelmezett Mastodon-példány címe",
     "Use a pop-up to authenticate" : "Felugró ablak használata a hitelesítéshez",
     "Mastodon administrator options saved" : "A Mastodon rendszergazdai beállításai mentve",

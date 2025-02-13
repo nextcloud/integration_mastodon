@@ -21,7 +21,6 @@ OC.L10N.register(
     "Connected accounts" : "Anslutna konton",
     "Mastodon integration" : "Mastodon-integrering",
     "Integration of Mastodon self-hosted social networking service" : "Integrering med det självservade sociala nätverket Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon-integrering tillhandahåller instrumentpanelsgränssnittskomponenter med dina viktiga aviseringar och hem-tidslinje.",
     "Default Mastodon instance address" : "Standardadress för Mastodon-instans",
     "Use a pop-up to authenticate" : "Använd en popup för att autentisera",
     "Mastodon administrator options saved" : "Administratörsalternativ för Mastodon har sparats",

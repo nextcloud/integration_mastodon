@@ -21,7 +21,6 @@ OC.L10N.register(
     "Connected accounts" : "Свързани профили",
     "Mastodon integration" : "Mastodon интеграция",
     "Integration of Mastodon self-hosted social networking service" : "Интегриране на услугата за социални мрежи, самостоятелно хоствана от Mastodon",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Интеграцията на Mastodon предоставя изпълними модули на таблото, показващи важните за вас известия и вашата домашна времева линия.",
     "Default Mastodon instance address" : "Адрес по подразбиране на екземпляр на Mastodon",
     "Mastodon administrator options saved" : "Опциите на администратор на Mastodon са записани",
     "Failed to save Mastodon administrator options" : "Неуспешно записване на опциите за администратор на Mastodon",

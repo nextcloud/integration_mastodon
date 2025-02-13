@@ -11,7 +11,6 @@ OC.L10N.register(
     "Connected accounts" : "Tengdir aðgangar",
     "Mastodon integration" : "Samþætting Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Samþætting við sjálfhýstar Mastodon samfélagsmiðlaþjónustur",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon-samþætting býður upp á viðmótshluta á stjórnborði sem birta mikilvægar tilkynningar og tímalínuna þína af heimasíðunni.",
     "Enable navigation link" : "Virkja flakktengil",
     "Mastodon instance address" : "Vistfang Mastodon-tilviks",
     "Connect to Mastodon" : "Tengjast við Mastodon",

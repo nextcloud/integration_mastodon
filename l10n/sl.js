@@ -12,7 +12,6 @@ OC.L10N.register(
     "Connected accounts" : "Povezani računi",
     "Mastodon integration" : "Združevalnik Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Združevalnik za storitev samogostujočega družbenega omrežja Mastodon.",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Podpora za Mastodon omogoča gradnike nadzorne plošče za prikazovanje pomembnih obvestil in osebno časovnico objav.",
     "Enable navigation link" : "Omogoči povezave za krmarjenje",
     "Mastodon instance address" : "Naslov povezave do računa Mastodon",
     "Connect to Mastodon" : "Poveži z računom Mastodon",

@@ -20,7 +20,6 @@ OC.L10N.register(
     "Connected accounts" : "حساب‌های متصل",
     "Mastodon integration" : "Mastodon integration",
     "Integration of Mastodon self-hosted social networking service" : "Integration of Mastodon self-hosted social networking service",
-    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline." : "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline.",
     "Default Mastodon instance address" : "Default Mastodon instance address",
     "Use a pop-up to authenticate" : "Use a pop-up to authenticate",
     "Mastodon administrator options saved" : "Mastodon administrator options saved",
