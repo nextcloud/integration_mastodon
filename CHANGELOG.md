@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.1.1 - 2025-02-14
+
+### Changed
+- updated node and npm modules for building
+
 ## 3.1.0 - 2025-02-06
 
 ### Added 
