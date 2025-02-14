@@ -21,6 +21,7 @@ OC.L10N.register(
     "Connected accounts" : "Cuntais nasctha",
     "Mastodon integration" : "Comhtháthú Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Comhtháthú na seirbhíse líonraithe sóisialta féin-óstáilte Mastodon",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Soláthraíonn comhtháthú Mastodon giuirléidí painéal a thaispeánann d'fhógraí tábhachtacha agus d'amlíne baile. Is féidir leat nasc roinnte poiblí a phostáil ar do phróifíl Mastodon freisin.",
     "Default Mastodon instance address" : "Seoladh mar shampla Mastodon réamhshocraithe",
     "Use a pop-up to authenticate" : "Bain úsáid as mír aníos chun fíordheimhniú a dhéanamh",
     "Mastodon administrator options saved" : "Sábháladh roghanna riarthóra Mastodon",

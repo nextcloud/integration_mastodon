@@ -19,6 +19,7 @@
     "Connected accounts" : "已連線的帳號",
     "Mastodon integration" : "Mastodon 整合",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon 可自架社群網路服務的整合",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Mastodon 整合提供了可以顯示您最重要通知與您的家時間軸的儀表板小工具。您也可以在您的 Mastodon 個人資料上張貼公開分享連結。",
     "Default Mastodon instance address" : "預設 Mastodon 站台地址",
     "Use a pop-up to authenticate" : "使用彈出式視窗進行驗證",
     "Mastodon administrator options saved" : "已儲存 Mastodon 管理員選項",

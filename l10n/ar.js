@@ -21,6 +21,7 @@ OC.L10N.register(
     "Connected accounts" : "حسابات مترابطة",
     "Mastodon integration" : "تكامل برنامج Mastodon ",
     "Integration of Mastodon self-hosted social networking service" : "مُكاملة ماستودون Mastodon خدمة الشبكات الاجتماعية ذاتية الاستضافة",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "تُوفّر مُكاملة \"ماستودون\" Mastodon عناصر واجهة مستخدم للوحة المعلومات تعرض إشعاراتك المهمة والجدول الزمني لصفحتك الرئيسية. يمكنك أيضاً نشر رابط مشاركة عام على ملفك الشخصي في \"ماستودون\".",
     "Default Mastodon instance address" : "عنوان خادوم ماستودون الافتراضي",
     "Use a pop-up to authenticate" : "إستعمل النافذة المنبثقة لتحقيق هويتك",
     "Mastodon administrator options saved" : "تمّ حفظ خيارات مسؤول ماستودون",
