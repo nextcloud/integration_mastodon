@@ -19,6 +19,7 @@
     "Connected accounts" : "Anslutna konton",
     "Mastodon integration" : "Mastodon-integrering",
     "Integration of Mastodon self-hosted social networking service" : "Integrering med det självservade sociala nätverket Mastodon",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Mastodon-integrationen tillhandahåller dashboard-widgets som visar dina viktiga aviseringar och din hemtidslinje. Du kan även publicera en publik delningslänk på din Mastodon-profil.",
     "Default Mastodon instance address" : "Standardadress för Mastodon-instans",
     "Use a pop-up to authenticate" : "Använd en popup för att autentisera",
     "Mastodon administrator options saved" : "Administratörsalternativ för Mastodon har sparats",
