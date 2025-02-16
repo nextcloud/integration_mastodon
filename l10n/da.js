@@ -5,6 +5,7 @@ OC.L10N.register(
     "Bad HTTP method" : "Dårlig HTTP metode",
     "Bad credentials" : "Forkerte legitimationsoplysninger",
     "Connected accounts" : "Forbundne konti",
+    "Enable navigation link" : "Enable navigation link",
     "Connected as {user}" : "Forbundet som {user}"
 },
 "nplurals=2; plural=(n != 1);");
