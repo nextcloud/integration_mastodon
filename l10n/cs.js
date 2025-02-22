@@ -21,6 +21,7 @@ OC.L10N.register(
     "Connected accounts" : "Propojené účty",
     "Mastodon integration" : "Napojení na Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Napojení na službu sociální sítě, provozované u vás – Mastodon",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Napojení na Mastodon poskytuje ovládací prvek pro nástěnku, zobrazující důležitá upozornění a vaši domovskou časovou osu. Je také možné na svůj Mastodon profil zveřejnit odkaz na veřejné sdílení.",
     "Default Mastodon instance address" : "Adresa výchozí instance Mastodon",
     "Use a pop-up to authenticate" : "Ověřte se ve vyskakovacím okně",
     "Mastodon administrator options saved" : "Předvolby správy pro Mastodon uloženy",
