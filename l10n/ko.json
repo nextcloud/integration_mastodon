@@ -6,9 +6,9 @@
     "Bad credentials" : "잘못된 자격 증명",
     "OAuth access token refused" : "OAuth 액세스 토큰 거부됨",
     "Connected accounts" : "계정 연결됨",
+    "Incorrect access token" : "잘못된 액세스 토큰",
     "Connected as {user}" : "[user]로 연결됨",
     "Enable accounts search" : "계정 검색 활성화",
-    "Incorrect access token" : "잘못된 액세스 토큰",
     "No Mastodon account connected" : "연결된 Mastodon 계정이 없음"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
