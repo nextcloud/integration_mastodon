@@ -21,6 +21,7 @@ OC.L10N.register(
     "Connected accounts" : "Bağlı hesaplar",
     "Mastodon integration" : "Mastodon bütünleştirmesi",
     "Integration of Mastodon self-hosted social networking service" : "Mastodon kişisel olarak barındırılan sosyal ağ hizmeti bütünleştirmesi",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Mastodon bütünleştirmesi önemli bildirimleri görüntüleyen pano bileşenleri sağlar. Ayrıca Mastodon profilinize herkese açık bir paylaşım bağlantısı da ekleyebilirsiniz.",
     "Mastodon administrator options saved" : "Mastodon yönetici ayarları kaydedildi",
     "Failed to save Mastodon administrator options" : "Mastodon yönetici ayarları kaydedilemedi",
     "Default Mastodon instance address" : "Varsayılan Mastodon kopyası adresi",
