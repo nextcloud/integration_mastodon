@@ -20,7 +20,7 @@ OC.L10N.register(
     "OAuth access token refused" : "Token de acceso OAuth rechazado",
     "Connected accounts" : "Cuentas conectadas",
     "Mastodon integration" : "Integración con Mastodon",
-    "Integration of Mastodon self-hosted social networking service" : "Integración del servicio de red social autoalojado Mastodon",
+    "Integration of Mastodon self-hosted social networking service" : "Integración del servicio de red social auto-alojado Mastodon",
     "Mastodon administrator options saved" : "Opciones de administrador de Mastodon guardadas",
     "Failed to save Mastodon administrator options" : "Fallo al guardar las opciones de administrador de Mastodon",
     "Default Mastodon instance address" : "Dirección de la instancia Mastodon predeterminada",
