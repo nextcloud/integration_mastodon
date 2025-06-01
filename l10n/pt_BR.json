@@ -13,7 +13,7 @@
     "Mastodon toots" : "Mastodon toots",
     "Used %1$s times by %2$s accounts" : "Usado %1$s vezes por %2$s contas",
     "Reblog from %1$s" : "Reblog de %1$s",
-    "Bad HTTP method" : "Método HTTP ruim",
+    "Bad HTTP method" : "Método HTTP incorreto",
     "Bad credentials" : "Credenciais erradas",
     "OAuth access token refused" : "Token de acesso OAuth recusado",
     "Connected accounts" : "Contas conectadas",
