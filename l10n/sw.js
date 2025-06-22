@@ -7,6 +7,7 @@ OC.L10N.register(
     "Bad credentials" : "Sifa mbaya",
     "OAuth access token refused" : "Ufikiaji wa token za OAuth umekataliwa",
     "Connected accounts" : "Akaunti zilizounganishwa",
+    "Use a pop-up to authenticate" : "Use a pop-up to authenticate",
     "Enable navigation link" : "Enable navigation link",
     "Connected as {user}" : "Imeunganishwa kama {user}"
 },

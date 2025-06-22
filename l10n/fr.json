@@ -19,6 +19,7 @@
     "Connected accounts" : "Comptes connectés",
     "Mastodon integration" : "Intégration de Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Intégration du service auto-hébergeable de microblogging et de réseautage social Mastodon",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "L'intégration Mastodon propose des widgets de tableau de bord affichant vos notifications importantes et votre journal personnel. Vous pouvez également publier un lien de partage public sur votre profil Mastodon.",
     "Mastodon administrator options saved" : "Options d'administration Mastodon enregistrées",
     "Failed to save Mastodon administrator options" : "Échec de l'enregistrement des options d'administration Mastodon",
     "Default Mastodon instance address" : "Adresse de l'instance Mastodon par défaut",
