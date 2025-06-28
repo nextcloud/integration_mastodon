@@ -49,6 +49,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Mastodoneko denbora-lerro nagusia ekartzeak huts egin du",
     "Reblog from {name}" : "{name}-ek bigloteatuta",
     "No text content" : "Ez dago testu edukirik",
+    "I shared a file with you" : "Zurekin partekatu dut fitxategi bat",
     "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu"
 },
 "nplurals=2; plural=(n != 1);");

@@ -9,6 +9,7 @@ OC.L10N.register(
     "OAuth access token refused" : "OAuthi tunnusluba pole õige.",
     "Connected accounts" : "Ühendatud kasutajakontod",
     "Enable navigation link" : "Lisa menüülink",
-    "Connected as {user}" : "Ühendatud kui {user}"
+    "Connected as {user}" : "Ühendatud kui {user}",
+    "I shared a file with you" : "Ma jagasin sinuga üht faili"
 },
 "nplurals=2; plural=(n != 1);");

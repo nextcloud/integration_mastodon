@@ -50,6 +50,9 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Mastodon ana sayfası zaman akışı alınamadı",
     "Reblog from {name}" : "{name} üzerinden iletildi",
     "No text content" : "Metin içeriği yok",
-    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi"
+    "I shared a file with you" : "Seninle bir dosya paylaştım",
+    "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
+    "Connect" : "Bağlan",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n > 1);");

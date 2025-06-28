@@ -41,6 +41,9 @@ OC.L10N.register(
     "No Mastodon home toots!" : "没有Mastodon主页嘟文！",
     "Failed to get Mastodon home timeline" : "获取Mastodon主页时间线失败",
     "No text content" : "没有文字内容",
-    "Failed to create Mastodon OAuth app" : "创建Mastodon OAuth应用程序失败"
+    "I shared a file with you" : "我给您分享了一文件",
+    "Failed to create Mastodon OAuth app" : "创建Mastodon OAuth应用程序失败",
+    "Connect" : "连接",
+    "Cancel" : "Cancel"
 },
 "nplurals=1; plural=0;");

@@ -35,6 +35,9 @@ OC.L10N.register(
     "No Mastodon home toots!" : "Żadnych tutów domowych Mastodona!",
     "Failed to get Mastodon home timeline" : "Nie udało się pobrać domowej osi czasu Mastodon",
     "No text content" : "Brak treści tekstowej",
-    "Failed to create Mastodon OAuth app" : "Nie udało się utworzyć OAuth aplikacji Mastodon"
+    "I shared a file with you" : "Udostępniłem Ci plik",
+    "Failed to create Mastodon OAuth app" : "Nie udało się utworzyć OAuth aplikacji Mastodon",
+    "Connect" : "Połącz",
+    "Cancel" : "Cancel"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

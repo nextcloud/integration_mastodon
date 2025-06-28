@@ -30,6 +30,8 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} vuole seguirti",
     "No Mastodon home toots!" : "Nessun toot di Mastodon!",
     "Failed to get Mastodon home timeline" : "Recupero della timeline principale di Mastodon non riuscito",
-    "No text content" : "Nessun contenuto di testo"
+    "No text content" : "Nessun contenuto di testo",
+    "Connect" : "Connetti",
+    "Cancel" : "Cancel"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

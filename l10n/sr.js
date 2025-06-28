@@ -50,6 +50,9 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Нису могла да се добије Mastodon почетна временска линија",
     "Reblog from {name}" : "Поновни блог од {name}",
     "No text content" : "Нема текст контекста",
-    "Failed to create Mastodon OAuth app" : "Није успело креирање Mastodon OAuth апликације"
+    "I shared a file with you" : "Поделио сам фајл са вама",
+    "Failed to create Mastodon OAuth app" : "Није успело креирање Mastodon OAuth апликације",
+    "Connect" : "Повежи се",
+    "Cancel" : "Cancel"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

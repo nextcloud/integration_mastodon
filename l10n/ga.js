@@ -50,6 +50,8 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Theip ar amlíne baile Mastodon a fháil",
     "Reblog from {name}" : "Reblog ó {name}",
     "No text content" : "Gan ábhar téacs",
-    "Failed to create Mastodon OAuth app" : "Theip ar chruthú aip Mastodon OAuth"
+    "I shared a file with you" : "Roinn mé comhad leat",
+    "Failed to create Mastodon OAuth app" : "Theip ar chruthú aip Mastodon OAuth",
+    "Cancel" : "Cancel"
 },
 "nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);");

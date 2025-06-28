@@ -26,6 +26,9 @@ OC.L10N.register(
     "Failed to get Mastodon notifications" : "Mastodon の通知の取得に失敗しました",
     "{name} is following you" : "{name} があなたをフォロー",
     "No Mastodon home toots!" : "Mastodon のホームにトゥートはありません",
-    "Failed to get Mastodon home timeline" : "Mastodon のホームタイムラインの取得に失敗しました"
+    "Failed to get Mastodon home timeline" : "Mastodon のホームタイムラインの取得に失敗しました",
+    "I shared a file with you" : "ファイルを共有しました",
+    "Connect" : "接続",
+    "Cancel" : "Cancel"
 },
 "nplurals=1; plural=0;");

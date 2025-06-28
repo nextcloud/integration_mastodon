@@ -50,6 +50,9 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Nepodarilo sa získať domovskú časovú osu z Mastodon",
     "Reblog from {name}" : "Znova publikovať od {name}",
     "No text content" : "Žiadny textový obsah",
-    "Failed to create Mastodon OAuth app" : "Nepodarilo sa pridať Mastodon OAuth aplikáciu"
+    "I shared a file with you" : "Zdieľam s vami súbor",
+    "Failed to create Mastodon OAuth app" : "Nepodarilo sa pridať Mastodon OAuth aplikáciu",
+    "Connect" : "Pripojiť",
+    "Cancel" : "Cancel"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

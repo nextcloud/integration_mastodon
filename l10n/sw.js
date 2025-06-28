@@ -9,6 +9,7 @@ OC.L10N.register(
     "Connected accounts" : "Akaunti zilizounganishwa",
     "Use a pop-up to authenticate" : "Use a pop-up to authenticate",
     "Enable navigation link" : "Enable navigation link",
-    "Connected as {user}" : "Imeunganishwa kama {user}"
+    "Connected as {user}" : "Imeunganishwa kama {user}",
+    "Cancel" : "Sitisha"
 },
 "nplurals=2; plural=(n != 1);");

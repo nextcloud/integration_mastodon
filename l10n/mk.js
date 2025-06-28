@@ -9,6 +9,9 @@ OC.L10N.register(
     "Use a pop-up to authenticate" : "Користи скокачки прозор за автентификација",
     "Incorrect access token" : "Неточен токен за пристап",
     "Enable navigation link" : "Овозможи линк за навигација",
-    "Connected as {user}" : "Поврзан како {user}"
+    "Connected as {user}" : "Поврзан како {user}",
+    "I shared a file with you" : "Споделив датотека со вас",
+    "Connect" : "Поврзи се",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;");

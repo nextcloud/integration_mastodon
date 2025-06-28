@@ -40,6 +40,8 @@ OC.L10N.register(
     "No Mastodon home toots!" : "Peruna publicatzione in sa pàgina printzipale de Mastodon",
     "Failed to get Mastodon home timeline" : "No at fatu a recuperare sa lìnia de tempus printzipale de Mastodon",
     "No text content" : "Perunu cuntenutu de testu",
-    "Failed to create Mastodon OAuth app" : "No at fatu a creare s'aplicatzione OAuth de Mastodon"
+    "Failed to create Mastodon OAuth app" : "No at fatu a creare s'aplicatzione OAuth de Mastodon",
+    "Connect" : "Connete",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

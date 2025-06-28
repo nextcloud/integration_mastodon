@@ -49,6 +49,9 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Kunne ikke få Mastodon hjemmetidslinje",
     "Reblog from {name}" : "Reblogg fra {name}",
     "No text content" : "Ingen tekstinnhold",
-    "Failed to create Mastodon OAuth app" : "Kunne ikke opprette Mastodon OAuth-appen"
+    "I shared a file with you" : "Jeg delte en fil med deg",
+    "Failed to create Mastodon OAuth app" : "Kunne ikke opprette Mastodon OAuth-appen",
+    "Connect" : "Koble til",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

@@ -49,6 +49,9 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "ماستودون ئۆيىنىڭ ۋاقىت جەدۋىلىگە ئېرىشەلمىدى",
     "Reblog from {name}" : "{name} from دىن قايتا قوزغىتىش",
     "No text content" : "تېكىست مەزمۇنى يوق",
-    "Failed to create Mastodon OAuth app" : "Mastodon OAuth دېتالىنى قۇرالمىدى"
+    "I shared a file with you" : "مەن سىز بىلەن بىر ھۆججەتنى ئورتاقلاشتىم",
+    "Failed to create Mastodon OAuth app" : "Mastodon OAuth دېتالىنى قۇرالمىدى",
+    "Connect" : "ئۇلاڭ",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

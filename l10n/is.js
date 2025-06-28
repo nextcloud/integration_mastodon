@@ -29,6 +29,9 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} hefur beðið um að fylgjast með þér",
     "No Mastodon home toots!" : "Engin Mastodon-tíst á heimasíðu!",
     "Failed to get Mastodon home timeline" : "Mistókst að hlaða inn Mastodon-tímalínu",
-    "No text content" : "Ekkert textaefni"
+    "No text content" : "Ekkert textaefni",
+    "I shared a file with you" : "Ég deildi skrá með þér",
+    "Connect" : "Tengjast",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

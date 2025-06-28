@@ -28,6 +28,9 @@ OC.L10N.register(
     "{name} is following you" : "{name} seuraa sinua",
     "{name} wants to follow you" : "{name} haluaa seurata sinua",
     "Connect to {url}" : "Yhdistä osoitteeseen {url}",
-    "No text content" : "Ei tekstisisältöä"
+    "No text content" : "Ei tekstisisältöä",
+    "I shared a file with you" : "Jaoin tiedoston kanssasi",
+    "Connect" : "Yhdistä",
+    "Cancel" : "Peruuta"
 },
 "nplurals=2; plural=(n != 1);");

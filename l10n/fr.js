@@ -50,6 +50,8 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Impossible d'obtenir le fil d'actualités Mastodon",
     "Reblog from {name}" : "Rebloguer en tant que {name}",
     "No text content" : "Aucun contenu textuel",
-    "Failed to create Mastodon OAuth app" : "Échec de la création de l'application OAuth Mastodon"
+    "I shared a file with you" : "J'ai partagé un fichier avec vous",
+    "Failed to create Mastodon OAuth app" : "Échec de la création de l'application OAuth Mastodon",
+    "Cancel" : "Cancel"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

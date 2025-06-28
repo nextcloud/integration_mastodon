@@ -49,6 +49,8 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Gagal mendapatkan lini masa beranda Mastodon",
     "Reblog from {name}" : "{name} membagikan",
     "No text content" : "Tidak ada konten teks",
-    "Failed to create Mastodon OAuth app" : "Gagal membuat aplikasi OAuth Mastodon"
+    "Failed to create Mastodon OAuth app" : "Gagal membuat aplikasi OAuth Mastodon",
+    "Connect" : "Sambung",
+    "Cancel" : "Cancel"
 },
 "nplurals=1; plural=0;");

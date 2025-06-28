@@ -30,6 +30,9 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} wil je volgen",
     "No Mastodon home toots!" : "Geen Mastodon home toots!",
     "Failed to get Mastodon home timeline" : "Kon de Mastodon home tijdlijn niet ophalen.",
-    "No text content" : "Geen tekst-inhoud"
+    "No text content" : "Geen tekst-inhoud",
+    "I shared a file with you" : "Ik heb een bestand met je gedeeld",
+    "Connect" : "Verbinden",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

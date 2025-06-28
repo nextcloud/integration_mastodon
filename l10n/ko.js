@@ -11,6 +11,9 @@ OC.L10N.register(
     "Incorrect access token" : "잘못된 액세스 토큰",
     "Connected as {user}" : "[user]로 연결됨",
     "Enable accounts search" : "계정 검색 활성화",
-    "No Mastodon account connected" : "연결된 Mastodon 계정이 없음"
+    "No Mastodon account connected" : "연결된 Mastodon 계정이 없음",
+    "I shared a file with you" : "당신과 파일을 공유했습니다",
+    "Connect" : "연결",
+    "Cancel" : "Cancel"
 },
 "nplurals=1; plural=0;");
