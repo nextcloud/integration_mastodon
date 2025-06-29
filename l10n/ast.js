@@ -6,6 +6,9 @@ OC.L10N.register(
     "Mastodon people" : "Persones de Mastodon",
     "Mastodon toots" : "Artículos de Mastodon",
     "Failed to save Mastodon options" : "Nun se puen guardar les opciones de Mastodon",
-    "Failed to get Mastodon notifications" : "Nun se puen consiguir les opciones de Mastodon"
+    "Failed to get Mastodon notifications" : "Nun se puen consiguir les opciones de Mastodon",
+    "I shared a file with you" : "Compartí un ficheru contigo",
+    "Connect" : "Coneutar",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

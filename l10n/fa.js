@@ -49,6 +49,8 @@ OC.L10N.register(
     "Reblog from {name}" : "Reblog from {name}",
     "No text content" : "No text content",
     "I shared a file with you" : "I shared a file with you",
-    "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app"
+    "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app",
+    "Connect" : "متصل شدن",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n > 1);");

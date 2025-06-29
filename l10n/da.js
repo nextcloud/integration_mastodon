@@ -9,6 +9,9 @@ OC.L10N.register(
     "OAuth access token refused" : "OAuth adgangsnøgle afvist",
     "Connected accounts" : "Forbundne konti",
     "Enable navigation link" : "Aktiver navigationslink",
-    "Connected as {user}" : "Forbundet som {user}"
+    "Connected as {user}" : "Forbundet som {user}",
+    "I shared a file with you" : "Jeg delte en fil med dig",
+    "Connect" : "Tilslut",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

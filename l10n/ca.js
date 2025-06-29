@@ -30,6 +30,9 @@ OC.L10N.register(
     "{name} wants to follow you" : "{name} us vol seguir",
     "No Mastodon home toots!" : "No hi ha toots locals de Mastodon!",
     "Failed to get Mastodon home timeline" : "No s'ha pogut obtenir la línia temporal local de Mastadon",
-    "No text content" : "No hi ha contingut de text"
+    "No text content" : "No hi ha contingut de text",
+    "I shared a file with you" : "He compartit un arxiu amb tu",
+    "Connect" : "Connecta",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

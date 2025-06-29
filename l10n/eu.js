@@ -50,6 +50,8 @@ OC.L10N.register(
     "Reblog from {name}" : "{name}-ek bigloteatuta",
     "No text content" : "Ez dago testu edukirik",
     "I shared a file with you" : "Zurekin partekatu dut fitxategi bat",
-    "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu"
+    "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu",
+    "Connect" : "Konektatu",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");

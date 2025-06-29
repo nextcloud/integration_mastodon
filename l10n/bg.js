@@ -48,6 +48,9 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Неуспешно изтегляне на домашна времева линия на Mastodon",
     "Reblog from {name}" : "Повтаряне на блог от {name}",
     "No text content" : "Няма текстово съдържание",
-    "Failed to create Mastodon OAuth app" : "Неуспешно създаване на приложение Mastodon OAuth"
+    "I shared a file with you" : "Споделих файл с вас",
+    "Failed to create Mastodon OAuth app" : "Неуспешно създаване на приложение Mastodon OAuth",
+    "Connect" : "Свързване",
+    "Cancel" : "Cancel"
 },
 "nplurals=2; plural=(n != 1);");
