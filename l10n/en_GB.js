@@ -51,7 +51,11 @@ OC.L10N.register(
     "Reblog from {name}" : "Reblog from {name}",
     "No text content" : "No text content",
     "I shared a file with you" : "I shared a file with you",
+    "Share via Mastodon" : "Share via Mastodon",
     "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app",
+    "You need to connect before using the Mastodon integration." : "You need to connect before using the Mastodon integration.",
+    "Do you want to connect to {mastodonUrl}?" : "Do you want to connect to {mastodonUrl}?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings.",
     "Connect" : "Connect",
     "Cancel" : "Cancel"
 },

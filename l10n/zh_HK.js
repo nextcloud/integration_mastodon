@@ -51,7 +51,11 @@ OC.L10N.register(
     "Reblog from {name}" : "轉發自 {name}",
     "No text content" : "無文字內容",
     "I shared a file with you" : "我與您分享了檔案",
+    "Share via Mastodon" : "透過 Mastodon 分享",
     "Failed to create Mastodon OAuth app" : "創建 Mastodon OAuth 應用程式失敗",
+    "You need to connect before using the Mastodon integration." : "在使用 Mastodon 整合前，您必須連接至 Mastodon 應用程式。",
+    "Do you want to connect to {mastodonUrl}?" : "您要連線到 {mastodonUrl} 嗎?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "您可以在個人設定的 {settingsHtmlLink} 部分中選擇另一個 Mastodon 伺服器。",
     "Connect" : "連線",
     "Cancel" : "取消"
 },

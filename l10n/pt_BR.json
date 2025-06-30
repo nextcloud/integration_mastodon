@@ -49,6 +49,7 @@
     "Reblog from {name}" : "Dar um boost de {name}",
     "No text content" : "Sem conteúdo de texto",
     "I shared a file with you" : "Compartilhei um arquivo com você",
+    "Share via Mastodon" : "Compartilhar via Mastodon",
     "Failed to create Mastodon OAuth app" : "Falha ao criar o aplicativo OAuth do Mastodon",
     "Connect" : "Conectar",
     "Cancel" : "Cancelar"
