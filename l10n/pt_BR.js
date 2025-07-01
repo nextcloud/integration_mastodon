@@ -53,6 +53,9 @@ OC.L10N.register(
     "I shared a file with you" : "Compartilhei um arquivo com você",
     "Share via Mastodon" : "Compartilhar via Mastodon",
     "Failed to create Mastodon OAuth app" : "Falha ao criar o aplicativo OAuth do Mastodon",
+    "You need to connect before using the Mastodon integration." : "Você precisa se conectar antes de usar a integração do Mastodon.",
+    "Do you want to connect to {mastodonUrl}?" : "Deseja se conectar a {mastodonUrl}?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Você pode escolher outro servidor Mastodon na seção {settingsHtmlLink} das suas configurações pessoais.",
     "Connect" : "Conectar",
     "Cancel" : "Cancelar"
 },

@@ -51,8 +51,12 @@ OC.L10N.register(
     "Reblog from {name}" : "{name} üzerinden iletildi",
     "No text content" : "Metin içeriği yok",
     "I shared a file with you" : "Seninle bir dosya paylaştım",
+    "Share via Mastodon" : "Mastodon ile paylaş",
     "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
+    "You need to connect before using the Mastodon integration." : "Mastodon bütünleştirmesini kullanmadan önce bağlantı kurmalısınız.",
+    "Do you want to connect to {mastodonUrl}?" : "{mastodonUrl} ile bağlantı kurulsun mu?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Kişisel ayarlarınızın {settingsHtmlLink} bölümünden başka bir Mastodon sunucusu seçebilirsiniz.",
     "Connect" : "Bağlan",
-    "Cancel" : "Cancel"
+    "Cancel" : "İptal"
 },
 "nplurals=2; plural=(n > 1);");
