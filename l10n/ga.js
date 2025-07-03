@@ -51,7 +51,12 @@ OC.L10N.register(
     "Reblog from {name}" : "Reblog ó {name}",
     "No text content" : "Gan ábhar téacs",
     "I shared a file with you" : "Roinn mé comhad leat",
+    "Share via Mastodon" : "Comhroinn trí Mastodon",
     "Failed to create Mastodon OAuth app" : "Theip ar chruthú aip Mastodon OAuth",
+    "You need to connect before using the Mastodon integration." : "Ní mór duit ceangal a dhéanamh sula n-úsáideann tú comhtháthú Mastodon.",
+    "Do you want to connect to {mastodonUrl}?" : "Ar mhaith leat ceangal le {mastodonUrl}?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Is féidir leat freastalaí Mastodon eile a roghnú sa chuid {settingsHtmlLink} de do shocruithe pearsanta.",
+    "Connect" : "Ceangal",
     "Cancel" : "Cancel"
 },
 "nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);");
