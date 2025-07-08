@@ -4,6 +4,7 @@ OC.L10N.register(
     "Bad HTTP method" : "Nederīgs HTTP pieprasījuma veids",
     "Bad credentials" : "Nederīgi pieteikšanās dati",
     "Connected accounts" : "Sasaistītie konti",
+    "Connected as {user}" : "Savienojies kā {user}",
     "No Mastodon account connected" : "Nav sasaistītu Mastodon kontu",
     "Connect" : "Savienoties",
     "Cancel" : "Atcelt"
