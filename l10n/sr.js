@@ -51,7 +51,11 @@ OC.L10N.register(
     "Reblog from {name}" : "Поновни блог од {name}",
     "No text content" : "Нема текст контекста",
     "I shared a file with you" : "Поделио сам фајл са вама",
+    "Share via Mastodon" : "Дели помоћу Mastodon",
     "Failed to create Mastodon OAuth app" : "Није успело креирање Mastodon OAuth апликације",
+    "You need to connect before using the Mastodon integration." : "Пре него што кренете да користите Mastodon интеграцију, морате да се повежете.",
+    "Do you want to connect to {mastodonUrl}?" : "Желите ли да се повежете са {mastodonUrl}?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Други Mastodon сервер можете да изаберете у {settingsHtmlLink} одељку ваших личних подешавања.",
     "Connect" : "Повежи се",
     "Cancel" : "Cancel"
 },
