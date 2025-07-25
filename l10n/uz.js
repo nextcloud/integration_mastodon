@@ -6,6 +6,6 @@ OC.L10N.register(
     "Connected accounts" : "Ulangan akkauntlar",
     "I shared a file with you" : "Men siz bilan fayl ulashdim",
     "Connect" : "Connect",
-    "Cancel" : "Cancel"
+    "Cancel" : "Bekor qilish"
 },
 "nplurals=1; plural=0;");
