@@ -12,6 +12,7 @@ OC.L10N.register(
     "Enable navigation link" : "Enable navigation link",
     "Connected as {user}" : "Imeunganishwa kama {user}",
     "I shared a file with you" : "I shared a file with you",
+    "Connect" : "Unganisha",
     "Cancel" : "Sitisha"
 },
 "nplurals=2; plural=(n != 1);");

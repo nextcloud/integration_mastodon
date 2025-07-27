@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Мастодонт",
     "Error getting OAuth access token" : "Помилка отримання токен доступу OAuth",
     "Error during OAuth exchanges" : "Помилка під час обміну OAuth",
     "Bad HTTP method" : "Поганий метод HTTP",
