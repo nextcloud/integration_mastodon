@@ -9,6 +9,7 @@ OC.L10N.register(
     "OAuth access token refused" : "Ufikiaji wa token za OAuth umekataliwa",
     "Connected accounts" : "Akaunti zilizounganishwa",
     "Use a pop-up to authenticate" : "Use a pop-up to authenticate",
+    "Incorrect access token" : "Incorrect access token",
     "Enable navigation link" : "Enable navigation link",
     "Connected as {user}" : "Imeunganishwa kama {user}",
     "I shared a file with you" : "I shared a file with you",
