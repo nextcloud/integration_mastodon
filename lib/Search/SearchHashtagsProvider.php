@@ -31,12 +31,13 @@ use OCP\IL10N;
 use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUser;
+use OCP\Search\IExternalProvider;
 use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
 use OCP\Search\SearchResultEntry;
 
-class SearchHashtagsProvider implements IProvider {
+class SearchHashtagsProvider implements IProvider, IExternalProvider {
 
 	public function __construct(
 		private IAppManager $appManager,
@@ -139,5 +140,9 @@ class SearchHashtagsProvider implements IProvider {
 	protected function getThumbnailUrl(array $entry): array {
 		$url = $this->urlGenerator->linkToRouteAbsolute('core.GuestAvatar.getAvatar', ['guestName' => '#', 'size' => 44]);
 		return [true, $url];
+	}
+
+		public function isExternalProvider(): bool {
+		return True;
 	}
 }
