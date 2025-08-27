@@ -4,7 +4,7 @@
 	<name>Mastodon integration</name>
 	<summary>Integration of Mastodon self-hosted social networking service</summary>
 	<description><![CDATA[Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile.]]></description>
-	<version>3.1.1</version>
+	<version>3.2.0</version>
 	<licence>agpl</licence>
 	<author>Julien Veyssier</author>
 	<namespace>Mastodon</namespace>
