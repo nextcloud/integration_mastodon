@@ -156,7 +156,7 @@ class SearchStatusesProvider implements IProvider, IExternalProvider {
 		return [true, $url];
 	}
 
-		public function isExternalProvider(): bool {
-		return True;
+	public function isExternalProvider(): bool {
+		return true;
 	}
 }
