@@ -47,7 +47,7 @@
     "No Mastodon home toots!" : "Mastodon ana sayfasında bir şey yok!",
     "Failed to get Mastodon home timeline" : "Mastodon ana sayfası zaman akışı alınamadı",
     "Reblog from {name}" : "{name} üzerinden iletildi",
-    "No text content" : "Metin içeriği yok",
+    "No text content" : "Yazı içeriği yok",
     "I shared a file with you" : "Seninle bir dosya paylaştım",
     "Share via Mastodon" : "Mastodon ile paylaş",
     "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
