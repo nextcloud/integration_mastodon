@@ -150,6 +150,6 @@ class SearchAccountsProvider implements IProvider, IExternalProvider {
 		return [true, $url];
 	}
 	public function isExternalProvider(): bool {
-		return True;
+		return true;
 	}
 }

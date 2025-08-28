@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.2.0 - 2025-08-28
+
+### Added
+- search providers marked as external sources [#96](https://github.com/nextcloud/integration_mastodon/pull/96) @janepie
+
+### Changed
+- npm packages updated [#96](https://github.com/nextcloud/integration_mastodon/pull/96) @janepie
+- max NC version bumped to 32 [#96](https://github.com/nextcloud/integration_mastodon/pull/96) @janepie
+- CSP Nonce updated  [#85](https://github.com/nextcloud/integration_mastodon/pull/85) @janepie
+
 ## 3.1.1 - 2025-02-14
 
 ### Changed
