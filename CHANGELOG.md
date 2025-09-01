@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.2.1 - 2025-09-01
+
+### Changed
+
+- Keep NC 31 as max supported NC version for integration_mastodon v3.x.x
+
+### Fixed
+
+- Do not use `OCP\Search\IExternalProvider` before 32
+
 ## 3.2.0 - 2025-08-28
 
 ### Added
