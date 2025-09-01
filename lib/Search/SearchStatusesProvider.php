@@ -32,13 +32,12 @@ use OCP\IL10N;
 use OCP\IConfig;
 use OCP\IURLGenerator;
 use OCP\IUser;
-use OCP\Search\IExternalProvider;
 use OCP\Search\IProvider;
 use OCP\Search\ISearchQuery;
 use OCP\Search\SearchResult;
 use OCP\Search\SearchResultEntry;
 
-class SearchStatusesProvider implements IProvider, IExternalProvider {
+class SearchStatusesProvider implements IProvider {
 
 	public function __construct(
 		private IAppManager $appManager,
@@ -154,9 +153,5 @@ class SearchStatusesProvider implements IProvider, IExternalProvider {
 			['imageUrl' => $entry['account']['avatar']]
 		);
 		return [true, $url];
-	}
-
-	public function isExternalProvider(): bool {
-		return true;
 	}
 }
