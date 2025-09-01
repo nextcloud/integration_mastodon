@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 4.0.0 - 2025-09-01
+
+### Changed
+
+- Set min and max supported NC version to 32
+
 ## 3.2.0 - 2025-08-28
 
 ### Added
