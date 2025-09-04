@@ -12,6 +12,7 @@ OC.L10N.register(
     "Connected accounts" : "Подключённые учётные записи",
     "Mastodon integration" : "Интеграция Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Интеграция федеративной социальной сети Mastodon",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Интеграция с Mastodon позволяет использовать виджеты панели управления, отображающие важные уведомления и вашу домашнюю ленту. Вы также можете разместить публичную ссылку в своём профиле Mastodon.",
     "Use a pop-up to authenticate" : "Используйте всплывающее окно для аутентификации",
     "Successfully connected to Mastodon!" : "Соединение с Mastodon успешно установлено.",
     "Mastodon OAuth access token could not be obtained:" : "Не удалось получить токен доступа OAuth Mastodon:",
