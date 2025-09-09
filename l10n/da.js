@@ -12,6 +12,6 @@ OC.L10N.register(
     "Connected as {user}" : "Forbundet som {user}",
     "I shared a file with you" : "Jeg delte en fil med dig",
     "Connect" : "Tilslut",
-    "Cancel" : "Cancel"
+    "Cancel" : "Annullér"
 },
 "nplurals=2; plural=(n != 1);");
