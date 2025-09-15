@@ -6,6 +6,7 @@
     "Mastodon toots and hashtags" : "Mastodon-tehostukset ja -aihetunnisteet",
     "Mastodon hashtags" : "Mastodon-aihetunnisteet",
     "Mastodon toots" : "Mastodon-tehostukset",
+    "Used %1$s times by %2$s accounts" : "Käytetty %1$s kertaa %2$s tilin toimesta",
     "Bad HTTP method" : "Virheellinen HTTP-metodi",
     "Bad credentials" : "Virheelliset kirjautumistiedot",
     "OAuth access token refused" : "OAuth-valtuutus hylätty",
@@ -14,6 +15,7 @@
     "Default Mastodon instance address" : "Mastodon-instanssin oletusosoite",
     "Use a pop-up to authenticate" : "Käytä ponnahdusikkunaa tunnistautumista varten",
     "Successfully connected to Mastodon!" : "Yhdistetty Mastodoniin!",
+    "Mastodon options saved" : "Mastodon-valinnat tallennettu",
     "Incorrect access token" : "Virheellinen käyttöpoletti",
     "Enable navigation link" : "Näytä navigointipalkissa",
     "Mastodon instance address" : "Mastodon-instanssin osoite",
@@ -28,6 +30,9 @@
     "Connect to {url}" : "Yhdistä osoitteeseen {url}",
     "No text content" : "Ei tekstisisältöä",
     "I shared a file with you" : "Jaoin tiedoston kanssasi",
+    "Share via Mastodon" : "Jaa Mastodonissa",
+    "You need to connect before using the Mastodon integration." : "Ennen kuin Mastodon-integraatiota voi käyttää, tulee muodostaa yhteys.",
+    "Do you want to connect to {mastodonUrl}?" : "Haluatko yhdistää kohteeseen {mastodonUrl}?",
     "Connect" : "Yhdistä",
     "Cancel" : "Peruuta"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
