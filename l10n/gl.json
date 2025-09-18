@@ -49,7 +49,11 @@
     "Reblog from {name}" : "Rebloguear de {name}",
     "No text content" : "Sen contido de texto",
     "I shared a file with you" : "Compartín un ficheiro contigo",
+    "Share via Mastodon" : "Compartir a través de Mastodon",
     "Failed to create Mastodon OAuth app" : "Produciuse un erro ao crear a aplicación Mastodon OAuth",
+    "You need to connect before using the Mastodon integration." : "É necesario conectarse antes de usar a integración de Mastodon.",
+    "Do you want to connect to {mastodonUrl}?" : "Quere conectarse con {mastodonUrl}?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Pode escoller outro servidor Mastodon na sección {settingsHtmlLink} dos seus axustes persoais.",
     "Connect" : "Conectar",
     "Cancel" : "Cancel"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
