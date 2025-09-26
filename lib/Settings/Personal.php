@@ -1,13 +1,14 @@
 <?php
+
 namespace OCA\Mastodon\Settings;
 
+use OCA\Mastodon\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
 use OCP\Security\ICrypto;
-use OCP\Settings\ISettings;
 
-use OCA\Mastodon\AppInfo\Application;
+use OCP\Settings\ISettings;
 
 class Personal implements ISettings {
 
@@ -15,7 +16,7 @@ class Personal implements ISettings {
 		private IConfig $config,
 		private IInitialState $initialStateService,
 		private ICrypto $crypto,
-		private ?string $userId
+		private ?string $userId,
 	) {
 	}
 

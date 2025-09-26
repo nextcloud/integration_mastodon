@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - Mastodon
  *
@@ -11,25 +12,25 @@ namespace OCA\Mastodon\AppInfo;
 
 use Closure;
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
+use OCA\Mastodon\Dashboard\MastodonHomeWidget;
+use OCA\Mastodon\Dashboard\MastodonWidget;
 use OCA\Mastodon\Listener\LoadAdditionalScriptsListener;
 use OCA\Mastodon\Reference\MastodonReferenceProvider;
 use OCA\Mastodon\Search\SearchAccountsProvider;
 use OCA\Mastodon\Search\SearchHashtagsProvider;
 use OCA\Mastodon\Search\SearchStatusesProvider;
 use OCA\Mastodon\Service\MastodonAPIService;
-use OCP\IConfig;
-use OCP\IL10N;
-use OCP\INavigationManager;
-use OCP\IURLGenerator;
-use OCP\IUserSession;
-
 use OCP\AppFramework\App;
-use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 
-use OCA\Mastodon\Dashboard\MastodonWidget;
-use OCA\Mastodon\Dashboard\MastodonHomeWidget;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\IConfig;
+use OCP\IL10N;
+use OCP\INavigationManager;
+
+use OCP\IURLGenerator;
+use OCP\IUserSession;
 
 class Application extends App implements IBootstrap {
 
@@ -83,4 +84,3 @@ class Application extends App implements IBootstrap {
 		}
 	}
 }
-

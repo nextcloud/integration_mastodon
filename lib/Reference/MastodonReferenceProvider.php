@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) 2023 Julien Veyssier <julien-nc@posteo.net>
  *
@@ -22,11 +23,11 @@
 
 namespace OCA\Mastodon\Reference;
 
-use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
-use OCP\Collaboration\Reference\ISearchableReferenceProvider;
-use OC\Collaboration\Reference\ReferenceManager;
 use OCA\Mastodon\AppInfo\Application;
+use OCP\Collaboration\Reference\ADiscoverableReferenceProvider;
 use OCP\Collaboration\Reference\IReference;
+use OCP\Collaboration\Reference\IReferenceManager;
+use OCP\Collaboration\Reference\ISearchableReferenceProvider;
 use OCP\Collaboration\Reference\LinkReferenceProvider;
 use OCP\IConfig;
 use OCP\IL10N;
@@ -39,16 +40,16 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 		private IConfig $config,
 		private IL10N $l10n,
 		private IURLGenerator $urlGenerator,
-		private ReferenceManager $referenceManager,
+		private IReferenceManager $referenceManager,
 		private LinkReferenceProvider $linkReferenceProvider,
-		private ?string $userId
+		private ?string $userId,
 	) {
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string	{
+	public function getId(): string {
 		return 'mastodon-multi';
 	}
 
@@ -83,7 +84,7 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 	/**
 	 * @inheritDoc
 	 */
-	public function getOrder(): int	{
+	public function getOrder(): int {
 		return 10;
 	}
 
@@ -169,7 +170,7 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 			return [
 				'instance' => $matches[1],
 				'username' => $matches[2],
-				'id' => (int) $matches[4],
+				'id' => (int)$matches[4],
 			];
 		}
 
@@ -178,7 +179,7 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 			return [
 				'instance' => $matches[1],
 				'username' => $matches[2],
-				'id' => (int) $matches[4],
+				'id' => (int)$matches[4],
 			];
 		}
 
