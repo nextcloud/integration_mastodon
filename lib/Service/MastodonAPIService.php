@@ -11,7 +11,7 @@
 
 namespace OCA\Mastodon\Service;
 
-use Datetime;
+use DateTime;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -92,8 +92,6 @@ class MastodonAPIService {
 		// get notifications
 		if (!is_null($since)) {
 			$params['since_id'] = $since;
-		} else {
-			unset($params['since_id']);
 		}
 		$params['exclude_types'] = ['poll'];
 		$notifications = $this->request($userId, 'notifications', $params);
@@ -101,9 +99,9 @@ class MastodonAPIService {
 		if (!isset($notifications['error'])) {
 			// sort merged results by date
 			usort($notifications, function($a, $b) {
-				$a = new Datetime($a['created_at']);
+				$a = new DateTime($a['created_at']);
 				$ta = $a->getTimestamp();
-				$b = new Datetime($b['created_at']);
+				$b = new DateTime($b['created_at']);
 				$tb = $b->getTimestamp();
 				return ($ta > $tb) ? -1 : 1;
 			});
@@ -115,10 +113,10 @@ class MastodonAPIService {
 	/**
 	 * @param string $userId
 	 * @param string $avatarUrl
-	 * @return ?string
+	 * @return null|resource|string
 	 * @throws Exception
 	 */
-	public function getMastodonAvatar(string $userId, string $avatarUrl): ?string {
+	public function getMastodonAvatar(string $userId, string $avatarUrl){
 		// read or get instance avatar URL
 		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname');
 		$instanceContactImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_contact_image_hostname');
@@ -313,7 +311,7 @@ class MastodonAPIService {
 				return json_decode($body, true);
 			}
 		} catch (ClientException | ServerException $e) {
-			$responseBody = $e->getResponse()->getBody();
+			$responseBody = $e->getResponse()->getBody()->__toString();
 			$parsedResponseBody = json_decode($responseBody, true);
 			if ($e->getResponse()->getStatusCode() === 404) {
 				$this->logger->debug('Mastodon API error (404): ' . $e->getMessage(), ['response_body' => $responseBody, 'app' => Application::APP_ID]);

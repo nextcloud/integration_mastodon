@@ -7,6 +7,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedBaselineEntry="true"
 	phpVersion="8.1"
 >
     <projectFiles>
@@ -18,4 +19,8 @@
 	<extraFiles>
 		<directory name="vendor"/>
 	</extraFiles>
+    <stubs>
+		<file name="tests/stubs/oc_hooks_emitter.php" />
+        <file name="tests/stubs/oca_files_event.php" />
+	</stubs>
 </psalm>
