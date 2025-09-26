@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - mastodon
  *
@@ -15,14 +16,14 @@ use DateTime;
 use Exception;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
-use OCP\Http\Client\IClient;
-use OCP\IL10N;
-use OCP\IConfig;
-use OCP\Security\ICrypto;
-use Psr\Log\LoggerInterface;
-use OCP\Http\Client\IClientService;
-
 use OCA\Mastodon\AppInfo\Application;
+use OCP\Http\Client\IClient;
+use OCP\Http\Client\IClientService;
+use OCP\IConfig;
+use OCP\IL10N;
+use OCP\Security\ICrypto;
+
+use Psr\Log\LoggerInterface;
 use Throwable;
 
 /**
@@ -38,7 +39,7 @@ class MastodonAPIService {
 		private IL10N $l10n,
 		private IConfig $config,
 		private ICrypto $crypto,
-		IClientService $clientService
+		IClientService $clientService,
 	) {
 		$this->client = $clientService->newClient();
 	}
@@ -98,7 +99,7 @@ class MastodonAPIService {
 
 		if (!isset($notifications['error'])) {
 			// sort merged results by date
-			usort($notifications, function($a, $b) {
+			usort($notifications, function ($a, $b) {
 				$a = new DateTime($a['created_at']);
 				$ta = $a->getTimestamp();
 				$b = new DateTime($b['created_at']);
@@ -116,7 +117,7 @@ class MastodonAPIService {
 	 * @return null|resource|string
 	 * @throws Exception
 	 */
-	public function getMastodonAvatar(string $userId, string $avatarUrl){
+	public function getMastodonAvatar(string $userId, string $avatarUrl) {
 		// read or get instance avatar URL
 		$instanceImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_image_hostname');
 		$instanceContactImageHostname = $this->config->getUserValue($userId, Application::APP_ID, 'instance_contact_image_hostname');
@@ -207,7 +208,7 @@ class MastodonAPIService {
 			$url = $url . '/api/v1/' . $endPoint;
 			$options = [
 				'headers' => [
-					'User-Agent'  => 'Nextcloud Mastodon integration',
+					'User-Agent' => 'Nextcloud Mastodon integration',
 				]
 			];
 
@@ -222,11 +223,11 @@ class MastodonAPIService {
 
 			if ($method === 'GET') {
 				$response = $this->client->get($url, $options);
-			} else if ($method === 'POST') {
+			} elseif ($method === 'POST') {
 				$response = $this->client->post($url, $options);
-			} else if ($method === 'PUT') {
+			} elseif ($method === 'PUT') {
 				$response = $this->client->put($url, $options);
-			} else if ($method === 'DELETE') {
+			} elseif ($method === 'DELETE') {
 				$response = $this->client->delete($url, $options);
 			} else {
 				return ['error' => $this->l10n->t('Bad HTTP method')];
@@ -239,8 +240,8 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (Exception | Throwable $e) {
-			$this->logger->warning('Mastodon API error : '.$e->getMessage(), ['app' => Application::APP_ID]);
+		} catch (Exception|Throwable $e) {
+			$this->logger->warning('Mastodon API error : ' . $e->getMessage(), ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}
@@ -267,7 +268,7 @@ class MastodonAPIService {
 			$url = $url . '/api/v' . $apiVersion . '/' . $endPoint;
 			$options = [
 				'headers' => [
-					'Authorization'  => 'Bearer ' . $accessToken,
+					'Authorization' => 'Bearer ' . $accessToken,
 					'User-Agent' => 'Nextcloud Mastodon integration',
 				]
 			];
@@ -293,11 +294,11 @@ class MastodonAPIService {
 
 			if ($method === 'GET') {
 				$response = $this->client->get($url, $options);
-			} else if ($method === 'POST') {
+			} elseif ($method === 'POST') {
 				$response = $this->client->post($url, $options);
-			} else if ($method === 'PUT') {
+			} elseif ($method === 'PUT') {
 				$response = $this->client->put($url, $options);
-			} else if ($method === 'DELETE') {
+			} elseif ($method === 'DELETE') {
 				$response = $this->client->delete($url, $options);
 			} else {
 				return ['error' => $this->l10n->t('Bad HTTP method')];
@@ -310,7 +311,7 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (ClientException | ServerException $e) {
+		} catch (ClientException|ServerException $e) {
 			$responseBody = $e->getResponse()->getBody()->__toString();
 			$parsedResponseBody = json_decode($responseBody, true);
 			if ($e->getResponse()->getStatusCode() === 404) {
@@ -322,8 +323,8 @@ class MastodonAPIService {
 				'error' => $e->getMessage(),
 				'body' => $parsedResponseBody,
 			];
-		} catch (Exception | Throwable $e) {
-			$this->logger->debug('Mastodon API unknown error: '.$e, ['app' => Application::APP_ID]);
+		} catch (Exception|Throwable $e) {
+			$this->logger->debug('Mastodon API unknown error: ' . $e, ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}
@@ -339,7 +340,7 @@ class MastodonAPIService {
 			$url = $mastodonUrl . '/oauth/token';
 			$options = [
 				'headers' => [
-					'User-Agent'  => 'Nextcloud Mastodon integration',
+					'User-Agent' => 'Nextcloud Mastodon integration',
 				]
 			];
 
@@ -354,11 +355,11 @@ class MastodonAPIService {
 
 			if ($method === 'GET') {
 				$response = $this->client->get($url, $options);
-			} else if ($method === 'POST') {
+			} elseif ($method === 'POST') {
 				$response = $this->client->post($url, $options);
-			} else if ($method === 'PUT') {
+			} elseif ($method === 'PUT') {
 				$response = $this->client->put($url, $options);
-			} else if ($method === 'DELETE') {
+			} elseif ($method === 'DELETE') {
 				$response = $this->client->delete($url, $options);
 			} else {
 				return ['error' => $this->l10n->t('Bad HTTP method')];
@@ -371,8 +372,8 @@ class MastodonAPIService {
 			} else {
 				return json_decode($body, true);
 			}
-		} catch (Exception | Throwable $e) {
-			$this->logger->warning('Mastodon OAuth error : '.$e, ['app' => Application::APP_ID]);
+		} catch (Exception|Throwable $e) {
+			$this->logger->warning('Mastodon OAuth error : ' . $e, ['app' => Application::APP_ID]);
 			return ['error' => $e->getMessage()];
 		}
 	}

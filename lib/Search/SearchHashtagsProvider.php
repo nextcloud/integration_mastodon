@@ -24,11 +24,11 @@ declare(strict_types=1);
  */
 namespace OCA\Mastodon\Search;
 
-use OCA\Mastodon\Service\MastodonAPIService;
 use OCA\Mastodon\AppInfo\Application;
+use OCA\Mastodon\Service\MastodonAPIService;
 use OCP\App\IAppManager;
-use OCP\IL10N;
 use OCP\IConfig;
+use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\Search\IExternalProvider;
@@ -44,7 +44,7 @@ class SearchHashtagsProvider implements IProvider, IExternalProvider {
 		private IL10N $l10n,
 		private IConfig $config,
 		private IURLGenerator $urlGenerator,
-		private MastodonAPIService $mastodonAPIService
+		private MastodonAPIService $mastodonAPIService,
 	) {
 	}
 

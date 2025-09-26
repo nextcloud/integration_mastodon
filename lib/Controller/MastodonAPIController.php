@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - mastodon
  *
@@ -11,19 +12,19 @@
 
 namespace OCA\Mastodon\Controller;
 
+use OCA\Mastodon\AppInfo\Application;
+use OCA\Mastodon\Service\MastodonAPIService;
+use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\DataDisplayResponse;
+use OCP\AppFramework\Http\DataResponse;
 use OCP\IConfig;
+use OCP\IRequest;
 use OCP\PreConditionNotMetException;
+
 use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
-use OCP\IRequest;
-use OCP\AppFramework\Http\DataResponse;
-use OCP\AppFramework\Controller;
-
-use OCA\Mastodon\Service\MastodonAPIService;
-use OCA\Mastodon\AppInfo\Application;
 
 class MastodonAPIController extends Controller {
 
@@ -34,7 +35,7 @@ class MastodonAPIController extends Controller {
 		private LoggerInterface $logger,
 		private ICrypto $crypto,
 		private MastodonAPIService $mastodonAPIService,
-		private ?string $userId
+		private ?string $userId,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -94,7 +95,7 @@ class MastodonAPIController extends Controller {
 			return new DataDisplayResponse('', 401);
 		} else {
 			$response = new DataDisplayResponse($avatar);
-			$response->cacheFor(60*60*24);
+			$response->cacheFor(60 * 60 * 24);
 			return $response;
 		}
 	}

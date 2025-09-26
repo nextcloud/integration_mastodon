@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Nextcloud - mastodon
  *
@@ -11,25 +12,25 @@
 
 namespace OCA\Mastodon\Controller;
 
+use OCA\Mastodon\AppInfo\Application;
+use OCA\Mastodon\Service\MastodonAPIService;
+use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 use OCP\AppFramework\Http\Attribute\PasswordConfirmationRequired;
+use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\RedirectResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
-use OCP\IURLGenerator;
 use OCP\IConfig;
 use OCP\IL10N;
+use OCP\IRequest;
+use OCP\IURLGenerator;
 use OCP\PreConditionNotMetException;
+
 use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
-use OCP\AppFramework\Http\RedirectResponse;
-use OCP\IRequest;
-use OCP\AppFramework\Http\DataResponse;
-use OCP\AppFramework\Controller;
-
-use OCA\Mastodon\Service\MastodonAPIService;
-use OCA\Mastodon\AppInfo\Application;
 
 class ConfigController extends Controller {
 
@@ -43,7 +44,7 @@ class ConfigController extends Controller {
 		private LoggerInterface $logger,
 		private ICrypto $crypto,
 		private MastodonAPIService $mastodonAPIService,
-		private ?string $userId
+		private ?string $userId,
 	) {
 		parent::__construct($appName, $request);
 	}
@@ -194,8 +195,8 @@ class ConfigController extends Controller {
 					$this->config->deleteUserValue($this->userId, Application::APP_ID, 'oauth_origin');
 					if ($oauthOrigin === 'settings') {
 						return new RedirectResponse(
-							$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
-							'?mastodonToken=success'
+							$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts'])
+							. '?mastodonToken=success'
 						);
 					} elseif ($oauthOrigin === 'dashboard') {
 						return new RedirectResponse(
@@ -203,8 +204,8 @@ class ConfigController extends Controller {
 						);
 					}
 					return new RedirectResponse(
-						$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
-						'?mastodonToken=success'
+						$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts'])
+						. '?mastodonToken=success'
 					);
 				}
 			} else {
@@ -220,8 +221,8 @@ class ConfigController extends Controller {
 			$result = $this->l->t('Error during OAuth exchanges');
 		}
 		return new RedirectResponse(
-			$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts']) .
-			'?mastodonToken=error&message=' . urlencode($result)
+			$this->urlGenerator->linkToRoute('settings.PersonalSettings.index', ['section' => 'connected-accounts'])
+			. '?mastodonToken=error&message=' . urlencode($result)
 		);
 	}
 }
