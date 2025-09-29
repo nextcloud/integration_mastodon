@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) 2020 Julien Veyssier <julien-nc@posteo.net>
  *
@@ -23,15 +24,15 @@
 
 namespace OCA\Mastodon\Dashboard;
 
+use OCA\Mastodon\AppInfo\Application;
 use OCA\Mastodon\Service\MastodonAPIService;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\Dashboard\IWidget;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IURLGenerator;
-use OCP\Util;
 
-use OCA\Mastodon\AppInfo\Application;
+use OCP\Util;
 
 class MastodonHomeWidget implements IWidget {
 
@@ -41,7 +42,7 @@ class MastodonHomeWidget implements IWidget {
 		private MastodonAPIService $mastodonAPIService,
 		private IURLGenerator $url,
 		private IInitialState $initialStateService,
-		private ?string $userId
+		private ?string $userId,
 	) {
 	}
 
@@ -57,7 +58,7 @@ class MastodonHomeWidget implements IWidget {
 	 */
 	public function getTitle(): string {
 		return $this->l10n->t('Mastodon home timeline');
-		}
+	}
 
 	/**
 	 * @inheritDoc

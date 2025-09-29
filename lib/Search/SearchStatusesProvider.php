@@ -24,12 +24,12 @@ declare(strict_types=1);
  */
 namespace OCA\Mastodon\Search;
 
-use OCA\Mastodon\Service\MastodonAPIService;
 use OCA\Mastodon\AppInfo\Application;
+use OCA\Mastodon\Service\MastodonAPIService;
 use OCA\Mastodon\Service\UtilsService;
 use OCP\App\IAppManager;
-use OCP\IL10N;
 use OCP\IConfig;
+use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\Search\IExternalProvider;
@@ -46,7 +46,7 @@ class SearchStatusesProvider implements IProvider, IExternalProvider {
 		private IConfig $config,
 		private IURLGenerator $urlGenerator,
 		private UtilsService $utilsService,
-		private MastodonAPIService $mastodonAPIService
+		private MastodonAPIService $mastodonAPIService,
 	) {
 	}
 
