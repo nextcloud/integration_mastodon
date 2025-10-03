@@ -51,6 +51,7 @@ OC.L10N.register(
     "No text content" : "Nincs szöveges tartalom",
     "I shared a file with you" : "Megosztottam egy fájlt Önnel",
     "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen",
+    "Do you want to connect to {mastodonUrl}?" : "Biztos, hogy kapcsolódik ehhez: {mastodonUrl}?",
     "Connect" : "Kapcsolódás",
     "Cancel" : "Cancel"
 },
