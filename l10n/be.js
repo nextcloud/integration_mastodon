@@ -1,6 +1,7 @@
 OC.L10N.register(
     "integration_mastodon",
     {
+    "Mastodon" : "Mastodon",
     "Error getting OAuth access token" : "Памылка атрымання токена доступу OAuth",
     "OAuth access token refused" : "Токен доступу OAuth адхілены",
     "Mastodon OAuth access token could not be obtained:" : "Немагчыма атрымаць токен доступу Mastodon OAuth:",
