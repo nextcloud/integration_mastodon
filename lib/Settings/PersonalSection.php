@@ -1,15 +1,16 @@
 <?php
+
 namespace OCA\Mastodon\Settings;
 
-use OCP\IURLGenerator;
 use OCP\IL10N;
+use OCP\IURLGenerator;
 use OCP\Settings\IIconSection;
 
 class PersonalSection implements IIconSection {
 
 	public function __construct(
 		private IURLGenerator $urlGenerator,
-		private IL10N $l
+		private IL10N $l,
 	) {
 	}
 
@@ -34,17 +35,17 @@ class PersonalSection implements IIconSection {
 
 	/**
 	 * @return int whether the form should be rather on the top or bottom of
-	 * the settings navigation. The sections are arranged in ascending order of
-	 * the priority values. It is required to return a value between 0 and 99.
+	 *             the settings navigation. The sections are arranged in ascending order of
+	 *             the priority values. It is required to return a value between 0 and 99.
 	 */
 	public function getPriority(): int {
 		return 80;
 	}
 
 	/**
-	 * @return ?string The relative path to a an icon describing the section
+	 * @return string The relative path to a an icon describing the section
 	 */
-	public function getIcon(): ?string {
+	public function getIcon(): string {
 		return $this->urlGenerator->imagePath('core', 'categories/integration.svg');
 	}
 }
