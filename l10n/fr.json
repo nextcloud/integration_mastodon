@@ -34,7 +34,7 @@
     "Connect to Mastodon" : "Se connecter à Mastodon",
     "Connected as {user}" : "Connecté en tant que {user}",
     "Disconnect from Mastodon" : "Se déconnecter de Mastodon",
-    "Enable statuses search" : "Activer la recherche d'états",
+    "Enable statuses search" : "Activer la recherche de statuts",
     "Enable accounts search" : "Activer la recherche de comptes",
     "Enable hashtags search" : "Activer la recherche de mots-dièses",
     "No Mastodon account connected" : "Aucun compte Mastodon connecté",
