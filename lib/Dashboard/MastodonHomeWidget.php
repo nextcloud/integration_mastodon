@@ -26,9 +26,9 @@ namespace OCA\Mastodon\Dashboard;
 
 use OCA\Mastodon\AppInfo\Application;
 use OCA\Mastodon\Service\MastodonAPIService;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\Dashboard\IWidget;
-use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 
@@ -38,7 +38,7 @@ class MastodonHomeWidget implements IWidget {
 
 	public function __construct(
 		private IL10N $l10n,
-		private IConfig $config,
+		private IAppConfig $appConfig,
 		private MastodonAPIService $mastodonAPIService,
 		private IURLGenerator $url,
 		private IInitialState $initialStateService,
@@ -87,7 +87,7 @@ class MastodonHomeWidget implements IWidget {
 	public function load(): void {
 		$url = $this->mastodonAPIService->getMastodonUrl($this->userId);
 		$oauthPossible = $url !== '';
-		$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0');
+		$usePopup = $this->appConfig->getAppValueString('use_popup', '0', lazy: true);
 
 		$userConfig = [
 			'oauth_is_possible' => $oauthPossible,

@@ -22,6 +22,7 @@ use OCP\AppFramework\Http\Attribute\PasswordConfirmationRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Http\RedirectResponse;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
 use OCP\IL10N;
@@ -37,6 +38,7 @@ class ConfigController extends Controller {
 	public function __construct(
 		string $appName,
 		IRequest $request,
+		private IAppConfig $appConfig,
 		private IConfig $config,
 		private IURLGenerator $urlGenerator,
 		private IL10N $l,
@@ -105,7 +107,7 @@ class ConfigController extends Controller {
 			if (in_array($key, ['oauth_instance_url'], true)) {
 				return new DataResponse([], Http::STATUS_BAD_REQUEST);
 			}
-			$this->config->setAppValue(Application::APP_ID, $key, $value);
+			$this->appConfig->setAppValueString($key, $value, lazy: true);
 		}
 		return new DataResponse('');
 	}
@@ -119,7 +121,7 @@ class ConfigController extends Controller {
 	#[PasswordConfirmationRequired]
 	public function setSensitiveAdminConfig(array $values): DataResponse {
 		foreach ($values as $key => $value) {
-			$this->config->setAppValue(Application::APP_ID, $key, $value);
+			$this->appConfig->setAppValueString($key, $value, lazy: true);
 		}
 		return new DataResponse('');
 	}
@@ -182,7 +184,7 @@ class ConfigController extends Controller {
 					}
 				}
 
-				$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0') === '1';
+				$usePopup = $this->appConfig->getAppValueString('use_popup', '0', lazy: true) === '1';
 				if ($usePopup) {
 					return new RedirectResponse(
 						$this->urlGenerator->linkToRoute('integration_mastodon.config.popupSuccessPage', [

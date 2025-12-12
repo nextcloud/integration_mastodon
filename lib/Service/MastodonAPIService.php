@@ -37,6 +37,7 @@ class MastodonAPIService {
 		string $appName,
 		private LoggerInterface $logger,
 		private IL10N $l10n,
+		private IAppConfig $appConfig,
 		private IConfig $config,
 		private ICrypto $crypto,
 		IClientService $clientService,
@@ -49,7 +50,7 @@ class MastodonAPIService {
 	 * @return string
 	 */
 	public function getMastodonUrl(string $userId): string {
-		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
+		$adminOauthUrl = $this->appConfig->getAppValueString('oauth_instance_url', lazy: true);
 		$mastodonUrl = $this->config->getUserValue($userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
 		if ($mastodonUrl !== '' && substr($mastodonUrl, 0, 4) !== 'http') {
 			$mastodonUrl = 'https://' . $mastodonUrl;
