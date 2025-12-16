@@ -4,6 +4,7 @@ namespace OCA\Mastodon\Settings;
 
 use OCA\Mastodon\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
 use OCP\Security\ICrypto;
@@ -13,6 +14,7 @@ use OCP\Settings\ISettings;
 class Personal implements ISettings {
 
 	public function __construct(
+		private IAppConfig $appConfig,
 		private IConfig $config,
 		private IInitialState $initialStateService,
 		private ICrypto $crypto,
@@ -32,9 +34,9 @@ class Personal implements ISettings {
 		$searchAccountsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_accounts_enabled', '1') === '1';
 		$searchHashtagsEnabled = $this->config->getUserValue($this->userId, Application::APP_ID, 'search_hashtags_enabled', '1') === '1';
 
-		$adminOauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
+		$adminOauthUrl = $this->appConfig->getAppValueString('oauth_instance_url', lazy: true);
 		$url = $this->config->getUserValue($this->userId, Application::APP_ID, 'url', $adminOauthUrl) ?: $adminOauthUrl;
-		$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0');
+		$usePopup = $this->appConfig->getAppValueString('use_popup', '0', lazy: true);
 
 		$userConfig = [
 			// don't expose the token to the user

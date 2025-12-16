@@ -4,15 +4,15 @@ namespace OCA\Mastodon\Settings;
 
 use OCA\Mastodon\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Services\IInitialState;
-use OCP\IConfig;
 
 use OCP\Settings\ISettings;
 
 class Admin implements ISettings {
 
 	public function __construct(
-		private IConfig $config,
+		private IAppConfig $appConfig,
 		private IInitialState $initialStateService,
 	) {
 	}
@@ -21,8 +21,8 @@ class Admin implements ISettings {
 	 * @return TemplateResponse
 	 */
 	public function getForm(): TemplateResponse {
-		$oauthUrl = $this->config->getAppValue(Application::APP_ID, 'oauth_instance_url');
-		$usePopup = $this->config->getAppValue(Application::APP_ID, 'use_popup', '0');
+		$oauthUrl = $this->appConfig->getAppValueString('oauth_instance_url', lazy: true);
+		$usePopup = $this->appConfig->getAppValueString('use_popup', '0', lazy: true);
 
 		$adminConfig = [
 			'oauth_instance_url' => $oauthUrl,
