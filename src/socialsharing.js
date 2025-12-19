@@ -17,7 +17,7 @@ axios.get(url).then((response) => {
 
 window.addEventListener('DOMContentLoaded', () => {
 	registerSidebarInlineAction({
-		id: 'socialsharing_telegram',
+		id: 'socialsharing_mastodon',
 		order: 10,
 		enabled(share) {
 			// only show the action if the mastodon URL is set

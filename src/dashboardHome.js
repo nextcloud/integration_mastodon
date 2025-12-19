@@ -17,6 +17,7 @@ __webpack_public_path__ = linkTo('integration_mastodon', 'js/') // eslint-disabl
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (!OCA.Dashboard) {
+		console.error('Mastodon dashboard widget should not be loaded outside of the dashboard page')
 		return
 	}
 
