@@ -9,9 +9,9 @@
  * @copyright Julien Veyssier 2022
  */
 
-import Vue from 'vue'
-import './bootstrap.js'
+import { createApp } from 'vue'
 import AdminSettings from './components/AdminSettings.vue'
 
-const View = Vue.extend(AdminSettings)
-new View().$mount('#mastodon_prefs')
+const app = createApp(AdminSettings)
+app.mixin({ methods: { t, n } })
+app.mount('#mastodon_prefs')

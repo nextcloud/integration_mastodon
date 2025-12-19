@@ -5,22 +5,20 @@
 			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
 		<div id="mastodon-content">
-			<div class="line">
-				<label for="mastodon-oauth-instance">
-					<EarthIcon :size="20" class="icon" />
-					{{ t('integration_mastodon', 'Default Mastodon instance address') }}
-				</label>
-				<input id="mastodon-oauth-instance"
-					v-model="state.oauth_instance_url"
-					type="text"
-					placeholder="https://example.social"
-					@input="onInput">
-			</div>
-			<NcCheckboxRadioSwitch
-				:checked.sync="state.use_popup"
-				@update:checked="onUsePopupChanged">
+			<NcTextField
+				v-model="state.oauth_instance_url"
+				:label="t('integration_mastodon', 'Default Mastodon instance address')"
+				placeholder="https://example.social"
+				@update:model-value="onInput">
+				<template #icon>
+					<EarthIcon :size="20" />
+				</template>
+			</NcTextField>
+			<NcFormBoxSwitch
+				v-model="state.use_popup"
+				@update:model-value="onUsePopupChanged">
 				{{ t('integration_mastodon', 'Use a pop-up to authenticate') }}
-			</NcCheckboxRadioSwitch>
+			</NcFormBoxSwitch>
 		</div>
 	</div>
 </template>
@@ -30,7 +28,8 @@ import EarthIcon from 'vue-material-design-icons/Earth.vue'
 
 import MastodonIcon from './icons/MastodonIcon.vue'
 
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import NcFormBoxSwitch from '@nextcloud/vue/components/NcFormBoxSwitch'
+import NcTextField from '@nextcloud/vue/components/NcInputField'
 
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
@@ -45,7 +44,8 @@ export default {
 
 	components: {
 		MastodonIcon,
-		NcCheckboxRadioSwitch,
+		NcFormBoxSwitch,
+		NcTextField,
 		EarthIcon,
 	},
 
@@ -101,31 +101,16 @@ export default {
 #mastodon_prefs {
 	#mastodon-content{
 		margin-left: 40px;
-	}
-
-	h2,
-	.line,
-	.settings-hint {
 		display: flex;
-		align-items: center;
-		.icon {
-			margin-right: 4px;
-		}
+		flex-direction: column;
+		gap: 8px;
+		max-width: 800px;
 	}
 
-	h2 .icon {
-		margin-right: 8px;
-	}
-
-	.line {
-		> label {
-			width: 300px;
-			display: flex;
-			align-items: center;
-		}
-		> input {
-			width: 250px;
-		}
+	h2 {
+		display: flex;
+		justify-content: start;
+		gap: 8px;
 	}
 }
 </style>

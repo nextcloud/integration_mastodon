@@ -5,23 +5,21 @@
 			{{ t('integration_mastodon', 'Mastodon integration') }}
 		</h2>
 		<div id="mastodon-content">
-			<NcCheckboxRadioSwitch
-				:checked="state.navigation_enabled"
-				@update:checked="onCheckboxChanged($event, 'navigation_enabled')">
+			<NcFormBoxSwitch
+				:model-value="state.navigation_enabled"
+				@update:model-value="onCheckboxChanged($event, 'navigation_enabled')">
 				{{ t('integration_mastodon', 'Enable navigation link') }}
-			</NcCheckboxRadioSwitch>
-			<div class="line">
-				<label for="mastodon-url">
-					<EarthIcon :size="20" class="icon" />
-					{{ t('integration_mastodon', 'Mastodon instance address') }}
-				</label>
-				<input id="mastodon-url"
-					v-model="state.url"
-					type="text"
-					:disabled="connected === true"
-					placeholder="https://example.social"
-					@input="onInput">
-			</div>
+			</NcFormBoxSwitch>
+			<NcTextField
+				v-model="state.url"
+				:label="t('integration_mastodon', 'Mastodon instance address')"
+				:readonly="connected === true"
+				placeholder="https://example.social"
+				@update:model-value="onInput">
+				<template #icon>
+					<EarthIcon :size="20" />
+				</template>
+			</NcTextField>
 			<NcButton v-if="!connected"
 				id="mastodon-oauth"
 				:disabled="loading === true || !state.url"
@@ -45,21 +43,23 @@
 				</NcButton>
 			</div>
 			<div v-if="connected" class="connected-settings">
-				<NcCheckboxRadioSwitch
-					:checked="state.search_statuses_enabled"
-					@update:checked="onCheckboxChanged($event, 'search_statuses_enabled')">
-					{{ t('integration_mastodon', 'Enable statuses search') }}
-				</NcCheckboxRadioSwitch>
-				<NcCheckboxRadioSwitch
-					:checked="state.search_accounts_enabled"
-					@update:checked="onCheckboxChanged($event, 'search_accounts_enabled')">
-					{{ t('integration_mastodon', 'Enable accounts search') }}
-				</NcCheckboxRadioSwitch>
-				<NcCheckboxRadioSwitch
-					:checked="state.search_hashtags_enabled"
-					@update:checked="onCheckboxChanged($event, 'search_hashtags_enabled')">
-					{{ t('integration_mastodon', 'Enable hashtags search') }}
-				</NcCheckboxRadioSwitch>
+				<NcFormBox>
+					<NcFormBoxSwitch
+						:model-value="state.search_statuses_enabled"
+						@update:model-value="onCheckboxChanged($event, 'search_statuses_enabled')">
+						{{ t('integration_mastodon', 'Enable statuses search') }}
+					</NcFormBoxSwitch>
+					<NcFormBoxSwitch
+						:model-value="state.search_accounts_enabled"
+						@update:model-value="onCheckboxChanged($event, 'search_accounts_enabled')">
+						{{ t('integration_mastodon', 'Enable accounts search') }}
+					</NcFormBoxSwitch>
+					<NcFormBoxSwitch
+						:model-value="state.search_hashtags_enabled"
+						@update:model-value="onCheckboxChanged($event, 'search_hashtags_enabled')">
+						{{ t('integration_mastodon', 'Enable hashtags search') }}
+					</NcFormBoxSwitch>
+				</NcFormBox>
 			</div>
 		</div>
 	</div>
@@ -73,8 +73,10 @@ import EarthIcon from 'vue-material-design-icons/Earth.vue'
 
 import MastodonIcon from './icons/MastodonIcon.vue'
 
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import NcButton from '@nextcloud/vue/components/NcButton'
+import NcFormBoxSwitch from '@nextcloud/vue/components/NcFormBoxSwitch'
+import NcFormBox from '@nextcloud/vue/components/NcFormBox'
+import NcTextField from '@nextcloud/vue/components/NcInputField'
 
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
@@ -88,7 +90,9 @@ export default {
 	name: 'PersonalSettings',
 
 	components: {
-		NcCheckboxRadioSwitch,
+		NcTextField,
+		NcFormBoxSwitch,
+		NcFormBox,
 		MastodonIcon,
 		NcButton,
 		CloseIcon,
@@ -190,29 +194,26 @@ export default {
 #mastodon_prefs {
 	#mastodon-content {
 		margin-left: 40px;
-	}
-	h2,
-	.line,
-	.settings-hint {
 		display: flex;
-		align-items: center;
-		.icon {
-			margin-right: 4px;
-		}
+		flex-direction: column;
+		gap: 8px;
+		max-width: 800px;
 	}
 
-	h2 .icon {
-		margin-right: 8px;
+	h2 {
+		display: flex;
+		justify-content: start;
+		gap: 8px;
 	}
 
 	.line {
-		> label {
-			width: 300px;
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		.mastodon-connected {
 			display: flex;
+			gap: 8px;
 			align-items: center;
-		}
-		> input {
-			width: 250px;
 		}
 	}
 }
