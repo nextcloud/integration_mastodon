@@ -6,10 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 5.0.0 - 2025-12-23
+
+### Changed
+- Set min and max supported NC version to 33 [#111](https://github.com/nextcloud/integration_mastodon/pull/111) 
+- Adjust socialsharing and migrate to vue3 [#111](https://github.com/nextcloud/integration_mastodon/pull/111) 
+- updated npm and composer dependencies [#110](https://github.com/nextcloud/integration_mastodon/pull/110) 
+- lazy config loading and removing deprecated config method [#110](https://github.com/nextcloud/integration_mastodon/pull/110) 
+
 ## 4.0.0 - 2025-09-01
 
 ### Changed
-
 - Set min and max supported NC version to 32
 
 ## 3.2.0 - 2025-08-28
