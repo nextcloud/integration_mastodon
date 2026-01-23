@@ -326,7 +326,7 @@ class MastodonAPIService {
 				'body' => $parsedResponseBody,
 			];
 		} catch (Exception|Throwable $e) {
-			$this->logger->debug('Mastodon API unknown error: ' . $e, ['app' => Application::APP_ID]);
+			$this->logger->debug('Mastodon API unknown error', ['exception' => $e]);
 			return ['error' => $e->getMessage()];
 		}
 	}
@@ -375,7 +375,7 @@ class MastodonAPIService {
 				return json_decode($body, true);
 			}
 		} catch (Exception|Throwable $e) {
-			$this->logger->warning('Mastodon OAuth error : ' . $e, ['app' => Application::APP_ID]);
+			$this->logger->warning('Mastodon OAuth error', ['exception' => $e]);
 			return ['error' => $e->getMessage()];
 		}
 	}
