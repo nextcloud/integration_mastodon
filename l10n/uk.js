@@ -51,7 +51,7 @@ OC.L10N.register(
     "Reblog from {name}" : "Реблог з {name}",
     "No text content" : "Немає текстового вмісту",
     "I shared a file with you" : "Я надав(-ла) вам доступ до файлу",
-    "Share via Mastodon" : "Поділіться через Mastodon",
+    "Share via Mastodon" : "Поділітися через Mastodon",
     "Failed to create Mastodon OAuth app" : "Не вдалося створити додаток Mastodon OAuth",
     "You need to connect before using the Mastodon integration." : "Перед використанням інтеграції Mastodon необхідно підключитися.",
     "Do you want to connect to {mastodonUrl}?" : "Ви хочете підключитися до {mastodonUrl}?",
