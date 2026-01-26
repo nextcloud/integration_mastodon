@@ -13,8 +13,8 @@ OC.L10N.register(
     "Mastodon hashtags" : "Mastodon hashtags",
     "Mastodon people" : "Mastodon people",
     "Mastodon toots" : "Mastodon toots",
-    "Used %1$s times by %2$s accounts" : "%2 $ s ھېساباتىدا%1 $ s قېتىم ئىشلىتىلگەن",
-    "Reblog from %1$s" : "%1 $ s دىن قايتا قوزغىتىش",
+    "Used %1$s times by %2$s accounts" : "%2$s ھېساباتىدا %1$s قېتىم ئىشلىتىلگەن",
+    "Reblog from %1$s" : "%1$s دىن قايتا قوزغىتىش",
     "Bad HTTP method" : "ناچار HTTP ئۇسۇلى",
     "Bad credentials" : "ناچار كىنىشكا",
     "OAuth access token refused" : "OAuth زىيارەت بەلگىسى رەت قىلىندى",
@@ -48,7 +48,7 @@ OC.L10N.register(
     "Connect to {url}" : "{url} غا ئۇلاڭ",
     "No Mastodon home toots!" : "ماستودون ئۆي چىشى يوق!",
     "Failed to get Mastodon home timeline" : "ماستودون ئۆيىنىڭ ۋاقىت جەدۋىلىگە ئېرىشەلمىدى",
-    "Reblog from {name}" : "{name} from دىن قايتا قوزغىتىش",
+    "Reblog from {name}" : "{name} دىن قايتا قوزغىتىش",
     "No text content" : "تېكىست مەزمۇنى يوق",
     "I shared a file with you" : "مەن سىز بىلەن بىر ھۆججەتنى ئورتاقلاشتىم",
     "Share via Mastodon" : "Mastodon ئارقىلىق ھەمبەھىرلە",
@@ -57,6 +57,6 @@ OC.L10N.register(
     "Do you want to connect to {mastodonUrl}?" : "{mastodonUrl} غا ئۇلامسىز؟",
     "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "سىزنىڭ شەخسىي تەڭشىكىڭىزنىڭ {settingsHtmlLink} قىسمىدا باشقا Mastodon مۇلازىمېتىرىنى تاللىيالايسىز.",
     "Connect" : "ئۇلاڭ",
-    "Cancel" : "Cancel"
+    "Cancel" : "ۋاز كەچ"
 },
 "nplurals=2; plural=(n != 1);");
