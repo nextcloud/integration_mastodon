@@ -55,6 +55,6 @@
     "Do you want to connect to {mastodonUrl}?" : "Ar mhaith leat ceangal le {mastodonUrl}?",
     "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Is féidir leat freastalaí Mastodon eile a roghnú sa chuid {settingsHtmlLink} de do shocruithe pearsanta.",
     "Connect" : "Ceangal",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cealaigh"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
 }
