@@ -21,6 +21,7 @@ OC.L10N.register(
     "Connected accounts" : "Kapcsolt fiókok",
     "Mastodon integration" : "Mastodon integráció",
     "Integration of Mastodon self-hosted social networking service" : "A Mastodon önállóan üzemeltetett közösségi hálózati szolgáltatás integrálása",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "A Mastodon integráció irányítópult-modulokat kínál, amelyek megjelenítik a fontos értesítéseket és a saját idővonalát. Egy nyilvános megosztási hivatkozást is beállíthat a Mastodon-profiljában.",
     "Mastodon administrator options saved" : "A Mastodon rendszergazdai beállításai mentve",
     "Failed to save Mastodon administrator options" : "A Mastodon rendszergazdai beállításainak mentése sikertelen",
     "Default Mastodon instance address" : "Alapértelmezett Mastodon-példány címe",
@@ -50,9 +51,12 @@ OC.L10N.register(
     "Reblog from {name}" : "Újból közzétette: {name}",
     "No text content" : "Nincs szöveges tartalom",
     "I shared a file with you" : "Megosztottam egy fájlt Önnel",
+    "Share via Mastodon" : "Megosztás a Mastodon használatával",
     "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen",
+    "You need to connect before using the Mastodon integration." : "A Mastodon integráció használata előtt kapcsolódnia kell.",
     "Do you want to connect to {mastodonUrl}?" : "Biztos, hogy kapcsolódik ehhez: {mastodonUrl}?",
+    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Másik Mastodon-kiszolgálót választhat a személyes beállításai {settingsHtmlLink} szakaszában.",
     "Connect" : "Kapcsolódás",
-    "Cancel" : "Cancel"
+    "Cancel" : "Mégse"
 },
 "nplurals=2; plural=(n != 1);");
