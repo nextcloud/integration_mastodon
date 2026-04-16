@@ -1,6 +1,6 @@
 import { generateUrl } from '@nextcloud/router'
 import axios from '@nextcloud/axios'
-import { showError } from '@nextcloud/dialogs'
+import { DialogBuilder, showError } from '@nextcloud/dialogs'
 
 let mytimer = 0
 export function delay(callback, ms) {
@@ -70,34 +70,32 @@ export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
 export function oauthConnectConfirmDialog(mastodonUrl) {
 	const targetMastodonUrl = getCleanMastodonUrl(mastodonUrl)
 	return new Promise((resolve, reject) => {
-		const settingsLink = generateUrl('/settings/user/connected-accounts')
-		const linkText = t('integration_mastodon', 'Connected accounts')
-		const settingsHtmlLink = `<a href="${settingsLink}" class="external">${linkText}</a>`
-		OC.dialogs.message(
-			t('integration_mastodon', 'You need to connect before using the Mastodon integration.')
-			+ '<br><br>'
-			+ t('integration_mastodon', 'Do you want to connect to {mastodonUrl}?', { mastodonUrl: targetMastodonUrl })
-			+ '<br><br>'
-			+ t(
-				'integration_mastodon',
-				'You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings.',
-				{ settingsHtmlLink },
-				null,
-				{ escape: false },
-			),
-			t('integration_mastodon', 'Connect to Mastodon'),
-			'none',
-			{
-				type: OC.dialogs.YES_NO_BUTTONS,
-				confirm: t('integration_mastodon', 'Connect'),
-				confirmClasses: 'success',
-				cancel: t('integration_mastodon', 'Cancel'),
-			},
-			(result) => {
-				resolve(result)
-			},
-			true,
-			true,
-		)
+		new DialogBuilder()
+			.setName(t('integration_mastodon', 'Connect to Mastodon'))
+			.setText(
+				t('integration_mastodon', 'You need to connect before using the Mastodon integration.')
+				+ ' '
+				+ t('integration_mastodon', 'You can choose another Mastodon server in the "Connected accounts" section of your personal settings.')
+				+ ' '
+				+ t('integration_mastodon', 'Do you want to connect to {mastodonUrl}?', { mastodonUrl: targetMastodonUrl }),
+			)
+			.setButtons([
+				{
+					label: t('integration_mastodon', 'Cancel'),
+					variant: 'secondary',
+					callback: () => {
+						reject(new Error('OAuth connection canceled'))
+					},
+				},
+				{
+					label: t('integration_mastodon', 'Connect'),
+					variant: 'primary',
+					callback: () => {
+						resolve()
+					},
+				},
+			])
+			.build()
+			.show()
 	})
 }
