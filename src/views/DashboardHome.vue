@@ -81,7 +81,6 @@ export default {
 			loop: null,
 			state: 'loading',
 			settingsUrl: generateUrl('/settings/user/connected-accounts'),
-			themingColor: OCA.Theming ? OCA.Theming.color.replace('#', '') : '0082C9',
 			initialState: loadState('integration_mastodon', 'user-config'),
 			windowVisibility: true,
 		}
@@ -168,19 +167,19 @@ export default {
 
 	methods: {
 		onOauthClick() {
-			oauthConnectConfirmDialog(this.mastodonUrl).then((result) => {
-				if (result) {
-					if (this.initialState.use_popup) {
-						this.state = 'loading'
-						oauthConnect(this.mastodonUrl, null, true)
-							.then((data) => {
-								this.stopLoop()
-								this.launchLoop()
-							})
-					} else {
-						oauthConnect(this.mastodonUrl, 'dashboard')
-					}
+			oauthConnectConfirmDialog(this.mastodonUrl).then(() => {
+				if (this.initialState.use_popup) {
+					this.state = 'loading'
+					oauthConnect(this.mastodonUrl, null, true)
+						.then((data) => {
+							this.stopLoop()
+							this.launchLoop()
+						})
+				} else {
+					oauthConnect(this.mastodonUrl, 'dashboard')
 				}
+			}).catch((error) => {
+				console.debug('Oauth error', error)
 			})
 		},
 		changeWindowVisibility() {
