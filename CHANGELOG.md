@@ -6,13 +6,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 5.1.0 - 2026-04-16
+
+### Added
+- Support for NC34 [#157](https://github.com/nextcloud/integration_mastodon/pull/157) @janepie
+
+### Changed
+- Replace OC.dialogs.message by DialogBuilder [#157](https://github.com/nextcloud/integration_mastodon/pull/157) @janepie
+
 ## 5.0.0 - 2025-12-23
 
 ### Changed
-- Set min and max supported NC version to 33 [#111](https://github.com/nextcloud/integration_mastodon/pull/111) 
-- Adjust socialsharing and migrate to vue3 [#111](https://github.com/nextcloud/integration_mastodon/pull/111) 
-- updated npm and composer dependencies [#110](https://github.com/nextcloud/integration_mastodon/pull/110) 
-- lazy config loading and removing deprecated config method [#110](https://github.com/nextcloud/integration_mastodon/pull/110) 
+- Set min and max supported NC version to 33 [#111](https://github.com/nextcloud/integration_mastodon/pull/111) @julien-nc
+- Adjust socialsharing and migrate to vue3 [#111](https://github.com/nextcloud/integration_mastodon/pull/111) @julien-nc
+- updated npm and composer dependencies [#110](https://github.com/nextcloud/integration_mastodon/pull/110) @janepie
+- lazy config loading and removing deprecated config method [#110](https://github.com/nextcloud/integration_mastodon/pull/110) @janepie
 
 ## 4.0.0 - 2025-09-01
 
