@@ -11,7 +11,7 @@ OC.L10N.register(
     "Enable navigation link" : "Aktiver navigationslink",
     "Connected as {user}" : "Forbundet som {user}",
     "I shared a file with you" : "Jeg delte en fil med dig",
-    "Connect" : "Forbind",
-    "Cancel" : "Annullér"
+    "Cancel" : "Annullér",
+    "Connect" : "Forbind"
 },
 "nplurals=2; plural=(n != 1);");

@@ -6,7 +6,7 @@ OC.L10N.register(
     "Bad credentials" : "Буруу нэвтрэх мэдээлэл",
     "Connected accounts" : "Холбогдсон бүртгэлүүд",
     "I shared a file with you" : "Би тантай файл хуваалцлаа",
-    "Connect" : "Холбох",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Холбох"
 },
 "nplurals=2; plural=(n != 1);");

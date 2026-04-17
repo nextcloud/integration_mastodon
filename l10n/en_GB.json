@@ -53,8 +53,7 @@
     "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app",
     "You need to connect before using the Mastodon integration." : "You need to connect before using the Mastodon integration.",
     "Do you want to connect to {mastodonUrl}?" : "Do you want to connect to {mastodonUrl}?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings.",
-    "Connect" : "Connect",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Connect"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

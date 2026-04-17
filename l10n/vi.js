@@ -5,7 +5,7 @@ OC.L10N.register(
     "Bad credentials" : "Thông tin đăng nhập không hợp lệ.",
     "Connected accounts" : "Đã kết nối tài khoản",
     "Connected as {user}" : "Kết nối bởi {user}",
-    "Connect" : "Kết nối",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Kết nối"
 },
 "nplurals=1; plural=0;");

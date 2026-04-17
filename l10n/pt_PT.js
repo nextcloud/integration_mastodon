@@ -5,7 +5,7 @@ OC.L10N.register(
     "Bad HTTP method" : "Método HTTP incorreto",
     "Bad credentials" : "Credenciais inválidas",
     "I shared a file with you" : "Eu partilhei um ficheiro contigo ",
-    "Connect" : "Ligar",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Ligar"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

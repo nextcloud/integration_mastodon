@@ -8,7 +8,7 @@ OC.L10N.register(
     "Failed to save Mastodon options" : "Nun se puen guardar les opciones de Mastodon",
     "Failed to get Mastodon notifications" : "Nun se puen consiguir les opciones de Mastodon",
     "I shared a file with you" : "Compartí un ficheru contigo",
-    "Connect" : "Coneutar",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Coneutar"
 },
 "nplurals=2; plural=(n != 1);");

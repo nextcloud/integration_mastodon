@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "ການສ້າງແອັບ Mastodon OAuth ລົ້ມເຫຼວ",
     "You need to connect before using the Mastodon integration." : "ທ່ານຕ້ອງເຊື່ອມຕໍ່ກ່ອນຈຶ່ງຈະໃຊ້ງານການເຊື່ອມໂຍງກັບ Mastodon ໄດ້.",
     "Do you want to connect to {mastodonUrl}?" : "ທ່ານຕ້ອງການເຊື່ອມຕໍ່ກັບ {mastodonUrl} ບໍ່?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "ທ່ານສາມາດເລືອກເຊີບເວີ Mastodon ອື່ນໄດ້ໃນສ່ວນ {settingsHtmlLink} ຂອງການຕັ້ງຄ່າສ່ວນຕົວຂອງທ່ານ.",
-    "Connect" : "ເຊື່ອມຕໍ່",
-    "Cancel" : "ຍົກເລີກ"
+    "Cancel" : "ຍົກເລີກ",
+    "Connect" : "ເຊື່ອມຕໍ່"
 },
 "nplurals=1; plural=0;");

@@ -1,6 +1,6 @@
 { "translations": {
     "Connected accounts" : "Tilkopla kontoar",
-    "Connect" : "Kople til",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Kople til"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

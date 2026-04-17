@@ -1,6 +1,6 @@
 { "translations": {
     "Connected as {user}" : "เชื่อมต่อเป็น {user} แล้ว",
-    "Connect" : "เชื่อมต่อ",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "เชื่อมต่อ"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

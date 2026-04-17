@@ -41,7 +41,7 @@ OC.L10N.register(
     "Share via Mastodon" : "Jaa Mastodonissa",
     "You need to connect before using the Mastodon integration." : "Ennen kuin Mastodon-integraatiota voi käyttää, tulee muodostaa yhteys.",
     "Do you want to connect to {mastodonUrl}?" : "Haluatko yhdistää kohteeseen {mastodonUrl}?",
-    "Connect" : "Yhdistä",
-    "Cancel" : "Peruuta"
+    "Cancel" : "Peruuta",
+    "Connect" : "Yhdistä"
 },
 "nplurals=2; plural=(n != 1);");

@@ -6,7 +6,7 @@ OC.L10N.register(
     "Connected as {user}" : "D uqqin am {user}",
     "Connect to {url}" : "Qqen ar {url}",
     "Share via Mastodon" : "Bḍu-t s Mastodon",
-    "Connect" : "Qqen",
-    "Cancel" : "Semmet"
+    "Cancel" : "Semmet",
+    "Connect" : "Qqen"
 },
 "nplurals=2; plural=(n != 1);");

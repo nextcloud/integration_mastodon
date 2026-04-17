@@ -50,7 +50,7 @@ OC.L10N.register(
     "No text content" : "Няма текстово съдържание",
     "I shared a file with you" : "Споделих файл с вас",
     "Failed to create Mastodon OAuth app" : "Неуспешно създаване на приложение Mastodon OAuth",
-    "Connect" : "Свързване",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Свързване"
 },
 "nplurals=2; plural=(n != 1);");

@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "Mastodon OAuth-App konnte nicht erstellt werden",
     "You need to connect before using the Mastodon integration." : "Zum Verwenden der Mastodon-Integration muss eine Verbindung hergestellt werden.",
     "Do you want to connect to {mastodonUrl}?" : "Soll eine Verbindung zu {mastodonUrl} hergestellt werden?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Im {settingsHtmlLink}-Abschnitt der persönlichen Einstellungen kann ein anderer Mastodon-Server ausgewählt werden.",
-    "Connect" : "Verbinden",
-    "Cancel" : "Abbrechen"
+    "Cancel" : "Abbrechen",
+    "Connect" : "Verbinden"
 },
 "nplurals=2; plural=(n != 1);");

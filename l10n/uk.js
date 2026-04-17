@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "Не вдалося створити додаток Mastodon OAuth",
     "You need to connect before using the Mastodon integration." : "Перед використанням інтеграції Mastodon необхідно підключитися.",
     "Do you want to connect to {mastodonUrl}?" : "Ви хочете підключитися до {mastodonUrl}?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Ви можете обрати інший сервер Mastodon у розділі {settingsHtmlLink} в особистих налаштуваннях.",
-    "Connect" : "Підключення",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Підключення"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");

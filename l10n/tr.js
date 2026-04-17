@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
     "You need to connect before using the Mastodon integration." : "Mastodon bütünleştirmesini kullanmadan önce bağlantı kurmalısınız.",
     "Do you want to connect to {mastodonUrl}?" : "{mastodonUrl} ile bağlantı kurulsun mu?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Kişisel ayarlarınızın {settingsHtmlLink} bölümünden başka bir Mastodon sunucusu seçebilirsiniz.",
-    "Connect" : "Bağlan",
-    "Cancel" : "İptal"
+    "Cancel" : "İptal",
+    "Connect" : "Bağlan"
 },
 "nplurals=2; plural=(n > 1);");

@@ -28,7 +28,7 @@ OC.L10N.register(
     "No Mastodon home toots!" : "Mastodon のホームにトゥートはありません",
     "Failed to get Mastodon home timeline" : "Mastodon のホームタイムラインの取得に失敗しました",
     "I shared a file with you" : "ファイルを共有しました",
-    "Connect" : "接続",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "接続"
 },
 "nplurals=1; plural=0;");

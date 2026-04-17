@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "Није успело креирање Mastodon OAuth апликације",
     "You need to connect before using the Mastodon integration." : "Пре него што кренете да користите Mastodon интеграцију, морате да се повежете.",
     "Do you want to connect to {mastodonUrl}?" : "Желите ли да се повежете са {mastodonUrl}?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Други Mastodon сервер можете да изаберете у {settingsHtmlLink} одељку ваших личних подешавања.",
-    "Connect" : "Повежи се",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Повежи се"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

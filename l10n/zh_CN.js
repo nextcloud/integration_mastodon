@@ -43,7 +43,7 @@ OC.L10N.register(
     "No text content" : "没有文字内容",
     "I shared a file with you" : "我给您分享了一文件",
     "Failed to create Mastodon OAuth app" : "创建Mastodon OAuth应用程序失败",
-    "Connect" : "连接",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "连接"
 },
 "nplurals=1; plural=0;");

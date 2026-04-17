@@ -32,7 +32,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Recupero della timeline principale di Mastodon non riuscito",
     "No text content" : "Nessun contenuto di testo",
     "I shared a file with you" : "Ho condiviso un file con te",
-    "Connect" : "Connetti",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Connetti"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

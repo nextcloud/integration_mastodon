@@ -53,8 +53,7 @@
     "Failed to create Mastodon OAuth app" : "Mastodoni OAuthi rakenduse loomine ei õnnestunud",
     "You need to connect before using the Mastodon integration." : "Enne Mastodoni lõimingu kasutamist peab olema loodud ühendus Mastodoni serveriga.",
     "Do you want to connect to {mastodonUrl}?" : "Kas sa soovid luua ühendust {mastodonUrl} serveriga?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Oma isiklike seadistuste „{settingsHtmlLink}“ alajaotuses võid luua ühenduse mõne muu Mastodoni serveriga.",
-    "Connect" : "Ühenda",
-    "Cancel" : "Katkesta"
+    "Cancel" : "Katkesta",
+    "Connect" : "Ühenda"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

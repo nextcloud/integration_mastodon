@@ -51,7 +51,7 @@ OC.L10N.register(
     "No text content" : "Ez dago testu edukirik",
     "I shared a file with you" : "Zurekin partekatu dut fitxategi bat",
     "Failed to create Mastodon OAuth app" : "Ezin izan da Mastodon OAuth aplikazioa sortu",
-    "Connect" : "Konektatu",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Konektatu"
 },
 "nplurals=2; plural=(n != 1);");

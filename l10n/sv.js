@@ -52,7 +52,7 @@ OC.L10N.register(
     "No text content" : "Ingen textbeskrivning",
     "I shared a file with you" : "Jag delade en fil med dig",
     "Failed to create Mastodon OAuth app" : "Kunde inte skapa Mastodon OAuth-app",
-    "Connect" : "Anslut",
-    "Cancel" : "Avbryt"
+    "Cancel" : "Avbryt",
+    "Connect" : "Anslut"
 },
 "nplurals=2; plural=(n != 1);");

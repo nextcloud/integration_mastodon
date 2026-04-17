@@ -6,7 +6,7 @@ OC.L10N.register(
     "Connected accounts" : "Sasaistītie konti",
     "Connected as {user}" : "Savienojies kā {user}",
     "No Mastodon account connected" : "Nav sasaistītu Mastodon kontu",
-    "Connect" : "Savienoties",
-    "Cancel" : "Atcelt"
+    "Cancel" : "Atcelt",
+    "Connect" : "Savienoties"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);");

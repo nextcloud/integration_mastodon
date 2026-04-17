@@ -50,7 +50,7 @@ OC.L10N.register(
     "No text content" : "Sin contenido de texto",
     "I shared a file with you" : "He compartido un archivo contigo.",
     "Failed to create Mastodon OAuth app" : "Error al crear la aplicación de OAuth de Mastodon",
-    "Connect" : "Conectar",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Conectar"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

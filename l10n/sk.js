@@ -52,7 +52,7 @@ OC.L10N.register(
     "No text content" : "Žiadny textový obsah",
     "I shared a file with you" : "Zdieľam s vami súbor",
     "Failed to create Mastodon OAuth app" : "Nepodarilo sa pridať Mastodon OAuth aplikáciu",
-    "Connect" : "Pripojiť",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Pripojiť"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "Mastodon OAuth دېتالىنى قۇرالمىدى",
     "You need to connect before using the Mastodon integration." : "Mastodon بىرلەشتۈرۈشىنى ئىشلىتىشتىن بۇرۇن ئۇلىشىڭىز كېرەك.",
     "Do you want to connect to {mastodonUrl}?" : "{mastodonUrl} غا ئۇلامسىز؟",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "سىزنىڭ شەخسىي تەڭشىكىڭىزنىڭ {settingsHtmlLink} قىسمىدا باشقا Mastodon مۇلازىمېتىرىنى تاللىيالايسىز.",
-    "Connect" : "ئۇلاڭ",
-    "Cancel" : "ۋاز كەچ"
+    "Cancel" : "ۋاز كەچ",
+    "Connect" : "ئۇلاڭ"
 },
 "nplurals=2; plural=(n != 1);");

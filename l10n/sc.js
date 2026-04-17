@@ -41,7 +41,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "No at fatu a recuperare sa lìnia de tempus printzipale de Mastodon",
     "No text content" : "Perunu cuntenutu de testu",
     "Failed to create Mastodon OAuth app" : "No at fatu a creare s'aplicatzione OAuth de Mastodon",
-    "Connect" : "Connete",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Connete"
 },
 "nplurals=2; plural=(n != 1);");

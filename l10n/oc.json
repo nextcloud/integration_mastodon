@@ -3,7 +3,7 @@
     "Bad credentials" : "Marrits identificants",
     "Connected accounts" : "Comptes connectats",
     "Connected as {user}" : "Connectat coma {user}",
-    "Connect" : "Connectar",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Connectar"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

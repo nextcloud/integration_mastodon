@@ -5,7 +5,7 @@ OC.L10N.register(
     "Bad credentials" : "Akkaunt ma'lumotlari xato",
     "Connected accounts" : "Ulangan akkauntlar",
     "I shared a file with you" : "Men siz bilan fayl ulashdim",
-    "Connect" : "Connect",
-    "Cancel" : "Bekor qilish"
+    "Cancel" : "Bekor qilish",
+    "Connect" : "Connect"
 },
 "nplurals=1; plural=0;");

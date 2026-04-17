@@ -13,7 +13,7 @@ OC.L10N.register(
     "Enable accounts search" : "계정 검색 활성화",
     "No Mastodon account connected" : "연결된 Mastodon 계정이 없음",
     "I shared a file with you" : "당신과 파일을 공유했습니다",
-    "Connect" : "연결",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "연결"
 },
 "nplurals=1; plural=0;");

@@ -31,7 +31,7 @@ OC.L10N.register(
     "Failed to get Mastodon home timeline" : "Mistókst að hlaða inn Mastodon-tímalínu",
     "No text content" : "Ekkert textaefni",
     "I shared a file with you" : "Ég deildi skrá með þér",
-    "Connect" : "Tengjast",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Tengjast"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

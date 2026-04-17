@@ -55,8 +55,7 @@ OC.L10N.register(
     "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen",
     "You need to connect before using the Mastodon integration." : "A Mastodon integráció használata előtt kapcsolódnia kell.",
     "Do you want to connect to {mastodonUrl}?" : "Biztos, hogy kapcsolódik ehhez: {mastodonUrl}?",
-    "You can choose another Mastodon server in the {settingsHtmlLink} section of your personal settings." : "Másik Mastodon-kiszolgálót választhat a személyes beállításai {settingsHtmlLink} szakaszában.",
-    "Connect" : "Kapcsolódás",
-    "Cancel" : "Mégse"
+    "Cancel" : "Mégse",
+    "Connect" : "Kapcsolódás"
 },
 "nplurals=2; plural=(n != 1);");

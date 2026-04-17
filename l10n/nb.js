@@ -51,7 +51,7 @@ OC.L10N.register(
     "No text content" : "Ingen tekstinnhold",
     "I shared a file with you" : "Jeg delte en fil med deg",
     "Failed to create Mastodon OAuth app" : "Kunne ikke opprette Mastodon OAuth-appen",
-    "Connect" : "Koble til",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Koble til"
 },
 "nplurals=2; plural=(n != 1);");

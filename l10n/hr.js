@@ -31,7 +31,7 @@ OC.L10N.register(
     "No Mastodon home toots!" : "Nema Mastodonovih tootova!",
     "Failed to get Mastodon home timeline" : "Dohvaćanje Mastodonove vremenske trake nije uspjelo",
     "No text content" : "Nema tekstnog sadržaja",
-    "Connect" : "Poveži",
-    "Cancel" : "Cancel"
+    "Cancel" : "Cancel",
+    "Connect" : "Poveži"
 },
 "nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;");
