@@ -54,6 +54,7 @@ OC.L10N.register(
     "Share via Mastodon" : "Jaga Mastodonis",
     "Failed to create Mastodon OAuth app" : "Mastodoni OAuthi rakenduse loomine ei õnnestunud",
     "You need to connect before using the Mastodon integration." : "Enne Mastodoni lõimingu kasutamist peab olema loodud ühendus Mastodoni serveriga.",
+    "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "Oma isiklike seadistuste „Ühendatud kasutajakontod“ alajaotuses võid luua ühenduse mõne muu Mastodoni serveriga.",
     "Do you want to connect to {mastodonUrl}?" : "Kas sa soovid luua ühendust {mastodonUrl} serveriga?",
     "Cancel" : "Katkesta",
     "Connect" : "Ühenda"
