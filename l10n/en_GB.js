@@ -54,6 +54,7 @@ OC.L10N.register(
     "Share via Mastodon" : "Share via Mastodon",
     "Failed to create Mastodon OAuth app" : "Failed to create Mastodon OAuth app",
     "You need to connect before using the Mastodon integration." : "You need to connect before using the Mastodon integration.",
+    "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings.",
     "Do you want to connect to {mastodonUrl}?" : "Do you want to connect to {mastodonUrl}?",
     "Cancel" : "Cancel",
     "Connect" : "Connect"
