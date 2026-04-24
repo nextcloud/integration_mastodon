@@ -54,6 +54,7 @@ OC.L10N.register(
     "Share via Mastodon" : "Comhroinn trí Mastodon",
     "Failed to create Mastodon OAuth app" : "Theip ar chruthú aip Mastodon OAuth",
     "You need to connect before using the Mastodon integration." : "Ní mór duit ceangal a dhéanamh sula n-úsáideann tú comhtháthú Mastodon.",
+    "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "Is féidir leat freastalaí Mastodon eile a roghnú sa rannán \"Cuntais nasctha\" de do shocruithe pearsanta.",
     "Do you want to connect to {mastodonUrl}?" : "Ar mhaith leat ceangal le {mastodonUrl}?",
     "Cancel" : "Cealaigh",
     "Connect" : "Ceangal"
