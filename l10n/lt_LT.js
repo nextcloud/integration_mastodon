@@ -20,6 +20,7 @@ OC.L10N.register(
     "Error connecting to Mastodon" : "Klaida jungiantis prie „Mastodon“",
     "No Mastodon notifications!" : "Nėra „Mastodon“ pranešimų!",
     "Failed to get Mastodon notifications" : "Nepavyko gauti „Mastodon“ pranešimų",
+    "I shared a file with you" : "Aš pasidalinau su jumis failu",
     "Cancel" : "Cancel",
     "Connect" : "Prisijungti"
 },
