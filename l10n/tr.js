@@ -54,6 +54,7 @@ OC.L10N.register(
     "Share via Mastodon" : "Mastodon ile paylaş",
     "Failed to create Mastodon OAuth app" : "Mastodon OAuth uygulaması eklenemedi",
     "You need to connect before using the Mastodon integration." : "Mastodon bütünleştirmesini kullanmadan önce bağlantı kurmalısınız.",
+    "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "Kişisel ayarlarınızda \"Bağlı hesaplar\" bölümünden başka bir Mastodon sunucusu seçebilirsiniz.",
     "Do you want to connect to {mastodonUrl}?" : "{mastodonUrl} ile bağlantı kurulsun mu?",
     "Cancel" : "İptal",
     "Connect" : "Bağlan"
