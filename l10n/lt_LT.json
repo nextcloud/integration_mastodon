@@ -10,6 +10,8 @@
     "Connected accounts" : "Prijungtos paskyros",
     "Mastodon integration" : "„Mastodon“ integracija",
     "Successfully connected to Mastodon!" : "Sėkmingai prisijungta prie „Mastodon“!",
+    "Mastodon OAuth access token could not be obtained:" : "Nepavyko gauti „Mastodon OAuth“ prieigos rakto:",
+    "Incorrect access token" : "Neteisingas prieigos raktas",
     "Mastodon instance address" : "„Mastodon“ egzemplioriaus adresas",
     "Connect to Mastodon" : "Prisijungti prie „Mastodon“",
     "Connected as {user}" : "Prisijungta kaip {user}",
