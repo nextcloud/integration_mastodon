@@ -4,6 +4,7 @@ OC.L10N.register(
     "Mastodon" : "„Mastodon“",
     "Error getting OAuth access token" : "Klaida gaunant „OAuth“ prieigos raktą",
     "Error during OAuth exchanges" : "Klaida „OAuth“ apsikeitimo metu",
+    "Mastodon home timeline" : "„Mastodon“ pagrindinė laiko skalė",
     "Mastodon notifications" : "„Mastodon“ pranešimai",
     "Mastodon people" : "„Mastodon“ žmonės",
     "Bad HTTP method" : "Blogas HTTP metodas",
@@ -11,6 +12,7 @@ OC.L10N.register(
     "OAuth access token refused" : "„OAuth“ prieigos raktas atmestas",
     "Connected accounts" : "Prijungtos paskyros",
     "Mastodon integration" : "„Mastodon“ integracija",
+    "Mastodon integration provides dashboard widgets displaying your important notifications and your home timeline. You can also post a public sharing link on your Mastodon profile." : "Integravus „Mastodon“, valdymo skydelyje atsiranda valdikliai, kuriuose rodomi svarbūs pranešimai ir pagrindinė laiko skalė. Taip pat galite paskelbti viešą dalijimosi nuorodą savo „Mastodon“ profilyje.",
     "Successfully connected to Mastodon!" : "Sėkmingai prisijungta prie „Mastodon“!",
     "Mastodon OAuth access token could not be obtained:" : "Nepavyko gauti „Mastodon OAuth“ prieigos rakto:",
     "Incorrect access token" : "Neteisingas prieigos raktas",
@@ -22,6 +24,7 @@ OC.L10N.register(
     "Error connecting to Mastodon" : "Klaida jungiantis prie „Mastodon“",
     "No Mastodon notifications!" : "Nėra „Mastodon“ pranešimų!",
     "Failed to get Mastodon notifications" : "Nepavyko gauti „Mastodon“ pranešimų",
+    "Failed to get Mastodon home timeline" : "Nepavyko gauti „Mastodon“ pagrindinės laiko skalės",
     "I shared a file with you" : "Aš pasidalinau su jumis failu",
     "Cancel" : "Cancel",
     "Connect" : "Prisijungti"
