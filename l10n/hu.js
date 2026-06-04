@@ -54,6 +54,7 @@ OC.L10N.register(
     "Share via Mastodon" : "Megosztás a Mastodon használatával",
     "Failed to create Mastodon OAuth app" : "A Mastodon OAuth-alkalmazás létrehozása sikertelen",
     "You need to connect before using the Mastodon integration." : "A Mastodon integráció használata előtt kapcsolódnia kell.",
+    "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "Másik Mastodon-kiszolgálót választhat a személyes beállításai „Kapcsolt fiókok” szakaszában.",
     "Do you want to connect to {mastodonUrl}?" : "Biztos, hogy kapcsolódik ehhez: {mastodonUrl}?",
     "Cancel" : "Mégse",
     "Connect" : "Kapcsolódás"
