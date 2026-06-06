@@ -26,6 +26,7 @@ OC.L10N.register(
     "Failed to get Mastodon notifications" : "Nepavyko gauti „Mastodon“ pranešimų",
     "Failed to get Mastodon home timeline" : "Nepavyko gauti „Mastodon“ pagrindinės laiko skalės",
     "I shared a file with you" : "Aš pasidalinau su jumis failu",
+    "Share via Mastodon" : "Bendrinti per „Mastodon“",
     "Cancel" : "Cancel",
     "Connect" : "Prisijungti"
 },
