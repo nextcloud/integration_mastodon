@@ -15,6 +15,7 @@ OC.L10N.register(
     "Mastodon administrator options saved" : "Opções de administrador do Mastodon salvas",
     "Mastodon OAuth access token could not be obtained:" : "Não foi possível obter o token de acesso OAuth do Mastodon:",
     "Failed to save Mastodon options" : "Falha ao salvar opções do Mastodon",
+    "Enable navigation link" : "Ativar link de navegação",
     "Error connecting to Mastodon" : "Erro de conexão com o Mastodon",
     "{name} is following you" : "{name} está seguindo você",
     "No Mastodon home toots!" : "Nenhum toot do Mastodon!",
