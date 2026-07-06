@@ -28,7 +28,7 @@ OC.L10N.register(
     "Use a pop-up to authenticate" : "Autentifikavimui naudokite iššokantįjį langą",
     "Successfully connected to Mastodon!" : "Sėkmingai prisijungta prie „Mastodon“!",
     "Mastodon OAuth access token could not be obtained:" : "Nepavyko gauti „Mastodon OAuth“ prieigos žymens:",
-    "Mastodon options saved" : "Mastodono parinktys išsaugotos",
+    "Mastodon options saved" : "„Mastodon“ parinktys išsaugotos",
     "Incorrect access token" : "Neteisingas prieigos žymuo",
     "Failed to save Mastodon options" : "Nepavyko išsaugoti „Mastodon“ parinkčių",
     "Enable navigation link" : "Įjungti navigacijos nuorodą",
