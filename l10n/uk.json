@@ -50,7 +50,7 @@
     "No text content" : "Немає текстового вмісту",
     "I shared a file with you" : "Я надав(-ла) вам доступ до файлу",
     "Share via Mastodon" : "Поділітися через Mastodon",
-    "Failed to create Mastodon OAuth app" : "Не вдалося створити додаток Mastodon OAuth",
+    "Failed to create Mastodon OAuth app" : "Не вдалося створити застосунок Mastodon OAuth",
     "You need to connect before using the Mastodon integration." : "Перед використанням інтеграції Mastodon необхідно підключитися.",
     "Do you want to connect to {mastodonUrl}?" : "Ви хочете підключитися до {mastodonUrl}?",
     "Cancel" : "Cancel",
