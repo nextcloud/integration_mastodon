@@ -51,7 +51,11 @@ OC.L10N.register(
     "Reblog from {name}" : "Vidarepublicering från {name}",
     "No text content" : "Inget textinnehåll",
     "I shared a file with you" : "Jag delade en fil med dig",
+    "Share via Mastodon" : "Dela via Mastodon",
     "Failed to create Mastodon OAuth app" : "Det gick inte att skapa Mastodons OAuth-app",
+    "You need to connect before using the Mastodon integration." : "Du måste ansluta innan du kan använda Mastodon-integrationen.",
+    "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "Du kan välja en annan Mastodon-server i avsnittet ”Anslutna konton” i dina personliga inställningar.",
+    "Do you want to connect to {mastodonUrl}?" : "Vill du ansluta till {mastodonUrl}?",
     "Cancel" : "Avbryt",
     "Connect" : "Anslut"
 },
