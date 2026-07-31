@@ -31,7 +31,6 @@ use OCP\AppFramework\Services\IInitialState;
 use OCP\Dashboard\IWidget;
 use OCP\IL10N;
 use OCP\IURLGenerator;
-
 use OCP\Util;
 
 class MastodonHomeWidget implements IWidget {

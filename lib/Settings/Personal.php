@@ -8,7 +8,6 @@ use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\IConfig;
 use OCP\Security\ICrypto;
-
 use OCP\Settings\ISettings;
 
 class Personal implements ISettings {

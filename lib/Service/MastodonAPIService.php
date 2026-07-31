@@ -23,7 +23,6 @@ use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\Security\ICrypto;
-
 use Psr\Log\LoggerInterface;
 use Throwable;
 

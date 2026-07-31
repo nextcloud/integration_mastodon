@@ -22,7 +22,6 @@ use OCP\AppFramework\Http\DataResponse;
 use OCP\IConfig;
 use OCP\IRequest;
 use OCP\PreConditionNotMetException;
-
 use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
 
