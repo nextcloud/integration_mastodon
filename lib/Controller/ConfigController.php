@@ -29,7 +29,6 @@ use OCP\IL10N;
 use OCP\IRequest;
 use OCP\IURLGenerator;
 use OCP\PreConditionNotMetException;
-
 use OCP\Security\ICrypto;
 use Psr\Log\LoggerInterface;
 

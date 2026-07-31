@@ -23,7 +23,7 @@
 		"lint": "find . -name \\*.php -not -path './vendor/*' -not -path './vendor-bin/*' -not -path './build/*' -print0 | xargs -0 -n1 php -l",
 		"cs:check": "php-cs-fixer fix --dry-run --diff",
 		"cs:fix": "php-cs-fixer fix",
-		"psalm": "psalm --threads=1 --no-cache",
+		"psalm": "psalm.phar --no-cache",
 		"test:unit": "phpunit tests -c tests/phpunit.xml --colors=always --fail-on-warning --fail-on-risky",
 		"openapi": "generate-spec",
 		"rector": "rector && composer cs:fix"
@@ -36,7 +36,8 @@
 	"require-dev": {
 		"nextcloud/ocp": "dev-master",
 		"roave/security-advisories": "dev-latest",
-        "guzzlehttp/guzzle": "^7.8"
+        "guzzlehttp/guzzle": "^7.8",
+		"psalm/phar": "6.16.1"
 	},
     "config": {
 		"allow-plugins": {
@@ -45,7 +46,7 @@
 		"optimize-autoloader": true,
 		"sort-packages": true,
 		"platform": {
-			"php": "8.2"
+			"php": "8.3"
 		}
 	}
 }

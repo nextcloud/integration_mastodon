@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 5.2.0 - 2026-07-29
+
+### Added
+- Support for NC35 [#188](https://github.com/nextcloud/integration_mastodon/pull/188) @janepie
+
+### Changed
+- updated dependencies [#188](https://github.com/nextcloud/integration_mastodon/pull/188) @janepie
+- excluded venodr-bin from builds [#188](https://github.com/nextcloud/integration_mastodon/pull/188) @janepie
+
 ## 5.1.0 - 2026-04-16
 
 ### Added

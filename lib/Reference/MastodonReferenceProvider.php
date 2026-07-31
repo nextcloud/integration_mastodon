@@ -32,7 +32,6 @@ use OCP\Collaboration\Reference\ISearchableReferenceProvider;
 use OCP\Collaboration\Reference\LinkReferenceProvider;
 use OCP\IConfig;
 use OCP\IL10N;
-
 use OCP\IURLGenerator;
 
 class MastodonReferenceProvider extends ADiscoverableReferenceProvider implements ISearchableReferenceProvider {
@@ -139,7 +138,6 @@ class MastodonReferenceProvider extends ADiscoverableReferenceProvider implement
 		// never resolve mastodon
 		// leave it to the linkReferenceProvider which does it pretty well
 		return false;
-
 		// link examples:
 		// https://instance.org/@user/123456
 		// https://instance.org/@user@instance.net/987654
