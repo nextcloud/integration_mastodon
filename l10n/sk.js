@@ -52,6 +52,7 @@ OC.L10N.register(
     "No text content" : "Žiadny textový obsah",
     "I shared a file with you" : "Zdieľam s vami súbor",
     "Failed to create Mastodon OAuth app" : "Nepodarilo sa pridať Mastodon OAuth aplikáciu",
+    "Do you want to connect to {mastodonUrl}?" : "Chcete sa pripojiť k {mastodonUrl}?",
     "Cancel" : "Cancel",
     "Connect" : "Pripojiť"
 },
