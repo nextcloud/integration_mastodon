@@ -2,18 +2,11 @@
  * SPDX-FileCopyrightText: 2017 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-import axios from '@nextcloud/axios'
+import { loadState } from '@nextcloud/initial-state'
 import { generateUrl, getBaseUrl } from '@nextcloud/router'
 import { registerSidebarInlineAction } from '@nextcloud/sharing/ui'
 
-let mastodonUrl = ''
-
-const url = generateUrl('/apps/integration_mastodon/url')
-axios.get(url).then((response) => {
-	mastodonUrl = response.data
-}).catch((error) => {
-	console.error(error)
-})
+const mastodonUrl = loadState('integration_mastodon', 'mastodon-url')
 
 window.addEventListener('DOMContentLoaded', () => {
 	registerSidebarInlineAction({

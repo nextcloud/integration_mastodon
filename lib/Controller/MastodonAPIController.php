@@ -40,14 +40,6 @@ class MastodonAPIController extends Controller {
 	}
 
 	/**
-	 * @return DataResponse
-	 */
-	#[NoAdminRequired]
-	public function getMastodonUrl(): DataResponse {
-		return new DataResponse($this->mastodonAPIService->getMastodonUrl($this->userId));
-	}
-
-	/**
 	 * get notification list
 	 *
 	 * @param string $redirect_uri
