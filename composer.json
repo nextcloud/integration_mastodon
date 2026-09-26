@@ -37,7 +37,7 @@
 		"nextcloud/ocp": "dev-master",
 		"roave/security-advisories": "dev-latest",
         "guzzlehttp/guzzle": "^7.8",
-		"psalm/phar": "6.16.1"
+		"psalm/phar": "6.17.2"
 	},
     "config": {
 		"allow-plugins": {
