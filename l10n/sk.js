@@ -13,7 +13,7 @@ OC.L10N.register(
     "Mastodon hashtags" : "Haštagy na Mastodone",
     "Mastodon people" : "Ľudia na Mastodon",
     "Mastodon toots" : "Správy na Mastodon",
-    "Used %1$s times by %2$s accounts" : "Použité %1$s krát %2$s účtami ",
+    "Used %1$s times by %2$s accounts" : "Použité %1$s krát %2$s účtami",
     "Reblog from %1$s" : "Znova publikovať od %1$s",
     "Bad HTTP method" : "Zlá metóda HTTP",
     "Bad credentials" : "Nesprávne prihlasovacie údaje",
