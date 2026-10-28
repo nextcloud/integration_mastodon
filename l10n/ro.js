@@ -13,8 +13,10 @@ OC.L10N.register(
     "Mastodon integration" : "Integrarea cu Mastodon",
     "Integration of Mastodon self-hosted social networking service" : "Integrarea cu Mastodon și serviciile sale de social networking",
     "Use a pop-up to authenticate" : "Folosește o fereastră pop-up pentru autentificare",
+    "Incorrect access token" : "Token de acces incorect",
     "Enable navigation link" : "Pornește link-ul de navifare",
     "Connected as {user}" : "Conectat ca {user}",
+    "Do you want to connect to {mastodonUrl}?" : "Vrei să te conectezi la {mastodonUrl}?",
     "Cancel" : "Cancel",
     "Connect" : "Conectare"
 },
