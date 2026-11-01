@@ -1,6 +1,6 @@
 { "translations": {
     "Mastodon" : "Mastodon",
-    "Error getting OAuth access token" : "Fejl ved anmodning om OAuth adgangsnøgle",
+    "Error getting OAuth access token" : "Fejl ved hentning af OAuth-adgangstoken",
     "Error during OAuth exchanges" : "Fejl under OAuth-udvekslinger",
     "Mastodon home timeline" : "Tidslinjen Hjem på Mastodon",
     "Mastodon notifications" : "Notifikationer fra Mastodon",
@@ -13,9 +13,9 @@
     "Mastodon toots" : "Indlæg på Mastodon",
     "Used %1$s times by %2$s accounts" : "Brugt %1$s gange af %2$s konti",
     "Reblog from %1$s" : "Boost fra %1$s",
-    "Bad HTTP method" : "Dårlig HTTP metode",
-    "Bad credentials" : "Forkerte legitimationsoplysninger",
-    "OAuth access token refused" : "OAuth adgangsnøgle afvist",
+    "Bad HTTP method" : "Ugyldig HTTP-metode",
+    "Bad credentials" : "Forkerte loginoplysninger",
+    "OAuth access token refused" : "OAuth-adgangstokenet blev afvist",
     "Connected accounts" : "Forbundne konti",
     "Mastodon integration" : "Mastodon-integration",
     "Integration of Mastodon self-hosted social networking service" : "Integration med Mastodon, den selvhostede tjeneste til sociale netværk",
@@ -29,7 +29,7 @@
     "Mastodon options saved" : "Indstillingerne for Mastodon er gemt",
     "Incorrect access token" : "Forkert adgangstoken",
     "Failed to save Mastodon options" : "Indstillingerne for Mastodon kunne ikke gemmes",
-    "Enable navigation link" : "Aktiver navigationslink",
+    "Enable navigation link" : "Aktivér navigationslink",
     "Mastodon instance address" : "Adresse på Mastodon-instansen",
     "Connect to Mastodon" : "Forbind til Mastodon",
     "Connected as {user}" : "Forbundet som {user}",
@@ -54,7 +54,7 @@
     "You need to connect before using the Mastodon integration." : "Du skal forbinde, før du kan bruge Mastodon-integrationen.",
     "You can choose another Mastodon server in the \"Connected accounts\" section of your personal settings." : "Du kan vælge en anden Mastodon-server i afsnittet \"Forbundne konti\" i dine personlige indstillinger.",
     "Do you want to connect to {mastodonUrl}?" : "Vil du forbinde til {mastodonUrl}?",
-    "Cancel" : "Annullér",
+    "Cancel" : "Annuller",
     "Connect" : "Forbind"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
