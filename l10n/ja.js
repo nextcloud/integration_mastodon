@@ -25,6 +25,7 @@ OC.L10N.register(
     "No Mastodon notifications!" : "Mastodon の通知はありません",
     "Failed to get Mastodon notifications" : "Mastodon の通知の取得に失敗しました",
     "{name} is following you" : "{name} があなたをフォロー",
+    "Connect to {url}" : "{url}に接続",
     "No Mastodon home toots!" : "Mastodon のホームにトゥートはありません",
     "Failed to get Mastodon home timeline" : "Mastodon のホームタイムラインの取得に失敗しました",
     "I shared a file with you" : "ファイルを共有しました",
