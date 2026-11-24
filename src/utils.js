@@ -29,6 +29,32 @@ function getCleanMastodonUrl(url) {
 		.replace(/\/+$/, '')
 }
 
+export function mastodonInstanceUrlError(url) {
+	const value = (url || '').trim()
+	if (value === '') {
+		return ''
+	}
+
+	let parsed
+	try {
+		parsed = new URL(value.startsWith('http') ? value : 'https://' + value)
+	} catch {
+		return 'Enter a valid Mastodon instance URL, for example https://mastodon.social'
+	}
+
+	if (parsed.username || parsed.password) {
+		return 'Enter the instance root URL without a username or password'
+	}
+	if (parsed.pathname !== '/' && parsed.pathname !== '') {
+		return 'Use the instance root URL, not a profile URL (for example https://mastodon.social, not https://mastodon.social/@username)'
+	}
+	if (parsed.search || parsed.hash) {
+		return 'Use the instance root URL without a query string or fragment'
+	}
+
+	return ''
+}
+
 export function oauthConnect(mastodonUrl, oauthOrigin, usePopup = false) {
 	const targetMastodonUrl = getCleanMastodonUrl(mastodonUrl)
 	const redirectUri = window.location.protocol + '//' + window.location.host + generateUrl('/apps/integration_mastodon/oauth-redirect')

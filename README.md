@@ -6,9 +6,17 @@ This app provides dashboard widgets displaying your important Mastodon notificat
 
 ## 🔧 Configuration
 
+### Administrator settings
+
+The default Mastodon instance address must be the instance root URL, for example
+`https://mastodon.social`. Do not enter a profile URL such as
+`https://mastodon.social/@username`: the integration appends OAuth and API paths
+to this address, so a profile URL produces a `404 Not Found` error.
+
 ### User settings
 
 The account configuration happens in the "Connected accounts" user settings section.
+Enter the instance root URL there as well, not a profile URL.
 
 A link to the "Connected accounts" user settings section will be displayed in the widget for users who didn't configure a Mastodon account.
 
