@@ -14,6 +14,12 @@
 					<EarthIcon :size="20" />
 				</template>
 			</NcTextField>
+			<p class="settings-hint">
+				{{ t('integration_mastodon', 'Use the instance root URL, not your profile URL (for example https://mastodon.social, not https://mastodon.social/@username).') }}
+			</p>
+			<p v-if="instanceUrlError" class="settings-hint instance-url-error">
+				{{ instanceUrlError }}
+			</p>
 			<NcFormBoxSwitch
 				v-model="state.use_popup"
 				@update:model-value="onUsePopupChanged">
@@ -37,7 +43,7 @@ import axios from '@nextcloud/axios'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 import { confirmPassword } from '@nextcloud/password-confirmation'
 
-import { delay } from '../utils.js'
+import { delay, mastodonInstanceUrlError } from '../utils.js'
 
 export default {
 	name: 'AdminSettings',
@@ -57,6 +63,13 @@ export default {
 		}
 	},
 
+	computed: {
+		instanceUrlError() {
+			const error = mastodonInstanceUrlError(this.state.oauth_instance_url)
+			return error === '' ? '' : t('integration_mastodon', error)
+		},
+	},
+
 	watch: {
 	},
 
@@ -68,6 +81,9 @@ export default {
 			this.saveOptions({ use_popup: newValue ? '1' : '0' }, false)
 		},
 		onInput() {
+			if (this.instanceUrlError !== '') {
+				return
+			}
 			delay(() => {
 				this.saveOptions({
 					oauth_instance_url: this.state.oauth_instance_url,
@@ -111,6 +127,10 @@ export default {
 		display: flex;
 		justify-content: start;
 		gap: 8px;
+	}
+
+	.instance-url-error {
+		color: var(--color-error);
 	}
 }
 </style>

@@ -20,9 +20,15 @@
 					<EarthIcon :size="20" />
 				</template>
 			</NcTextField>
+			<p class="settings-hint">
+				{{ t('integration_mastodon', 'Use the instance root URL, not your profile URL (for example https://mastodon.social, not https://mastodon.social/@username).') }}
+			</p>
+			<p v-if="instanceUrlError" class="settings-hint instance-url-error">
+				{{ instanceUrlError }}
+			</p>
 			<NcButton v-if="!connected"
 				id="mastodon-oauth"
-				:disabled="loading === true || !state.url"
+				:disabled="loading === true || !state.url || instanceUrlError !== ''"
 				:class="{ loading }"
 				@click="onConnectClick">
 				<template #icon>
@@ -84,7 +90,7 @@ import axios from '@nextcloud/axios'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 import { confirmPassword } from '@nextcloud/password-confirmation'
 
-import { delay, oauthConnect } from '../utils.js'
+import { delay, mastodonInstanceUrlError, oauthConnect } from '../utils.js'
 
 export default {
 	name: 'PersonalSettings',
@@ -117,6 +123,10 @@ export default {
 				&& this.state.token && this.state.token !== ''
 				&& this.state.user_name && this.state.user_name !== ''
 		},
+		instanceUrlError() {
+			const error = mastodonInstanceUrlError(this.state.url)
+			return error === '' ? '' : t('integration_mastodon', error)
+		},
 	},
 
 	mounted() {
@@ -137,6 +147,10 @@ export default {
 			this.saveOptions({ token: this.state.token })
 		},
 		onInput() {
+			if (this.instanceUrlError !== '') {
+				this.loading = false
+				return
+			}
 			this.loading = true
 			delay(() => {
 				this.saveOptions({ url: this.state.url })
@@ -175,6 +189,10 @@ export default {
 				})
 		},
 		onConnectClick() {
+			if (this.instanceUrlError !== '') {
+				showError(this.instanceUrlError)
+				return
+			}
 			if (this.state.use_popup) {
 				oauthConnect(this.state.url, null, true)
 					.then((data) => {
@@ -215,6 +233,10 @@ export default {
 			gap: 8px;
 			align-items: center;
 		}
+	}
+
+	.instance-url-error {
+		color: var(--color-error);
 	}
 }
 </style>
